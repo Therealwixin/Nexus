@@ -1,0 +1,41 @@
+# Nexus: repository and update setup
+
+Repository selected by the owner: https://github.com/Therealwixin/Nexus
+
+## Prepared behavior
+
+- Every push/pull request runs Lua 5.1 simulation, snapshot validation and packaging.
+- Tagged releases run the same checks and build an installable ZIP.
+- Data refresh is opt-in. Once enabled, a daily scheduler checks whether 72 hours have elapsed since the last successful collection.
+- The collector downloads aggregate Murlok gear, Wowhead guides, Murlok role rankings and U.GG Mythic raid representation. It makes no individual player-profile requests.
+- All 40 specs, both gear modes and all six meta groups must pass validation before any candidate is staged.
+- Source publication dates are retained. Collection time is recorded separately.
+- A failed collection/test exits before committing/publishing. The last published package remains available.
+- Defaults build artifacts only. Nothing is uploaded to CurseForge until its project ID, upload token and publishing switch are configured.
+
+## Repository settings
+
+Actions variables:
+
+- `AUTO_DATA_REFRESH=true`: enable regular collection. Leave unset during in-game testing.
+- `CURSEFORGE_PROJECT_ID`: numeric ID on the CurseForge project.
+- `CURSEFORGE_PUBLISH_ENABLED=true`: enable upload after tests. Leave unset until the beta is reviewed.
+
+Actions secret:
+
+- `CF_API_TOKEN`: the author's upload token. Enter it directly in GitHub's secret form. Never put it in source code, a workflow, a commit, or chat.
+
+The workflow uses the repository-provided `GITHUB_TOKEN`; a personal GitHub token is not required.
+
+## First trial
+
+1. Run **Validate Nexus** and download the tested artifact.
+2. Test it in WoW, including rendering, scrolling, combat and dungeon warnings.
+3. Run **Refresh Nexus data** manually with publishing disabled; confirm the complete artifact and data revision.
+4. Create the CurseForge project and configure its ID and token.
+5. Enable beta publishing and verify one end-to-end beta upload.
+6. Enable the 72-hour refresh after that trial succeeds.
+
+CurseForge requires a Release file before normal app syncing; beta files use the user's beta preference. Do not mark a preview stable merely to bypass that distinction.
+
+References: [BigWigs packager](https://github.com/BigWigsMods/packager), [supported token names](https://github.com/BigWigsMods/packager/blob/master/release.sh), [CurseForge submission](https://support.curseforge.com/support/solutions/articles/9000197241-creating-and-submitting-a-project).
