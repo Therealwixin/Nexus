@@ -1,0 +1,10 @@
+METASLAVE alpha source code — Copyright 2026 Tomas Kontra.
+All rights reserved by the project owner.
+
+Permission is granted to install and share this unchanged alpha build for
+testing. Public distribution of a modified build requires the project owner's
+permission. The owner may choose a different release license later.
+
+Game fonts, icons and interface textures are referenced from the user's
+World of Warcraft client and are not bundled. Source data is attributed to
+its respective service; this notice does not change those services' rights.

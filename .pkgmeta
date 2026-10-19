@@ -1,0 +1,14 @@
+package-as: Nexus
+move-folders:
+  Nexus/Nexus: Nexus
+ignore:
+  - data
+  - docs
+  - tests
+  - tools
+  - build
+  - dist
+  - README.md
+  - TEST-RESULTS.json
+  - CURSEFORGE.md
+  - SETUP.md
