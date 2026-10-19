@@ -2,6 +2,11 @@
 
 Repository selected by the owner: https://github.com/Therealwixin/Nexus
 
+CurseForge project: **Nexus: Gear & Preparation**, ID **1754795**.
+Author dashboard: https://authors.curseforge.com/#/projects/1754795/files
+The project is created with All Rights Reserved licensing and its GitHub source link.
+Moderator approval and the first beta upload are pending. The GitHub project ID variable is configured; the upload token and publishing switches are not yet configured.
+
 ## Prepared behavior
 
 - Every push/pull request runs Lua 5.1 simulation, snapshot validation and packaging.
