@@ -49,5 +49,6 @@ jobs:
         with:
           name: Nexus-release-build
           path: .release/*.zip
+          include-hidden-files: true
           if-no-files-found: error
 
