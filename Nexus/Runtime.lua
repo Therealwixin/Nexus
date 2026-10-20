@@ -63,3 +63,6 @@ local repairStrings={
  CZ={NO_SOURCE_OPTION="Bez ověřené alternativy",JOURNAL_NOT_FOUND="Přesného bosse se nepodařilo bezpečně určit. Použij odkaz na Wowhead níže.",SOURCE_SCOPE_NOTE="Overall: guide ze všech zdrojů. Raid/M+: alternativy z dostupného vzorku, nikoli simulovaný BIS set. Neznámé zdroje jsou vynechány; některé sloty mohou být prázdné."},
 }
 for lang,values in pairs(repairStrings) do for key,value in pairs(values) do R.Locales[lang][key]=value end end
+R.Locales.EN.WCL_EVIDENCE_NOTE="One ranking page for this encounter. Observed usage, not a personal simulation."
+R.Locales.SK.WCL_EVIDENCE_NOTE="Jedna stránka rebríčka pre tento encounter. Používanie predmetov, nie osobná simulácia."
+R.Locales.CZ.WCL_EVIDENCE_NOTE="Jedna stránka žebříčku pro tento encounter. Používání předmětů, nikoli osobní simulace."

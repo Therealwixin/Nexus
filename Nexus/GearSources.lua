@@ -50,3 +50,12 @@ function R.GetGearSummary()
  local title=set and set.name or scope=="raid" and "Raid drops" or "Mythic+ drops"
  return title.." · "..count.." / 16 · Wowhead "..guide.updatedAt:sub(1,10)
 end
+function R.GetWCLEvidence(itemID,specID,mode)
+ local data=R.WCLData
+ if not data or not R.GuideData or data.patch~=R.GuideData.patch then return end
+ local spec=data.specs[specID or R.ViewSpecID()]
+ local scope=R.GearSource();mode=mode or (scope=="overall" and R.GetMode() or scope)
+ local context=spec and spec[mode]
+ local count=context and context.items[tostring(itemID)]
+ if count then return context,count end
+end

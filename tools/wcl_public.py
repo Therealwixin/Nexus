@@ -8,9 +8,22 @@ from pathlib import Path
 API='https://www.warcraftlogs.com/api/v2/client'
 RANKINGS='query($id:Int!,$class:String!,$spec:String!,$difficulty:Int!){worldData{encounter(id:$id){id name journalID characterRankings(page:1,difficulty:$difficulty,className:$class,specName:$spec,metric:METRIC,includeCombatantInfo:true)}}}'
 
-def collect_guides(client,root):
+def validate_snapshot(data):
  from catalog import SPECS
- guides=json.loads((root/'data/guide-snapshot.json').read_text(encoding='utf-8'))
+ if data.get('schema')!=1 or not data.get('patch') or set(data.get('specs',{}))!={str(s['id']) for s in SPECS}:raise ValueError('Incomplete WCL snapshot')
+ contexts=0
+ for spec in data['specs'].values():
+  for mode,record in spec.items():
+   if mode not in {'raid','mythicplus'} or record['sampleSize']<20:raise ValueError('Invalid WCL context')
+   if record['encounterID']<=0 or not record['retrievedAt']:raise ValueError('Missing WCL provenance')
+   if any(not str(k).isdigit() or not isinstance(v,int) or not 0<v<=record['sampleSize'] for k,v in record['items'].items()):raise ValueError('Invalid anonymous count')
+   contexts+=1
+ if not contexts:raise ValueError('No usable WCL contexts')
+
+def collect_guides(client,root,guides_path=None):
+ from catalog import SPECS
+ guides=json.loads((guides_path or root/'data/guide-snapshot.json').read_text(encoding='utf-8'))
+ if guides['patch']!='12.1':raise ValueError('Discover and verify encounter IDs for the new season before collecting')
  known={i['id'] for i in guides['items'].values()}
  now=dt.datetime.now(dt.timezone.utc).isoformat()
  result={'schema':1,'patch':guides['patch'],'generatedAt':now,'source':'Warcraft Logs','specs':{},'failures':[],'methodology':'One ranking page per context; observed usage among ranked parses, not simulated BiS or acquisition evidence. Current season encounter IDs verified against worldData.'}
@@ -30,6 +43,7 @@ def collect_guides(client,root):
    except ValueError:
     result['failures'].append({'specID':spec['id'],'mode':mode,'reason':'No usable ranking page; no evidence shown'})
   print('Anonymous WCL contexts collected for spec',sid,flush=True)
+ validate_snapshot(result)
  return result
 
 def request(url,payload,headers):
@@ -66,12 +80,12 @@ def aggregate(rankings):
  return {'sampleSize':samples,'items':[{'id':i,'count':n} for i,n in counts.most_common()]}
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--collect-guides',action='store_true');p.add_argument('--discover-world',action='store_true');p.add_argument('--encounter',type=int,default=0);p.add_argument('--class-name',default='Rogue');p.add_argument('--spec-name',default='Subtlety');p.add_argument('--difficulty',type=int,default=5);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--guide-snapshot',type=Path);p.add_argument('--collect-guides',action='store_true');p.add_argument('--discover-world',action='store_true');p.add_argument('--encounter',type=int,default=0);p.add_argument('--class-name',default='Rogue');p.add_argument('--spec-name',default='Subtlety');p.add_argument('--difficulty',type=int,default=5);a=p.parse_args()
  c=Client();quota=c.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
  if quota['pointsSpentThisHour']>=quota['limitPerHour']*.8:raise ValueError('80% API budget threshold reached; no further requests')
  now=dt.datetime.now(dt.timezone.utc).isoformat();out={'source':'Warcraft Logs','retrievedAt':now,'quota':quota,'authenticated':True,'scope':'public'}
  if a.collect_guides or os.environ.get('WCL_COLLECT_GUIDES')=='true':
-  out=collect_guides(c,Path(__file__).resolve().parents[1])
+  out=collect_guides(c,Path(__file__).resolve().parents[1],a.guide_snapshot)
   dest=Path('build/wcl');dest.mkdir(parents=True,exist_ok=True)
   (dest/'wcl-snapshot.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
   from refresh_gear import compact_lua

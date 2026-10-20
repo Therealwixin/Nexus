@@ -65,6 +65,8 @@ def row_slots(table,meta):
 
 def parse_guide(text,url,retrieved,spec):
  body=markup(text);meta=metadata(text);updated=source_date(text,None)
+ patch=re.search(r'Currently viewing the Live \((\d+\.\d+(?:\.\d+)?)\) version',text)
+ if not patch:raise ValueError('Live guide patch unavailable')
  # The main gear tabs end before the next h2; later craft/upgrade tabs are not BiS sets.
  start=re.search(r'\[tabs\b[^\]]*name=bis_items[^\]]*\]',body)
  end=body.find('[/tabs]',start.end()) if start else -1
@@ -99,7 +101,7 @@ def parse_guide(text,url,retrieved,spec):
    for slot in slots:
     rows=priority[kind].setdefault(str(slot),[])
     if id not in {x['id'] for x in rows}:rows.append(copy.copy(item))
- return {'sourceURL':url,'updatedAt':updated,'retrievedAt':retrieved,'sets':sets,'priorities':priority}
+ return {'sourceURL':url,'sourcePatch':patch[1],'updatedAt':updated,'retrievedAt':retrieved,'sets':sets,'priorities':priority}
 
 def build_guides(snapshot,cache,retrieved=None):
  now=retrieved or dt.datetime.now(dt.timezone.utc).isoformat();out={'schema':1,'patch':snapshot['upgradeRules']['patch'],'generatedAt':now,'items':{},'specs':{}}
@@ -107,6 +109,7 @@ def build_guides(snapshot,cache,retrieved=None):
  for spec in SPECS:
   slug=spec['classSlug']+'-'+spec['slug'];url='https://www.wowhead.com/guide/classes/'+spec['classSlug']+'/'+spec['slug']+'/bis-gear'
   guide=parse_guide((cache/(slug+'-wowhead-gear.html')).read_text(encoding='utf-8'),url,now,spec);parsed[str(spec['id'])]=guide
+  if '.'.join(guide['sourcePatch'].split('.')[:2])!=out['patch']:raise ValueError('Live guide patch differs from verified season rules')
   for kind,slots in guide['priorities'].items():
    for rows in slots.values():
     for item in rows:evidence.setdefault(item['id'],set()).add(kind)
@@ -155,6 +158,7 @@ def validate_guides(data):
  if data.get('schema')!=1 or set(data['specs'])!={str(s['id']) for s in SPECS}:raise ValueError('Incomplete guide coverage')
  for sid,spec in data['specs'].items():
   if not spec.get('sourceURL') or not spec.get('updatedAt') or not spec['sets']:raise ValueError('Missing guide provenance')
+  if '.'.join(spec.get('sourcePatch','').split('.')[:2])!=data['patch']:raise ValueError('Guide patch differs from snapshot')
   for authored in spec['sets']:
    if len(authored['slots'])<14:raise ValueError('Incomplete authored set')
   for scope,slots in spec['sourceLists'].items():

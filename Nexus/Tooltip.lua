@@ -13,6 +13,7 @@ function R.DecorateTooltip(tooltip, data)
     if previous and previous.data == data and previous.specID==specID and previous.mode==mode and lines >= previous.lines then return end
     local isTarget, _, personal = R.IsTarget(id,specID,mode)
     local item = R.ItemByID(id,specID,mode)
+    if R.tooltipItem and R.tooltipItem.id==id then item=R.tooltipItem end
     if not isTarget and not item then return end
     tooltip:AddLine(" ")
     if item and item.source == "Wowhead" then tooltip:AddLine(R.NAME .. " · " .. R.L("GUIDE_RECOMMENDATION"), .8,.5,1)
@@ -27,6 +28,8 @@ function R.DecorateTooltip(tooltip, data)
     end
     local dataset = R.GetDataset(mode,specID)
     local updatedAt = (item and item.updatedAt) or (dataset and dataset.updatedAt)
+    local evidence,count=R.GetWCLEvidence(id,specID,mode)
+    if evidence then tooltip:AddLine("Warcraft Logs: "..count.."/"..evidence.sampleSize.." · "..evidence.encounterName,1,1,1,true) end
     if updatedAt then tooltip:AddLine(R.L("SNAPSHOT") .. ": " .. updatedAt:sub(1,10), .65,.65,.65) end
     tooltip:AddLine(R.L("POPULARITY_NOTE"), .65,.65,.65, true)
     processed[tooltip] = {data=data,lines=tooltip:NumLines(),specID=specID,mode=mode}

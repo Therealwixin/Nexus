@@ -1,3 +1,12 @@
+## 0.6.0-beta.4
+
+- Import all 40 live Wowhead guides, preserving named sets, alternatives, publication dates and live patch checks.
+- Separate authored activity sets from acquisition restrictions. Raid/M+ filters exclude crafted and unknown-source items; preserve original Catalyst drops for dungeon warnings and journal links.
+- Use source-qualified guide priorities and verified same-spec observed alternatives rather than the old 128-item seed as the only source filter.
+- Add anonymous WCL item usage in details/tooltips: 40 M+ contexts and 34 raid contexts, one ranking page each, with encounter, metric, sample size and retrieval date. Exclude samples below 20; no player profiles or credentials bundled.
+- Refresh and validate guide/WCL snapshots as part of the data-release pipeline. Keep incompatible or failed candidates unpublished.
+- Retain beta 3 paper-doll layout, compact Preparation and bounded Adventure Guide operations. Real-client testing remains necessary.
+
 ## 0.6.0-beta.3
 
 - Restore paper-doll equipment layout, with armor on both sides and weapons below.

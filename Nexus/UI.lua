@@ -19,6 +19,7 @@ end
 function UI:ShowItemTooltip(owner,item,slot,inventory,specID,mode)
  if not item then return end
  GameTooltip:SetOwner(owner,"ANCHOR_RIGHT")
+ local previousItem=R.tooltipItem;R.tooltipItem=item
  local previous,previousMode=R.tooltipSpecID,R.tooltipMode;R.tooltipSpecID=specID or (inventory and R.SpecID() or R.ViewSpecID());R.tooltipMode=mode or R.GetMode()
  if inventory and slot then GameTooltip:SetInventoryItem("player",slot)
  elseif item.id and item.id>0 then GameTooltip:SetHyperlink(item.link or "item:"..item.id)
@@ -27,6 +28,7 @@ function UI:ShowItemTooltip(owner,item,slot,inventory,specID,mode)
   if info and info.spellID then GameTooltip:SetSpellByID(info.spellID) else GameTooltip:SetText(item.name or R.L("LOADING")) end
  else GameTooltip:SetText(item.name or R.L("LOADING"));if item.source then GameTooltip:AddLine(item.source,1,.82,0) end end
  R.tooltipSpecID,R.tooltipMode=previous,previousMode
+ R.tooltipItem=previousItem
  if item.targetIlvl then GameTooltip:AddLine(R.L("TARGET_ILVL",item.targetIlvl),1,.82,0);if not item.link then GameTooltip:AddLine(R.L("BASE_TOOLTIP"),.65,.65,.65,true) end end
  GameTooltip:Show()
 end
@@ -121,6 +123,12 @@ function UI:RenderDetail(override,slotOverride)
  if level then self:DetailText(R.L("ILVL")..": "..level..(item.ilvlBasis and " · "..item.ilvlBasis or ""),GOLD) end
  if item.count then local d=R.GetDataset();self:DetailText(R.L("SAMPLE")..": "..item.count.." / "..(item.sampleSize or (d and d.sampleSize) or "?")) end
  if item.updatedAt then self:DetailText(R.L("SNAPSHOT")..": "..item.updatedAt:sub(1,10),GREY) end
+ local wcl,count=R.GetWCLEvidence(item.id)
+ if wcl then
+  self:DetailText("Warcraft Logs · "..count.." / "..wcl.sampleSize,WHITE,11)
+  self:DetailText(wcl.encounterName.." · "..wcl.metric.." · "..wcl.retrievedAt:sub(1,10),GREY,11)
+  self:DetailText(R.L("WCL_EVIDENCE_NOTE"),GREY,11)
+ end
  if slot and self.view=="equipment" then
   self:DetailSection(R.L("ACQUISITION"),GOLD)
   self:DetailText(R.L("DROP_FROM"),GOLD);self:DetailText(R.LootInfo(item),WHITE)
@@ -267,6 +275,13 @@ function UI:RenderSources()
   self:ListLine("Wowhead · BiS sets",nil,guide.updatedAt:sub(1,10),function()self:ShowCopy(guide.sourceURL)end,GOLD)
   for _,set in ipairs(guide.sets) do self:ListLine(set.name,nil,set.scope,nil,WHITE) end
   self:DetailText(R.L("SOURCE_SCOPE_NOTE"),GREY,11)
+ end
+ if R.WCLData and R.WCLData.patch==R.GuideData.patch then
+  local spec=R.WCLData.specs[R.ViewSpecID()]
+  for _,mode in ipairs({"raid","mythicplus"}) do
+   local evidence=spec and spec[mode]
+   if evidence then self:ListLine("Warcraft Logs · "..R.L(mode=="raid" and "RAID" or "MYTHICPLUS"),nil,evidence.encounterName.." · "..evidence.sampleSize.." · "..evidence.retrievedAt:sub(1,10),nil,WHITE) end
+  end
  end
  for _,mode in ipairs({"mythicplus","raid"}) do
   local dataset=R.GetDataset(mode)
