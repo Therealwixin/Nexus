@@ -1,0 +1,130 @@
+{
+  "zones": [
+    {
+      "id": 55,
+      "name": "Mythic+ Season 2",
+      "difficulties": [
+        {
+          "id": 10,
+          "name": "Dungeon"
+        }
+      ],
+      "encounters": [
+        {
+          "id": 12993,
+          "name": "Altar of Fangs",
+          "journalID": 0
+        },
+        {
+          "id": 12825,
+          "name": "Den of Nalorakk",
+          "journalID": 0
+        },
+        {
+          "id": 61762,
+          "name": "Kings' Rest",
+          "journalID": 0
+        },
+        {
+          "id": 12813,
+          "name": "Murder Row",
+          "journalID": 0
+        },
+        {
+          "id": 112521,
+          "name": "Ruby Life Pools",
+          "journalID": 0
+        },
+        {
+          "id": 61877,
+          "name": "Temple of Sethraliss",
+          "journalID": 0
+        },
+        {
+          "id": 12859,
+          "name": "The Blinding Vale",
+          "journalID": 0
+        },
+        {
+          "id": 12923,
+          "name": "Voidscar Arena",
+          "journalID": 0
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "name": "The Venomous Abyss",
+      "difficulties": [
+        {
+          "id": 5,
+          "name": "Mythic"
+        },
+        {
+          "id": 4,
+          "name": "Heroic"
+        },
+        {
+          "id": 3,
+          "name": "Normal"
+        },
+        {
+          "id": 1,
+          "name": "LFR"
+        }
+      ],
+      "encounters": [
+        {
+          "id": 3470,
+          "name": "Nek'zali the Soulcoiler",
+          "journalID": 0
+        },
+        {
+          "id": 3445,
+          "name": "Entombed Sentinels",
+          "journalID": 0
+        },
+        {
+          "id": 3455,
+          "name": "Vashnik the Malignant",
+          "journalID": 0
+        },
+        {
+          "id": 3497,
+          "name": "The Lost Explorers",
+          "journalID": 0
+        },
+        {
+          "id": 3420,
+          "name": "Sszorak",
+          "journalID": 0
+        },
+        {
+          "id": 3421,
+          "name": "The Twin Fangs",
+          "journalID": 0
+        },
+        {
+          "id": 3429,
+          "name": "The Coiled Altar",
+          "journalID": 0
+        },
+        {
+          "id": 3492,
+          "name": "Ula'tek",
+          "journalID": 0
+        },
+        {
+          "id": 3379,
+          "name": "Nymrissa Wavecaller",
+          "journalID": 0
+        },
+        {
+          "id": 3513,
+          "name": "Kith'ix",
+          "journalID": 0
+        }
+      ]
+    }
+  ]
+}

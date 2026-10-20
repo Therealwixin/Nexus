@@ -10,9 +10,12 @@ local wrist=R.UI.rows[6];local chest=R.UI.rows[5]
 check(math.abs(chest:GetBottom()-wrist:GetTop())<4,"No artificial gap before wrists")
 local a,b=R.GetGearCandidates(1,261,"overall")[1],R.GetGearCandidates(1,261,"overall")[2]
 check(a and b and a.id~=b.id and b.observedAlternative,"Overall alternatives must include labelled observed options")
-local header
-for _,e in ipairs(R.UI.detailPool) do if e.text and e.text:GetText()==R.L("ALTERNATIVES") and e.text:IsShown() then header=e.text end end
-check(header and header:GetTop()>R.UI.detailScroll:GetBottom(),"Alternatives heading is visible before acquisition details")
+local header,acquisition
+for _,e in ipairs(R.UI.detailPool) do if e.text and e.text:IsShown() then
+ if e.text:GetText()==R.L("ALTERNATIVES") then header=e.text end
+ if e.text:GetText()==R.L("ACQUISITION") then acquisition=e.text end
+end end
+check(header and acquisition and acquisition:GetTop()>header:GetTop(),"Acquisition must precede alternatives")
 ItemLocation={CreateFromEquipmentSlot=function(_,slot)return {slot=slot}end}
 C_Item.GetCurrentItemLevel=function(location)return location.slot==1 and 345 or 340 end
 check(R.ItemLevel({id=123,slotID=1,link="item:123",ilvl=1},true)==345,"Equipped ilvl must use native item location before generic/cached values")

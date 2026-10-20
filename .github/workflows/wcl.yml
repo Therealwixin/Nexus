@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       collect_guides:
-        description: 'Collect anonymous ranked gear evidence for 40 specs, raid and M+ (one page each)'
+        description: 'Collect all seasonal dungeons/raid encounters, 2 pages each, 14-day window, 40 specs'
         type: boolean
         default: false
       discover_world:
@@ -25,7 +25,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -42,8 +42,9 @@ jobs:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
           WCL_DISCOVER_WORLD: ${{ inputs.discover_world }}
-          WCL_COLLECT_GUIDES: ${{ inputs.collect_guides }}
-          WCL_AUDIT_SCHEMA: ${{ github.event_name == 'push' }}
+          WCL_COLLECT_GUIDES: ${{ inputs.collect_guides || github.event_name == 'push' }}
+          WCL_SPEC_IDS: ${{ github.event_name == 'push' && '71,261' || '' }}
+          WCL_WAIT_FOR_QUOTA: ${{ github.event_name != 'push' }}
           ENCOUNTER_ID: ${{ inputs.encounter_id || '0' }}
         run: python tools/wcl_public.py --encounter "$ENCOUNTER_ID"
       - uses: actions/upload-artifact@v7

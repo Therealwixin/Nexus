@@ -29,8 +29,6 @@ function R.DecorateTooltip(tooltip, data)
     end
     local dataset = R.GetDataset(mode,specID)
     local updatedAt = (item and item.updatedAt) or (dataset and dataset.updatedAt)
-    local evidence,count=R.GetWCLEvidence(id,specID,mode)
-    if evidence then tooltip:AddLine("Warcraft Logs: "..count.."/"..evidence.sampleSize.." · "..evidence.encounterName,1,1,1,true) end
     if updatedAt then tooltip:AddLine(R.L("SNAPSHOT") .. ": " .. updatedAt:sub(1,10), .65,.65,.65) end
     tooltip:AddLine(R.L("POPULARITY_NOTE"), .65,.65,.65, true)
     processed[tooltip] = {data=data,lines=tooltip:NumLines(),specID=specID,mode=mode}

@@ -79,8 +79,10 @@ function R.GetGearAlternatives(slotID,specID)
   if not R.GearLevelRange(copy,slotID) then return end
   seen[copy.id]=copy;pool[#pool+1]=copy
  end
- for _,item in ipairs(R.GetGearCandidates(slotID,specID,"overall")) do add(item) end
+ for _,item in ipairs(R.GetGearCandidates(slotID,specID,"overall")) do if item.source=="Wowhead" then add(item) end end
  for _,key in ipairs(guide.alternatives and guide.alternatives[slotID] or {}) do add(R.GuideItem(key,specID)) end
+ for _,scope in ipairs({"mythicplus","raid"}) do for _,key in ipairs(guide.sourceLists[scope][slotID] or {}) do local item=R.GuideItem(key,specID);if item.source=="Wowhead" then add(item) end end end
+ for _,item in ipairs(R.GetGearCandidates(slotID,specID,"overall")) do if item.source~="Wowhead" then add(item) end end
  for _,scope in ipairs({"mythicplus","raid"}) do for _,key in ipairs(guide.sourceLists[scope][slotID] or {}) do add(R.GuideItem(key,specID)) end end
  local result,hasDungeon={},false
  for i=1,math.min(4,#pool) do result[i]=pool[i];if pool[i].acquisition=="dungeon" then hasDungeon=true end end
@@ -95,12 +97,29 @@ function R.GetGearSummary()
  local title="Overall BiS"
  return title.." · "..count.." / 16 · Wowhead "..guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10)
 end
+function R.GetGearEvidence(item,slotID,specID)
+ local guide=R.GetGuideDataset(specID);if not guide or not item then return {} end
+ local result={};local base=item.acquisitionItemID or item.id
+ local function same(raw)return raw and (raw.acquisitionItemID or raw.id)==base end
+ local wowhead=false
+ for _,set in ipairs(guide.sets) do for _,key in ipairs(set.slots[slotID] or {}) do if same(R.GuideData.items[key]) then wowhead=true end end end
+ for _,scope in ipairs({"raid","mythicplus"}) do for _,key in ipairs(guide.sourceLists[scope][slotID] or {}) do local raw=R.GuideData.items[key];if raw.source=="Wowhead" and same(raw) then wowhead=true end end end
+ if wowhead then result[#result+1]={source="Wowhead",kind="guide",url=guide.sourceURL,updatedAt=guide.updatedAt,retrievedAt=guide.retrievedAt} end
+ local icy=false
+ for _,key in ipairs(guide.alternatives and guide.alternatives[slotID] or {}) do if same(R.GuideData.items[key]) then icy=true end end
+ if icy then result[#result+1]={source="Icy Veins",kind="guide",url=guide.alternativeGuideURL,updatedAt=guide.alternativeGuideUpdatedAt,retrievedAt=guide.alternativeGuideCheckedAt or guide.retrievedAt} end
+ local mp=R.GetDataset("mythicplus",specID);local count,samples
+ for _,raw in ipairs(mp and mp.slots[slotID] or {}) do if same(raw) and raw.source=="Murlok.io" and raw.count and (not count or raw.count>count) then count=raw.count;samples=raw.sampleSize or mp.sampleSize end end
+ if count and samples then result[#result+1]={source="Murlok.io",kind="observation",url=mp.sourceURL,updatedAt=mp.updatedAt,retrievedAt=mp.retrievedAt or mp.updatedAt,count=count,sampleSize=samples} end
+ return result
+end
 function R.GetWCLEvidence(itemID,specID,mode)
  local data=R.WCLData
- if not data or not R.GuideData or data.patch~=R.GuideData.patch then return end
+ if not data or data.schema~=2 or not R.GuideData or data.patch~=R.GuideData.patch then return end
  local spec=data.specs[specID or R.ViewSpecID()]
  local scope=R.GearSource();mode=mode or (scope=="overall" and R.GetMode() or scope)
  local context=spec and spec[mode]
+ if not context or not context.eligible or context.coveredEncounterCount~=context.expectedEncounterCount then return end
  local count=context and context.items[tostring(itemID)]
  if count then return context,count end
 end

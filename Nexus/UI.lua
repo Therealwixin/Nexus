@@ -136,26 +136,6 @@ function UI:RenderDetail(override,slotOverride)
  elseif item.gearSlotID then
   for _,line in ipairs(R.GearLevelLines(item,slotID)) do self:DetailText(line,GOLD,11) end
  end
- if item.count then local d=R.GetDataset();self:DetailText(R.L("SAMPLE")..": "..item.count.." / "..(item.sampleSize or (d and d.sampleSize) or "?")) end
- if item.updatedAt then self:DetailText(R.L("SNAPSHOT")..": "..item.updatedAt:sub(1,10),GREY) end
- if slot and self.view=="equipment" then
-  local candidates=R.GetGearAlternatives(slotID)
-  self:DetailSection(R.L("ALTERNATIVES"),GOLD)
-  local shown=0;local hasDungeon=false
-  for _,alternative in ipairs(candidates) do if alternative.id~=item.id and shown<4 then
-   local alt=alternative;shown=shown+1
-   if alt.acquisition=="dungeon" then hasDungeon=true end
-   self:DetailItem(alt,(alt.acquisition=="dungeon" and "Dungeon" or alt.source or "")..(alt.catalystTargetID and " · Catalyst" or ""),function()self:RenderDetail(alt,slotID)end)
-  end end
-  if shown==0 then self:DetailText(R.L("NO_ALTERNATIVES"),GREY,11) end
-  if not hasDungeon then self:DetailText(R.L("NO_DUNGEON_ALTERNATIVE"),GREY,11) end
- end
- local wcl,count=R.GetWCLEvidence(item.id)
- if wcl then
-  self:DetailText("Warcraft Logs · "..count.." / "..wcl.sampleSize,WHITE,11)
-  self:DetailText(wcl.encounterName.." · "..wcl.metric.." · "..wcl.retrievedAt:sub(1,10),GREY,11)
-  self:DetailText(R.L("WCL_EVIDENCE_NOTE"),GREY,11)
- end
  if slot and self.view=="equipment" then
   self:DetailSection(R.L("ACQUISITION"),GOLD)
   self:DetailText(R.L("DROP_FROM"),GOLD);self:DetailText(R.LootInfo(item),WHITE)
@@ -165,6 +145,20 @@ function UI:RenderDetail(override,slotOverride)
    if R.journalStatus and R.journalStatus.id==item.id and R.journalStatus.key then self:DetailText(R.L(R.journalStatus.key),GREY,11) end
   end
   if item.targetIlvl then self:DetailText(R.L("UPGRADE"),GOLD);self:DetailText(R.UpgradeText(item,slotID));self:DetailText(R.L("DISCOUNT_NOTE"),GREY) end
+ end
+ if slot and self.view=="equipment" then
+  local candidates=R.GetGearAlternatives(slotID)
+  self:DetailSection(R.L("ALTERNATIVES"),GOLD)
+  local shown=0;local hasDungeon=false
+  for _,alternative in ipairs(candidates) do if alternative.id~=item.id and shown<4 then
+   local alt=alternative;shown=shown+1
+   if alt.acquisition=="dungeon" then hasDungeon=true end
+   self:DetailItem(alt,(alt.acquisition=="dungeon" and "Dungeon · " or "")..(alt.source or "")..(alt.catalystTargetID and " · Catalyst" or ""),function()self:RenderDetail(alt,slotID)end)
+  end end
+  if shown==0 then self:DetailText(R.L("NO_ALTERNATIVES"),GREY,11) end
+  if not hasDungeon then self:DetailText(R.L("NO_DUNGEON_ALTERNATIVE"),GREY,11) end
+ end
+ if slot and self.view=="equipment" then
   local current=R.scan and R.scan.equipped[slotID]
   if current then self:DetailSection(R.L("CURRENT_ITEM"),GREEN);self:DetailItem(current,R.L("ILVL")..": "..(R.ItemLevel(current,true) or "?")) end
   if item.crafted then
@@ -173,9 +167,18 @@ function UI:RenderDetail(override,slotOverride)
    else for _,group in ipairs(materials) do for _,reagent in ipairs(group.choices) do self:DetailItem(reagent,group.count.." × "..R.L("REAGENT_CHOICE")) end end end
   end
  end
+ if self.view=="equipment" and slot then
+  self:DetailSection(R.L("GEAR_EVIDENCE"),GOLD)
+  for _,e in ipairs(R.GetGearEvidence(item,slotID)) do
+   self:DetailText(e.source.." · "..R.L(e.kind=="guide" and "AUTHORED_GUIDE" or "MPLUS_OBSERVATION"),GOLD,11)
+   if e.count then self:DetailText(R.L("MURLOK_SAMPLE",e.count,e.sampleSize),WHITE,11) end
+   self:DetailText(R.L("SNAPSHOT")..": "..e.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..e.retrievedAt:sub(1,10),GREY,10)
+   local url=e.url;self:DetailButton(e.source.." · "..R.L("COPY_URL"),function()self:ShowCopy(url)end)
+  end
+ end
  self:DetailEndSection();if self.view=="equipment" then self:DetailText(R.GetGearSummary(),GOLD,11) end;self:DetailText(R.L(self.view=="equipment" and "SOURCE_SCOPE_NOTE" or "POPULARITY_NOTE"),GREY,11)
  if item.acquisitionItemID and item.acquisitionItemID~=item.id then self:DetailText("Catalyst · ".."Wowhead item #"..item.acquisitionItemID,GOLD,11) end
- if item.guideURL then self:DetailButton("Wowhead guide · "..R.L("COPY_URL"),function()self:ShowCopy(item.guideURL)end) end
+ if item.guideURL then self:DetailButton((item.source or "Guide").." guide · "..R.L("COPY_URL"),function()self:ShowCopy(item.guideURL)end) end
  self:DetailButton("Wowhead · "..R.L("COPY_URL"),function()self:ShowCopy("https://www.wowhead.com/item="..item.id)end)
  self:DetailFinish()
 end
@@ -302,12 +305,16 @@ function UI:RenderSources()
    if record.affixes then for _,affix in ipairs(record.affixes) do self:ListLine(affix.name,nil,"Raider.IO · EU",nil,WHITE) end end
   end
  end
- if R.WCLData and R.WCLData.patch==R.GuideData.patch then
+ if R.WCLData and R.WCLData.schema==2 and R.WCLData.patch==R.GuideData.patch then
   local spec=R.WCLData.specs[R.ViewSpecID()]
   for _,mode in ipairs({"raid","mythicplus"}) do
    local evidence=spec and spec[mode]
-   if evidence then self:ListLine("Warcraft Logs · "..R.L(mode=="raid" and "RAID" or "MYTHICPLUS"),nil,evidence.encounterName.." · "..evidence.sampleSize.." · "..evidence.retrievedAt:sub(1,10),nil,WHITE) end
+   if evidence then
+    self:ListLine(R.L("WCL_BROAD").." · "..R.L(mode=="raid" and "RAID" or "MYTHICPLUS"),nil,R.L("WCL_COVERAGE",evidence.coveredEncounterCount,evidence.expectedEncounterCount,evidence.sampleSize),nil,evidence.eligible and WHITE or GREY)
+    if not evidence.eligible then self:ListLine(R.L("WCL_INSUFFICIENT"),nil,evidence.retrievedAt:sub(1,10),nil,GREY) end
+   end
   end
+  self:DetailText(R.L("WCL_POPULATION"),GREY,11)
  end
  for _,mode in ipairs({"mythicplus","raid"}) do
   local dataset=R.GetDataset(mode)

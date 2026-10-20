@@ -8,41 +8,118 @@ from pathlib import Path
 API='https://www.warcraftlogs.com/api/v2/client'
 RANKINGS='query($id:Int!,$class:String!,$spec:String!,$difficulty:Int!){worldData{encounter(id:$id){id name journalID characterRankings(page:1,difficulty:$difficulty,className:$class,specName:$spec,metric:METRIC,includeCombatantInfo:true)}}}'
 
+# Scope IDs are verified against worldData on every collection; no one-boss fallback.
+SEASON_ZONES={'mythicplus':(55,10,8),'raid':(53,5,10)}
+PAGES=2
+MIN_CONTEXT=20
+MIN_UNIQUE=200
+
 def validate_snapshot(data):
  from catalog import SPECS
- if data.get('schema')!=1 or not data.get('patch') or set(data.get('specs',{}))!={str(s['id']) for s in SPECS}:raise ValueError('Incomplete WCL snapshot')
- contexts=0
+ if data.get('schema')!=2 or data.get('patch')!='12.1' or set(data.get('specs',{}))!={str(s['id']) for s in SPECS}:raise ValueError('Incomplete broad WCL snapshot')
+ if not data.get('windowStart') or not data.get('windowEnd'):raise ValueError('Missing WCL sampling window')
  for spec in data['specs'].values():
   for mode,record in spec.items():
-   if mode not in {'raid','mythicplus'} or record['sampleSize']<20:raise ValueError('Invalid WCL context')
-   if record['encounterID']<=0 or not record['retrievedAt']:raise ValueError('Missing WCL provenance')
-   if any(not str(k).isdigit() or not isinstance(v,int) or not 0<v<=record['sampleSize'] for k,v in record['items'].items()):raise ValueError('Invalid anonymous count')
-   contexts+=1
- if not contexts:raise ValueError('No usable WCL contexts')
+   if mode not in SEASON_ZONES or not record.get('retrievedAt'):raise ValueError('Missing WCL provenance')
+   expected=SEASON_ZONES[mode][2]
+   if record['expectedEncounterCount']!=expected or len(record['encounters'])!=expected:raise ValueError('Wrong seasonal scope')
+   covered=sum(c['sampleSize']>=MIN_CONTEXT for c in record['encounters'])
+   if record['coveredEncounterCount']!=covered:raise ValueError('False WCL coverage')
+   if record['eligible']!=(covered==expected and record['sampleSize']>=MIN_UNIQUE):raise ValueError('Invalid evidence eligibility')
+   if any(not str(k).isdigit() or not isinstance(v,int) or not 0<v<=record['sampleSize'] for k,v in record['items'].items()):raise ValueError('Invalid unique-character count')
+   for c in record['encounters']:
+    if not 0<=c['pagesRead']<=PAGES or any(not 0<n<=c['sampleSize'] for n in c['items'].values()):raise ValueError('Invalid context counts')
 
-def collect_guides(client,root,guides_path=None):
+def quota_guard(client,wait=False):
+ while True:
+  quota=client.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
+  if quota['pointsSpentThisHour']<quota['limitPerHour']*.8:return
+  if not wait:raise ValueError('80% API budget reached; broad collection not complete')
+  print('Waiting for WCL API quota reset; no partial coverage is labelled complete',flush=True)
+  remaining=max(1,int(quota.get('pointsResetIn',3600))+5)
+  while remaining:
+   pause=min(60,remaining);time.sleep(pause);remaining-=pause
+
+def load_scopes(client):
+ scopes={}
+ for mode,(zone_id,difficulty,expected) in SEASON_ZONES.items():
+  zone=client.query('query($id:Int!){worldData{zone(id:$id){id name encounters{id name}}}}',{'id':zone_id})['worldData']['zone']
+  if not zone or zone['id']!=zone_id or len(zone['encounters'])!=expected:raise ValueError('Seasonal WCL encounters changed; review scope before publishing')
+  scopes[mode]=dict(zoneID=zone_id,difficulty=difficulty,name=zone['name'],encounters=zone['encounters'])
+ return scopes
+
+def usable_row(row,start,end,min_key=0):
+ stamp=row.get('startTime')
+ if not isinstance(stamp,(int,float)) or not start<=stamp<=end:return
+ if min_key and (not isinstance(row.get('hardModeLevel'),(int,float)) or row['hardModeLevel']<min_key):return
+ gear=row.get('gear') or row.get('combatantInfo',{}).get('gear')
+ if not isinstance(gear,list):return
+ ids=[i.get('id') or i.get('itemID') for i in gear if isinstance(i,dict)]
+ ids=[i for i in ids if isinstance(i,int) and i>0]
+ if len(ids)<14:return
+ server=row.get('server') or {};name=row.get('name')
+ if not name or not (server.get('id') or server.get('name')):return
+ # Used only in memory for deduplication. Never serialize names, servers or reports.
+ key=(str(name).casefold(),str(server.get('id') or server.get('name')).casefold(),str(server.get('region','')).casefold())
+ return key,(stamp,set(ids),str(server.get('region','unknown')))
+
+def retain_latest(target,key,value):
+ old=target.get(key)
+ if not old or (value[0],tuple(sorted(value[1])))>(old[0],tuple(sorted(old[1]))):target[key]=value
+
+def reduce_characters(characters,known):
+ counts=collections.Counter()
+ for _,ids,_ in characters.values():counts.update(ids & known)
+ return {str(i):n for i,n in sorted(counts.items())}
+
+def collect_guides(client,root,guides_path=None,spec_ids=None,now=None,wait=False,checkpoint=False):
  from catalog import SPECS
  guides=json.loads((guides_path or root/'data/guide-snapshot.json').read_text(encoding='utf-8'))
- if guides['patch']!='12.1':raise ValueError('Discover and verify encounter IDs for the new season before collecting')
- known={i['id'] for i in guides['items'].values()}
- now=dt.datetime.now(dt.timezone.utc).isoformat()
- result={'schema':1,'patch':guides['patch'],'generatedAt':now,'source':'Warcraft Logs','specs':{},'failures':[],'methodology':'One ranking page per context; observed usage among ranked parses, not simulated BiS or acquisition evidence. Current season encounter IDs verified against worldData.'}
- healers={65,256,257,264,270,105,1468}
+ if guides['patch']!='12.1':raise ValueError('Verify season scopes before collecting')
+ scopes=load_scopes(client);known={i['id'] for i in guides['items'].values()}
+ now=now or dt.datetime.now(dt.timezone.utc);start=now-dt.timedelta(days=14)
+ begin,end=start.timestamp()*1000,now.timestamp()*1000
+ result={'schema':2,'patch':'12.1','generatedAt':now.isoformat(),'source':'Warcraft Logs','windowStart':start.isoformat(),'windowEnd':now.isoformat(),'specs':{str(s['id']):{} for s in SPECS},'failures':[],
+ 'methodology':{'population':'Top-ranked DPS/HPS results per spec and encounter, current WCL default partition; not all logs or a random player sample','pagesPerEncounter':PAGES,'windowDays':14,'minimumKey':10,'minimumPerEncounter':MIN_CONTEXT,'minimumUniqueCharacters':MIN_UNIQUE,'deduplication':'Latest complete loadout per character within each spec/mode; names/server identities exist only in memory','selection':'No WCL frequency selects or ranks Overall BiS','scope':{m:{k:v for k,v in scope.items() if k!='encounters'} for m,scope in scopes.items()}}}
+ healers={65,256,257,264,270,105,1468};requests=0
  for spec in SPECS:
-  sid=str(spec['id']);result['specs'][sid]={}
-  for mode,encounter_id,difficulty in [('raid',3429,5),('mythicplus',12813,10)]:
-   quota=client.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
-   if quota['pointsSpentThisHour']>=quota['limitPerHour']*.8:raise ValueError('80% API budget reached; no partial snapshot published')
-   try:
-    metric='hps' if spec['id'] in healers else 'dps'
-    variables={'id':encounter_id,'class':spec['className'].replace(' ',''),'spec':spec['name'].replace(' ',''),'difficulty':difficulty,'metric':metric}
-    encounter=client.query(RANKINGS.replace('METRIC',metric),variables)['worldData']['encounter']
-    frequencies=aggregate(encounter['characterRankings'])
-    record=dict(encounterID=encounter_id,encounterName=encounter['name'],difficulty=difficulty,metric=metric,retrievedAt=now,sampleSize=frequencies['sampleSize'],items={str(i['id']):i['count'] for i in frequencies['items'] if i['id'] in known})
-    result['specs'][sid][mode]=record
-   except ValueError:
-    result['failures'].append({'specID':spec['id'],'mode':mode,'reason':'No usable ranking page; no evidence shown'})
-  print('Anonymous WCL contexts collected for spec',sid,flush=True)
+  sid=str(spec['id'])
+  if spec_ids and spec['id'] not in spec_ids:continue
+  for mode,scope in scopes.items():
+   pooled={};contexts=[];metric='hps' if spec['id'] in healers else 'dps'
+   for encounter in scope['encounters']:
+    characters={};pages=0;truncated=False;error=None;keys=[]
+    try:
+     for page in range(1,PAGES+1):
+      if requests%8==0:quota_guard(client,wait)
+      variables={'id':encounter['id'],'class':spec['className'].replace(' ',''),'spec':spec['name'].replace(' ',''),'difficulty':scope['difficulty']}
+      data=client.query(RANKINGS.replace('page:1','page:'+str(page)).replace('METRIC',metric),variables)['worldData']['encounter']
+      rankings=data['characterRankings'];pages+=1;requests+=1
+      for row in rankings.get('rankings',[]):
+       if str(row.get('class','')).casefold()!=variables['class'].casefold() or str(row.get('spec','')).casefold()!=variables['spec'].casefold():continue
+       usable=usable_row(row,begin,end,10 if mode=='mythicplus' else 0)
+       if usable:
+        key,value=usable;retain_latest(characters,key,value)
+        if mode=='mythicplus':keys.append(row['hardModeLevel'])
+      truncated=bool(rankings.get('hasMorePages'))
+      if not truncated:break
+    except ValueError as exc:
+     if 'budget' in str(exc):raise
+     error='API query unavailable; no guessed samples'
+    for key,value in characters.items():retain_latest(pooled,key,value)
+    context={'encounterID':encounter['id'],'encounterName':encounter['name'],'sampleSize':len(characters),'items':reduce_characters(characters,known),'pagesRead':pages,'truncated':truncated}
+    if keys:context['keyRange']=[min(keys),max(keys)]
+    if error:context['error']=error
+    contexts.append(context)
+   record={'retrievedAt':now.isoformat(),'metric':metric,'sampleSize':len(pooled),'items':reduce_characters(pooled,known),'encounters':contexts,'expectedEncounterCount':len(contexts),'coveredEncounterCount':sum(c['sampleSize']>=MIN_CONTEXT for c in contexts),'zoneID':scope['zoneID'],'difficulty':scope['difficulty'],'regionCounts':dict(collections.Counter(v[2] for v in pooled.values()))}
+   record['eligible']=record['coveredEncounterCount']==record['expectedEncounterCount'] and record['sampleSize']>=MIN_UNIQUE
+   record['balancedUsage']={id:round(sum(c['items'].get(id,0)/c['sampleSize'] if c['sampleSize'] else 0 for c in contexts)/len(contexts),6) for id in record['items']}
+   result['specs'][sid][mode]=record
+   print('WCL spec',sid,mode,record['coveredEncounterCount'],'/',len(contexts),'contexts;',len(pooled),'unique characters; eligible',record['eligible'],flush=True)
+  validate_snapshot(result)
+  if checkpoint:
+   dest=root/'build/wcl';dest.mkdir(parents=True,exist_ok=True)
+   (dest/'wcl-snapshot.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
  validate_snapshot(result)
  return result
 
@@ -114,11 +191,11 @@ def audit_schema(client):
 def main():
  p=argparse.ArgumentParser();p.add_argument('--guide-snapshot',type=Path);p.add_argument('--collect-guides',action='store_true');p.add_argument('--discover-world',action='store_true');p.add_argument('--encounter',type=int,default=0);p.add_argument('--class-name',default='Rogue');p.add_argument('--spec-name',default='Subtlety');p.add_argument('--difficulty',type=int,default=5);a=p.parse_args()
  c=Client();quota=c.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
- if quota['pointsSpentThisHour']>=quota['limitPerHour']*.8:raise ValueError('80% API budget threshold reached; no further requests')
+ if quota['pointsSpentThisHour']>=quota['limitPerHour']*.8:quota_guard(c,os.environ.get('WCL_WAIT_FOR_QUOTA')=='true')
  now=dt.datetime.now(dt.timezone.utc).isoformat();out={'source':'Warcraft Logs','retrievedAt':now,'quota':quota,'authenticated':True,'scope':'public'}
  if os.environ.get('WCL_AUDIT_SCHEMA')=='true':audit_schema(c);return
  if a.collect_guides or os.environ.get('WCL_COLLECT_GUIDES')=='true':
-  out=collect_guides(c,Path(__file__).resolve().parents[1],a.guide_snapshot)
+  out=collect_guides(c,Path(__file__).resolve().parents[1],a.guide_snapshot,spec_ids={int(i) for i in os.environ.get('WCL_SPEC_IDS','').split(',') if i},wait=os.environ.get('WCL_WAIT_FOR_QUOTA')=='true',checkpoint=True)
   dest=Path('build/wcl');dest.mkdir(parents=True,exist_ok=True)
   (dest/'wcl-snapshot.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
   from refresh_gear import compact_lua

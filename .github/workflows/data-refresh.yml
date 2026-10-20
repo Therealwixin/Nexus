@@ -11,7 +11,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v7
         with:
@@ -32,6 +32,7 @@ jobs:
         env:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
+          WCL_WAIT_FOR_QUOTA: 'true'
         run: python tools/wcl_public.py --collect-guides --guide-snapshot build/candidate/guide-snapshot.json
       - name: Stage complete candidate
         if: steps.cadence.outputs.due == 'true'

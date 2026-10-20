@@ -1,36 +1,31 @@
-"""Summarize actual published coverage without calling incomplete lists complete BiS."""
-import json
+"""Report actual recommendation and observation coverage, without claiming consensus."""
 from catalog import SPECS
 from refresh_gear import ROOT
+from test_lean import load_addon
+import json
 
 def report():
  data=json.loads((ROOT/'data/guide-snapshot.json').read_text(encoding='utf-8'))
+ observed=json.loads((ROOT/'data/snapshot.json').read_text(encoding='utf-8'))
  wcl=json.loads((ROOT/'data/wcl-snapshot.json').read_text(encoding='utf-8'))
- def coverage(slots):
-  selected={}
-  for slot,keys in sorted(slots.items(),key=lambda x:int(x[0])):
-   exclude=selected.get('11' if slot=='12' else '13') if slot in {'12','14'} else None
-   rows=[data['items'][key]['id'] for key in keys if data['items'][key]['id']!=exclude]
-   if rows:selected[slot]=rows[0]
-  return len(selected)
- lines=['# Nexus data coverage — 2026-10-20','','All 40 live Wowhead gear guides were fetched normally and parsed. Their published dates and live patch are preserved in the snapshots. All guides include Mythic+ recommendations, but most are short dungeon priorities alongside an overall set. Restoration Druid has a named Mythic+ Only table; Mistweaver has an activity-oriented Mythic+ BiS set that includes raid gear.','','Overall follows the authored set. Raid/Mythic+ source filters contain explicit source-qualified guide recommendations and same-spec observed alternatives with independently established acquisition evidence. Crafted/unknown sources are excluded from these two filters. A Catalyst recommendation retains the original dungeon drop ID. These filtered lists are not a simulated optimal set and do not cover every slot. Counts below are occupied positions out of 16; two-handed setups can leave offhand empty.','','WCL adds one ranking page for The Coiled Altar (Mythic) and Murder Row (M+) per spec. Healers use HPS; others DPS. Only anonymous usage counts for known items are stored. Samples below 20 are omitted. This is encounter-specific observation, not all-season representative or personalized BiS. Six raid contexts lacked a usable sample; all 40 M+ contexts passed. Retrieved '+wcl['generatedAt']+'.','','| Spec | Overall slots | Raid-source slots | M+-source slots | WCL raid / M+ samples | Guide |','|---|---:|---:|---:|---|---|']
- raid_count=sum('raid' in s for s in wcl['specs'].values());mp_count=sum('mythicplus' in s for s in wcl['specs'].values())
- from test_lean import load_addon
  lua,R,_=load_addon(ROOT/'Nexus');R.db=lua.table_from({'mode':'mythicplus'});R.character=lua.table()
- stats=lua.eval('''function(R,id) R.SetViewSpec(id);local full,dungeons=0,0
- for _,slot in ipairs(R.SLOTS) do if R.GetGearTarget(slot.id) then local alts=R.GetGearAlternatives(slot.id);if #alts==4 then full=full+1 end;for _,a in ipairs(alts) do if a.acquisition=="dungeon" then dungeons=dungeons+1;break end end end end
- return full,dungeons end''')
- lines[0]='# Nexus data coverage — '+data['generatedAt'][:10]
- lines[2]='Equipment has one Overall BiS set. It shows up to four distinct verified alternatives per slot, reserving one for a dungeon option whenever one is known. Same-spec observed items and authored Wowhead/Icy Veins options are labelled by source. Item popularity is not a personal simulation.'
- lines[4]='Fewer than four are shown when fewer verified distinct options are available. Missing dungeon options are labelled explicitly. Catalyst alternatives show the original source item whose stats are retained. Counts below describe actual runtime selection, not empty placeholder positions. Raid/M+ gear-source selectors have been removed.'
- lines[8]='| Spec | Overall slots | Slots with 4 alternatives | Slots with a dungeon alternative | WCL raid / M+ samples | Sources |'
- lines[6]=f'WCL uses one ranking page for The Coiled Altar (Mythic) and Murder Row (M+) per spec. Healers use HPS; others DPS. Only anonymous known-item counts are stored; samples below 20 are omitted. Usable contexts: {raid_count}/40 raid, {mp_count}/40 M+. This is encounter-specific observation, not a personal BiS simulation. Retrieved '+wcl['generatedAt']+'.'
+ stats=lua.eval('function(R,id) R.SetViewSpec(id);local n,f,d=0,0,0;for _,s in ipairs(R.SLOTS) do if R.GetGearTarget(s.id) then n=n+1;local a=R.GetGearAlternatives(s.id);if #a==4 then f=f+1 end;for _,i in ipairs(a) do if i.acquisition=="dungeon" then d=d+1;break end end end end;return n,f,d end')
+ lines=['# Nexus source coverage — '+data['generatedAt'][:10],'',
+ 'Overall follows the named authored Wowhead set. Authored Wowhead/Icy Veins alternatives precede observed Murlok options; one verified dungeon option is reserved where available. Up to four distinct options are shown. A guide recommendation, profile usage and ranked-log usage are different evidence types, not independent votes for universal BiS.','',
+ 'Murlok is a snapshot of top-rated M+ profiles (normally 50), not all players or all logs. Publication and retrieval dates remain separate. Catalyst comparisons use original source-item identity.','',
+ 'The legacy single-encounter WCL sample is withdrawn. The broad collector targets all 8 current-season dungeons and 10 raid encounters, two ranking pages per spec/encounter, a locally filtered 14-day window, M+ keys >=10, and the latest complete loadout per character. Eligibility requires >=20 usable unique characters in every planned encounter and >=200 unique characters per spec/mode. Ranked samples are not random, not all logs and never select Overall BiS. Incomplete coverage is explicitly excluded; duplicate character observations are not added to the pooled denominator.','',
+ 'Archon is not a gear feed until verified access is available. Its availability status is separate from WCL; the two must not be counted as independent corroboration.','',
+ '| Spec | Overall slots | Four alternatives | Dungeon alternative | Murlok profiles | WCL raid / M+ coverage | Guides |',
+ '|---|---:|---:|---:|---:|---|---|']
  for spec in SPECS:
-  sid=str(spec['id']);g=data['specs'][sid];sets=g['sets'];main=next((s for s in sets if s['scope']=='overall'),sets[0]);e=wcl['specs'][sid]
-  samples=' / '.join(str(e[m]['sampleSize']) if m in e else 'unavailable' for m in ['raid','mythicplus'])
-  full,dungeons=stats(R,spec['id'])
-  lines.append('| '+spec['className']+' '+spec['name']+' | '+str(coverage(main['slots']))+' | '+str(full)+' | '+str(dungeons)+' | '+samples+' | [Wowhead]('+g['sourceURL']+')'+(' · [Icy Veins]('+g['alternativeGuideURL']+')' if g.get('alternativeGuideURL') else '')+' |')
+  sid=str(spec['id']);g=data['specs'][sid];n,f,d=stats(R,spec['id']);sample=observed['specs'][sid]['mythicplus'].get('sampleSize','unknown')
+  coverage=[]
+  for mode in ['raid','mythicplus']:
+   r=wcl.get('specs',{}).get(sid,{}).get(mode)
+   coverage.append((str(r['coveredEncounterCount'])+'/'+str(r['expectedEncounterCount'])+'; n='+str(r['sampleSize'])+(' eligible' if r['eligible'] else ' excluded')) if r and wcl.get('schema')==2 else 'not collected')
+  links='[Wowhead]('+g['sourceURL']+')'+(' · [Icy Veins]('+g['alternativeGuideURL']+')' if g.get('alternativeGuideURL') else '')
+  lines.append('| '+spec['className']+' '+spec['name']+' | '+str(n)+' | '+str(f)+' | '+str(d)+' | '+str(sample)+' | '+' / '.join(coverage)+' | '+links+' |')
  return '\n'.join(lines)+'\n'
 
 if __name__=='__main__':
- path=ROOT/'DATA-SOURCES.md';path.write_text(report(),encoding='utf-8',newline='\n');print(path)
+ path=ROOT/'DATA-SOURCES.md';path.write_text(report(),encoding='utf-8');print(path)
