@@ -12,7 +12,8 @@ The upload token, project ID and tagged publishing are configured. The first bet
 - Every push/pull request runs Lua 5.1 simulation, snapshot validation and packaging.
 - Tagged releases run the same checks and build an installable ZIP.
 - Data refresh runs daily at 04:17 UTC and checks whether 23 hours have elapsed since the last successful collection. Manual runs force collection.
-- The collector downloads aggregate Murlok gear, Wowhead guides, Murlok role rankings and U.GG Mythic raid representation. It makes no individual player-profile requests.
+- The daily collector downloads aggregate Murlok gear, Wowhead/Icy Veins guides, verified item-effect bonuses, Murlok role rankings and U.GG Mythic raid representation. It makes no individual player-profile requests.
+- Weekly WCL collection has its own workflow. A daily 04:47 UTC due check starts it only when the weekly snapshot is due or incomplete. Failures retry automatically, resuming compatible anonymous checkpoints for up to 48 hours. Only complete 40-spec collections are saved; the next daily addon build ships them. WCL API waits never block daily guide updates.
 - All 40 specs, both gear modes and all six meta groups must pass validation before any candidate is staged.
 - Source publication dates are retained. Collection time is recorded separately.
 - A failed collection/test exits before committing/publishing. The last published package remains available.

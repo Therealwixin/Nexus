@@ -4,9 +4,9 @@ A focused World of Warcraft Retail addon for gear goals, equipment ownership and
 
 ## Current preview
 
-Nexus 0.6.1 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives and anonymous WCL usage evidence. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
+Nexus 0.6.4 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives and anonymous WCL usage evidence. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
 
-- **Equipment:** recommended Raid/Mythic+ gear and ownership on the current character.
+- **Equipment:** BiS gear, up to four verified alternatives per slot, and ownership on the current character.
 - **Preparation:** enchantments, equipped sockets, gem suggestions and consumables.
 - **Meta:** published M+ role rankings and Mythic raid representation, with source dates and methodology.
 - Browse supported classes/specs without changing the character's specialization.
@@ -18,7 +18,7 @@ Recommendations are source snapshots, not a personalized simulation. Raid repres
 
 Download an installable Nexus ZIP, close WoW and replace the `Nexus` addon folder. The result must be `_retail_/Interface/AddOns/Nexus/Nexus.toc`. Preserve SavedVariables. Open `/nexus`.
 
-Equipment now has only Overall BiS, with up to four distinct verified alternatives per slot. A dungeon option is reserved whenever one is known. Wowhead, Icy Veins and same-spec observed alternatives are labelled by source. Lists are not padded when source data is incomplete. Catalyst alternatives retain the original source item. See [DATA-SOURCES.md](DATA-SOURCES.md) for actual coverage.
+Equipment now has only BiS, with up to four distinct verified alternatives per slot. A dungeon option is reserved whenever one is known. Wowhead, Icy Veins and same-spec observed alternatives are labelled by source. Lists are not padded when source data is incomplete. Catalyst alternatives retain the original source item. See [DATA-SOURCES.md](DATA-SOURCES.md) for actual coverage.
 
 The addon is still a preview. Real-client appearance and combat behavior require testing; the Lua simulator does not reproduce WoW's renderer or secure execution.
 
@@ -44,6 +44,12 @@ No API keys or game libraries are bundled in the addon. Existing owner license t
 
 ## Warcraft Logs and Archon
 
-The manual **Verify Warcraft Logs** workflow uses `WCL_CLIENT_ID` and `WCL_CLIENT_SECRET` repository secrets. Its default is a public OAuth/quota probe. The optional single-encounter query caches anonymous frequencies for six hours. **Collect guides** reads one ranking page for each spec in two verified current-season contexts: The Coiled Altar (Mythic raid) and Murder Row (M+). It stops at 80% of the hourly budget. Healers use HPS; others DPS. Samples below 20 usable gear sets are omitted. Beta 4 includes 40 M+ and 34 raid contexts; details show counts, encounter, metric and retrieval date. These are encounter-specific observations and never reorder the guide or establish acquisition source. No credentials, player names, private logs or event streams are bundled. **Refresh Nexus data** collects this evidence alongside guides, validates and tests before publishing; daily scheduled collection is enabled.
+**Refresh Nexus data** updates authored Wowhead/Icy Veins guides, Murlok aggregates, item-effect bonuses and meta daily at 04:17 UTC. It never waits for WCL and retains the last verified WCL snapshot.
+
+**Refresh weekly WCL evidence** performs a cheap daily due check at 04:47 UTC, without calling WCL when not due. Broad collection runs approximately weekly; failures retry on the next daily check. It reads two ranking pages per spec across all 8 seasonal dungeons and 10 raid encounters, filters the last 14 days (M+ keys >=10), and deduplicates characters. Eligibility requires at least 20 usable characters per encounter and 200 per spec/mode. These ranked samples never select or reorder BiS.
+
+Completed anonymous spec/mode summaries are cached even on collection failure. Compatible checkpoints resume for up to 48 hours while retaining their original window/date; incompatible or expired checkpoints restart. Only complete 40-spec collections are committed, and the next daily addon package includes them. The hours-long API collection has a separate concurrency group; only its short publication phase shares the daily write lock. Requests are paced and transient rate limits retried. No credentials, player identities, private reports or event streams are bundled.
+
+**Verify Warcraft Logs** remains a manual OAuth/quota diagnostic using repository secrets `WCL_CLIENT_ID` and `WCL_CLIENT_SECRET`. Optional single-encounter diagnostic outputs never replace broad addon evidence.
 
 Raider.IO provides EU affix context through its public API. Archon build data is not integrated: the public gear page currently returns human verification. The daily collector reports that status honestly without bypassing the check or treating it as gear data. Publication and last-check dates are shown separately.
