@@ -40,6 +40,8 @@ def parse(text,url,patch):
    # A Catalyst option is shown as the actual source item, preserving its stats.
    record=dict(id=base,source='Icy Veins',guideURL=url,updatedAt=stamp,acquisition=kind,dropSource=drop.text() if drop and base==itemID or drop and dungeon else '',**metadata.get(base,{'name':'Item #'+str(base),'quality':4}))
    if base!=itemID:record['catalystTargetID']=itemID
+   bonus=re.search(r'(?:[?&])bonus=([0-9:]+)',tooltip)
+   if bonus:record['previewBonusIDs']=[int(value) for value in bonus[1].split(':')]
    if crafted:record['crafted']=True
    out.setdefault(slotID,[])
    prior=next((r for r in out[slotID] if r['id']==base),None)

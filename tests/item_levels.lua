@@ -19,15 +19,43 @@ check(not R.ItemLevel({id=999999,gearSlotID=8,link="item:999999",targetIlvl=999}
 local oldVersion=TEST.version;TEST.version="12.2.0"
 check(not R.GearLevelRange(dungeon),"Seasonal levels cannot leak into another patch")
 TEST.version=oldVersion
+local function fields(link)
+ local out={};for value in (link..":"):gmatch("(.-):") do out[#out+1]=value end;return out
+end
+local function bonuses(link)
+ local f=fields(link);local out={};for i=1,tonumber(f[14]) do out[tonumber(f[14+i])]=true end;return out,f
+end
+local cases={
+ {id=268253,acquisition="raid",dropSource="The Coiled Altar",gearSlotID=15,bonus=13848,level=344},
+ {id=239037,acquisition="dungeon",gearSlotID=3,bonus=12854,level=334},
+ {id=237828,crafted=true,gearSlotID=8,bonus=13836,level=331},
+}
 local originalShift=IsShiftKeyDown
-IsShiftKeyDown=function()return false end
-GameTooltip.link=nil
-R.UI:ShowItemTooltip(R.UI.frame,dungeon)
-check(not GameTooltip.link and table.concat(GameTooltip.lines," "):find("318",1,true) and table.concat(GameTooltip.lines," "):find("334",1,true),"Default BiS tooltip shows target range, never native base stats as max stats")
-IsShiftKeyDown=function()return true end
-R.UI:ShowItemTooltip(R.UI.frame,dungeon)
-check(GameTooltip.link==dungeon.link and table.concat(GameTooltip.lines," "):find(R.L("BASE_STATS_ONLY"),1,true),"Explicit base preview retains native stats and marks their scope")
+for _,item in ipairs(cases) do
+ IsShiftKeyDown=function()return false end
+ R.UI:ShowItemTooltip(R.UI.frame,item)
+ local link=GameTooltip.link;local ids,f=bonuses(link)
+ check(ids[item.bonus] and f[10]=="90" and f[2]==tostring(item.id),"Screenshot item uses a max-level variant hyperlink, never an ID-only tooltip")
+ if item.crafted then check(ids[12497],"Crafted tooltip includes maximum crafting quality") end
+ local fixture
+ for _,entry in ipairs(TEST.variantEvidence.cases) do if entry.id==item.id then fixture=entry end end
+ check(fixture and fixture.level==item.level and ids[fixture.bonusIDs[1]],"Native preview agrees with recorded live Wowhead tooltip, not a mocked base-level API")
+ if item.id==239037 then check(fixture.rank=="6/6" and fixture.nativeTooltip:find("334",1,true),"Exact screenshot shoulder has live verified Myth 6/6 stats") end
+ check(R.ItemLevel(item,false)==item.level,"Preview ilvl matches externally verified variant data")
+ check(not table.concat(GameTooltip.lines," "):find(R.L("POPULARITY_NOTE"),1,true),"Own tooltips do not repeat WCL/source diagnostics")
+ IsShiftKeyDown=function()return true end
+ R.UI:ShowItemTooltip(R.UI.frame,item)
+ check(GameTooltip.link==link,"Shift never changes the recommendation into a base item")
+end
 IsShiftKeyDown=originalShift
+local converted={id=271511,acquisitionItemID=159337,acquisition="dungeon",gearSlotID=10}
+local projected=R.GearPreviewLink(converted)
+check(fields(projected)[2]=="159337","Catalyst preview retains the original item stats")
+local pair={id=237828,crafted=true,gearSlotID=8,previewBonusIDs={8790,12849,13848}}
+local ids=bonuses(R.GearPreviewLink(pair))
+check(ids[8790] and not ids[12849] and not ids[13848],"Retain only published stat pairs, never conflicting source level bonuses")
+GameTooltip:Hide()
+check(not GameTooltip.nexusItemPreview,"Closing Nexus tooltip restores normal external decoration")
 local originalInventory=GameTooltip.SetInventoryItem
 local usedSlot
 GameTooltip.SetInventoryItem=function(_,unit,slot)usedSlot=slot;check(unit=="player","Equipped tooltip unit")end
@@ -36,6 +64,12 @@ local row=R.UI:DetailItem(current,"Current copy")
 row:Fire("OnEnter")
 check(usedSlot==12,"Equipped detail tooltip reads the exact inventory slot, including second ring")
 GameTooltip.SetInventoryItem=originalInventory
+local oldUpgrade=C_Item.GetItemUpgradeInfo
+C_Item.GetItemUpgradeInfo=function()return {currentLevel=1,maxLevel=6,maxItemLevel=334}end
+check(R.EquippedUpgradeMaximum(current)==334,"Unfinished equipped item exposes native upgrade cap")
+C_Item.GetItemUpgradeInfo=function()return {currentLevel=6,maxLevel=6,maxItemLevel=334}end
+check(not R.EquippedUpgradeMaximum(current),"Fully upgraded items do not repeat a redundant maximum line")
+C_Item.GetItemUpgradeInfo=oldUpgrade
 local known,unknown=0,0
 for spec in pairs(R.Data.specs) do
  for _,slot in ipairs(R.SLOTS) do
@@ -45,8 +79,11 @@ for spec in pairs(R.Data.specs) do
    local alternatives=R.GetGearAlternatives(slot.id,spec)
    for _,item in ipairs(alternatives) do
     check(item.gearSlotID==slot.id,"Alternative keeps equipment context for target tooltip")
+    check(R.GearPreviewLink(item,slot.id),"Every displayed alternative must have a verified seasonal native preview")
+    check(item.id~=158075,"Off-season Heart of Azeroth cannot be presented as a current BiS alternative")
    end
   end
  end
 end
-print("Item-level regressions PASS: target ranges, crafted/Ascendant/elevated exceptions, unknown source, patch guard, native equipped tooltip; covered targets "..known..", explicitly unknown "..unknown)
+print("Item-level regressions PASS: native variant hyperlinks for screenshot items, no Shift/base fallback, crafted quality/stat pairs, Catalyst originals, equipped upgrade caps; covered targets "..known..", explicitly unknown "..unknown)
+check(known>600 and unknown==0,"All occupied Overall slots have a seasonal preview")

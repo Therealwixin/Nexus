@@ -2,6 +2,7 @@ local _, R = ...
 local processed = setmetatable({}, {__mode="k"})
 
 function R.DecorateTooltip(tooltip, data)
+    if tooltip.nexusItemPreview then return end
     if not R.db or not R.character or not data or not R.IsReadable(data.id) then return end
     if tooltip ~= GameTooltip and tooltip ~= ItemRefTooltip then return end
     local id = R.ItemID(data.id)

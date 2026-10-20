@@ -19,32 +19,28 @@ end
 function UI:ShowItemTooltip(owner,item,slot,inventory,specID,mode)
  if not item then return end
  GameTooltip:SetOwner(owner,"ANCHOR_RIGHT")
- local gearSlot=item.gearSlotID
- local basePreview=gearSlot and not inventory and not item.slotID
- -- An ID-only native tooltip has base-level stats. Do not present those as
- -- a fully upgraded BiS variant. Shift explicitly opens that original tooltip.
- if basePreview and not (IsShiftKeyDown and IsShiftKeyDown()) then
-  GameTooltip:ClearLines();GameTooltip:SetText(R.ItemName(item),R.ItemColor(item))
-  for _,line in ipairs(R.GearLevelLines(item,gearSlot)) do GameTooltip:AddLine(line,1,.82,0,true) end
-  GameTooltip:AddLine(R.ShortSource(item),.88,.87,.82,true)
-  if item.acquisitionItemID then GameTooltip:AddLine(R.L("CATALYST_NOTE"),1,.82,0,true) end
-  GameTooltip:AddLine(R.L("GEAR_BASE_PREVIEW"),.65,.65,.65,true)
-  GameTooltip:Show();return
+ if not self.tooltipHideHook then
+  GameTooltip:HookScript("OnHide",function(t)t.nexusItemPreview=nil end);self.tooltipHideHook=true
  end
- local previousItem=R.tooltipItem;R.tooltipItem=item
- local previous,previousMode=R.tooltipSpecID,R.tooltipMode;R.tooltipSpecID=specID or (inventory and R.SpecID() or R.ViewSpecID());R.tooltipMode=mode or R.GetMode()
+ GameTooltip.nexusItemPreview=true
+ local gearSlot=item.gearSlotID
+ local preview,range
+ if gearSlot and not inventory and not item.slotID then preview,range=R.GearPreviewLink(item,gearSlot) end
  if inventory and slot then GameTooltip:SetInventoryItem("player",slot)
- elseif item.id and item.id>0 then GameTooltip:SetHyperlink(item.link or "item:"..(item.acquisitionItemID or item.id))
+ elseif gearSlot and not preview then
+  GameTooltip:ClearLines();GameTooltip:SetText(R.ItemName(item),R.ItemColor(item))
+  GameTooltip:AddLine(R.L("VARIANT_UNAVAILABLE"),.65,.65,.65,true)
+ elseif item.id and item.id>0 then GameTooltip:SetHyperlink(preview or item.link or "item:"..(item.acquisitionItemID or item.id))
  elseif C_Spell and C_Spell.GetSpellInfo and GameTooltip.SetSpellByID then
   local info=C_Spell.GetSpellInfo(item.name)
   if info and info.spellID then GameTooltip:SetSpellByID(info.spellID) else GameTooltip:SetText(item.name or R.L("LOADING")) end
- else GameTooltip:SetText(item.name or R.L("LOADING"));if item.source then GameTooltip:AddLine(item.source,1,.82,0) end end
- R.tooltipSpecID,R.tooltipMode=previous,previousMode
- R.tooltipItem=previousItem
- if item.acquisitionItemID and not inventory then GameTooltip:AddLine(R.L("CATALYST_NOTE"),1,.82,0,true) end
- if basePreview then
-  GameTooltip:AddLine(R.L("BASE_STATS_ONLY"),1,.5,0,true)
-  for _,line in ipairs(R.GearLevelLines(item,gearSlot)) do GameTooltip:AddLine(line,1,.82,0,true) end
+ else GameTooltip:SetText(item.name or R.L("LOADING")) end
+ if preview then
+  if item.acquisitionItemID then GameTooltip:AddLine("Catalyst → "..R.ItemName(item),1,.82,0,true) end
+  if range.ascended then GameTooltip:AddLine(R.L("ASCENDED_ILVL",range.ascended),.65,.65,.65) end
+ elseif inventory then
+  local maximum,rank=R.EquippedUpgradeMaximum(item)
+  if maximum then GameTooltip:AddLine(R.L("EQUIPPED_UPGRADE_MAX",maximum,rank),1,.82,0) end
  end
  GameTooltip:Show()
 end
@@ -149,7 +145,7 @@ function UI:RenderDetail(override,slotOverride)
   for _,alternative in ipairs(candidates) do if alternative.id~=item.id and shown<4 then
    local alt=alternative;shown=shown+1
    if alt.acquisition=="dungeon" then hasDungeon=true end
-   self:DetailItem(alt,R.GearLevelText(alt,slotID).." · "..(alt.acquisition=="dungeon" and "Dungeon" or alt.source or "")..(alt.catalystTargetID and " · Catalyst" or ""),function()self:RenderDetail(alt,slotID)end)
+   self:DetailItem(alt,(alt.acquisition=="dungeon" and "Dungeon" or alt.source or "")..(alt.catalystTargetID and " · Catalyst" or ""),function()self:RenderDetail(alt,slotID)end)
   end end
   if shown==0 then self:DetailText(R.L("NO_ALTERNATIVES"),GREY,11) end
   if not hasDungeon then self:DetailText(R.L("NO_DUNGEON_ALTERNATIVE"),GREY,11) end

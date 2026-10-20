@@ -1,0 +1,42 @@
+{
+  "build": "12.1.5.70448",
+  "checkedAt": "2026-10-20",
+  "sources": [
+    "https://github.com/simulationcraft/simc/blob/midnight/engine/dbc/generated/item_bonus.inc",
+    "https://github.com/simulationcraft/simc/blob/midnight/engine/dbc/generated/item_scaling.inc"
+  ],
+  "cases": [
+    {
+      "id": 268253,
+      "bonusIDs": [
+        13848,
+        13335
+      ],
+      "level": 344,
+      "rank": null,
+      "nativeTooltip": "<table><tr><td><!--nstart--><b class=\"q4\">Silken Voodoo Drape</b><!--nend--><!--ndstart--><br /><span><span style=\"color: #00FF00\">Mythic</span></span><!--ndend--><span class=\"q\"><br>Item Level <!--ilvl-->344</span><!--bo--><br>Binds when picked up<!--ue--><!--ue--><table width=\"100%\"><tr><td>Back</td></tr></table><!--rf--><span><!--amr-->84 Armor</span><br><span><!--stat71-->+116 [Agility or Strength or Intellect]</span><br><span><!--stat7-->+2,466 Stamina</span><!--ebstats--><br><span class=\"q2\">+<!--rtg36-->35 Haste</span><br><span class=\"q2\">+<!--rtg49-->83 Mastery</span><!--egstats--><!--eistats--><!--nameDescStats--><!--rs--><!--e--><!--ps--></td></tr></table><table><tr><td><!--rr--><!--itemEffects:0-->Requires Level <!--rlvl-->90<br><!--pvpEquip--><!--pvpEquip--><div class=\"whtt-sellprice\">Sell Price: <span class=\"moneygold\">45</span> <span class=\"moneysilver\">9</span> <span class=\"moneycopper\">89</span></div></td></tr></table>",
+      "url": "https://nether.wowhead.com/tooltip/item/268253?dataEnv=1&locale=0&bonus=13848:13335&lvl=90"
+    },
+    {
+      "id": 239037,
+      "bonusIDs": [
+        12854
+      ],
+      "level": 334,
+      "rank": "6/6",
+      "nativeTooltip": "<table><tr><td><!--nstart--><b class=\"q4\">C'thraxxi Binders Pauldrons</b><!--nend--><!--ndstart--><!--ndend--><span class=\"q\"><br>Item Level <!--ilvl-->334</span><br><span class=\"q\">Upgrade Level: Myth <!--uindex-->6/6</span><!--bo--><br>Binds when picked up<!--ue--><!--ue--><table width=\"100%\"><tr><td>Shoulder</td><th><!--scstart4:4--><span class=\"q1\">Plate</span><!--scend--></th></tr></table><!--rf--><span><!--amr-->299 Armor</span><br><span><!--stat74-->+141 [Strength or Intellect]</span><br><span><!--stat7-->+2,932 Stamina</span><!--ebstats--><br><span class=\"q2\">+<!--rtg32-->50 Critical Strike</span><br><span class=\"q2\">+<!--rtg36-->101 Haste</span><!--egstats--><!--eistats--><!--nameDescStats--><!--rs--><!--e--><!--ps--><br>Durability 85 / 85</td></tr></table><table><tr><td><!--rr--><!--itemEffects:0-->Requires Level <!--rlvl-->90<br><!--pvpEquip--><!--pvpEquip--><div class=\"whtt-sellprice\">Sell Price: <span class=\"moneygold\">44</span> <span class=\"moneysilver\">4</span> <span class=\"moneycopper\">22</span></div><div class=\"whtt-extra whtt-droppedby\">Dropped by: Avatar of Sethraliss</div></td></tr></table>",
+      "url": "https://nether.wowhead.com/tooltip/item/239037?dataEnv=1&locale=0&bonus=12854&lvl=90"
+    },
+    {
+      "id": 237828,
+      "bonusIDs": [
+        13836,
+        12497
+      ],
+      "level": 331,
+      "rank": null,
+      "nativeTooltip": "<table><tr><td><!--nstart--><b class=\"q4\">Spellbreaker's March</b><!--nend--><!--ndstart--><!--ndend--><span class=\"q\"><br>Item Level <!--ilvl-->331</span><!--bo--><br>Binds when picked up<!--ue--><!--ue--><table width=\"100%\"><tr><td>Feet</td><th><!--scstart4:4--><span class=\"q1\">Plate</span><!--scend--></th></tr></table><!--rf--><span><!--amr-->266 Armor</span><br><span><!--stat74-->+138 [Strength or Intellect]</span><br><span><!--stat7-->+2,832 Stamina</span><!--ebstats--><br><span class=\"q2\">+<!--rtg24-->74 Random Stat 1</span><br><span class=\"q2\">+<!--rtg25-->74 Random Stat 2</span><!--egstats--><!--eistats--><!--nameDescStats--><!--rs--><!--e--><!--ps--><br>Durability 80 / 80</td></tr></table><table><tr><td><!--rr--><!--itemEffects:0-->Requires Level <!--rlvl-->90<br>Quality: <img style=\"vertical-align: middle\" src=\"https://wow.zamimg.com/images/wow/TextureAtlas/live/professions-chaticon-quality-tier2.png\"><br><!--pvpEquip--><!--pvpEquip--><div class=\"whtt-sellprice\">Sell Price: <span class=\"moneygold\">100</span> <span class=\"moneysilver\">8</span> <span class=\"moneycopper\">19</span></div></td></tr></table>",
+      "url": "https://nether.wowhead.com/tooltip/item/237828?dataEnv=1&locale=0&bonus=13836:12497&lvl=90"
+    }
+  ]
+}

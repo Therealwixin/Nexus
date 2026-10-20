@@ -24,7 +24,7 @@ function R.ItemLevel(item, actual)
     if not item then return nil end
     if not actual then
         local range=R.GearLevelRange and R.GearLevelRange(item)
-        return range and (range.ascended or range.max) or nil
+        return range and range.max or nil
     end
     if actual and item.slotID and C_Item and C_Item.GetCurrentItemLevel and ItemLocation and ItemLocation.CreateFromEquipmentSlot then
         local ok,level=pcall(C_Item.GetCurrentItemLevel,ItemLocation:CreateFromEquipmentSlot(item.slotID))

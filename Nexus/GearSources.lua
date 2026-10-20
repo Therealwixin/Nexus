@@ -73,7 +73,11 @@ function R.GetGearAlternatives(slotID,specID)
    return
   end
   local copy={};for k,v in pairs(item) do copy[k]=v end
-  copy.gearSlotID=slotID;seen[copy.id]=copy;pool[#pool+1]=copy
+  copy.gearSlotID=slotID
+  -- An observed ID can be old/off-season (even Heart of Azeroth appears in
+  -- aggregates). Only offer gear with a verified current-season preview.
+  if not R.GearLevelRange(copy,slotID) then return end
+  seen[copy.id]=copy;pool[#pool+1]=copy
  end
  for _,item in ipairs(R.GetGearCandidates(slotID,specID,"overall")) do add(item) end
  for _,key in ipairs(guide.alternatives and guide.alternatives[slotID] or {}) do add(R.GuideItem(key,specID)) end

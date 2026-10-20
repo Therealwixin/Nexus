@@ -32,11 +32,12 @@ from alternative_guides import parse,merge
 import copy,json
 html='<h1>Gear 12.1.5</h1><time datetime="2026-10-20T00:00:00Z"></time><div class="image_block_content" id="bis_0_1">'
 for i,slot in enumerate(['Helm','Neck','Shoulders','Back','Chest','Wrist','Hands','Waist','Legs','Feet','Ring','Ring','Trinket','Trinket','Main Hand','Off Hand']):
- html+=f'<div class="bis_item"><span class="q4" data-iv-tooltip="wow/item/{100+i}?original={200+i}"><img src="https://example.invalid/123.webp" alt="Tier Icon"></span><span class="bis_item_slot">{slot}</span><span class="bis_item_drop"><a href="/wow/murder-row-dungeon-guide">Murder Row</a></span></div>'
+ html+=f'<div class="bis_item"><span class="q4" data-iv-tooltip="wow/item/{100+i}?original={200+i}&amp;bonus=12854:8790"><img src="https://example.invalid/123.webp" alt="Tier Icon"></span><span class="bis_item_slot">{slot}</span><span class="bis_item_drop"><a href="/wow/murder-row-dungeon-guide">Murder Row</a></span></div>'
 html+='</div>'
 parsed=parse(html,'https://example.invalid/guide','12.1')
 assert parsed['slots']['1'][0]['id']==200 and parsed['slots']['1'][0]['catalystTargetID']==100 and parsed['slots']['1'][0]['acquisition']=='dungeon'
 assert parsed['slots']['1'][0]['name']!='Tier'
+assert parsed['slots']['1'][0]['previewBonusIDs']==[12854,8790], 'Published variant bonuses must survive daily collection'
 old=json.loads((ROOT/'data/guide-snapshot.json').read_text(encoding='utf-8'));fresh=copy.deepcopy(old)
 for g in fresh['specs'].values():g.pop('alternatives',None)
 merge(fresh,{},old)

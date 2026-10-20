@@ -121,6 +121,11 @@ local levels={
  CZ={MAX_ILVL="Max ilvl %d",MYTH_ILVL_RANGE="Myth 1/6: %d → Myth 6/6: %d",CRAFT_ILVL_RANGE="Myth craft: %d → %d (nejvyšší kvalita)",ELEVATED_ILVL="Mythic raid odměna: %d",ASCENDED_ILVL="Ascendant maximum: %d",ASCENDED_UNLOCK="Ascendant Venomstones se odemknou 20. října (NA) / 21. října (EU) 2026.",TARGET_ILVL_UNKNOWN="Maximální ilvl není ověřený",GEAR_BASE_PREVIEW="Podrž Shift při najetí myší pro tooltip základního předmětu. Jeho staty nejsou náhledem maximálního levelu.",BASE_STATS_ONLY="Náhled základního předmětu — ne staty vylepšeného BiS."}
 }
 for lang,values in pairs(levels) do for key,value in pairs(values) do strings[lang][key]=value end end
+for lang,values in pairs({
+ EN={VARIANT_UNAVAILABLE="Seasonal item variant is not verified yet.",EQUIPPED_UPGRADE_MAX="Maximum upgrade: ilvl %d"},
+ SK={VARIANT_UNAVAILABLE="Sezónny variant predmetu ešte nie je overený.",EQUIPPED_UPGRADE_MAX="Maximálny upgrade: ilvl %d"},
+ CZ={VARIANT_UNAVAILABLE="Sezónní varianta předmětu zatím není ověřená.",EQUIPPED_UPGRADE_MAX="Maximální upgrade: ilvl %d"}
+}) do for key,value in pairs(values) do strings[lang][key]=value end end
 R.Locales = strings
 function R.L(key, ...)
     local language = R.db and R.db.language or "EN"

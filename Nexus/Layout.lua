@@ -72,7 +72,6 @@ function UI:RenderRows()
   row.text:SetPoint(anchor,row,anchor,offset,-4);row.text:SetHeight(11);row.text:SetFont(R.FONT,10,"");row.text:SetTextColor(unpack(MUTED));row.text:SetText(R.L(slot.key))
   row.note:SetPoint(anchor,row,anchor,offset,-18);row.note:SetHeight(16);row.note:SetFont(R.FONT,12,"");row.note:SetMaxLines(1);row.note:SetTextColor(R.ItemColor(item));row.note:SetText(item and R.ItemName(item) or R.L("NO_SOURCE_OPTION"))
   if item and self.gearView=="mine" then local level=R.ItemLevel(item,true);if level then row.text:SetText(R.L(slot.key).." · "..level) end end
-  if item and self.gearView~="mine" then row.text:SetText(R.L(slot.key).." · "..R.GearLevelText(item,slot.id)) end
   if item and self.gearView~="mine" then state=R.GearOwnership(item,slot.id) end
   row.ownership:SetPoint(onRight and "BOTTOMRIGHT" or "BOTTOMLEFT",row,onRight and "BOTTOMRIGHT" or "BOTTOMLEFT",offset,3);row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or state:find("TIER_STATS",1,true) and GOLD or GREEN))
   row.red:Hide();row.check:Hide();row.selected:Hide();row.icon:SetVertexColor(1,1,1)

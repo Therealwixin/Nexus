@@ -1,3 +1,13 @@
+## 0.6.2-beta.3
+
+- Restore native item tooltips on ordinary hover. Build complete level-90 item strings with validated seasonal bonus IDs: Myth 6/6 (334), elevated raid (344), maximum-quality Myth crafted (331).
+- Scale the native item and its stats instead of appending a target number to a base-level tooltip. Remove the Shift/base-preview branch.
+- Keep source-item stats for Catalyst previews; preserve published crafted stat-pair bonuses through daily guide collection.
+- Read unfinished equipped items' upgrade caps through C_Item.GetItemUpgradeInfo. Leave the actual equipped tooltip and rank intact.
+- Remove Max-ilvl row clutter and repeated WCL/popularity/source diagnostics from Nexus-owned hover tooltips. Keep evidence in the details panel.
+- Exclude unverified/off-season observed alternatives instead of inventing upgraded variants. Keep a dungeon alternative reserved whenever verified; use epic colors for the epic seasonal previews.
+- Verify the three reported screenshot items against live Wowhead tooltips and SimulationCraft DBC data. Check all occupied Overall slots and native link fields, not just mocked item-level labels.
+
 ## 0.6.2-beta.2
 
 - Show the best obtainable item-level target in Overall BiS and its alternatives, with the Myth 1/6–6/6 or crafted-quality range in details and tooltips.
