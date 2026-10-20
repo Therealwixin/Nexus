@@ -81,6 +81,7 @@ function Frame:Fire(script,...) if self.scripts[script] then return self.scripts
 function Frame:Click(...)return self:Fire("OnClick",...) end
 function Frame:SetOwner(owner) self.owner=owner end
 function Frame:NumLines() return #self.lines end
+function Frame:ClearLines() self.lines={} end
 function Frame:AddLine(text) self.lines[#self.lines+1]=text end
 function Frame:SetHyperlink(link)
     self.lines={"Native item name","Item level","Stats","Effects","Description"}

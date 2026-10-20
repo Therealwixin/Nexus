@@ -33,14 +33,14 @@ function R.GetGearCandidates(slotID,specID,scope)
  local slots=set and set.slots or guide.sourceLists[scope];local result={};local seen={}
  for _,key in ipairs(slots and slots[slotID] or {}) do
   local item=R.GuideItem(key,specID)
-  if item and not seen[item.id] then result[#result+1]=item;seen[item.id]=true end
+  if item and not seen[item.id] then item.gearSlotID=slotID;result[#result+1]=item;seen[item.id]=true end
  end
  if scope=="overall" and #result>0 then
   local observed=R.GetDataset("mythicplus",specID)
   for _,raw in ipairs(observed and observed.slots[slotID] or {}) do
    if raw.source=="Murlok.io" and not seen[raw.id] then
     local item={};for k,v in pairs(raw) do item[k]=v end
-    item.observedAlternative=true;item.bisGuide=nil
+    item.observedAlternative=true;item.bisGuide=nil;item.gearSlotID=slotID
     item.targetIlvl=nil;item.dropIlvl=nil;item.ilvlBasis=nil
     result[#result+1]=item;seen[item.id]=true
    end
@@ -73,7 +73,7 @@ function R.GetGearAlternatives(slotID,specID)
    return
   end
   local copy={};for k,v in pairs(item) do copy[k]=v end
-  seen[copy.id]=copy;pool[#pool+1]=copy
+  copy.gearSlotID=slotID;seen[copy.id]=copy;pool[#pool+1]=copy
  end
  for _,item in ipairs(R.GetGearCandidates(slotID,specID,"overall")) do add(item) end
  for _,key in ipairs(guide.alternatives and guide.alternatives[slotID] or {}) do add(R.GuideItem(key,specID)) end

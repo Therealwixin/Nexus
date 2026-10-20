@@ -22,15 +22,18 @@ function R.ShortSource(item)
 end
 function R.ItemLevel(item, actual)
     if not item then return nil end
-    if not actual and item.targetIlvl then return item.targetIlvl end
+    if not actual then
+        local range=R.GearLevelRange and R.GearLevelRange(item)
+        return range and (range.ascended or range.max) or nil
+    end
     if actual and item.slotID and C_Item and C_Item.GetCurrentItemLevel and ItemLocation and ItemLocation.CreateFromEquipmentSlot then
         local ok,level=pcall(C_Item.GetCurrentItemLevel,ItemLocation:CreateFromEquipmentSlot(item.slotID))
         if ok and R.IsReadable(level) and type(level)=="number" and level>0 then return level end
     end
     local api = C_Item and C_Item.GetDetailedItemLevelInfo or GetDetailedItemLevelInfo
     if item.link and api then
-        local level = api(item.link)
-        if R.IsReadable(level) and type(level)=="number" and level>0 then return level end
+        local ok,level = pcall(api,item.link)
+        if ok and R.IsReadable(level) and type(level)=="number" and level>0 then return level end
     end
 end
 local function secondaryProfile(idOrLink)

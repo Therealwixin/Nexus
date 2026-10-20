@@ -115,6 +115,12 @@ local strings = {
         GUIDE_RECOMMENDATION="DOPORUČENÍ Z GUIDE",
     },
 }
+local levels={
+ EN={MAX_ILVL="Max ilvl %d",MYTH_ILVL_RANGE="Myth 1/6: %d → Myth 6/6: %d",CRAFT_ILVL_RANGE="Myth craft: %d → %d (maximum quality)",ELEVATED_ILVL="Mythic raid reward: %d",ASCENDED_ILVL="Ascendant maximum: %d",ASCENDED_UNLOCK="Ascendant Venomstones unlock October 20 (NA) / 21 (EU), 2026.",TARGET_ILVL_UNKNOWN="Maximum ilvl not verified",GEAR_BASE_PREVIEW="Hold Shift while hovering for the base item tooltip. Its stats are not a maximum-level preview.",BASE_STATS_ONLY="Base item preview — not the upgraded BiS stats."},
+ SK={MAX_ILVL="Max ilvl %d",MYTH_ILVL_RANGE="Myth 1/6: %d → Myth 6/6: %d",CRAFT_ILVL_RANGE="Myth craft: %d → %d (najvyššia kvalita)",ELEVATED_ILVL="Mythic raid odmena: %d",ASCENDED_ILVL="Ascendant maximum: %d",ASCENDED_UNLOCK="Ascendant Venomstones sa odomknú 20. októbra (NA) / 21. októbra (EU) 2026.",TARGET_ILVL_UNKNOWN="Maximálny ilvl nie je overený",GEAR_BASE_PREVIEW="Podrž Shift pri nájazde myšou pre tooltip základného predmetu. Jeho staty nie sú náhľadom maximálneho levelu.",BASE_STATS_ONLY="Náhľad základného predmetu — nie staty vylepšeného BiS."},
+ CZ={MAX_ILVL="Max ilvl %d",MYTH_ILVL_RANGE="Myth 1/6: %d → Myth 6/6: %d",CRAFT_ILVL_RANGE="Myth craft: %d → %d (nejvyšší kvalita)",ELEVATED_ILVL="Mythic raid odměna: %d",ASCENDED_ILVL="Ascendant maximum: %d",ASCENDED_UNLOCK="Ascendant Venomstones se odemknou 20. října (NA) / 21. října (EU) 2026.",TARGET_ILVL_UNKNOWN="Maximální ilvl není ověřený",GEAR_BASE_PREVIEW="Podrž Shift při najetí myší pro tooltip základního předmětu. Jeho staty nejsou náhledem maximálního levelu.",BASE_STATS_ONLY="Náhled základního předmětu — ne staty vylepšeného BiS."}
+}
+for lang,values in pairs(levels) do for key,value in pairs(values) do strings[lang][key]=value end end
 R.Locales = strings
 function R.L(key, ...)
     local language = R.db and R.db.language or "EN"

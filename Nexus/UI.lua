@@ -19,6 +19,18 @@ end
 function UI:ShowItemTooltip(owner,item,slot,inventory,specID,mode)
  if not item then return end
  GameTooltip:SetOwner(owner,"ANCHOR_RIGHT")
+ local gearSlot=item.gearSlotID
+ local basePreview=gearSlot and not inventory and not item.slotID
+ -- An ID-only native tooltip has base-level stats. Do not present those as
+ -- a fully upgraded BiS variant. Shift explicitly opens that original tooltip.
+ if basePreview and not (IsShiftKeyDown and IsShiftKeyDown()) then
+  GameTooltip:ClearLines();GameTooltip:SetText(R.ItemName(item),R.ItemColor(item))
+  for _,line in ipairs(R.GearLevelLines(item,gearSlot)) do GameTooltip:AddLine(line,1,.82,0,true) end
+  GameTooltip:AddLine(R.ShortSource(item),.88,.87,.82,true)
+  if item.acquisitionItemID then GameTooltip:AddLine(R.L("CATALYST_NOTE"),1,.82,0,true) end
+  GameTooltip:AddLine(R.L("GEAR_BASE_PREVIEW"),.65,.65,.65,true)
+  GameTooltip:Show();return
+ end
  local previousItem=R.tooltipItem;R.tooltipItem=item
  local previous,previousMode=R.tooltipSpecID,R.tooltipMode;R.tooltipSpecID=specID or (inventory and R.SpecID() or R.ViewSpecID());R.tooltipMode=mode or R.GetMode()
  if inventory and slot then GameTooltip:SetInventoryItem("player",slot)
@@ -30,7 +42,10 @@ function UI:ShowItemTooltip(owner,item,slot,inventory,specID,mode)
  R.tooltipSpecID,R.tooltipMode=previous,previousMode
  R.tooltipItem=previousItem
  if item.acquisitionItemID and not inventory then GameTooltip:AddLine(R.L("CATALYST_NOTE"),1,.82,0,true) end
- if item.targetIlvl then GameTooltip:AddLine(R.L("TARGET_ILVL",item.targetIlvl),1,.82,0);if not item.link then GameTooltip:AddLine(R.L("BASE_TOOLTIP"),.65,.65,.65,true) end end
+ if basePreview then
+  GameTooltip:AddLine(R.L("BASE_STATS_ONLY"),1,.5,0,true)
+  for _,line in ipairs(R.GearLevelLines(item,gearSlot)) do GameTooltip:AddLine(line,1,.82,0,true) end
+ end
  GameTooltip:Show()
 end
 function UI:ShowCopy(text,title)
@@ -100,7 +115,7 @@ function UI:DetailItem(item,note,callback,large)
  b.icon:SetSize(large and 60 or 38,large and 60 or 38);local x=large and 80 or 54
  b.text:ClearAllPoints();b.text:SetPoint("TOPLEFT",x,-8);b.text:SetWidth(b:GetWidth()-x-5);b.text:SetText(R.ItemName(item));b.text:SetTextColor(R.ItemColor(item))
  b.note:ClearAllPoints();b.note:SetPoint("BOTTOMLEFT",x,8);b.note:SetWidth(b:GetWidth()-x-5);b.note:SetText(note or "")
- b.selected:Hide();self:BindItem(b,item,nil,false,false);b:SetScript("OnClick",callback);b:Show();self.detailY=self.detailY+b:GetHeight()+8;return b
+ b.selected:Hide();self:BindItem(b,item,item.slotID,item.slotID~=nil,false);b:SetScript("OnClick",callback);b:Show();self.detailY=self.detailY+b:GetHeight()+8;return b
 end
 function UI:DetailFinish()self:DetailEndSection();self.detailChild:SetHeight(self.detailY+8)end
 function UI:JournalStatusChanged(id)
@@ -120,8 +135,11 @@ function UI:RenderDetail(override,slotOverride)
  self:DetailSection(R.L("SELECTED_ITEM"),GOLD)
  self:DetailItem(item,item.source or (self.gearView=="mine" and R.L("CURRENT_ITEM")),nil,true)
  local state=R.GearOwnership(item,slotID or 0);self:DetailText(R.L(state)..(state=="MISSING" and " · "..R.ShortSource(item) or ""),state=="MISSING" and RED or state=="EQUIPPED" and GREEN or GOLD)
- local level=R.ItemLevel(item,self.gearView=="mine")
- if level then self:DetailText(R.L("ILVL")..": "..level..(item.ilvlBasis and " · "..item.ilvlBasis or ""),GOLD) end
+ if item.slotID then
+  self:DetailText(R.L("ILVL")..": "..(R.ItemLevel(item,true) or "?"),GOLD)
+ elseif item.gearSlotID then
+  for _,line in ipairs(R.GearLevelLines(item,slotID)) do self:DetailText(line,GOLD,11) end
+ end
  if item.count then local d=R.GetDataset();self:DetailText(R.L("SAMPLE")..": "..item.count.." / "..(item.sampleSize or (d and d.sampleSize) or "?")) end
  if item.updatedAt then self:DetailText(R.L("SNAPSHOT")..": "..item.updatedAt:sub(1,10),GREY) end
  if slot and self.view=="equipment" then
@@ -131,7 +149,7 @@ function UI:RenderDetail(override,slotOverride)
   for _,alternative in ipairs(candidates) do if alternative.id~=item.id and shown<4 then
    local alt=alternative;shown=shown+1
    if alt.acquisition=="dungeon" then hasDungeon=true end
-   self:DetailItem(alt,(alt.acquisition=="dungeon" and "Dungeon · " or "")..(alt.source or "")..(alt.catalystTargetID and " · Catalyst" or alt.observedAlternative and " · "..R.L("OBSERVED_ALTERNATIVE") or ""),function()self:RenderDetail(alt,slotID)end)
+   self:DetailItem(alt,R.GearLevelText(alt,slotID).." · "..(alt.acquisition=="dungeon" and "Dungeon" or alt.source or "")..(alt.catalystTargetID and " · Catalyst" or ""),function()self:RenderDetail(alt,slotID)end)
   end end
   if shown==0 then self:DetailText(R.L("NO_ALTERNATIVES"),GREY,11) end
   if not hasDungeon then self:DetailText(R.L("NO_DUNGEON_ALTERNATIVE"),GREY,11) end

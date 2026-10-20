@@ -1,3 +1,11 @@
+## 0.6.2-beta.2
+
+- Show the best obtainable item-level target in Overall BiS and its alternatives, with the Myth 1/6–6/6 or crafted-quality range in details and tooltips.
+- Distinguish ordinary Myth armor (334), elevated raid rewards (344), and maximum-quality Myth crafts (331). Show separate Ascendant targets for eligible slots (340, or 338 crafted), including the regional unlock dates.
+- Stop treating stale target metadata and ID-only base tooltips as upgraded BiS previews. When no exact variant is available, show a target summary; Shift-hover opens an explicitly marked base tooltip with its original stats.
+- Use native inventory tooltips for equipped comparison cards, including the exact second ring/trinket slot. Keep equipped ilvl separate from recommendation targets.
+- Keep unverified source/season targets explicit instead of assigning a guessed level. Add all-spec coverage and target/native-tooltip regressions.
+
 ## 0.6.2-beta.1
 
 - Keep only Overall BiS in Equipment; remove Raid/Mythic+ source selectors and ignore obsolete saved source selections.

@@ -73,7 +73,7 @@ Nexus rozlišuje dátum publikácie zdroja a dátum, kedy ho znovu skontroloval.
 
 ## Catalyst a kontrola novej verzie v hre
 
-Catalyst zachová sekundárne staty, sockety a špeciálne efekty pôvodného predmetu. Rovnaké tier item ID preto nestačí na potvrdenie odporúčanej verzie. Nexus pri známom pôvodnom kuse porovnáva dostupný profil sekundárnych statov; pri chýbajúcich dátach ukáže **over staty**. Pri odporúčanej konverzii tooltip ukazuje pôvodný kus. Skutočne nasadený predmet používa natívny tooltip tvojej konkrétnej verzie.
+Catalyst zachová sekundárne staty, sockety a špeciálne efekty pôvodného predmetu. Rovnaké tier item ID preto nestačí na potvrdenie odporúčanej verzie. Nexus pri známom pôvodnom kuse porovnáva dostupný profil sekundárnych statov; pri chýbajúcich dátach ukáže **over staty**. Pri odporúčanej konverzii zhrnutie uvádza cieľový ilvl; Shift + nájazd myšou otvorí pôvodný kus so zreteľným označením základných statov. Skutočne nasadený predmet používa natívny tooltip tvojej konkrétnej verzie.
 
 Po nainštalovaní skontroluj Equipment bez modelu postavy, reálny ilvl pri **My gear**, sekciu Alternatives a Sockets & Gems. Jeden predmet s jedným socketom má jeden riadok socketu. Adventure Guide pri prvom hľadaní môže krátko zobrazovať priebeh; vyhľadávanie je rozdelené na malé dávky a počas boja sa neotvára.
 
@@ -82,3 +82,13 @@ Testy mimo hry pomáhajú zachytiť regresie, ale nenahrádzajú vykreslenie a b
 ## Overall BiS a alternatívy
 
 Equipment má iba Overall BiS. Pri slote sú najviac štyri odlišné overené alternatívy. Ak je známa dungeonová možnosť, má rezervované miesto a označenie Dungeon. Keď zdroje poskytujú menej možností, zoznam sa nedopĺňa vymyslenými predmetmi. Wowhead/Murlok dopĺňajú autorské možnosti Icy Veins, ktoré sa zbierajú v dennej aktualizácii.
+
+## Ilvl odporúčanej a nasadenej výbavy (od 0.6.2-beta.2)
+
+**Overall BiS a alternatívy** ukazujú cieľ najlepšej získateľnej verzie. Detail uvádza Myth 1/6 až 6/6, prípadne kvalitu Myth craftu. Bežný Myth gear ide z 318 na 334; Myth craft z 318 na 331. Špeciálne Mythic odmeny z The Coiled Altar/Ula’tek majú 344. Pri oprávnených zbraniach, trinketoch a neckoch je samostatne uvedené Ascendant maximum 340 (craft 338); už zvýšené 344 odmeny sa ďalej nezvyšujú. Odomknutie Ascendant systému je 20. 10. v NA a 21. 10. v EU.
+
+Základný predmet podľa samotného ID nemá bonusy konkrétnej sezónnej verzie. Preto jeho nízky natívny ilvl a staty nevydávame za maximálny BiS. Bežný nájazd myšou ukáže cieľový rozsah a zdroj. **Podrž Shift a potom prejdi myšou na predmet**, ak chceš natívny tooltip základného kusu; bude označený ako základný náhľad. Nexus zatiaľ neprepočítava jeho staty na maximum. Pri nedostatočne overenom pôvode ukáže, že maximum nie je overené.
+
+**My gear a Currently equipped** používajú aktuálny ilvl a natívny tooltip tvojej konkrétnej nasadenej verzie. BiS maximum sa na tieto predmety nevzťahuje automaticky.
+
+Pravidlá: https://www.wowhead.com/guide/midnight/item-level-gear-upgrades-dawncrests a https://www.wowhead.com/guide/midnight/bonus-rolls-item-upgrades . Číselné ciele sú obmedzené na sezónu 12.1; pri inej sezóne sa nepreberajú automaticky.
