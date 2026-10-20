@@ -1,3 +1,11 @@
+## 0.6.4-beta.1
+
+- Integrate the latest authored/Murlok refresh with the Catalyst passive-effect fixes.
+- Run daily guide, item-bonus and meta publication independently of WCL. Keep the last validated WCL snapshot.
+- Add a separate weekly WCL workflow with a cheap daily due check and automatic retry after failed collections. Only its short publication phase shares the daily write lock.
+- Persist anonymous completed spec/mode summaries even after failures; resume compatible checkpoints within 48 hours without changing the original sampling window. Reject incomplete publications.
+- Pace API queries and honor numeric Retry-After on transient rate limits. Expand interruption/resumption, cadence, stale-window and publication-isolation regressions.
+
 ## 0.6.3-beta.2
 
 - Preserve published source-item passive effects in maximum-ilvl and Catalyst previews. Verify Gaze at 344 and Chestwrap at Myth 6/6, 334 against live tooltip data.

@@ -6,12 +6,12 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: nexus-data-refresh
+  group: nexus-data-publish
   cancel-in-progress: false
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
         with:
@@ -27,18 +27,11 @@ jobs:
       - name: Collect complete candidate
         if: steps.cadence.outputs.due == 'true'
         run: python tools/refresh_gear.py
-      - name: Collect anonymous WCL evidence
-        id: wcl
-        continue-on-error: true
+      - name: Refresh publication base
         if: steps.cadence.outputs.due == 'true'
-        env:
-          WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
-          WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
-          WCL_WAIT_FOR_QUOTA: 'true'
-        run: python tools/wcl_public.py --collect-guides --guide-snapshot build/candidate/guide-snapshot.json
-      - name: Report retained WCL snapshot
-        if: steps.cadence.outputs.due == 'true' && steps.wcl.outcome == 'failure'
-        run: echo "::warning::WCL collection failed; retain the previous dated broad snapshot. Author guides and Murlok may still refresh. Incomplete checkpoints are not published."
+        run: |
+          git fetch origin "${GITHUB_REF_NAME}"
+          git merge --ff-only "origin/${GITHUB_REF_NAME}"
       - name: Stage complete candidate
         if: steps.cadence.outputs.due == 'true'
         run: python tools/data_release.py stage
@@ -63,7 +56,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add Nexus/Data.lua Nexus/MetaData.lua Nexus/GuideData.lua Nexus/WCLData.lua Nexus/SourceStatus.lua Nexus/Nexus.toc data/snapshot.json data/meta-snapshot.json data/guide-snapshot.json data/wcl-snapshot.json data/source-status.json DATA-SOURCES.md
+          git add Nexus/Data.lua Nexus/MetaData.lua Nexus/GuideData.lua Nexus/SourceStatus.lua Nexus/Nexus.toc data/snapshot.json data/meta-snapshot.json data/guide-snapshot.json data/source-status.json DATA-SOURCES.md
           git commit -m 'Refresh verified Nexus snapshots'
           version=$(python tools/data_release.py version)
           git tag -a "v$version" -m "Nexus data $version"

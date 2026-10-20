@@ -3,7 +3,7 @@
 A successful probe verifies access, not the quality or completeness of BiS data.
 Optional rankings are reduced to anonymous item frequencies before writing files.
 """
-import argparse,base64,collections,copy,datetime as dt,json,os,time,urllib.request,urllib.error
+import argparse,base64,collections,copy,datetime as dt,hashlib,json,os,time,urllib.request,urllib.error
 from pathlib import Path
 API='https://www.warcraftlogs.com/api/v2/client'
 RANKINGS='query($id:Int!,$class:String!,$spec:String!,$difficulty:Int!){worldData{encounter(id:$id){id name journalID characterRankings(page:1,difficulty:$difficulty,className:$class,specName:$spec,metric:METRIC,includeCombatantInfo:true)}}}'
@@ -85,6 +85,25 @@ def reduce_characters(characters,known):
  for _,ids,_ in characters.values():counts.update(ids & known)
  return {str(i):n for i,n in sorted(counts.items())}
 
+def checkpoint_key(known):
+ return hashlib.sha256(json.dumps([sorted(known),RANKINGS,PAGES,MIN_CONTEXT,MIN_UNIQUE,'latest-loadout-v1'],sort_keys=True).encode()).hexdigest()
+
+def read_checkpoint(path,known,now):
+ if not path.exists():return
+ try:
+  data=json.loads(path.read_text(encoding='utf-8'));validate_snapshot(data)
+  age=(now-dt.datetime.fromisoformat(data['generatedAt'])).total_seconds()
+  if data.get('checkpointKey')!=checkpoint_key(known) or not 0<=age<=48*3600:return
+  for modes in data['specs'].values():
+   for mode,record in list(modes.items()):
+    if any(c.get('error') for c in record['encounters']):del modes[mode]
+  return data
+ except (ValueError,TypeError,KeyError):return
+
+def save_checkpoint(path,result):
+ path.parent.mkdir(parents=True,exist_ok=True)
+ temporary=path.with_suffix('.tmp');temporary.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');temporary.replace(path)
+
 def collect_guides(client,root,guides_path=None,spec_ids=None,now=None,wait=False,checkpoint=False):
  from catalog import SPECS
  guides=json.loads((guides_path or root/'data/guide-snapshot.json').read_text(encoding='utf-8'))
@@ -94,11 +113,20 @@ def collect_guides(client,root,guides_path=None,spec_ids=None,now=None,wait=Fals
  begin,end=start.timestamp()*1000,now.timestamp()*1000
  result={'schema':2,'patch':'12.1','generatedAt':now.isoformat(),'collectionComplete':False,'source':'Warcraft Logs','windowStart':start.isoformat(),'windowEnd':now.isoformat(),'specs':{str(s['id']):{} for s in SPECS},'failures':[],
  'methodology':{'population':'Top-ranked DPS/HPS results per spec and encounter, current WCL default partition; not all logs or a random player sample','pagesPerEncounter':PAGES,'windowDays':14,'minimumKey':10,'minimumPerEncounter':MIN_CONTEXT,'minimumUniqueCharacters':MIN_UNIQUE,'deduplication':'Latest complete loadout per character within each spec/mode; names/server identities exist only in memory','selection':'No WCL frequency selects or ranks Overall BiS','scope':{m:{k:v for k,v in scope.items() if k!='encounters'} for m,scope in scopes.items()}}}
+ path=root/'build/wcl/checkpoint.json'
+ if checkpoint:
+  resumed=read_checkpoint(path,known,now)
+  if resumed:
+   result=resumed;now=dt.datetime.fromisoformat(result['generatedAt'])
+   begin=dt.datetime.fromisoformat(result['windowStart']).timestamp()*1000;end=now.timestamp()*1000
+   print('Resuming anonymous completed spec/mode summaries; original sampling window retained',flush=True)
+ result['checkpointKey']=checkpoint_key(known)
  healers={65,256,257,264,270,105,1468};requests=0
  for spec in SPECS:
   sid=str(spec['id'])
   if spec_ids and spec['id'] not in spec_ids:continue
   for mode,scope in scopes.items():
+   if checkpoint and mode in result['specs'][sid]:continue
    pooled={};contexts=[];metric='hps' if spec['id'] in healers else 'dps'
    for encounter in scope['encounters']:
     characters={};pages=0;truncated=False;error=None;keys=[]
@@ -124,29 +152,35 @@ def collect_guides(client,root,guides_path=None,spec_ids=None,now=None,wait=Fals
     if keys:context['keyRange']=[min(keys),max(keys)]
     if error:context['error']=error
     contexts.append(context)
+   if any(c.get('error') for c in contexts):raise ValueError('WCL context failed; keep checkpoint and previous published snapshot')
    record={'retrievedAt':now.isoformat(),'metric':metric,'sampleSize':len(pooled),'items':reduce_characters(pooled,known),'encounters':contexts,'expectedEncounterCount':len(contexts),'coveredEncounterCount':sum(c['sampleSize']>=MIN_CONTEXT for c in contexts),'zoneID':scope['zoneID'],'difficulty':scope['difficulty'],'regionCounts':dict(collections.Counter(v[2] for v in pooled.values()))}
    record['eligible']=record['coveredEncounterCount']==record['expectedEncounterCount'] and record['sampleSize']>=MIN_UNIQUE
    record['balancedUsage']={id:round(sum(c['items'].get(id,0)/c['sampleSize'] if c['sampleSize'] else 0 for c in contexts)/len(contexts),6) for id in record['items']}
    result['specs'][sid][mode]=record
    print('WCL spec',sid,mode,record['coveredEncounterCount'],'/',len(contexts),'contexts;',len(pooled),'unique characters; eligible',record['eligible'],flush=True)
+   result['collectionComplete']=all(len(modes)==2 for modes in result['specs'].values())
+   validate_snapshot(result)
+   if checkpoint:save_checkpoint(path,result)
   result['collectionComplete']=all(len(modes)==2 for modes in result['specs'].values())
   validate_snapshot(result)
-  if checkpoint:
-   dest=root/'build/wcl';dest.mkdir(parents=True,exist_ok=True)
-   (dest/'checkpoint.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
  validate_snapshot(result)
  return result
 
 def request(url,payload,headers):
  req=urllib.request.Request(url,data=payload,headers=headers,method='POST')
- for attempt in range(3):
+ for attempt in range(7):
   try:
    with urllib.request.urlopen(req,timeout=30) as response:return json.load(response)
   except urllib.error.HTTPError as error:
-   if error.code in {429,500,502,503,504} and attempt<2:time.sleep(2**(attempt+1));continue
+   if error.code in {429,500,502,503,504} and attempt<6:
+    retry=error.headers.get('Retry-After','') if error.headers else ''
+    remaining=min(3600,max(2**(attempt+1),int(retry) if retry.isdigit() else 0))
+    while remaining:
+     pause=min(60,remaining);time.sleep(pause);remaining-=pause
+    continue
    raise RuntimeError('Warcraft Logs HTTP '+str(error.code)+'; credentials and response body omitted') from None
   except (urllib.error.URLError,TimeoutError):
-   if attempt<2:time.sleep(2**(attempt+1));continue
+   if attempt<6:time.sleep(min(60,2**(attempt+1)));continue
    raise RuntimeError('Warcraft Logs network unavailable; credentials omitted') from None
 
 class Client:
@@ -157,8 +191,12 @@ class Client:
   auth=base64.b64encode((client_id+':'+secret).encode()).decode()
   response=request('https://www.warcraftlogs.com/oauth/token',b'grant_type=client_credentials',{'Authorization':'Basic '+auth,'Content-Type':'application/x-www-form-urlencoded'})
   self.token=response.get('access_token')
+  self.last_query=0
   if not self.token:raise ValueError('OAuth token missing; response omitted')
  def query(self,query,variables=None):
+  delay=1.1-(time.monotonic()-self.last_query)
+  if delay>0:time.sleep(delay)
+  self.last_query=time.monotonic()
   result=request(API,json.dumps({'query':query,'variables':variables or {}}).encode(),{'Authorization':'Bearer '+self.token,'Content-Type':'application/json'})
   if result.get('errors'):raise ValueError('Warcraft Logs query rejected; raw response omitted')
   if not result.get('data'):raise ValueError('Warcraft Logs returned no data')

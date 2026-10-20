@@ -17,7 +17,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: nexus-data-refresh
+  group: nexus-wcl-api
   cancel-in-progress: false
 jobs:
   verify:
@@ -34,6 +34,12 @@ jobs:
           path: .cache/wcl
           key: wcl-v1-${{ inputs.encounter_id }}-${{ github.run_id }}
           restore-keys: wcl-v1-${{ inputs.encounter_id }}-
+      - uses: actions/cache/restore@v6
+        if: inputs.collect_guides
+        with:
+          path: build/wcl/checkpoint.json
+          key: wcl-summary-v3-${{ hashFiles('tools/wcl_public.py') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: wcl-summary-v3-${{ hashFiles('tools/wcl_public.py') }}-
       - name: Verify public API and optional anonymous sample
         env:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
@@ -43,7 +49,13 @@ jobs:
           WCL_WAIT_FOR_QUOTA: 'true'
           ENCOUNTER_ID: ${{ inputs.encounter_id || '0' }}
         run: python tools/wcl_public.py --encounter "$ENCOUNTER_ID"
+      - uses: actions/cache/save@v6
+        if: always() && inputs.collect_guides && hashFiles('build/wcl/checkpoint.json') != ''
+        with:
+          path: build/wcl/checkpoint.json
+          key: wcl-summary-v3-${{ hashFiles('tools/wcl_public.py') }}-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/upload-artifact@v7
+        if: always()
         with:
           name: Nexus-WCL-public-sample
           path: build/wcl/*

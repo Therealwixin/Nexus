@@ -8,9 +8,9 @@ Workflow **Refresh Nexus data** je zapnutý denne približne o 04:17 UTC. V Brat
 
 Úspešný beh:
 
-1. Stiahne aktuálne stránky Murlok a Wowhead pre všetkých 40 špecializácií a meta dáta.
+1. Stiahne aktuálne stránky Murlok, Wowhead a Icy Veins pre všetkých 40 špecializácií, meta dáta a údaje o efektových bonusoch predmetov.
 2. Skontroluje dostupnosť Raider.IO a Archon.
-3. Cez Warcraft Logs API načíta anonymné gear štatistiky pre 40 špecializácií. Používa všetkých 8 sezónnych M+ dungeonov a 10 raid encounterov; úplnosť a veľkosť vzorky ukazuje pri konkrétnej špecializácii.
+3. Použije poslednú overenú WCL vzorku. WCL zbiera samostatná týždenná úloha; denná aktualizácia na ňu nečaká.
 4. Overí patch, úplnosť, zdroje a počty vzoriek. Spustí regresné testy addonu.
 5. Uloží novú verziu a vytvorí ZIP na GitHube aj na CurseForge.
 
@@ -107,13 +107,13 @@ WCL má oddelený širší zber pre aktuálnu sezónu: všetkých 8 dungeonov na
 
 Vzorka sa označí ako vhodná až pri minimálne 20 unikátnych postavách v **každom** plánovanom encounteri a aspoň 200 unikátnych postavách celkovo v danom spec/režime. Chýbajúci dungeon sa nezamení za kompletné sezónne pokrytie. V prehľade dát je počet zozbieraných specov, presné pokrytie, veľkosť vzorky a obdobie. Aj tak ide o top rebríčkovú vzorku, nie náhodný výber či všetky logy. Tanky a DPS používajú DPS rebríček, healeri HPS; samotné poradie nepoukazuje na najlepšiu obrannú alebo liečiteľskú výbavu.
 
-Prvý nový živý dataset obsahuje Arms a Subtlety, oba s 8/8 dungeonmi a 10/10 raid encountermi. Kompletný zber všetkých 40 specov je súčasťou denného workflow. Starý dataset z jedného dungeonu/jedného bossa bol odstránený. Archon zostáva označený ako nezapojený, pretože verejný prístup vracia HTTP 403; WCL kľúč sám tento prístup nezabezpečuje.
+Prvý nový živý dataset obsahuje Arms a Subtlety, oba s 8/8 dungeonmi a 10/10 raid encountermi. Kompletný zber všetkých 40 specov zabezpečuje samostatný týždenný workflow. Starý dataset z jedného dungeonu/jedného bossa bol odstránený. Archon zostáva označený ako nezapojený, pretože verejný prístup vracia HTTP 403; WCL kľúč sám tento prístup nezabezpečuje.
 
 ### Ako prebehne automatická aktualizácia
 
 1. GitHub denne spustí **Refresh Nexus data**. Ručne ho nájdeš cez repozitár → Actions → Refresh Nexus data → Run workflow → vetva main → Run workflow.
-2. Najprv sa načítajú guidey a Murlok. Širší WCL zber môže pri hodinovej kvóte čakať na jej obnovenie; celé spracovanie môže trvať niekoľko hodín. Kým beží, nespúšťaj ďalšiu rovnakú úlohu. Žltý bežiaci stav počas čakania nie je chyba.
-3. Ak WCL dočasne zlyhá, ponechá sa predošlý dátovaný široký snapshot. Nedokončený checkpoint sa nepublikuje; aktualizácia guideov/Murloku môže pokračovať. Zlyhanie je označené varovaním v Actions.
+2. Najprv sa načítajú guidey a Murlok. Denný workflow už WCL API vôbec nevolá. Použije posledný zverejnený WCL snapshot.
+3. Samostatný WCL workflow pri zlyhaní ponechá predošlý dátovaný snapshot. Nedokončený priebeh uloží do cache; denná aktualizácia pokračuje nezávisle.
 4. Až po testoch workflow uloží dáta a vydá nový beta balík na CurseForge/GitHub. V CurseForge aplikácii potom treba vykonať aktualizáciu addonu; samotný WoW nemá prístup na internet a nový snapshot si počas hrania nestiahne.
 
 Detailné WCL mapy jednotlivých encounterov zostávajú v auditnom JSON súbore repozitára. Do WoW sa načítajú zmenšené súhrny, aby sa zbytočne nezvyšovala RAM. Šírka vzorky, presné filtre a verejné odkazy robia dáta overiteľnými; tvrdenie o absolútne nespochybniteľnom osobnom BiS by bolo zavádzajúce.
@@ -127,3 +127,17 @@ Pri Catalyst náhľade je **Catalyst: názov tieru** označenie výslednej konve
 Denný zber zachová bonusy publikované v guideoch a načíta aktuálnu ItemBonus tabuľku SimulationCraft. Efektové bonusy oddelí od ilvl a upgrade bonusov. Pre pôvodný Catalyst kus môže použiť iba efekt doložený pre toto isté pôvodné item ID. Pri rozporných variantoch efekt neodhadne. Voliteľné craft efekty neprenáša medzi odporúčaniami; zachová iba výslovne publikovanú voľbu konkrétneho riadku. Pôvodné dátumy guideov sa pri tomto obohatení nemenia.
 
 Nie je potrebné ručne dopisovať pasíva jednotlivých helm/chest predmetov. Neúplná bonusová tabuľka alebo iný patch zastavia vydanie kandidáta a ponechajú poslednú vydanú verziu. Pri novej sezóne treba overiť ilvl pravidlá a API; nepredstierame, že tieto zmeny možno vždy bezpečne odhadnúť automaticky. WoW naďalej dostáva hotový snapshot cez aktualizáciu balíka.
+
+## Automatický týždenný WCL zber (od 0.6.4-beta.1)
+
+Všetko beží na GitHube, aj keď máš vypnutý počítač:
+
+- **Refresh Nexus data**: denne približne 04:17 UTC (Bratislava 06:17 v lete / 05:17 v zime). Aktualizuje guidey, Murlok, predmetové bonusy a meta dáta, spustí testy a vydá nový balík. Na WCL nečaká.
+- **Refresh weekly WCL evidence**: denne 04:47 UTC urobí lacnú kontrolu dátumu bez WCL API. Samotný široký zber sa spustí približne raz za sedem dní, alebo ak prvá úplná vzorka ešte chýba. Po chybe sa pokus automaticky zopakuje pri ďalšej dennej kontrole.
+- Po každom dokončenom spec/režime sa uloží anonymný súhrn. Uloženie do GitHub cache sa vykoná aj pri chybe zberu. Ďalší beh preskočí hotové režimy, ak sú kompatibilné a nie sú staršie než 48 hodín. Zachová pôvodné 14-dňové obdobie a dátum; čerstvosť nepredstiera. Pri zmene pravidiel, item zoznamu alebo vypršaní okna začne nový zber.
+- Požiadavky sú rozostúpené, chyba 429 má opakované pokusy a rešpektuje číselný Retry-After. API kvóta stále môže znamenať hodinové čakanie na serveri.
+- Až úplný validovaný zber všetkých 40 specov sa uloží do hlavnej vetvy. Nové WCL dáta dostanú hráči s nasledujúcim denným balíkom. Neúplná vzorka ani checkpoint sa hráčom nevydajú. Nedostatočný počet použiteľných hráčov sa naďalej poctivo označuje ako nedostatočné pokrytie.
+
+Ručne môžeš otvoriť repozitár → **Actions → Refresh weekly WCL evidence → Run workflow → main**. Bežne netreba nič klikať. Ak úloha zlyhá opakovane, otvor neúspešný krok a pošli odkaz; API kľúče nevkladaj do chatu. Denný zber guideov tým nie je zastavený.
+
+Krátka fáza zápisu dát je chránená spoločným zámkom, aby si úlohy neprepísali súbory. Niekoľkohodinový WCL zber tento zámok nedrží. Inštalácia nového balíka na tvojom počítači stále prebieha cez CurseForge aplikáciu alebo ručný ZIP.

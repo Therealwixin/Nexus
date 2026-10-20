@@ -66,3 +66,62 @@ record,count=R.GetWCLEvidence(270175,71,'mythicplus');assert record and count==8
 R.WCLData=lua.eval(compact_lua(partial));assert R.GetWCLEvidence(270175,71,'mythicplus') is None
 R.WCLData=lua.table_from({'schema':1,'patch':'12.1'});assert R.GetWCLEvidence(270175,71,'mythicplus') is None
 print('WCL: 18-encounter scope, pagination, 14-day/key filters, latest-character deduplication, coverage gates, legacy rejection, credential checks and quota guard PASS')
+
+# Real interrupted/resumed collection: persist aggregate mode summaries only.
+import tempfile,urllib.error
+from wcl_public import read_checkpoint,request
+from wcl_release import due,stage
+tempbase=ROOT/'build/wcl-tests';tempbase.mkdir(parents=True,exist_ok=True)
+with tempfile.TemporaryDirectory(dir=tempbase) as directory,contextlib.redirect_stdout(io.StringIO()):
+ root=Path(directory);(root/'data').mkdir();(root/'Nexus').mkdir()
+ guide_bytes=(ROOT/'data/guide-snapshot.json').read_bytes();(root/'data/guide-snapshot.json').write_bytes(guide_bytes)
+ class InterruptedClient(FixtureClient):
+  def query(self,q,variables=None):
+   if variables and variables.get('difficulty')==5:raise RuntimeError('Warcraft Logs HTTP 429')
+   return super().query(q,variables)
+ interrupted=InterruptedClient()
+ try:collect_guides(interrupted,root,spec_ids={71},now=now,checkpoint=True)
+ except RuntimeError:pass
+ else:raise AssertionError('Interruption not simulated')
+ cp=root/'build/wcl/checkpoint.json';saved=json.loads(cp.read_text(encoding='utf-8'))
+ assert interrupted.pages==16 and set(saved['specs']['71'])=={'mythicplus'}
+ assert 'Do not serialize' not in cp.read_text(encoding='utf-8')
+ resumed_client=FixtureClient()
+ resumed=collect_guides(resumed_client,root,spec_ids={71},now=now+dt.timedelta(hours=1),checkpoint=True)
+ assert resumed_client.pages==20,'Finished dungeon pages must not be requested again'
+ assert resumed['specs']['71']['mythicplus']==saved['specs']['71']['mythicplus']
+ assert resumed['windowEnd']==saved['windowEnd'] and resumed['generatedAt']==saved['generatedAt'],'Do not relabel an older sample as newly collected'
+ known={i['id'] for i in json.loads(guide_bytes)['items'].values()}
+ assert read_checkpoint(cp,known,now+dt.timedelta(hours=49)) is None,'Expired windows must start fresh'
+ assert read_checkpoint(cp,known|{987654321},now) is None,'Changed item universe cannot reuse incompatible counts'
+ final=root/'build/wcl/wcl-snapshot.json';final.write_text(json.dumps(resumed),encoding='utf-8')
+ try:stage(root,now)
+ except ValueError:pass
+ else:raise AssertionError('An incomplete checkpoint became a published snapshot')
+ complete=copy.deepcopy(resumed)
+ for sid in complete['specs']:complete['specs'][sid]=copy.deepcopy(resumed['specs']['71'])
+ complete['collectionComplete']=True
+ assert not due(complete,now+dt.timedelta(days=1),'schedule')
+ assert due(complete,now+dt.timedelta(days=7),'schedule')
+ assert due(complete,now,'workflow_dispatch')
+ assert due(resumed,now,'schedule'),'Unfinished initial collection must retry automatically'
+ final.write_text(json.dumps(complete),encoding='utf-8');stage(root,now)
+ assert (root/'data/guide-snapshot.json').read_bytes()==guide_bytes,'Independent WCL publish must not edit authored guides'
+ assert json.loads((root/'data/wcl-snapshot.json').read_text())['collectionComplete']
+ assert 'balancedUsage' not in (root/'Nexus/WCLData.lua').read_text()
+
+limited=urllib.error.HTTPError('https://example.invalid',429,'limited',{'Retry-After':'70'},None)
+with patch('wcl_public.urllib.request.urlopen',side_effect=[limited,io.BytesIO(b'{"ok":true}')]),patch('wcl_public.time.sleep') as sleep:
+ assert request('https://example.invalid',b'{}',{})=={'ok':True}
+ assert [c.args[0] for c in sleep.call_args_list]==[60,10],'Respect Retry-After in bounded waits'
+client=Client.__new__(Client);client.token='test';client.last_query=100
+with patch('wcl_public.time.monotonic',side_effect=[100.2,101.1]),patch('wcl_public.time.sleep') as sleep,patch('wcl_public.request',return_value={'data':{'ok':True}}):
+ assert client.query('{test}')=={'ok':True}
+ assert .89<sleep.call_args.args[0]<.91,'Pace queries to avoid API bursts'
+daily=(ROOT/'.github/workflows/data-refresh.yml').read_text(encoding='utf-8')
+weekly=(ROOT/'.github/workflows/wcl-refresh.yml').read_text(encoding='utf-8')
+assert 'wcl_public.py' not in daily and 'WCL_CLIENT_' not in daily,'WCL must not block the daily collection'
+assert 'group: nexus-data-publish' in daily and 'group: nexus-wcl-api' in weekly
+assert weekly.index('group: nexus-data-publish')>weekly.index('  publish:'),'Only short WCL publication shares the daily lock'
+assert 'always()' in weekly and 'actions/cache/save' in weekly,'Failed collections must save completed summaries'
+print('WCL automation: weekly cadence, automatic retry, private-data-free resume, fixed/expired windows, isolated publication, HTTP 429 backoff and pacing PASS')
