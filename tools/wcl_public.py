@@ -94,6 +94,19 @@ def audit_schema(client):
    rows=data.get('rankings',[])
    result['pages'].append({'encounter':encounter,'page':page,'pageKeys':list(data),'rowKeys':list(rows[0]) if rows else [],'reportKeys':list(rows[0].get('report',{})) if rows else [],'characterKeys':list(rows[0].get('character',{})) if rows else [],'rows':len(rows),'hasMorePages':data.get('hasMorePages'),'timeRange':[min((r.get('startTime',0) for r in rows),default=0),max((r.get('startTime',0) for r in rows),default=0)]})
  result['quotaAfter']=client.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
+ result['groupSamples']=[]
+ for encounter,difficulty,metric in [(12813,10,'dps'),(3429,5,'hps')]:
+  data=client.query('{worldData{encounter(id:'+str(encounter)+'){characterRankings(page:1,difficulty:'+str(difficulty)+',metric:'+metric+',includeCombatantInfo:true,includeOtherPlayers:true)}}}')['worldData']['encounter']['characterRankings']
+  rows=data.get('rankings',[]);objects=[]
+  def walk(value):
+   if isinstance(value,dict):
+    if isinstance(value.get('gear'),list):objects.append(value)
+    for key,child in value.items():
+     if key!='gear':walk(child)
+   elif isinstance(value,list):
+    for child in value:walk(child)
+  walk(rows)
+  result['groupSamples'].append({'encounter':encounter,'rowKeys':list(rows[0]) if rows else [],'objectsWithGear':len(objects),'gearObjectKeys':list(objects[-1]) if objects else [],'specCounts':dict(collections.Counter(str(o.get('class'))+' / '+str(o.get('spec')) for o in objects))})
  dest=Path('build/wcl');dest.mkdir(parents=True,exist_ok=True)
  (dest/'api-schema.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
  print('Public ranking schema/cost audit complete; no player identities retained')
