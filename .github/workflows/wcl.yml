@@ -2,7 +2,7 @@ name: Verify Warcraft Logs
 on:
   push:
     branches: [main]
-    paths: ['tools/wcl_public.py']
+    paths: ['tools/wcl_public.py', '.github/workflows/wcl.yml']
   workflow_dispatch:
     inputs:
       collect_guides:
