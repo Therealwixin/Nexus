@@ -46,6 +46,7 @@ jobs:
         run: |
           python tools/refresh_gear.py --validate-only
           python tools/test_lean.py
+          python tools/test_stats.py
           python tools/test_maintenance.py
           python tools/test_meta.py
           python tools/test_guides.py

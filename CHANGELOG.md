@@ -1,3 +1,12 @@
+## 0.6.5-beta.1
+
+- Add a restrained Stats tab between Equipment and Preparation, using the shared 40-spec selector. Show Murlok M+ secondary/minor reference bars as a compact rating/percentage table with current-character values and signed rating differences.
+- Ordinary hover and the detail panel explain below/above-reference gaps, percentage-point differences, marginal DR, next rating boundary and rating-derived cap. Distinguish Mastery points from effect percentages and buffs/base stats from rating.
+- Read live values from native APIs only for the active level-90 spec. Guard combat/secret values and incompatible patches; refresh via player stat events without equipment rescans or polling.
+- Extract current DR curves during daily collection and validate modeled gains against native rating bonuses. Hide unsupported/mismatched calculations; no invented Speed cap.
+- Preserve published stat priorities, sample sizes, source/check dates and previous dated references on source failure. No individual player requests or profiles are introduced.
+- Test all 40 profiles, parser failures, zeros, DR boundaries/caps, Mastery/buffs, secret values, live hover, event coalescing and minimum/maximum table layouts.
+
 ## 0.6.4-beta.2
 
 - Restrict dungeon-entry alerts to the active specialization's primary authored BiS targets. Source-restricted alternatives and observed M+ items no longer inflate the popup.

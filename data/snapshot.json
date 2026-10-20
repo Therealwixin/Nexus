@@ -880,7 +880,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Arms",
-        "classID": 1
+        "classID": 1,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1265,
+                "percent": 37.0
+              },
+              "haste": {
+                "rating": 923,
+                "percent": 23.0
+              },
+              "mastery": {
+                "rating": 728,
+                "percent": 26.0
+              },
+              "versatility": {
+                "rating": 130,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "crit",
+              "haste",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 201,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 40,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:40Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/warrior/arms/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -2376,7 +2431,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Fury",
-        "classID": 1
+        "classID": 1,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 835,
+                "percent": 25.0
+              },
+              "haste": {
+                "rating": 1075,
+                "percent": 27.0
+              },
+              "mastery": {
+                "rating": 1131,
+                "percent": 46.0
+              },
+              "versatility": {
+                "rating": 123,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "haste",
+              "crit",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 161,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 77,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:03:04Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/warrior/fury/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -3955,7 +4065,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Protection",
-        "classID": 1
+        "classID": 1,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 947,
+                "percent": 28.0
+              },
+              "haste": {
+                "rating": 1201,
+                "percent": 32.0
+              },
+              "mastery": {
+                "rating": 487,
+                "percent": 28.0
+              },
+              "versatility": {
+                "rating": 359,
+                "percent": 7.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 41,
+                "percent": 1.0
+              },
+              "leech": {
+                "rating": 264,
+                "percent": 11.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:04:36Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/warrior/protection/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -5466,7 +5631,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Holy",
-        "classID": 2
+        "classID": 2,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 768,
+                "percent": 26.0
+              },
+              "haste": {
+                "rating": 1134,
+                "percent": 26.0
+              },
+              "mastery": {
+                "rating": 435,
+                "percent": 40.0
+              },
+              "versatility": {
+                "rating": 680,
+                "percent": 13.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "versatility",
+              "mastery"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 234,
+                "percent": 6.0
+              },
+              "leech": {
+                "rating": 41,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 1.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:30Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/paladin/holy/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -7042,7 +7262,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Protection",
-        "classID": 2
+        "classID": 2,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1095,
+                "percent": 33.0
+              },
+              "haste": {
+                "rating": 1006,
+                "percent": 29.0
+              },
+              "mastery": {
+                "rating": 598,
+                "percent": 25.0
+              },
+              "versatility": {
+                "rating": 277,
+                "percent": 5.0
+              }
+            },
+            "priority": [
+              "crit",
+              "haste",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 47,
+                "percent": 1.0
+              },
+              "leech": {
+                "rating": 290,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:30Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/paladin/protection/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -8467,7 +8742,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Retribution",
-        "classID": 2
+        "classID": 2,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1084,
+                "percent": 33.0
+              },
+              "haste": {
+                "rating": 787,
+                "percent": 20.0
+              },
+              "mastery": {
+                "rating": 1077,
+                "percent": 48.0
+              },
+              "versatility": {
+                "rating": 122,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "crit",
+              "mastery",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 188,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 36,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:21Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/paladin/retribution/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -9843,7 +10173,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Beast Mastery",
-        "classID": 3
+        "classID": 3,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1266,
+                "percent": 42.0
+              },
+              "haste": {
+                "rating": 318,
+                "percent": 9.0
+              },
+              "mastery": {
+                "rating": 1312,
+                "percent": 75.0
+              },
+              "versatility": {
+                "rating": 214,
+                "percent": 4.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "crit",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 184,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 42,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T02:04:12Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/hunter/beast-mastery/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -11281,7 +11666,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Marksmanship",
-        "classID": 3
+        "classID": 3,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1496,
+                "percent": 46.0
+              },
+              "haste": {
+                "rating": 302,
+                "percent": 11.0
+              },
+              "mastery": {
+                "rating": 1177,
+                "percent": 21.0
+              },
+              "versatility": {
+                "rating": 235,
+                "percent": 4.0
+              }
+            },
+            "priority": [
+              "crit",
+              "mastery",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 113,
+                "percent": 3.0
+              },
+              "leech": {
+                "rating": 144,
+                "percent": 2.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:22Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/hunter/marksmanship/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -12791,7 +13231,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Survival",
-        "classID": 3
+        "classID": 3,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 904,
+                "percent": 34.0
+              },
+              "haste": {
+                "rating": 855,
+                "percent": 22.0
+              },
+              "mastery": {
+                "rating": 1211,
+                "percent": 32.0
+              },
+              "versatility": {
+                "rating": 101,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "crit",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 153,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 87,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T18:06:25Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/hunter/survival/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -14273,7 +14768,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Assassination",
-        "classID": 4
+        "classID": 4,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1220,
+                "percent": 41.0
+              },
+              "haste": {
+                "rating": 921,
+                "percent": 25.0
+              },
+              "mastery": {
+                "rating": 799,
+                "percent": 43.0
+              },
+              "versatility": {
+                "rating": 153,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "crit",
+              "haste",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 178,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 60,
+                "percent": 6.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T18:04:34Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/rogue/assassination/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -15800,7 +16350,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Outlaw",
-        "classID": 4
+        "classID": 4,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1217,
+                "percent": 37.0
+              },
+              "haste": {
+                "rating": 904,
+                "percent": 24.0
+              },
+              "mastery": {
+                "rating": 286,
+                "percent": 14.0
+              },
+              "versatility": {
+                "rating": 611,
+                "percent": 11.0
+              }
+            },
+            "priority": [
+              "crit",
+              "haste",
+              "versatility",
+              "mastery"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 95,
+                "percent": 3.0
+              },
+              "leech": {
+                "rating": 184,
+                "percent": 5.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-18T18:02:57Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/rogue/outlaw/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -17308,7 +17913,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Subtlety",
-        "classID": 4
+        "classID": 4,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 954,
+                "percent": 33.0
+              },
+              "haste": {
+                "rating": 768,
+                "percent": 21.0
+              },
+              "mastery": {
+                "rating": 1069,
+                "percent": 77.0
+              },
+              "versatility": {
+                "rating": 295,
+                "percent": 5.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "crit",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 131,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 120,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T18:03:35Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/rogue/subtlety/m%2B",
+          "sampleSize": 42,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -18932,7 +19592,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Discipline",
-        "classID": 5
+        "classID": 5,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 747,
+                "percent": 21.0
+              },
+              "haste": {
+                "rating": 1281,
+                "percent": 33.0
+              },
+              "mastery": {
+                "rating": 771,
+                "percent": 34.0
+              },
+              "versatility": {
+                "rating": 232,
+                "percent": 4.0
+              }
+            },
+            "priority": [
+              "haste",
+              "mastery",
+              "crit",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 92,
+                "percent": 3.0
+              },
+              "leech": {
+                "rating": 214,
+                "percent": 5.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:02:46Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/priest/discipline/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -20507,7 +21222,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Holy",
-        "classID": 5
+        "classID": 5,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 927,
+                "percent": 25.0
+              },
+              "haste": {
+                "rating": 967,
+                "percent": 26.0
+              },
+              "mastery": {
+                "rating": 653,
+                "percent": 20.0
+              },
+              "versatility": {
+                "rating": 453,
+                "percent": 8.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 129,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 158,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:33Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/priest/holy/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -21993,7 +22763,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Shadow",
-        "classID": 5
+        "classID": 5,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 775,
+                "percent": 22.0
+              },
+              "haste": {
+                "rating": 933,
+                "percent": 25.0
+              },
+              "mastery": {
+                "rating": 1183,
+                "percent": 17.0
+              },
+              "versatility": {
+                "rating": 126,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "haste",
+              "crit",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 159,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 68,
+                "percent": 3.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 4.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:34Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/priest/shadow/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -23441,7 +24266,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Blood",
-        "classID": 6
+        "classID": 6,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1037,
+                "percent": 28.0
+              },
+              "haste": {
+                "rating": 1092,
+                "percent": 30.0
+              },
+              "mastery": {
+                "rating": 525,
+                "percent": 39.0
+              },
+              "versatility": {
+                "rating": 407,
+                "percent": 8.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 45,
+                "percent": 1.0
+              },
+              "leech": {
+                "rating": 109,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 8.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:05Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/death-knight/blood/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -24907,7 +25787,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Frost",
-        "classID": 6
+        "classID": 6,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1271,
+                "percent": 33.0
+              },
+              "haste": {
+                "rating": 592,
+                "percent": 18.0
+              },
+              "mastery": {
+                "rating": 1110,
+                "percent": 64.0
+              },
+              "versatility": {
+                "rating": 109,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "crit",
+              "mastery",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 151,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 43,
+                "percent": 3.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 4.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:06Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/death-knight/frost/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -26312,7 +27247,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Unholy",
-        "classID": 6
+        "classID": 6,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1286,
+                "percent": 33.0
+              },
+              "haste": {
+                "rating": 596,
+                "percent": 18.0
+              },
+              "mastery": {
+                "rating": 1061,
+                "percent": 56.0
+              },
+              "versatility": {
+                "rating": 97,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "crit",
+              "mastery",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 159,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 42,
+                "percent": 5.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 4.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:06Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/death-knight/unholy/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -27753,7 +28743,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Elemental",
-        "classID": 7
+        "classID": 7,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1006,
+                "percent": 27.0
+              },
+              "haste": {
+                "rating": 730,
+                "percent": 20.0
+              },
+              "mastery": {
+                "rating": 1033,
+                "percent": 63.0
+              },
+              "versatility": {
+                "rating": 160,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "crit",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 211,
+                "percent": 6.0
+              },
+              "leech": {
+                "rating": 31,
+                "percent": 0.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:37Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/shaman/elemental/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -29216,7 +30261,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Enhancement",
-        "classID": 7
+        "classID": 7,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 853,
+                "percent": 29.0
+              },
+              "haste": {
+                "rating": 878,
+                "percent": 20.0
+              },
+              "mastery": {
+                "rating": 1121,
+                "percent": 71.0
+              },
+              "versatility": {
+                "rating": 118,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "haste",
+              "crit",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 201,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 20,
+                "percent": 0.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:03:00Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/shaman/enhancement/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -30721,7 +31821,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Restoration",
-        "classID": 7
+        "classID": 7,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1232,
+                "percent": 32.0
+              },
+              "haste": {
+                "rating": 684,
+                "percent": 16.0
+              },
+              "mastery": {
+                "rating": 278,
+                "percent": 57.0
+              },
+              "versatility": {
+                "rating": 713,
+                "percent": 13.0
+              }
+            },
+            "priority": [
+              "crit",
+              "versatility",
+              "haste",
+              "mastery"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 170,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 141,
+                "percent": 2.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:03:01Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/shaman/restoration/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -32199,7 +33354,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Arcane",
-        "classID": 8
+        "classID": 8,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 803,
+                "percent": 24.0
+              },
+              "haste": {
+                "rating": 999,
+                "percent": 28.0
+              },
+              "mastery": {
+                "rating": 607,
+                "percent": 32.0
+              },
+              "versatility": {
+                "rating": 614,
+                "percent": 11.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "versatility",
+              "mastery"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 204,
+                "percent": 6.0
+              },
+              "leech": {
+                "rating": 51,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:15Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/mage/arcane/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -33724,7 +34934,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Fire",
-        "classID": 8
+        "classID": 8,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 206,
+                "percent": 12.0
+              },
+              "haste": {
+                "rating": 1340,
+                "percent": 33.0
+              },
+              "mastery": {
+                "rating": 874,
+                "percent": 15.0
+              },
+              "versatility": {
+                "rating": 540,
+                "percent": 10.0
+              }
+            },
+            "priority": [
+              "haste",
+              "mastery",
+              "versatility",
+              "crit"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 147,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 64,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:02:46Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/mage/fire/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -35270,7 +36535,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Frost",
-        "classID": 8
+        "classID": 8,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 986,
+                "percent": 29.0
+              },
+              "haste": {
+                "rating": 746,
+                "percent": 24.0
+              },
+              "mastery": {
+                "rating": 1035,
+                "percent": 54.0
+              },
+              "versatility": {
+                "rating": 226,
+                "percent": 4.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "crit",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 178,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 54,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T02:03:23Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/mage/frost/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -36826,7 +38146,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Affliction",
-        "classID": 9
+        "classID": 9,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 971,
+                "percent": 28.0
+              },
+              "haste": {
+                "rating": 1201,
+                "percent": 30.0
+              },
+              "mastery": {
+                "rating": 603,
+                "percent": 61.0
+              },
+              "versatility": {
+                "rating": 196,
+                "percent": 4.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 156,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 51,
+                "percent": 3.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:04:30Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/warlock/affliction/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -38329,7 +39704,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Demonology",
-        "classID": 9
+        "classID": 9,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1071,
+                "percent": 30.0
+              },
+              "haste": {
+                "rating": 985,
+                "percent": 25.0
+              },
+              "mastery": {
+                "rating": 755,
+                "percent": 42.0
+              },
+              "versatility": {
+                "rating": 178,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "crit",
+              "haste",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 210,
+                "percent": 6.0
+              },
+              "leech": {
+                "rating": 23,
+                "percent": 2.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:31Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/warlock/demonology/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -39886,7 +41316,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Destruction",
-        "classID": 9
+        "classID": 9,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 965,
+                "percent": 29.0
+              },
+              "haste": {
+                "rating": 966,
+                "percent": 24.0
+              },
+              "mastery": {
+                "rating": 857,
+                "percent": 59.0
+              },
+              "versatility": {
+                "rating": 162,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 172,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 65,
+                "percent": 3.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:03:02Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/warlock/destruction/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -41472,7 +42957,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Brewmaster",
-        "classID": 10
+        "classID": 10,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1248,
+                "percent": 37.0
+              },
+              "haste": {
+                "rating": 227,
+                "percent": 6.0
+              },
+              "mastery": {
+                "rating": 690,
+                "percent": 26.0
+              },
+              "versatility": {
+                "rating": 825,
+                "percent": 15.0
+              }
+            },
+            "priority": [
+              "crit",
+              "versatility",
+              "mastery",
+              "haste"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 36,
+                "percent": 1.0
+              },
+              "leech": {
+                "rating": 284,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:02:48Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/monk/brewmaster/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -42899,7 +44439,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Windwalker",
-        "classID": 10
+        "classID": 10,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 845,
+                "percent": 32.0
+              },
+              "haste": {
+                "rating": 886,
+                "percent": 20.0
+              },
+              "mastery": {
+                "rating": 1214,
+                "percent": 80.0
+              },
+              "versatility": {
+                "rating": 134,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "haste",
+              "crit",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 180,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 48,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:02:48Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/monk/windwalker/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -44380,7 +45975,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Mistweaver",
-        "classID": 10
+        "classID": 10,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 596,
+                "percent": 18.0
+              },
+              "haste": {
+                "rating": 1363,
+                "percent": 31.0
+              },
+              "mastery": {
+                "rating": 734,
+                "percent": 747.0
+              },
+              "versatility": {
+                "rating": 358,
+                "percent": 7.0
+              }
+            },
+            "priority": [
+              "haste",
+              "mastery",
+              "crit",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 108,
+                "percent": 3.0
+              },
+              "leech": {
+                "rating": 182,
+                "percent": 3.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:02:50Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/monk/mistweaver/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -45851,7 +47501,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Balance",
-        "classID": 11
+        "classID": 11,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 781,
+                "percent": 22.0
+              },
+              "haste": {
+                "rating": 926,
+                "percent": 22.0
+              },
+              "mastery": {
+                "rating": 1102,
+                "percent": 24.0
+              },
+              "versatility": {
+                "rating": 167,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "haste",
+              "crit",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 170,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 77,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:11Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/druid/balance/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -47307,7 +49012,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Feral",
-        "classID": 11
+        "classID": 11,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 866,
+                "percent": 29.0
+              },
+              "haste": {
+                "rating": 824,
+                "percent": 19.0
+              },
+              "mastery": {
+                "rating": 1196,
+                "percent": 68.0
+              },
+              "versatility": {
+                "rating": 173,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "crit",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 168,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 87,
+                "percent": 1.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:02:39Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/druid/feral/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -48734,7 +50494,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Guardian",
-        "classID": 11
+        "classID": 11,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 923,
+                "percent": 30.0
+              },
+              "haste": {
+                "rating": 1191,
+                "percent": 28.0
+              },
+              "mastery": {
+                "rating": 563,
+                "percent": 18.0
+              },
+              "versatility": {
+                "rating": 361,
+                "percent": 7.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 25,
+                "percent": 1.0
+              },
+              "leech": {
+                "rating": 268,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:14Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/druid/guardian/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -50217,7 +52032,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Restoration",
-        "classID": 11
+        "classID": 11,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 237,
+                "percent": 10.0
+              },
+              "haste": {
+                "rating": 1421,
+                "percent": 32.0
+              },
+              "mastery": {
+                "rating": 1038,
+                "percent": 40.0
+              },
+              "versatility": {
+                "rating": 331,
+                "percent": 6.0
+              }
+            },
+            "priority": [
+              "haste",
+              "mastery",
+              "versatility",
+              "crit"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 106,
+                "percent": 3.0
+              },
+              "leech": {
+                "rating": 169,
+                "percent": 2.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:15Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/druid/restoration/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -51686,7 +53556,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Havoc",
-        "classID": 12
+        "classID": 12,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1325,
+                "percent": 39.0
+              },
+              "haste": {
+                "rating": 469,
+                "percent": 11.0
+              },
+              "mastery": {
+                "rating": 1148,
+                "percent": 79.0
+              },
+              "versatility": {
+                "rating": 126,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "crit",
+              "mastery",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 187,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 41,
+                "percent": 11.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T18:03:13Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/demon-hunter/havoc/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -53259,7 +55184,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Vengeance",
-        "classID": 12
+        "classID": 12,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 837,
+                "percent": 28.0
+              },
+              "haste": {
+                "rating": 1235,
+                "percent": 28.0
+              },
+              "mastery": {
+                "rating": 483,
+                "percent": 57.0
+              },
+              "versatility": {
+                "rating": 440,
+                "percent": 8.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 49,
+                "percent": 1.0
+              },
+              "leech": {
+                "rating": 252,
+                "percent": 14.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "leech",
+              "avoidance",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T10:03:09Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/demon-hunter/vengeance/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -54840,7 +56820,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Devourer",
-        "classID": 12
+        "classID": 12,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 821,
+                "percent": 23.0
+              },
+              "haste": {
+                "rating": 964,
+                "percent": 22.0
+              },
+              "mastery": {
+                "rating": 1122,
+                "percent": 38.0
+              },
+              "versatility": {
+                "rating": 135,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "haste",
+              "crit",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 186,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 31,
+                "percent": 10.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-16T18:04:11Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/demon-hunter/devourer/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -56312,7 +58347,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Devastation",
-        "classID": 13
+        "classID": 13,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 1146,
+                "percent": 30.0
+              },
+              "haste": {
+                "rating": 758,
+                "percent": 17.0
+              },
+              "mastery": {
+                "rating": 910,
+                "percent": 43.0
+              },
+              "versatility": {
+                "rating": 183,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "crit",
+              "mastery",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 190,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 44,
+                "percent": 4.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:03:37Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/evoker/devastation/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -57887,7 +59977,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Preservation",
-        "classID": 13
+        "classID": 13,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 924,
+                "percent": 25.0
+              },
+              "haste": {
+                "rating": 948,
+                "percent": 22.0
+              },
+              "mastery": {
+                "rating": 672,
+                "percent": 43.0
+              },
+              "versatility": {
+                "rating": 465,
+                "percent": 9.0
+              }
+            },
+            "priority": [
+              "haste",
+              "crit",
+              "mastery",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 162,
+                "percent": 4.0
+              },
+              "leech": {
+                "rating": 131,
+                "percent": 2.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 3.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:03:38Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/evoker/preservation/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -59372,7 +61517,62 @@
         "retrievedAt": "2026-10-20T18:40:10Z",
         "primarySource": "Murlok.io",
         "specName": "Augmentation",
-        "classID": 13
+        "classID": 13,
+        "statProfile": {
+          "secondary": {
+            "values": {
+              "crit": {
+                "rating": 950,
+                "percent": 26.0
+              },
+              "haste": {
+                "rating": 515,
+                "percent": 12.0
+              },
+              "mastery": {
+                "rating": 1492,
+                "percent": 11.0
+              },
+              "versatility": {
+                "rating": 120,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "mastery",
+              "crit",
+              "haste",
+              "versatility"
+            ]
+          },
+          "minor": {
+            "values": {
+              "avoidance": {
+                "rating": 183,
+                "percent": 5.0
+              },
+              "leech": {
+                "rating": 29,
+                "percent": 0.0
+              },
+              "speed": {
+                "rating": 0,
+                "percent": 2.0
+              }
+            },
+            "priority": [
+              "avoidance",
+              "leech",
+              "speed"
+            ]
+          },
+          "updatedAt": "2026-10-17T02:02:42Z",
+          "retrievedAt": "2026-10-20T20:07:10.813209+00:00",
+          "sourceURL": "https://murlok.io/evoker/augmentation/m%2B",
+          "sampleSize": 50,
+          "patch": "12.1",
+          "refreshStatus": "ok"
+        }
       },
       "raid": {
         "patch": "12.1",
@@ -60193,5 +62393,78 @@
     "crestID": 3446,
     "craftIlvl": 331
   },
-  "contentHash": "b729cbf25dcbbe07962e2ebdcd5d7f9a69e281ce501e2c9a3b9eacf3496af6e6"
+  "contentHash": "85d620fd2ed6f2f5b83c5290b6e7827b481f2fb23530ee70e12bd4be0a0aec71",
+  "statRules": {
+    "patch": "12.1",
+    "build": "12.1.5.70448",
+    "sourceURL": "https://raw.githubusercontent.com/simulationcraft/simc/midnight/engine/dbc/generated/item_scaling.inc",
+    "curves": {
+      "secondary": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          30.0,
+          30.0
+        ],
+        [
+          40.0,
+          39.0
+        ],
+        [
+          50.0,
+          47.0
+        ],
+        [
+          60.0,
+          54.0
+        ],
+        [
+          80.0,
+          66.0
+        ],
+        [
+          100.0,
+          76.0
+        ],
+        [
+          200.0,
+          126.0
+        ]
+      ],
+      "minor": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          10.0,
+          10.0
+        ],
+        [
+          15.0,
+          14.0
+        ],
+        [
+          20.0,
+          17.0
+        ],
+        [
+          25.0,
+          19.0
+        ],
+        [
+          100.0,
+          49.0
+        ]
+      ]
+    },
+    "retrievedAt": "2026-10-20T20:07:16.546145+00:00",
+    "refreshStatus": "ok"
+  }
 }

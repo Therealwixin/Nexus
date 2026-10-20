@@ -24,6 +24,7 @@ jobs:
         run: python tools/set_version.py "${BUILD_TAG#v}"
       - run: python tools/refresh_gear.py --validate-only
       - run: python tools/test_lean.py
+      - run: python tools/test_stats.py
       - run: python tools/test_maintenance.py
       - run: python tools/test_meta.py
       - run: python tools/test_wcl.py

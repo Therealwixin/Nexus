@@ -4,9 +4,10 @@ A focused World of Warcraft Retail addon for gear goals, equipment ownership and
 
 ## Current preview
 
-Nexus 0.6.4 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives and anonymous WCL usage evidence. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
+Nexus 0.6.5 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives and anonymous WCL usage evidence. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
 
 - **Equipment:** BiS gear, up to four verified alternatives per slot, and ownership on the current character.
+- **Stats:** Murlok M+ references for all 40 specs, native active-character values, rating gaps and verified rating-derived DR details on hover.
 - **Preparation:** enchantments, equipped sockets, gem suggestions and consumables.
 - **Meta:** published M+ role rankings and Mythic raid representation, with source dates and methodology.
 - Browse supported classes/specs without changing the character's specialization.

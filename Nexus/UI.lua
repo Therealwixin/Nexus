@@ -349,17 +349,18 @@ function UI:Refresh()
  for _,b in ipairs(self.rows) do b:Hide() end;self.noData:Hide()
  self.listPane:SetShown(self.view=="sources");self.prepPane:SetShown(self.view=="preparation")
  self.metaPane:SetShown(self.view=="meta")
+ if self.statsPane then self.statsPane:SetShown(self.view=="stats") end
  self.detailPane:Show()
  self.gearScroll:SetShown(self.view=="equipment")
  self.buttons.MY_GEAR:SetShown(self.view=="equipment");self.buttons.TARGETS:SetShown(self.view=="equipment")
  local filterVisible=self.view=="equipment" or self.view=="preparation" and not R.IsViewingOtherClass()
  self.needs:SetShown(filterVisible);self.needsLabel:SetShown(filterVisible)
- if self.view=="meta" then self:RenderMeta() elseif self.view=="preparation" then self:RenderPreparation() elseif self.view=="sources" then self:RenderSources() else self:RenderRows();self:RenderDetail() end
+ if self.view=="stats" then self:RenderStats() elseif self.view=="meta" then self:RenderMeta() elseif self.view=="preparation" then self:RenderPreparation() elseif self.view=="sources" then self:RenderSources() else self:RenderRows();self:RenderDetail() end
 end
 function UI:SetView(view)
  if self.view~=view then self.gearOffset=0 end
  if view=="meta" and self.metaFollowSpec==nil then self.metaFollowSpec=R.ViewSpecID();self.metaLastMode=R.GetMode() end
- if view~="equipment" and view~="preparation" and view~="meta" and view~="sources" then view="equipment" end
+ if view~="equipment" and view~="preparation" and view~="meta" and view~="stats" and view~="sources" then view="equipment" end
  self.view=view;self:Refresh()
 end
 function UI:Create()
@@ -423,6 +424,7 @@ function UI:Create()
  self.listPane=CreateFrame("Frame",nil,f,"InsetFrameTemplate");self.listPane:SetAllPoints(self.gearPane);self.listScroll,self.listChild=Scroll(self.listPane);self.listPool={}
  self.detailPane=CreateFrame("Frame",nil,f,"InsetFrameTemplate");self.detailPane:SetPoint("TOPLEFT",f,"TOPRIGHT",-359,-101);self.detailPane:SetPoint("BOTTOMRIGHT",-14,68);self.detailScroll,self.detailChild=Scroll(self.detailPane);self.detailPool={}
  self.buttons.EQUIPMENT=Button(f,110,"",function()self:SetView("equipment")end);self.buttons.EQUIPMENT:SetPoint("BOTTOMLEFT",17,15)
+ self.buttons.STATS=Button(f,84,"",function()self:SetView("stats")end)
  self.buttons.PREPARATION=Button(f,110,"",function()self:SetView("preparation")end);self.buttons.PREPARATION:SetPoint("LEFT",self.buttons.EQUIPMENT,"RIGHT",5,0)
  self.buttons.META=Button(f,80,"",function()self:SetView("meta")end);self.buttons.META:SetPoint("LEFT",self.buttons.PREPARATION,"RIGHT",5,0)
  self.buttons.SOURCES=Button(f,155,"",function()self:SetView("sources")end);self.buttons.SOURCES:SetPoint("BOTTOMRIGHT",-43,15)

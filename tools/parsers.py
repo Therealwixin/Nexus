@@ -117,6 +117,9 @@ def parse_murlok(text, timestamp):
     sample_size = len(anchors)
     if not 20 <= sample_size <= 100:
         raise ValueError("Unexpected Murlok sample size")
+    from murlok_stats import parse_stats
+    try:stat_profile=parse_stats(page)
+    except ValueError:stat_profile=None
     slots = {}
     for heading, candidates in groups(page, "gear").items():
         candidates = [x for x in candidates if x["id"] > 0]
@@ -149,7 +152,7 @@ def parse_murlok(text, timestamp):
     gems = [dict(x,group="gems",**({"uniqueGem":"diamond"} if "diamond" in x.get("name","").lower() else {})) for values in groups(page,"gems").values() for x in values if x["id"] > 0]
     return {"patch":patch_match.group(1),"updatedAt":timestamp,"sourceURL":MURLOK_URL,
             "sampleSize":sample_size,"slots":slots,"players":players,"enchants":enchants,
-            "gems":gems,"consumables":[]}
+            "gems":gems,"consumables":[],"statProfile":stat_profile}
 
 def parse_player(text, timestamp):
     slots = {}

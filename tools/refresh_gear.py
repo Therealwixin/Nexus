@@ -14,6 +14,8 @@ def validate(data):
  if set(data.get('specs',{}))!=expected:raise ValueError('Incomplete specialization coverage')
  patch=data.get('upgradeRules',{}).get('patch')
  if not patch:raise ValueError('Missing verified season rules')
+ from stat_rules import validate_rules
+ validate_rules(data.get('statRules',{}),patch)
  for spec,modes in data['specs'].items():
   if set(modes)!={'raid','mythicplus'}:raise ValueError('Both modes required for '+spec)
   for mode,dataset in modes.items():
@@ -21,6 +23,10 @@ def validate(data):
    if dataset.get('players'):raise ValueError('Player profiles are prohibited in compact builds')
    if not dataset.get('updatedAt') or len(dataset.get('slots',{}))<14:raise ValueError('Incomplete gear dataset')
    if not dataset.get('consumables') or not dataset.get('gems'):raise ValueError('Incomplete preparation data')
+   if mode=='mythicplus':
+    from murlok_stats import validate_profile
+    if not dataset.get('statProfile'):raise ValueError('Missing verified stat profile')
+    validate_profile(dataset['statProfile'],patch)
    for slot,items in dataset['slots'].items():
     if int(slot) not in {1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17} or not items:raise ValueError('Invalid slot')
     for item in items:
@@ -85,6 +91,15 @@ def main():
   print('Gear, guides and meta snapshots valid; no source requests.');return
  args.cache.mkdir(parents=True,exist_ok=True)
  candidate=build_candidate(previous,args.cache,args.offline)
+ from stat_rules import load_rules
+ try:candidate['statRules']=load_rules(args.cache,candidate['upgradeRules']['patch'],args.offline)
+ except (OSError,ValueError):
+  from stat_rules import validate_rules
+  retained=copy.deepcopy(previous.get('statRules',{}));validate_rules(retained,candidate['upgradeRules']['patch'])
+  retained['refreshStatus']='unavailable';candidate['statRules']=retained
+  print('DR source unavailable; retaining previous same-patch rules and original provenance. Native mismatches disable runtime calculations.')
+ from parsers import stable_content
+ candidate['contentHash']=hashlib.sha256(stable_content(candidate)).hexdigest()
  meta=collect_meta(previous_meta,args.cache,args.offline)
  guides=build_guides(candidate,args.cache)
  from item_variants import load_catalog,apply_effects

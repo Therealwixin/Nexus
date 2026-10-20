@@ -26,7 +26,8 @@ function UI:Layout()
  if ButtonFrameTemplate_HidePortrait then ButtonFrameTemplate_HidePortrait(f) elseif f.PortraitContainer then f.PortraitContainer:Hide() end
  place(f.Inset,"TOPLEFT",f,"TOPLEFT",8,-151);f.Inset:SetPoint("BOTTOMRIGHT",f,"BOTTOMRIGHT",-8,47)
  place(self.buttons.EQUIPMENT,"TOPLEFT",f,"TOPLEFT",22,-39);self.buttons.EQUIPMENT:SetSize(130,28)
- place(self.buttons.PREPARATION,"LEFT",self.buttons.EQUIPMENT,"RIGHT",4,0);self.buttons.PREPARATION:SetSize(140,28)
+ place(self.buttons.STATS,"LEFT",self.buttons.EQUIPMENT,"RIGHT",4,0);self.buttons.STATS:SetSize(84,28)
+ place(self.buttons.PREPARATION,"LEFT",self.buttons.STATS,"RIGHT",4,0);self.buttons.PREPARATION:SetSize(140,28)
  place(self.buttons.META,"LEFT",self.buttons.PREPARATION,"RIGHT",4,0);self.buttons.META:SetSize(90,28)
  place(self.buttons.SOURCES,"TOPRIGHT",f,"TOPRIGHT",-22,-39);self.buttons.SOURCES:SetSize(180,28)
  place(self.classPicker,"TOPLEFT",f,"TOPLEFT",22,-83);self.classPicker:SetSize(140,25)
@@ -144,9 +145,10 @@ function UI:Refresh()
  if not self.frame or not self.frame:IsShown() then return end
  self:Layout();previousRefresh(self)
  self.title:SetText(R.NAME);self.themeButton:Hide();self.characterName:Hide()
- self.sectionTitle:SetText(self.view=="equipment" and "BiS" or R.L(self.view=="preparation" and "PREPARATION" or self.view=="meta" and "META" or "DATA_SETTINGS"))
+ self.sectionTitle:SetText(self.view=="equipment" and "BiS" or R.L(self.view=="preparation" and "PREPARATION" or self.view=="stats" and "STATS" or self.view=="meta" and "META" or "DATA_SETTINGS"))
  self.buttons.SOURCES:SetText(R.L("DATA_UPDATES"))
- for key,view in pairs({EQUIPMENT="equipment",PREPARATION="preparation",META="meta",SOURCES="sources"}) do R.StyleNavigation(self.buttons[key],self.view==view) end
+ for key,view in pairs({EQUIPMENT="equipment",STATS="stats",PREPARATION="preparation",META="meta",SOURCES="sources"}) do R.StyleNavigation(self.buttons[key],self.view==view) end
  self.buttons.MYTHICPLUS:SetText(self.view=="meta" and R.L("META_MPLUS") or "Mythic+");self.buttons.RAID:SetText(self.view=="meta" and R.L("META_RAID") or "Raid")
  self.footer:SetText(R.VERSION.." · "..(self.view=="equipment" and R.GetGearSummary() or R.DataStatus(R.GetDataset())))
+ if self.view=="stats" then local profile=R.StatProfile();self.footer:SetText(R.VERSION.." · Murlok.io · M+ · "..(profile and profile.updatedAt:sub(1,10) or R.L("NO_DATA"))) end
 end

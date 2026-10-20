@@ -147,3 +147,17 @@ Krátka fáza zápisu dát je chránená spoločným zámkom, aby si úlohy nepr
 Pri vstupe do sezónneho dungeonu sa porovná jeho skutočný loot pool iba s hlavným BiS zoznamom tvojho aktívneho specu. Alternatívy a pozorované M+ predmety sa do vstupného BiS hlásenia nezapočítavajú. Naďalej ich nájdeš v detaile slotu. Hlásenie sa riadi aktuálnymi dátami, nie ručne napísaným zoznamom dungeonov.
 
 Pri odporúčanom Catalyst kuse sa hľadá pôvodné drop ID a riadok je označený **BiS cez Catalyst**. Tier výsledok sa neprezentuje ako priamy drop. Predmety, ktoré už máš nasadené alebo v taške, a duplicitné ring/trinket možnosti sa nepočítajú opakovane.
+
+## Stats (od 0.6.5-beta.1)
+
+Medzi Equipment a Preparation je samostatný tab **Stats**. Používa existujúci výber všetkých 40 class/spec kombinácií. Tabuľka ukazuje sekundárne staty aj Avoidance, Leech a Speed: **Murlok M+ referencia / tvoja postava / rozdiel ratingu**. Poradie priorít, rating a percentá sú prevzaté z publikovaných agregovaných barov Murloku, nie dopočítané z individuálnych profilov.
+
+Hover otvorí tooltip s vlastnou hodnotou, ratingovým rozdielom nad/pod referenciou a rozdielom v percentuálnych bodoch. Kliknutie ukáže rovnaké podrobnosti v pravom paneli. Murlok referencia nie je osobný optimálny cieľ ani cap. Aktuálne percentá postavy môžu obsahovať buffy; do porovnania medzi rôznymi specmi sa nepúšťame, pretože napríklad Mastery má iný prevod na efekt.
+
+Živé porovnanie je dostupné pre tvoj aktívny spec na leveli 90 pri zhodnom patchi. Ostatné specy slúžia na prezeranie referencií. Počas boja sa nepoužívajú chránené ani nečitateľné hodnoty a nič sa z nich neodhaduje. Zmeny statov obnovujú panel cez herné udalosti, bez priebežného pollingu či nového skenovania tašiek.
+
+DR počítame z ratingu a aktuálnej krivky. Hover obsahuje zníženie zisku z ďalšieho ratingu, ďalšiu hranicu, koľko ratingu k nej chýba, a ratingový strop. Mastery používa **Mastery body**, nie celkové percentá efektu. Buffy a základné staty sa nepovažujú za rating pre DR. DR znamená nižší prírastok, nie automatický pokyn prestať daný stat zbierať.
+
+Výpočet sa kontroluje proti natívnemu bonusu herného API; pri nezhode alebo nedostupnom API sa neoverené DR čísla skryjú. Pre Speed sa zatiaľ DR cap neuvádza, pretože má osobitný prevod; referenčný aj skutočný Speed rating/percentá zostávajú dostupné.
+
+Denný workflow automaticky zbiera aj stat referencie zo všetkých 40 Murlok guideov a malé krivky DR z aktuálnych primárnych DBC dát SimulationCraft. Pri nedostupnom zdroji zachová poslednú overenú verziu aj jej pôvodné dátumy a označí neúspešnú aktualizáciu. Nové staty nezávisia od WCL zberu. V addone nie je internetový prístup ani databáza jednotlivých hráčov.

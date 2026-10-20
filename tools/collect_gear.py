@@ -100,6 +100,12 @@ def collect(spec,cache,timestamp,offline,previous=None):
  dataset.update(sourceURL=url,primarySource='Murlok.io',specName=spec['name'],classID=spec['classID'])
  observed=[];enchant_samples=[];warnings=[]
  previous=previous or {}
+ profile=dataset.get('statProfile')
+ if profile:
+  profile.update(updatedAt=dataset['updatedAt'],retrievedAt=timestamp,sourceURL=url,sampleSize=dataset['sampleSize'],patch=dataset['patch'],refreshStatus='ok')
+ elif previous.get('statProfile'):
+  import copy
+  dataset['statProfile']=copy.deepcopy(previous['statProfile']);dataset['statProfile']['refreshStatus']='unavailable'
  dataset.pop('players',None)
  for slot,enchant in dataset['enchants'].items():
   prior=previous.get('enchants',{}).get(slot,{})

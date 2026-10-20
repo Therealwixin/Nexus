@@ -1,5 +1,6 @@
 local ADDON, R = ...
 local events = CreateFrame("Frame")
+local statEvents={COMBAT_RATING_UPDATE=true,UNIT_STATS=true,UNIT_AURA=true,UNIT_SPELL_HASTE=true,MASTERY_UPDATE=true,SPEED_UPDATE=true,LIFESTEAL_UPDATE=true,AVOIDANCE_UPDATE=true,PLAYER_LEVEL_UP=true}
 
 function R.Print(message)
     if DEFAULT_CHAT_FRAME then DEFAULT_CHAT_FRAME:AddMessage("|cffffd100" .. R.NAME .. "|r " .. tostring(message)) end
@@ -99,6 +100,10 @@ events:SetScript("OnEvent", function(_, event, argument)
         if C_MythicPlus and C_MythicPlus.RequestMapInfo then C_MythicPlus.RequestMapInfo() end
         if not R.db.welcomed then R.Print(R.L("FIRST_LOGIN")); R.db.welcomed = true end
     elseif not R.db then return
+    elseif event=="PLAYER_REGEN_DISABLED" then
+        if R.UI.frame and R.UI.frame:IsShown() and R.UI.view=="stats" then GameTooltip:Hide();R.UI:RenderStats() end
+    elseif statEvents[event] then
+        if (event:sub(1,5)~="UNIT_" or argument=="player") and R.UI.view=="stats" then R.QueueRefresh(false) end
     elseif event=="EJ_LOOT_DATA_RECIEVED" then
         if not InCombatLockdown() then R.RunBackground("journal",R.UpdateJournalLoot) end
     elseif event == "PLAYER_SPECIALIZATION_CHANGED" then
@@ -115,5 +120,5 @@ end)
 for _, event in ipairs({"ADDON_LOADED","PLAYER_LOGIN","PLAYER_EQUIPMENT_CHANGED","BAG_UPDATE_DELAYED",
     "PLAYER_SPECIALIZATION_CHANGED","GET_ITEM_INFO_RECEIVED","PLAYER_REGEN_ENABLED","PLAYER_ENTERING_WORLD",
     "TRADE_SKILL_LIST_UPDATE","TRADE_SKILL_SHOW","EJ_LOOT_DATA_RECIEVED","ZONE_CHANGED_NEW_AREA",
-    "CHALLENGE_MODE_MAPS_UPDATE","CHALLENGE_MODE_START"}) do events:RegisterEvent(event) end
+    "CHALLENGE_MODE_MAPS_UPDATE","CHALLENGE_MODE_START","COMBAT_RATING_UPDATE","UNIT_STATS","UNIT_AURA","UNIT_SPELL_HASTE","MASTERY_UPDATE","SPEED_UPDATE","LIFESTEAL_UPDATE","AVOIDANCE_UPDATE","PLAYER_LEVEL_UP","PLAYER_REGEN_DISABLED"}) do events:RegisterEvent(event) end
 R.events = events
