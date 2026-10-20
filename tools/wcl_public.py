@@ -79,11 +79,31 @@ def aggregate(rankings):
  if samples<20:raise ValueError('Fewer than 20 usable gear samples; no candidate written')
  return {'sampleSize':samples,'items':[{'id':i,'count':n} for i,n in counts.most_common()]}
 
+def audit_schema(client):
+ """Inspect public API capabilities/cost without saving player records."""
+ result={}
+ for name in ['Encounter','Zone']:
+  schema=client.query('query($name:String!){__type(name:$name){fields{name args{name type{kind name ofType{kind name}}}}}}',{'name':name})
+  result[name]=[f for f in schema['__type']['fields'] if 'ranking' in f['name'].lower() or f['name'] in ['encounters','id','name']]
+ result['quotaBefore']=client.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
+ result['pages']=[]
+ for encounter in [12813,3429]:
+  for page in [1,2]:
+   q=RANKINGS.replace('page:1','page:'+str(page)).replace('METRIC','dps')
+   data=client.query(q,{'id':encounter,'class':'Rogue','spec':'Subtlety','difficulty':10 if encounter==12813 else 5})['worldData']['encounter']['characterRankings']
+   rows=data.get('rankings',[])
+   result['pages'].append({'encounter':encounter,'page':page,'pageKeys':list(data),'rowKeys':list(rows[0]) if rows else [],'reportKeys':list(rows[0].get('report',{})) if rows else [],'characterKeys':list(rows[0].get('character',{})) if rows else [],'rows':len(rows),'hasMorePages':data.get('hasMorePages'),'timeRange':[min((r.get('startTime',0) for r in rows),default=0),max((r.get('startTime',0) for r in rows),default=0)]})
+ result['quotaAfter']=client.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
+ dest=Path('build/wcl');dest.mkdir(parents=True,exist_ok=True)
+ (dest/'api-schema.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+ print('Public ranking schema/cost audit complete; no player identities retained')
+
 def main():
  p=argparse.ArgumentParser();p.add_argument('--guide-snapshot',type=Path);p.add_argument('--collect-guides',action='store_true');p.add_argument('--discover-world',action='store_true');p.add_argument('--encounter',type=int,default=0);p.add_argument('--class-name',default='Rogue');p.add_argument('--spec-name',default='Subtlety');p.add_argument('--difficulty',type=int,default=5);a=p.parse_args()
  c=Client();quota=c.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
  if quota['pointsSpentThisHour']>=quota['limitPerHour']*.8:raise ValueError('80% API budget threshold reached; no further requests')
  now=dt.datetime.now(dt.timezone.utc).isoformat();out={'source':'Warcraft Logs','retrievedAt':now,'quota':quota,'authenticated':True,'scope':'public'}
+ if os.environ.get('WCL_AUDIT_SCHEMA')=='true':audit_schema(c);return
  if a.collect_guides or os.environ.get('WCL_COLLECT_GUIDES')=='true':
   out=collect_guides(c,Path(__file__).resolve().parents[1],a.guide_snapshot)
   dest=Path('build/wcl');dest.mkdir(parents=True,exist_ok=True)
