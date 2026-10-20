@@ -147,7 +147,9 @@ function UI:RenderDetail(override,slotOverride)
    end
   end
  end
- self:DetailEndSection();self:DetailText(R.L(self.view=="equipment" and "SOURCE_SCOPE_NOTE" or "POPULARITY_NOTE"),GREY,11)
+ self:DetailEndSection();if self.view=="equipment" then self:DetailText(R.GetGearSummary(),GOLD,11) end;self:DetailText(R.L(self.view=="equipment" and "SOURCE_SCOPE_NOTE" or "POPULARITY_NOTE"),GREY,11)
+ if item.acquisitionItemID and item.acquisitionItemID~=item.id then self:DetailText("Catalyst · ".."Wowhead item #"..item.acquisitionItemID,GOLD,11) end
+ if item.guideURL then self:DetailButton("Wowhead guide · "..R.L("COPY_URL"),function()self:ShowCopy(item.guideURL)end) end
  self:DetailButton("Wowhead · "..R.L("COPY_URL"),function()self:ShowCopy("https://www.wowhead.com/item="..item.id)end)
  self:DetailFinish()
 end
@@ -260,6 +262,12 @@ function UI:RenderSources()
  self:DetailSection(R.L("SNAPSHOT"),GOLD)
  self:DetailText(R.DataStatus(R.GetDataset()),GOLD)
  self:DetailText(R.L("UPDATE_NOTE"),GREY,12)
+ local guide=R.GetGuideDataset()
+ if guide then
+  self:ListLine("Wowhead · BiS sets",nil,guide.updatedAt:sub(1,10),function()self:ShowCopy(guide.sourceURL)end,GOLD)
+  for _,set in ipairs(guide.sets) do self:ListLine(set.name,nil,set.scope,nil,WHITE) end
+  self:DetailText(R.L("SOURCE_SCOPE_NOTE"),GREY,11)
+ end
  for _,mode in ipairs({"mythicplus","raid"}) do
   local dataset=R.GetDataset(mode)
   if dataset then

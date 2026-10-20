@@ -169,9 +169,12 @@ function A:CheckVisit()
  if not loot or pending then self:Retry();return end
  local entries,seen={},{}
  for _,slot in ipairs(R.SLOTS) do
-  local item=dataset.slots and dataset.slots[slot.id] and dataset.slots[slot.id][1]
-  if item and not item.crafted and loot[item.journalItemID or item.id] and not seen[item.id] and R.Ownership(item.id,slot.id)=="MISSING" then
-   entries[#entries+1]={item=item,slotID=slot.id,specID=specID};seen[item.id]=true;R.RequestItem(item.id)
+  for _,item in ipairs(R.GetGearCandidates(slot.id,specID,"mythicplus")) do
+   local dropID=item.acquisitionItemID or item.journalItemID or item.id
+   if not item.crafted and loot[dropID] and not seen[dropID] and R.Ownership(item.id,slot.id)=="MISSING" and R.Ownership(dropID,slot.id)=="MISSING" then
+    entries[#entries+1]={item=item,slotID=slot.id,specID=specID};seen[dropID]=true;R.RequestItem(item.id)
+    break -- Highest recommended missing option from this dungeon for the slot.
+   end
   end
  end
  visit.notified[specID or 0]=true

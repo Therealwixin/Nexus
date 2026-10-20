@@ -2,6 +2,10 @@ name: Verify Warcraft Logs
 on:
   workflow_dispatch:
     inputs:
+      collect_guides:
+        description: 'Collect anonymous ranked gear evidence for 40 specs, raid and M+ (one page each)'
+        type: boolean
+        default: false
       discover_world:
         description: 'Discover current expansion zones and native journal encounter IDs'
         type: boolean
@@ -18,7 +22,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -35,10 +39,11 @@ jobs:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
           WCL_DISCOVER_WORLD: ${{ inputs.discover_world }}
+          WCL_COLLECT_GUIDES: ${{ inputs.collect_guides }}
           ENCOUNTER_ID: ${{ inputs.encounter_id }}
         run: python tools/wcl_public.py --encounter "$ENCOUNTER_ID"
       - uses: actions/upload-artifact@v7
         with:
           name: Nexus-WCL-public-sample
-          path: build/wcl/*.json
+          path: build/wcl/*
           if-no-files-found: error

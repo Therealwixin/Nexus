@@ -11,6 +11,7 @@ Locales.lua
 Model.lua
 Data.lua
 SourceCatalog.lua
+GuideData.lua
 GearSources.lua
 Specializations.lua
 MetaData.lua

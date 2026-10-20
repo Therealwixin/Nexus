@@ -6,6 +6,31 @@ Optional rankings are reduced to anonymous item frequencies before writing files
 import argparse,base64,collections,datetime as dt,json,os,time,urllib.request,urllib.error
 from pathlib import Path
 API='https://www.warcraftlogs.com/api/v2/client'
+RANKINGS='query($id:Int!,$class:String!,$spec:String!,$difficulty:Int!){worldData{encounter(id:$id){id name journalID characterRankings(page:1,difficulty:$difficulty,className:$class,specName:$spec,metric:METRIC,includeCombatantInfo:true)}}}'
+
+def collect_guides(client,root):
+ from catalog import SPECS
+ guides=json.loads((root/'data/guide-snapshot.json').read_text(encoding='utf-8'))
+ known={i['id'] for i in guides['items'].values()}
+ now=dt.datetime.now(dt.timezone.utc).isoformat()
+ result={'schema':1,'patch':guides['patch'],'generatedAt':now,'source':'Warcraft Logs','specs':{},'failures':[],'methodology':'One ranking page per context; observed usage among ranked parses, not simulated BiS or acquisition evidence. Current season encounter IDs verified against worldData.'}
+ healers={65,256,257,264,270,105,1468}
+ for spec in SPECS:
+  sid=str(spec['id']);result['specs'][sid]={}
+  for mode,encounter_id,difficulty in [('raid',3429,5),('mythicplus',12813,10)]:
+   quota=client.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
+   if quota['pointsSpentThisHour']>=quota['limitPerHour']*.8:raise ValueError('80% API budget reached; no partial snapshot published')
+   try:
+    metric='hps' if spec['id'] in healers else 'dps'
+    variables={'id':encounter_id,'class':spec['className'].replace(' ',''),'spec':spec['name'].replace(' ',''),'difficulty':difficulty,'metric':metric}
+    encounter=client.query(RANKINGS.replace('METRIC',metric),variables)['worldData']['encounter']
+    frequencies=aggregate(encounter['characterRankings'])
+    record=dict(encounterID=encounter_id,encounterName=encounter['name'],difficulty=difficulty,metric=metric,retrievedAt=now,sampleSize=frequencies['sampleSize'],items={str(i['id']):i['count'] for i in frequencies['items'] if i['id'] in known})
+    result['specs'][sid][mode]=record
+   except ValueError:
+    result['failures'].append({'specID':spec['id'],'mode':mode,'reason':'No usable ranking page; no evidence shown'})
+  print('Anonymous WCL contexts collected for spec',sid,flush=True)
+ return result
 
 def request(url,payload,headers):
  req=urllib.request.Request(url,data=payload,headers=headers,method='POST')
@@ -41,10 +66,17 @@ def aggregate(rankings):
  return {'sampleSize':samples,'items':[{'id':i,'count':n} for i,n in counts.most_common()]}
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--discover-world',action='store_true');p.add_argument('--encounter',type=int,default=0);p.add_argument('--class-name',default='Rogue');p.add_argument('--spec-name',default='Subtlety');p.add_argument('--difficulty',type=int,default=5);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--collect-guides',action='store_true');p.add_argument('--discover-world',action='store_true');p.add_argument('--encounter',type=int,default=0);p.add_argument('--class-name',default='Rogue');p.add_argument('--spec-name',default='Subtlety');p.add_argument('--difficulty',type=int,default=5);a=p.parse_args()
  c=Client();quota=c.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
  if quota['pointsSpentThisHour']>=quota['limitPerHour']*.8:raise ValueError('80% API budget threshold reached; no further requests')
  now=dt.datetime.now(dt.timezone.utc).isoformat();out={'source':'Warcraft Logs','retrievedAt':now,'quota':quota,'authenticated':True,'scope':'public'}
+ if a.collect_guides or os.environ.get('WCL_COLLECT_GUIDES')=='true':
+  out=collect_guides(c,Path(__file__).resolve().parents[1])
+  dest=Path('build/wcl');dest.mkdir(parents=True,exist_ok=True)
+  (dest/'wcl-snapshot.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
+  from refresh_gear import compact_lua
+  (dest/'WCLData.lua').write_text('local _,R=...\nR.WCLData='+compact_lua(out)+'\n',encoding='utf-8')
+  print('Anonymous evidence snapshot complete; failures:',len(out['failures']));return
  if a.discover_world or os.environ.get('WCL_DISCOVER_WORLD')=='true':
   expansions=c.query('{worldData{expansions{id name}}}')['worldData']['expansions']
   current=[e for e in expansions if e['name'].casefold()=='midnight']

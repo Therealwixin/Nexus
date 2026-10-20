@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse,datetime as dt,json,os,re
 from refresh_gear import ROOT,validate
 from refresh_meta import validate_meta
+from wowhead_sets import validate_guides
 from set_version import set_version
 def due(now=None,event=None):
  now=now or dt.datetime.now(dt.timezone.utc)
@@ -19,13 +20,15 @@ def stage(keep_version=False):
  if channel not in {'beta','release'}:raise ValueError('DATA_RELEASE_CHANNEL must be beta or release')
  data=json.loads((candidate/'snapshot.json').read_text(encoding='utf-8'))
  meta=json.loads((candidate/'meta-snapshot.json').read_text(encoding='utf-8'))
- validate(data);validate_meta(meta)
+ guides=json.loads((candidate/'guide-snapshot.json').read_text(encoding='utf-8'))
+ validate(data);validate_meta(meta);validate_guides(guides)
+ if guides['patch']!=data['upgradeRules']['patch']:raise ValueError('Guide patch mismatch')
  if data['upgradeRules']['patch']!=meta['patch']:raise ValueError('Gear/meta patches differ')
  now=dt.datetime.now(dt.timezone.utc)
- for item in [data,meta]:
+ for item in [data,meta,guides]:
   age=(now-dt.datetime.fromisoformat(item['generatedAt'].replace('Z','+00:00'))).total_seconds()
   if not -60<=age<=24*3600:raise ValueError('Candidate must be collected within the last 24 hours')
- transfers=[('snapshot.json','data/snapshot.json'),('meta-snapshot.json','data/meta-snapshot.json'),('Data.lua','Nexus/Data.lua'),('MetaData.lua','Nexus/MetaData.lua')]
+ transfers=[('snapshot.json','data/snapshot.json'),('meta-snapshot.json','data/meta-snapshot.json'),('Data.lua','Nexus/Data.lua'),('MetaData.lua','Nexus/MetaData.lua'),('GuideData.lua','Nexus/GuideData.lua'),('guide-snapshot.json','data/guide-snapshot.json')]
  contents=[(ROOT/dest,(candidate/src).read_bytes()) for src,dest in transfers]
  for dest,content in contents:
   temp=dest.with_suffix(dest.suffix+'.tmp');temp.write_bytes(content);temp.replace(dest)

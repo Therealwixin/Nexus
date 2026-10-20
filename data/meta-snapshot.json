@@ -1,6 +1,6 @@
 {
   "patch": "12.1",
-  "generatedAt": "2026-10-19T19:26:39Z",
+  "generatedAt": "2026-10-20T06:58:48Z",
   "modes": {
     "mythicplus": {
       "scope": "Midnight Season 2",
@@ -172,7 +172,7 @@
           ],
           "sourceURL": "https://murlok.io/meta/dps/m%2B",
           "updatedAt": "2026-10-16T10:13:29Z",
-          "retrievedAt": "2026-10-19T19:26:39Z",
+          "retrievedAt": "2026-10-20T06:58:48Z",
           "updatedEpoch": 1792145609,
           "sourceHash": "0815ab5124da115f37d901efde4fb70f0333b8aa7cd2fdab32eb8c8bc8e004f2"
         },
@@ -217,7 +217,7 @@
           ],
           "sourceURL": "https://murlok.io/meta/tank/m%2B",
           "updatedAt": "2026-10-17T02:11:22Z",
-          "retrievedAt": "2026-10-19T19:26:39Z",
+          "retrievedAt": "2026-10-20T06:58:48Z",
           "updatedEpoch": 1792203082,
           "sourceHash": "cc284226ab2ff5eb9630eb7f923b5cf38a27f6efe542555fe12495ebd95871db"
         },
@@ -268,7 +268,7 @@
           ],
           "sourceURL": "https://murlok.io/meta/healer/m%2B",
           "updatedAt": "2026-10-17T02:10:25Z",
-          "retrievedAt": "2026-10-19T19:26:39Z",
+          "retrievedAt": "2026-10-20T06:58:48Z",
           "updatedEpoch": 1792203025,
           "sourceHash": "1822fbe2cbe48de9ec973fe1f345ada23ac9904bd21fc81f794457a581f2b154"
         }
@@ -452,7 +452,7 @@
           "updatedAt": "2026-10-19T03:06:17.163955Z",
           "updatedEpoch": 1792379177,
           "sourceURL": "https://u.gg/wow/tier-list/dps-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-19T19:26:39Z",
+          "retrievedAt": "2026-10-20T06:58:48Z",
           "sourceHash": "879b0912a6e37bee72477ee01ec0f30523ab7d6ed9ed5603de77b9f0e78329d1"
         },
         "healer": {
@@ -504,7 +504,7 @@
           "updatedAt": "2026-10-19T03:06:17.163955Z",
           "updatedEpoch": 1792379177,
           "sourceURL": "https://u.gg/wow/tier-list/healer-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-19T19:26:39Z",
+          "retrievedAt": "2026-10-20T06:58:48Z",
           "sourceHash": "879b0912a6e37bee72477ee01ec0f30523ab7d6ed9ed5603de77b9f0e78329d1"
         },
         "tank": {
@@ -550,7 +550,7 @@
           "updatedAt": "2026-10-19T03:06:17.163955Z",
           "updatedEpoch": 1792379177,
           "sourceURL": "https://u.gg/wow/tier-list/tank-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-19T19:26:39Z",
+          "retrievedAt": "2026-10-20T06:58:48Z",
           "sourceHash": "879b0912a6e37bee72477ee01ec0f30523ab7d6ed9ed5603de77b9f0e78329d1"
         }
       },

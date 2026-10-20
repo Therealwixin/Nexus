@@ -163,10 +163,13 @@ def parse_player(text, timestamp):
     return slots
 
 def wowhead_metadata(text):
-    marker = re.search(r"WH\.Gatherer\.addData\(3,\s*1,\s*", text)
-    if not marker:
+    markers = list(re.finditer(r"WH\.Gatherer\.addData\(3,\s*\d+,\s*", text))
+    if not markers:
         raise ValueError("Wowhead item metadata missing")
-    data, _ = json.JSONDecoder().raw_decode(text[marker.end():])
+    data = {}
+    for marker in markers:
+        batch, _ = json.JSONDecoder().raw_decode(text[marker.end():])
+        data.update(batch)
     return {k:{"name":v.get("name_enus"),"icon":"Interface\\Icons\\"+v["icon"],"quality":v.get("quality")}
             for k,v in data.items() if v.get("icon")}
 

@@ -27,6 +27,7 @@ jobs:
       - run: python tools/test_maintenance.py
       - run: python tools/test_meta.py
       - run: python tools/test_wcl.py
+      - run: python tools/test_guides.py
       - name: Check publishing configuration
         if: vars.CURSEFORGE_PUBLISH_ENABLED == 'true'
         env:

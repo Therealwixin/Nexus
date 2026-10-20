@@ -30,7 +30,7 @@ def compact_lua(value,key=None):
  if isinstance(value,dict):
   parts=[]
   for k,v in value.items():
-   numeric=key in {'specs','slots','enchants'} and str(k).isdigit()
+   numeric=key in {'specs','slots','enchants','raid','mythicplus'} and str(k).isdigit()
    parts.append('['+(str(k) if numeric else json.dumps(k,ensure_ascii=False))+']='+compact_lua(v,k))
   return '{'+','.join(parts)+'}'
  if isinstance(value,list):return '{'+','.join(compact_lua(v) for v in value)+'}'
@@ -78,14 +78,21 @@ def main():
  from refresh_meta import validate_meta,collect_meta
  previous_meta=json.loads((ROOT/'data/meta-snapshot.json').read_text(encoding='utf-8'))
  validate_meta(previous_meta)
- if args.validate_only:print('Gear and meta snapshots valid; no source requests.');return
+ from wowhead_sets import build_guides,validate_guides
+ if args.validate_only:
+  guides=json.loads((ROOT/'data/guide-snapshot.json').read_text(encoding='utf-8'));validate_guides(guides)
+  if guides['patch']!=previous['upgradeRules']['patch']:raise ValueError('Guide patch mismatch')
+  print('Gear, guides and meta snapshots valid; no source requests.');return
  args.cache.mkdir(parents=True,exist_ok=True)
  candidate=build_candidate(previous,args.cache,args.offline)
  meta=collect_meta(previous_meta,args.cache,args.offline)
+ guides=build_guides(candidate,args.cache)
  output=ROOT/'build/candidate';output.mkdir(parents=True,exist_ok=True)
  (output/'snapshot.json').write_text(json.dumps(candidate,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  (output/'Data.lua').write_text('-- Aggregate candidate. Review before release.\nlocal _,R=...\nR.Data='+compact_lua(candidate)+'\n',encoding='utf-8')
  (output/'meta-snapshot.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  (output/'MetaData.lua').write_text('-- Role-local meta; source timestamps preserved.\nlocal _,R=...\nR.MetaData='+compact_lua(meta)+'\n',encoding='utf-8')
+ (output/'guide-snapshot.json').write_text(json.dumps(guides,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ (output/'GuideData.lua').write_text('local _,R=...\nR.GuideData='+compact_lua(guides)+'\n',encoding='utf-8')
  print('Unpublished candidate:',output)
 if __name__=='__main__':main()

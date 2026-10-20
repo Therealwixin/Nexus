@@ -154,5 +154,5 @@ function UI:Refresh()
  self.buttons.SOURCES:SetText(R.L("DATA_UPDATES"))
  for key,view in pairs({EQUIPMENT="equipment",PREPARATION="preparation",META="meta",SOURCES="sources"}) do R.StyleNavigation(self.buttons[key],self.view==view) end
  self.buttons.MYTHICPLUS:SetText(self.view=="meta" and R.L("META_MPLUS") or "Mythic+");self.buttons.RAID:SetText(self.view=="meta" and R.L("META_RAID") or "Raid")
- self.footer:SetText(R.VERSION.." · "..R.DataStatus(R.GetDataset()))
+ self.footer:SetText(R.VERSION.." · "..(self.view=="equipment" and R.GetGearSummary() or R.DataStatus(R.GetDataset())))
 end
