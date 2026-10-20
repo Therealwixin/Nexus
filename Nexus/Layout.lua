@@ -26,7 +26,7 @@ function UI:Layout()
    local key=entry[1];local b=CreateFrame("Button",nil,f,"UIPanelButtonTemplate");b:SetSize(106,25);b:SetText(entry[2]);b:GetFontString():SetFont(R.FONT,11,"");b:SetScript("OnClick",function()R.db.gearSource=key;self:Refresh()end);self.sourceButtons[key]=b
   end
  end
- if f.PortraitContainer then f.PortraitContainer:Hide() end
+ if ButtonFrameTemplate_HidePortrait then ButtonFrameTemplate_HidePortrait(f) elseif f.PortraitContainer then f.PortraitContainer:Hide() end
  place(f.Inset,"TOPLEFT",f,"TOPLEFT",8,-151);f.Inset:SetPoint("BOTTOMRIGHT",f,"BOTTOMRIGHT",-8,47)
  place(self.buttons.EQUIPMENT,"TOPLEFT",f,"TOPLEFT",22,-39);self.buttons.EQUIPMENT:SetSize(130,28)
  place(self.buttons.PREPARATION,"LEFT",self.buttons.EQUIPMENT,"RIGHT",4,0);self.buttons.PREPARATION:SetSize(140,28)
@@ -58,32 +58,29 @@ function UI:RenderRows()
  local width,height=self.gearScroll:GetWidth(),self.gearScroll:GetHeight()
  self.gearChild:SetSize(width,height);self.gearRange=0;self:ScrollGear(0)
  for _,header in pairs(self.gearHeaders) do header:Hide() end
- local side=math.floor((width-132)/2);local stride=math.min(60,(height-80)/8)
- local left={[1]=0,[2]=1,[3]=2,[15]=3,[5]=4,[9]=7}
+ local side=math.floor((width-12)/2);local stride=(height-12)/9
+ local left={[1]=0,[2]=1,[3]=2,[15]=3,[5]=4,[9]=5}
  local right={[10]=0,[6]=1,[7]=2,[8]=3,[11]=4,[12]=5,[13]=6,[14]=7}
- if not self.paperDoll then
-  self.paperDoll=CreateFrame("PlayerModel",nil,self.gearChild);self.paperDoll:EnableMouse(false)
- end
- self.paperDoll:ClearAllPoints();self.paperDoll:SetPoint("TOPLEFT",side+8,-12);self.paperDoll:SetSize(116,height-95)
- self.paperDoll:SetShown(not R.IsViewingOtherClass())
- if self.paperDoll:IsShown() and not self.paperDoll.unitSet then self.paperDoll:SetUnit("player");self.paperDoll.unitSet=true end
+ if self.paperDoll then self.paperDoll:Hide() end
  for index,slot in ipairs(R.SLOTS) do
   local row=self.rows[index];local item=self:GetShownItem(slot.id);local onRight=right[slot.id]~=nil
   local top=(left[slot.id] or right[slot.id] or 0)*stride+4
   local x=onRight and width-side or 0
-  if slot.id==16 or slot.id==17 then top=height-67;x=slot.id==16 and width/2-side-4 or width/2+4 end
+  if slot.id==16 or slot.id==17 then top=8*stride+4;x=slot.id==16 and 0 or width-side end
   place(row,"TOPLEFT",self.gearChild,"TOPLEFT",x,-top);row:SetSize(side,stride-2);row.gridTop=top
   local state=self:BindItem(row,item,slot.id,self.gearView=="mine",true)
-  local icon=math.min(40,stride-8);place(row.icon,onRight and "RIGHT" or "LEFT",row,onRight and "RIGHT" or "LEFT",onRight and -5 or 5,0);row.icon:SetSize(icon,icon)
+  local icon=math.min(42,stride-8);place(row.icon,onRight and "RIGHT" or "LEFT",row,onRight and "RIGHT" or "LEFT",onRight and -5 or 5,0);row.icon:SetSize(icon,icon)
   for _,f in ipairs({row.text,row.note,row.ownership}) do f:ClearAllPoints();f:SetWidth(side-icon-18);f:SetJustifyH(onRight and "RIGHT" or "LEFT") end
   local anchor=onRight and "TOPRIGHT" or "TOPLEFT";local offset=onRight and -icon-12 or icon+12
   row.text:SetPoint(anchor,row,anchor,offset,-4);row.text:SetHeight(11);row.text:SetFont(R.FONT,10,"");row.text:SetTextColor(unpack(MUTED));row.text:SetText(R.L(slot.key))
-  row.note:SetPoint(anchor,row,anchor,offset,-18);row.note:SetHeight(14);row.note:SetFont(R.FONT,11,"");row.note:SetMaxLines(1);row.note:SetTextColor(unpack(WHITE));row.note:SetText(item and R.ItemName(item) or R.L("NO_SOURCE_OPTION"))
-  row.ownership:SetPoint(onRight and "BOTTOMRIGHT" or "BOTTOMLEFT",row,onRight and "BOTTOMRIGHT" or "BOTTOMLEFT",offset,3);row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or GREEN))
+  row.note:SetPoint(anchor,row,anchor,offset,-18);row.note:SetHeight(16);row.note:SetFont(R.FONT,12,"");row.note:SetMaxLines(1);row.note:SetTextColor(R.ItemColor(item));row.note:SetText(item and R.ItemName(item) or R.L("NO_SOURCE_OPTION"))
+  if item and self.gearView=="mine" then local level=R.ItemLevel(item,true);if level then row.text:SetText(R.L(slot.key).." · "..level) end end
+  if item and self.gearView~="mine" then state=R.GearOwnership(item,slot.id) end
+  row.ownership:SetPoint(onRight and "BOTTOMRIGHT" or "BOTTOMLEFT",row,onRight and "BOTTOMRIGHT" or "BOTTOMLEFT",offset,3);row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or state:find("TIER_STATS",1,true) and GOLD or GREEN))
   row.red:Hide();row.check:Hide();row.selected:Hide();row.icon:SetVertexColor(1,1,1)
   local here=item and R.DungeonAlerts:IsHighlighted(item.id)
   R.SkinPanel(row,here and "dungeon" or "card",self.selectedSlot==slot.id)
-  row:SetShown(not R.db.needsOnly or self.gearView=="mine" or state=="MISSING")
+  row:SetShown(not R.db.needsOnly or self.gearView=="mine" or state=="MISSING" or state:find("TIER_STATS",1,true))
   row:SetScript("OnClick",function(owner)self.selectedSlot=owner.slotID;self:RenderRows();self:RenderDetail()end)
   if item then R.RequestItem(item.id) end
  end
@@ -127,7 +124,7 @@ function UI:RenderSockets()
    local current=i<=4;local index=current and i or i-4
    local socket=current and entry.sockets.gems[index];local rec=not current and entry.recommendations[index]
    local item=socket and socket.item or rec and rec.item
-   button:SetShown(socket~=nil or rec~=nil)
+   button:SetShown(not not (socket or rec))
    if button:IsShown() then
     place(button,"TOPLEFT",card,"TOPLEFT",current and 10 or column/2+3,-82-(index-1)*29);button:SetSize(column/2-18,28);button.name:SetWidth(column/2-46)
     button.icon:SetTexture(item and R.ItemIcon(item) or "Interface\\ItemSocketingFrame\\UI-EmptySocket-Prismatic")

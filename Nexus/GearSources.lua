@@ -23,6 +23,7 @@ function R.GuideItem(key,specID)
   local item={};for k,v in pairs(raw) do item[k]=v end
   if item.source=="Wowhead" then item.updatedAt=guide.updatedAt;item.guideURL=guide.sourceURL end
   item.journalItemID=item.acquisitionItemID or item.id
+  if item.acquisitionItemID then R.RequestItem(item.acquisitionItemID) end
   item.sourceType=item.acquisition;item.shortSource=item.dropSource
   R.guideItems[spec][key]=item
  end
@@ -36,6 +37,17 @@ function R.GetGearCandidates(slotID,specID,scope)
   local item=R.GuideItem(key,specID)
   if item and not seen[item.id] then result[#result+1]=item;seen[item.id]=true end
  end
+ if scope=="overall" and #result>0 then
+  local observed=R.GetDataset("mythicplus",specID)
+  for _,raw in ipairs(observed and observed.slots[slotID] or {}) do
+   if raw.source=="Murlok.io" and not seen[raw.id] then
+    local item={};for k,v in pairs(raw) do item[k]=v end
+    item.observedAlternative=true;item.bisGuide=nil
+    item.targetIlvl=nil;item.dropIlvl=nil;item.ilvlBasis=nil
+    result[#result+1]=item;seen[item.id]=true
+   end
+  end
+ end
  if scope~="overall" and (slotID==12 or slotID==14) then
   local other=R.GetGearCandidates(slotID==12 and 11 or 13,specID,scope)[1]
   if other then for i=#result,1,-1 do if result[i].id==other.id then table.remove(result,i) end end end
@@ -48,7 +60,7 @@ function R.GetGearSummary()
  local scope=R.GearSource();local set=scope=="overall" and R.GetGuideSet();local count=0
  for _,slot in ipairs(R.SLOTS) do if R.GetGearTarget(slot.id) then count=count+1 end end
  local title=set and set.name or scope=="raid" and "Raid drops" or "Mythic+ drops"
- return title.." · "..count.." / 16 · Wowhead "..guide.updatedAt:sub(1,10)
+ return title.." · "..count.." / 16 · Wowhead "..guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10)
 end
 function R.GetWCLEvidence(itemID,specID,mode)
  local data=R.WCLData

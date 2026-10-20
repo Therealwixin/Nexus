@@ -22,13 +22,14 @@ function UI:ShowItemTooltip(owner,item,slot,inventory,specID,mode)
  local previousItem=R.tooltipItem;R.tooltipItem=item
  local previous,previousMode=R.tooltipSpecID,R.tooltipMode;R.tooltipSpecID=specID or (inventory and R.SpecID() or R.ViewSpecID());R.tooltipMode=mode or R.GetMode()
  if inventory and slot then GameTooltip:SetInventoryItem("player",slot)
- elseif item.id and item.id>0 then GameTooltip:SetHyperlink(item.link or "item:"..item.id)
+ elseif item.id and item.id>0 then GameTooltip:SetHyperlink(item.link or "item:"..(item.acquisitionItemID or item.id))
  elseif C_Spell and C_Spell.GetSpellInfo and GameTooltip.SetSpellByID then
   local info=C_Spell.GetSpellInfo(item.name)
   if info and info.spellID then GameTooltip:SetSpellByID(info.spellID) else GameTooltip:SetText(item.name or R.L("LOADING")) end
  else GameTooltip:SetText(item.name or R.L("LOADING"));if item.source then GameTooltip:AddLine(item.source,1,.82,0) end end
  R.tooltipSpecID,R.tooltipMode=previous,previousMode
  R.tooltipItem=previousItem
+ if item.acquisitionItemID and not inventory then GameTooltip:AddLine(R.L("CATALYST_NOTE"),1,.82,0,true) end
  if item.targetIlvl then GameTooltip:AddLine(R.L("TARGET_ILVL",item.targetIlvl),1,.82,0);if not item.link then GameTooltip:AddLine(R.L("BASE_TOOLTIP"),.65,.65,.65,true) end end
  GameTooltip:Show()
 end
@@ -97,7 +98,7 @@ function UI:DetailItem(item,note,callback,large)
  if not e.item then e.item=ItemRow(self.detailChild) end
  local b=e.item;self:DetailPoint(b,10);b:SetSize(self.detailChild:GetWidth()-24,large and 88 or 64)
  b.icon:SetSize(large and 60 or 38,large and 60 or 38);local x=large and 80 or 54
- b.text:ClearAllPoints();b.text:SetPoint("TOPLEFT",x,-8);b.text:SetWidth(b:GetWidth()-x-5);b.text:SetText(R.ItemName(item));b.text:SetTextColor(unpack(GOLD))
+ b.text:ClearAllPoints();b.text:SetPoint("TOPLEFT",x,-8);b.text:SetWidth(b:GetWidth()-x-5);b.text:SetText(R.ItemName(item));b.text:SetTextColor(R.ItemColor(item))
  b.note:ClearAllPoints();b.note:SetPoint("BOTTOMLEFT",x,8);b.note:SetWidth(b:GetWidth()-x-5);b.note:SetText(note or "")
  b.selected:Hide();self:BindItem(b,item,nil,false,false);b:SetScript("OnClick",callback);b:Show();self.detailY=self.detailY+b:GetHeight()+8;return b
 end
@@ -118,11 +119,21 @@ function UI:RenderDetail(override,slotOverride)
  if not item then self:DetailText(R.L("NO_DATA"),GREY);self:DetailFinish();return end
  self:DetailSection(R.L("SELECTED_ITEM"),GOLD)
  self:DetailItem(item,item.source or (self.gearView=="mine" and R.L("CURRENT_ITEM")),nil,true)
- local state=R.Ownership(item.id,slotID or 0);self:DetailText(R.L(state)..(state=="MISSING" and " · "..R.ShortSource(item) or ""),state=="MISSING" and RED or GREEN)
+ local state=R.GearOwnership(item,slotID or 0);self:DetailText(R.L(state)..(state=="MISSING" and " · "..R.ShortSource(item) or ""),state=="MISSING" and RED or state=="EQUIPPED" and GREEN or GOLD)
  local level=R.ItemLevel(item,self.gearView=="mine")
  if level then self:DetailText(R.L("ILVL")..": "..level..(item.ilvlBasis and " · "..item.ilvlBasis or ""),GOLD) end
  if item.count then local d=R.GetDataset();self:DetailText(R.L("SAMPLE")..": "..item.count.." / "..(item.sampleSize or (d and d.sampleSize) or "?")) end
  if item.updatedAt then self:DetailText(R.L("SNAPSHOT")..": "..item.updatedAt:sub(1,10),GREY) end
+ if slot and self.view=="equipment" then
+  local candidates=R.GetGearCandidates(slotID)
+  self:DetailSection(R.L("ALTERNATIVES"),GOLD)
+  local shown=0
+  for _,alternative in ipairs(candidates) do if alternative.id~=item.id and shown<4 then
+   local alt=alternative;shown=shown+1
+   self:DetailItem(alt,(alt.source or "")..(alt.observedAlternative and " · "..R.L("OBSERVED_ALTERNATIVE") or ""),function()self:RenderDetail(alt,slotID)end)
+  end end
+  if shown==0 then self:DetailText(R.L("NO_ALTERNATIVES"),GREY,11) end
+ end
  local wcl,count=R.GetWCLEvidence(item.id)
  if wcl then
   self:DetailText("Warcraft Logs · "..count.." / "..wcl.sampleSize,WHITE,11)
@@ -144,15 +155,6 @@ function UI:RenderDetail(override,slotOverride)
    self:DetailSection(R.L("CRAFT_MATERIALS"),GOLD);local materials=R.GetCraftMaterials(item.id)
    if not materials or #materials==0 then self:DetailText(R.L("CRAFT_PENDING"),GREY)
    else for _,group in ipairs(materials) do for _,reagent in ipairs(group.choices) do self:DetailItem(reagent,group.count.." × "..R.L("REAGENT_CHOICE")) end end end
-  end
-  local candidates=R.GetGearCandidates(slotID)
-  if #candidates>1 then
-   self:DetailSection(R.L("ALTERNATIVES"),GREY)
-   for _,alternative in ipairs(candidates) do
-    if alternative.id~=item.id then
-     local alt=alternative;self:DetailItem(alt,(alt.source or "").." · "..(R.ItemLevel(alt,false) or "?").." ilvl",function()self:RenderDetail(alt,slotID)end)
-    end
-   end
   end
  end
  self:DetailEndSection();if self.view=="equipment" then self:DetailText(R.GetGearSummary(),GOLD,11) end;self:DetailText(R.L(self.view=="equipment" and "SOURCE_SCOPE_NOTE" or "POPULARITY_NOTE"),GREY,11)
@@ -272,9 +274,16 @@ function UI:RenderSources()
  self:DetailText(R.L("UPDATE_NOTE"),GREY,12)
  local guide=R.GetGuideDataset()
  if guide then
-  self:ListLine("Wowhead · BiS sets",nil,guide.updatedAt:sub(1,10),function()self:ShowCopy(guide.sourceURL)end,GOLD)
+  self:ListLine("Wowhead · BiS sets",nil,guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10),function()self:ShowCopy(guide.sourceURL)end,GOLD)
   for _,set in ipairs(guide.sets) do self:ListLine(set.name,nil,set.scope,nil,WHITE) end
   self:DetailText(R.L("SOURCE_SCOPE_NOTE"),GREY,11)
+ end
+ for _,name in ipairs({"Raider.IO","Archon"}) do
+  local record=R.SourceStatus and R.SourceStatus.sources[name]
+  if record then
+   self:ListLine(name.." · "..R.L("SOURCE_"..record.status:upper()),nil,record.purpose.." · "..R.L("CHECKED").." "..record.checkedAt:sub(1,10),function()self:ShowCopy(record.url)end,record.status=="available" and GREEN or GOLD)
+   if record.affixes then for _,affix in ipairs(record.affixes) do self:ListLine(affix.name,nil,"Raider.IO · EU",nil,WHITE) end end
+  end
  end
  if R.WCLData and R.WCLData.patch==R.GuideData.patch then
   local spec=R.WCLData.specs[R.ViewSpecID()]

@@ -1,6 +1,6 @@
 {
   "patch": "12.1",
-  "generatedAt": "2026-10-20T06:58:48Z",
+  "generatedAt": "2026-10-20T07:19:39Z",
   "modes": {
     "mythicplus": {
       "scope": "Midnight Season 2",
@@ -172,7 +172,7 @@
           ],
           "sourceURL": "https://murlok.io/meta/dps/m%2B",
           "updatedAt": "2026-10-16T10:13:29Z",
-          "retrievedAt": "2026-10-20T06:58:48Z",
+          "retrievedAt": "2026-10-20T07:19:39Z",
           "updatedEpoch": 1792145609,
           "sourceHash": "0815ab5124da115f37d901efde4fb70f0333b8aa7cd2fdab32eb8c8bc8e004f2"
         },
@@ -217,7 +217,7 @@
           ],
           "sourceURL": "https://murlok.io/meta/tank/m%2B",
           "updatedAt": "2026-10-17T02:11:22Z",
-          "retrievedAt": "2026-10-20T06:58:48Z",
+          "retrievedAt": "2026-10-20T07:19:39Z",
           "updatedEpoch": 1792203082,
           "sourceHash": "cc284226ab2ff5eb9630eb7f923b5cf38a27f6efe542555fe12495ebd95871db"
         },
@@ -268,7 +268,7 @@
           ],
           "sourceURL": "https://murlok.io/meta/healer/m%2B",
           "updatedAt": "2026-10-17T02:10:25Z",
-          "retrievedAt": "2026-10-20T06:58:48Z",
+          "retrievedAt": "2026-10-20T07:19:39Z",
           "updatedEpoch": 1792203025,
           "sourceHash": "1822fbe2cbe48de9ec973fe1f345ada23ac9904bd21fc81f794457a581f2b154"
         }
@@ -288,270 +288,270 @@
             {
               "specID": 62,
               "rank": 1,
-              "count": 6859,
-              "share": 11.3671
+              "count": 7502,
+              "share": 11.2994
             },
             {
               "specID": 71,
               "rank": 2,
-              "count": 4643,
-              "share": 7.6946
+              "count": 5118,
+              "share": 7.7086
             },
             {
               "specID": 266,
               "rank": 3,
-              "count": 4489,
-              "share": 7.4394
+              "count": 4905,
+              "share": 7.3878
             },
             {
               "specID": 253,
               "rank": 4,
-              "count": 4110,
-              "share": 6.8113
+              "count": 4524,
+              "share": 6.814
             },
             {
               "specID": 102,
               "rank": 5,
-              "count": 3755,
-              "share": 6.223
+              "count": 4134,
+              "share": 6.2266
             },
             {
               "specID": 70,
               "rank": 6,
-              "count": 3693,
-              "share": 6.1202
+              "count": 4070,
+              "share": 6.1302
             },
             {
               "specID": 262,
               "rank": 7,
-              "count": 3472,
-              "share": 5.754
+              "count": 3800,
+              "share": 5.7235
             },
             {
               "specID": 254,
               "rank": 8,
-              "count": 2727,
-              "share": 4.5193
+              "count": 3017,
+              "share": 4.5442
             },
             {
               "specID": 577,
               "rank": 9,
-              "count": 2577,
-              "share": 4.2707
+              "count": 2864,
+              "share": 4.3137
             },
             {
               "specID": 258,
               "rank": 10,
-              "count": 2549,
-              "share": 4.2243
+              "count": 2810,
+              "share": 4.2324
             },
             {
               "specID": 1480,
               "rank": 11,
-              "count": 2247,
-              "share": 3.7238
+              "count": 2477,
+              "share": 3.7308
             },
             {
               "specID": 269,
               "rank": 12,
-              "count": 2228,
-              "share": 3.6923
-            },
-            {
-              "specID": 251,
-              "rank": 13,
-              "count": 2147,
-              "share": 3.5581
+              "count": 2459,
+              "share": 3.7037
             },
             {
               "specID": 261,
-              "rank": 14,
-              "count": 2123,
-              "share": 3.5183
+              "rank": 13,
+              "count": 2457,
+              "share": 3.7007
             },
             {
-              "specID": 259,
-              "rank": 15,
-              "count": 2012,
-              "share": 3.3344
+              "specID": 251,
+              "rank": 14,
+              "count": 2338,
+              "share": 3.5215
             },
             {
               "specID": 252,
+              "rank": 15,
+              "count": 2152,
+              "share": 3.2413
+            },
+            {
+              "specID": 259,
               "rank": 16,
-              "count": 1970,
-              "share": 3.2648
+              "count": 2135,
+              "share": 3.2157
             },
             {
               "specID": 1473,
               "rank": 17,
-              "count": 1192,
-              "share": 1.9754
+              "count": 1324,
+              "share": 1.9942
             },
             {
               "specID": 64,
               "rank": 18,
-              "count": 1173,
-              "share": 1.944
+              "count": 1314,
+              "share": 1.9791
             },
             {
               "specID": 263,
               "rank": 19,
-              "count": 1158,
-              "share": 1.9191
-            },
-            {
-              "specID": 1467,
-              "rank": 20,
-              "count": 1104,
-              "share": 1.8296
+              "count": 1271,
+              "share": 1.9144
             },
             {
               "specID": 265,
+              "rank": 20,
+              "count": 1226,
+              "share": 1.8466
+            },
+            {
+              "specID": 1467,
               "rank": 21,
-              "count": 1097,
-              "share": 1.818
+              "count": 1193,
+              "share": 1.7969
             },
             {
               "specID": 267,
               "rank": 22,
-              "count": 993,
-              "share": 1.6456
+              "count": 1091,
+              "share": 1.6432
             },
             {
               "specID": 103,
               "rank": 23,
-              "count": 574,
-              "share": 0.9513
+              "count": 625,
+              "share": 0.9414
             },
             {
               "specID": 72,
               "rank": 24,
-              "count": 563,
-              "share": 0.933
+              "count": 619,
+              "share": 0.9323
             },
             {
               "specID": 255,
               "rank": 25,
-              "count": 427,
-              "share": 0.7076
+              "count": 459,
+              "share": 0.6913
             },
             {
               "specID": 260,
               "rank": 26,
-              "count": 303,
-              "share": 0.5021
+              "count": 330,
+              "share": 0.497
             },
             {
               "specID": 63,
               "rank": 27,
-              "count": 156,
-              "share": 0.2585
+              "count": 179,
+              "share": 0.2696
             }
           ],
-          "sampleSize": 60341,
-          "updatedAt": "2026-10-19T03:06:17.163955Z",
-          "updatedEpoch": 1792379177,
+          "sampleSize": 66393,
+          "updatedAt": "2026-10-20T02:36:47.629477Z",
+          "updatedEpoch": 1792463807,
           "sourceURL": "https://u.gg/wow/tier-list/dps-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-20T06:58:48Z",
-          "sourceHash": "879b0912a6e37bee72477ee01ec0f30523ab7d6ed9ed5603de77b9f0e78329d1"
+          "retrievedAt": "2026-10-20T07:19:39Z",
+          "sourceHash": "d070ce501d237931c87a6ba685ad85a379cdb2411001df8ff01cd76d244be8ee"
         },
         "healer": {
           "entries": [
             {
               "specID": 257,
               "rank": 1,
-              "count": 4587,
-              "share": 25.3608
+              "count": 5050,
+              "share": 25.3412
             },
             {
               "specID": 264,
               "rank": 2,
-              "count": 3799,
-              "share": 21.004
+              "count": 4207,
+              "share": 21.111
             },
             {
               "specID": 65,
               "rank": 3,
-              "count": 3508,
-              "share": 19.3951
-            },
-            {
-              "specID": 1468,
-              "rank": 4,
-              "count": 2212,
-              "share": 12.2298
+              "count": 3825,
+              "share": 19.1941
             },
             {
               "specID": 105,
+              "rank": 4,
+              "count": 2443,
+              "share": 12.2591
+            },
+            {
+              "specID": 1468,
               "rank": 5,
-              "count": 2198,
-              "share": 12.1524
+              "count": 2423,
+              "share": 12.1588
             },
             {
               "specID": 270,
               "rank": 6,
-              "count": 1421,
-              "share": 7.8565
+              "count": 1579,
+              "share": 7.9235
             },
             {
               "specID": 256,
               "rank": 7,
-              "count": 362,
-              "share": 2.0014
+              "count": 401,
+              "share": 2.0122
             }
           ],
-          "sampleSize": 18087,
-          "updatedAt": "2026-10-19T03:06:17.163955Z",
-          "updatedEpoch": 1792379177,
+          "sampleSize": 19928,
+          "updatedAt": "2026-10-20T02:36:47.629477Z",
+          "updatedEpoch": 1792463807,
           "sourceURL": "https://u.gg/wow/tier-list/healer-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-20T06:58:48Z",
-          "sourceHash": "879b0912a6e37bee72477ee01ec0f30523ab7d6ed9ed5603de77b9f0e78329d1"
+          "retrievedAt": "2026-10-20T07:19:39Z",
+          "sourceHash": "d070ce501d237931c87a6ba685ad85a379cdb2411001df8ff01cd76d244be8ee"
         },
         "tank": {
           "entries": [
             {
               "specID": 250,
               "rank": 1,
-              "count": 4145,
-              "share": 45.6046
+              "count": 4552,
+              "share": 45.4745
             },
             {
               "specID": 66,
               "rank": 2,
-              "count": 1767,
-              "share": 19.4411
+              "count": 1934,
+              "share": 19.3207
             },
             {
               "specID": 104,
               "rank": 3,
-              "count": 1057,
-              "share": 11.6294
+              "count": 1159,
+              "share": 11.5784
             },
             {
               "specID": 73,
               "rank": 4,
-              "count": 760,
-              "share": 8.3618
+              "count": 862,
+              "share": 8.6114
             },
             {
               "specID": 268,
               "rank": 5,
-              "count": 695,
-              "share": 7.6466
+              "count": 769,
+              "share": 7.6823
             },
             {
               "specID": 581,
               "rank": 6,
-              "count": 665,
-              "share": 7.3165
+              "count": 734,
+              "share": 7.3327
             }
           ],
-          "sampleSize": 9089,
-          "updatedAt": "2026-10-19T03:06:17.163955Z",
-          "updatedEpoch": 1792379177,
+          "sampleSize": 10010,
+          "updatedAt": "2026-10-20T02:36:47.629477Z",
+          "updatedEpoch": 1792463807,
           "sourceURL": "https://u.gg/wow/tier-list/tank-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-20T06:58:48Z",
-          "sourceHash": "879b0912a6e37bee72477ee01ec0f30523ab7d6ed9ed5603de77b9f0e78329d1"
+          "retrievedAt": "2026-10-20T07:19:39Z",
+          "sourceHash": "d070ce501d237931c87a6ba685ad85a379cdb2411001df8ff01cd76d244be8ee"
         }
       },
       "methodologyURL": "https://u.gg/wow/faq",

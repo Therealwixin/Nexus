@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-10-20T07:27:19.491057+00:00",
+  "sources": {
+    "Raider.IO": {
+      "checkedAt": "2026-10-20T07:27:19.491057+00:00",
+      "url": "https://raider.io/api/v1/mythic-plus/affixes?region=eu&locale=en",
+      "status": "available",
+      "purpose": "Seasonal affixes; not gear recommendations",
+      "affixes": [
+        {
+          "id": 162,
+          "name": "Xal'atath's Bargain: Pulsar"
+        },
+        {
+          "id": 10,
+          "name": "Fortified"
+        },
+        {
+          "id": 9,
+          "name": "Tyrannical"
+        },
+        {
+          "id": 147,
+          "name": "Xal'atath's Guile"
+        }
+      ]
+    },
+    "Archon": {
+      "checkedAt": "2026-10-20T07:27:19.491057+00:00",
+      "url": "https://www.archon.gg/wow/builds/subtlety/rogue/mythic-plus/gear-and-tier-set/high-keys/all-dungeons/this-week",
+      "status": "blocked",
+      "purpose": "Aggregate gear feed not integrated"
+    }
+  }
+}

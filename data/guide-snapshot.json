@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "patch": "12.1",
-  "generatedAt": "2026-10-20T07:01:33.348435+00:00",
+  "generatedAt": "2026-10-20T07:19:43.565935+00:00",
   "items": {
     "271456:281239:raid": {
       "id": 271456,
@@ -10949,7 +10949,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/warrior/arms/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:52Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -11087,7 +11087,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/warrior/fury/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -11227,7 +11227,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/warrior/protection/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -11365,7 +11365,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/paladin/holy/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -11509,7 +11509,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/paladin/protection/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -11653,7 +11653,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/paladin/retribution/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -11781,7 +11781,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/hunter/beast-mastery/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -11920,7 +11920,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/hunter/marksmanship/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -12066,7 +12066,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/hunter/survival/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -12227,7 +12227,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/rogue/assassination/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T06:35:37Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -12382,7 +12382,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/rogue/outlaw/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -12526,7 +12526,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T09:41:20Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -12670,7 +12670,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/priest/discipline/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -12790,7 +12790,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/priest/holy/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -12909,7 +12909,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/priest/shadow/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T00:26:46Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -13048,7 +13048,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/blood/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:52Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Deathbringer BiS",
@@ -13231,7 +13231,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/frost/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -13373,7 +13373,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/unholy/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T01:06:46Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -13508,7 +13508,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/shaman/elemental/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -13647,7 +13647,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/shaman/enhancement/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Season 2 Best-in-Slot",
@@ -13788,7 +13788,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -13938,7 +13938,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T22:02:49Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -14076,7 +14076,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/mage/fire/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -14219,7 +14219,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/mage/frost/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -14356,7 +14356,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/warlock/affliction/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-17T20:33:45Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -14506,7 +14506,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/warlock/demonology/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-20T02:14:51Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -14647,7 +14647,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:52Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -14802,7 +14802,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/monk/brewmaster/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -14958,7 +14958,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/monk/windwalker/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -15080,7 +15080,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Raid BiS",
@@ -15294,7 +15294,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/druid/balance/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-15T21:57:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -15444,7 +15444,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/druid/feral/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T22:21:25Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -15584,7 +15584,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/druid/guardian/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -15719,7 +15719,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/druid/restoration/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -15933,7 +15933,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/havoc/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-17T07:43:07Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -16062,7 +16062,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -16197,7 +16197,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -16351,7 +16351,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/evoker/devastation/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -16490,7 +16490,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -16638,7 +16638,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-10-20T07:01:33.348435+00:00",
+      "retrievedAt": "2026-10-20T07:19:43.565935+00:00",
       "sets": [
         {
           "name": "Overall BiS",

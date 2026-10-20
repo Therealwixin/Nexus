@@ -2,7 +2,7 @@
 ## Title: Nexus
 ## Notes: Gear goals, preparation and role meta. Compact preview.
 ## Author: Tomas Kontra
-## Version: 0.6.0-beta.4
+## Version: 0.6.1-beta.1
 ## SavedVariables: NexusDB, RelicDB
 ## SavedVariablesPerCharacter: NexusCharacterDB, RelicCharacterDB
 ## IconTexture: Interface\AddOns\Nexus\Media\nexus-icon.tga
@@ -13,12 +13,14 @@ Data.lua
 SourceCatalog.lua
 GuideData.lua
 WCLData.lua
+SourceStatus.lua
 GearSources.lua
 Specializations.lua
 MetaData.lua
 Meta.lua
 Scanner.lua
 Enrichment.lua
+Journal.lua
 Craft.lua
 Themes.lua
 Sockets.lua

@@ -88,6 +88,9 @@ def main():
  meta=collect_meta(previous_meta,args.cache,args.offline)
  guides=build_guides(candidate,args.cache)
  output=ROOT/'build/candidate';output.mkdir(parents=True,exist_ok=True)
+ if not args.offline:
+  from source_health import write
+  write(output)
  (output/'snapshot.json').write_text(json.dumps(candidate,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  (output/'Data.lua').write_text('-- Aggregate candidate. Review before release.\nlocal _,R=...\nR.Data='+compact_lua(candidate)+'\n',encoding='utf-8')
  (output/'meta-snapshot.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

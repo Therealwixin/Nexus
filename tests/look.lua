@@ -39,6 +39,10 @@ for _,card in ipairs(R.UI.socketCards) do if card:IsShown() then
  check(card.border:GetWidth()==card.icon:GetWidth()+2,"Socket border matches icon")
  for _,row in ipairs(card.gemRows) do if row:IsShown() then inside(row,card,"Gem rows contained in card") end end
 end end
+for index,entry in ipairs(R.UI.socketEntries) do
+ local visible=0;for _,row in ipairs(R.UI.socketCards[index].gemRows) do if row:IsShown() then visible=visible+1 end end
+ check(visible==#entry.sockets.gems+#entry.recommendations,"Only real socket and recommendation rows are visible")
+end
 for _,scope in ipairs({"raid","mythicplus"}) do
  R.db.gearSource=scope
  for id in pairs(R.Data.specs) do R.SetViewSpec(id)

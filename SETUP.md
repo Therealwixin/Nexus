@@ -5,13 +5,13 @@ Repository selected by the owner: https://github.com/Therealwixin/Nexus
 CurseForge project: **Nexus: Gear & Preparation**, ID **1754795**.
 Author dashboard: https://authors.curseforge.com/#/projects/1754795/files
 The project is created with All Rights Reserved licensing and its GitHub source link.
-The upload token, project ID and tagged publishing are configured. The first beta uploaded successfully to CurseForge and GitHub on 2026-10-19. Moderator approval is pending. Scheduled data refresh remains disabled during in-game testing.
+The upload token, project ID and tagged publishing are configured. The first beta uploaded successfully to CurseForge and GitHub on 2026-10-19. Moderator approval is pending. Daily data refresh is enabled; see AKTUALIZACIE_SK.md.
 
 ## Prepared behavior
 
 - Every push/pull request runs Lua 5.1 simulation, snapshot validation and packaging.
 - Tagged releases run the same checks and build an installable ZIP.
-- Data refresh is opt-in. Once enabled, a daily scheduler checks whether 72 hours have elapsed since the last successful collection.
+- Data refresh runs daily at 04:17 UTC and checks whether 23 hours have elapsed since the last successful collection. Manual runs force collection.
 - The collector downloads aggregate Murlok gear, Wowhead guides, Murlok role rankings and U.GG Mythic raid representation. It makes no individual player-profile requests.
 - All 40 specs, both gear modes and all six meta groups must pass validation before any candidate is staged.
 - Source publication dates are retained. Collection time is recorded separately.
@@ -22,7 +22,7 @@ The upload token, project ID and tagged publishing are configured. The first bet
 
 Actions variables:
 
-- `AUTO_DATA_REFRESH=true`: enable regular collection. Leave unset during in-game testing.
+- `AUTO_DATA_REFRESH` is no longer required; the daily schedule is enabled in the workflow.
 - `CURSEFORGE_PROJECT_ID`: numeric ID on the CurseForge project.
 - `CURSEFORGE_PUBLISH_ENABLED=true`: enable upload after tests. Leave unset until the beta is reviewed.
 
@@ -39,7 +39,7 @@ The workflow uses the repository-provided `GITHUB_TOKEN`; a personal GitHub toke
 3. Run **Refresh Nexus data** manually with publishing disabled; confirm the complete artifact and data revision.
 4. Create the CurseForge project and configure its ID and token.
 5. Enable beta publishing and verify one end-to-end beta upload.
-6. Enable the 72-hour refresh after that trial succeeds.
+6. Daily refresh is already enabled. Monitor its first successful runs.
 
 CurseForge requires a Release file before normal app syncing; beta files use the user's beta preference. Do not mark a preview stable merely to bypass that distinction.
 

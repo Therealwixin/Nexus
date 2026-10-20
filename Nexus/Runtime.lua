@@ -38,7 +38,7 @@ function R.DataStatus(dataset)
     if not dataset then return R.L("NO_DATA") end
     local age=R.DataAge(dataset)
     local text=(dataset.primarySource or "").." · "..tostring(dataset.updatedAt or "?"):sub(1,10)
-    if age then text=text.." · "..R.L("DATA_AGE",age) end
+    if dataset.retrievedAt then text=text.." · "..R.L("CHECKED").." "..dataset.retrievedAt:sub(1,10) elseif age then text=text.." · "..R.L("DATA_AGE",age) end
     if age and age>7 then text="|cffffb347"..R.L("DATA_OLD").." · "..text.."|r" end
     return text
 end
@@ -66,3 +66,16 @@ for lang,values in pairs(repairStrings) do for key,value in pairs(values) do R.L
 R.Locales.EN.WCL_EVIDENCE_NOTE="One ranking page for this encounter. Observed usage, not a personal simulation."
 R.Locales.SK.WCL_EVIDENCE_NOTE="Jedna stránka rebríčka pre tento encounter. Používanie predmetov, nie osobná simulácia."
 R.Locales.CZ.WCL_EVIDENCE_NOTE="Jedna stránka žebříčku pro tento encounter. Používání předmětů, nikoli osobní simulace."
+local fixes={
+ EN={TIER_STATS_UNVERIFIED="Tier equipped · verify stats",TIER_STATS_DIFFERENT="Tier equipped · different stats",CATALYST_NOTE="Catalyst keeps the original item's secondary stats, sockets and special effects. The default tier tooltip does not prove the converted variant's stats.",JOURNAL_RESOLVING="Finding loot in current raids and seasonal dungeons…",NO_ALTERNATIVES="No verified alternative for this slot and source.",OBSERVED_ALTERNATIVE="Observed alternative",CHECKED="Checked"},
+ SK={TIER_STATS_UNVERIFIED="Tier nasadený · over staty",TIER_STATS_DIFFERENT="Tier nasadený · iné staty",CATALYST_NOTE="Catalyst zachová sekundárne staty, sockety a špeciálne efekty pôvodného predmetu. Bežný tier tooltip nepotvrdzuje staty konvertovanej verzie.",JOURNAL_RESOLVING="Hľadám loot v aktuálnych raidoch a sezónnych dungeonoch…",NO_ALTERNATIVES="Pre tento slot a zdroj nemáme overenú alternatívu.",OBSERVED_ALTERNATIVE="Používaná alternatíva",CHECKED="Overené"},
+ CZ={TIER_STATS_UNVERIFIED="Tier nasazený · ověř staty",TIER_STATS_DIFFERENT="Tier nasazený · jiné staty",CATALYST_NOTE="Catalyst zachová sekundární staty, sockety a speciální efekty původního předmětu. Běžný tier tooltip nepotvrzuje staty konvertované verze.",JOURNAL_RESOLVING="Hledám loot v aktuálních raidech a sezonních dungeonech…",NO_ALTERNATIVES="Pro tento slot a zdroj nemáme ověřenou alternativu.",OBSERVED_ALTERNATIVE="Používaná alternativa",CHECKED="Ověřeno"},
+}
+for lang,values in pairs(fixes) do for key,value in pairs(values) do R.Locales[lang][key]=value end end
+for _,lang in ipairs({"EN","SK","CZ"}) do
+ local l=R.Locales[lang]
+ l.SOURCE_AVAILABLE=lang=="EN" and "available · context only" or lang=="SK" and "dostupný · kontext" or "dostupný · kontext"
+ l.SOURCE_BLOCKED=lang=="EN" and "blocked · no gear data" or lang=="SK" and "blokovaný · bez gear dát" or "blokovaný · bez gear dat"
+ l.SOURCE_UNAVAILABLE=lang=="EN" and "unavailable" or lang=="SK" and "nedostupný" or "nedostupný"
+ l.SOURCE_NOT_INTEGRATED=lang=="EN" and "not integrated" or lang=="SK" and "nezapojený" or "nezapojený"
+end

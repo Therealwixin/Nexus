@@ -877,7 +877,7 @@
             "updatedAt": "2026-10-13T21:52:52Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Arms",
         "classID": 1
@@ -885,7 +885,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:52Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/warrior/arms/bis-gear",
         "slots": {
           "1": [
@@ -2356,7 +2356,7 @@
             "updatedAt": "2026-10-13T21:52:53Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Fury",
         "classID": 1
@@ -2364,7 +2364,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/warrior/fury/bis-gear",
         "slots": {
           "1": [
@@ -3936,7 +3936,7 @@
             "updatedAt": "2026-10-13T21:53:02Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Protection",
         "classID": 1
@@ -3944,7 +3944,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/warrior/protection/bis-gear",
         "slots": {
           "16": [
@@ -5447,7 +5447,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Holy",
         "classID": 2
@@ -5455,7 +5455,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/paladin/holy/bis-gear",
         "slots": {
           "16": [
@@ -7023,7 +7023,7 @@
             "updatedAt": "2026-10-13T21:53:02Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Protection",
         "classID": 2
@@ -7031,7 +7031,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/paladin/protection/bis-gear",
         "slots": {
           "16": [
@@ -8449,7 +8449,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Retribution",
         "classID": 2
@@ -8457,7 +8457,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/paladin/retribution/bis-gear",
         "slots": {
           "16": [
@@ -9825,7 +9825,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Beast Mastery",
         "classID": 3
@@ -9833,7 +9833,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/hunter/beast-mastery/bis-gear",
         "slots": {
           "16": [
@@ -11251,7 +11251,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Marksmanship",
         "classID": 3
@@ -11259,7 +11259,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/hunter/marksmanship/bis-gear",
         "slots": {
           "16": [
@@ -12771,7 +12771,7 @@
             "updatedAt": "2026-10-13T21:52:55Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Survival",
         "classID": 3
@@ -12779,7 +12779,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/hunter/survival/bis-gear",
         "slots": {
           "16": [
@@ -14257,7 +14257,7 @@
             "updatedAt": "2026-10-13T21:52:55Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Assassination",
         "classID": 4
@@ -14265,7 +14265,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-14T06:35:37Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/rogue/assassination/bis-gear",
         "slots": {
           "16": [
@@ -15800,7 +15800,7 @@
             "updatedAt": "2026-10-13T21:53:01Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Outlaw",
         "classID": 4
@@ -15808,7 +15808,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/rogue/outlaw/bis-gear",
         "slots": {
           "16": [
@@ -17297,7 +17297,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Subtlety",
         "classID": 4
@@ -17305,7 +17305,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-14T09:41:20Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
         "slots": {
           "16": [
@@ -18926,7 +18926,7 @@
             "updatedAt": "2026-10-13T21:53:00Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Discipline",
         "classID": 5
@@ -18934,7 +18934,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/priest/discipline/bis-gear",
         "slots": {
           "16": [
@@ -20549,7 +20549,7 @@
             "updatedAt": "2026-10-13T21:53:01Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Holy",
         "classID": 5
@@ -20557,7 +20557,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/priest/holy/bis-gear",
         "slots": {
           "16": [
@@ -22035,7 +22035,7 @@
             "updatedAt": "2026-10-13T21:53:02Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Shadow",
         "classID": 5
@@ -22043,7 +22043,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-14T00:26:46Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/priest/shadow/bis-gear",
         "slots": {
           "16": [
@@ -23479,7 +23479,7 @@
             "updatedAt": "2026-10-13T21:52:59Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Blood",
         "classID": 6
@@ -23487,7 +23487,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:52Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/blood/bis-gear",
         "slots": {
           "16": [
@@ -24953,7 +24953,7 @@
             "updatedAt": "2026-10-13T21:52:55Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Frost",
         "classID": 6
@@ -24961,7 +24961,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/frost/bis-gear",
         "slots": {
           "16": [
@@ -26378,7 +26378,7 @@
             "updatedAt": "2026-10-13T21:52:55Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Unholy",
         "classID": 6
@@ -26386,7 +26386,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-14T01:06:46Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/unholy/bis-gear",
         "slots": {
           "16": [
@@ -27803,7 +27803,7 @@
             "updatedAt": "2026-10-13T21:53:00Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Elemental",
         "classID": 7
@@ -27811,7 +27811,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/shaman/elemental/bis-gear",
         "slots": {
           "16": [
@@ -29321,7 +29321,7 @@
             "updatedAt": "2026-10-13T21:52:53Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Enhancement",
         "classID": 7
@@ -29329,7 +29329,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/shaman/enhancement/bis-gear",
         "slots": {
           "16": [
@@ -30832,7 +30832,7 @@
             "updatedAt": "2026-10-13T21:53:02Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Restoration",
         "classID": 7
@@ -30840,7 +30840,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear",
         "slots": {
           "1": [
@@ -32310,7 +32310,7 @@
             "updatedAt": "2026-10-13T21:52:55Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Arcane",
         "classID": 8
@@ -32318,7 +32318,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-14T22:02:49Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
         "slots": {
           "16": [
@@ -33837,7 +33837,7 @@
             "updatedAt": "2026-10-13T21:53:00Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Fire",
         "classID": 8
@@ -33845,7 +33845,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/mage/fire/bis-gear",
         "slots": {
           "16": [
@@ -35404,7 +35404,7 @@
             "updatedAt": "2026-10-13T21:53:01Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Frost",
         "classID": 8
@@ -35412,7 +35412,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/mage/frost/bis-gear",
         "slots": {
           "16": [
@@ -36988,7 +36988,7 @@
             "updatedAt": "2026-10-13T21:52:58Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Affliction",
         "classID": 9
@@ -36996,7 +36996,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-17T20:33:45Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/warlock/affliction/bis-gear",
         "slots": {
           "16": [
@@ -38491,7 +38491,7 @@
             "updatedAt": "2026-10-13T21:52:59Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Demonology",
         "classID": 9
@@ -38499,7 +38499,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-20T02:14:51Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/warlock/demonology/bis-gear",
         "slots": {
           "16": [
@@ -40048,7 +40048,7 @@
             "updatedAt": "2026-10-13T21:52:59Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Destruction",
         "classID": 9
@@ -40056,7 +40056,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:52Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
         "slots": {
           "16": [
@@ -41651,7 +41651,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Brewmaster",
         "classID": 10
@@ -41659,7 +41659,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/monk/brewmaster/bis-gear",
         "slots": {
           "16": [
@@ -43070,7 +43070,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Windwalker",
         "classID": 10
@@ -43078,7 +43078,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/monk/windwalker/bis-gear",
         "slots": {
           "16": [
@@ -44545,7 +44545,7 @@
             "updatedAt": "2026-10-13T21:52:55Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Mistweaver",
         "classID": 10
@@ -44553,7 +44553,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
         "slots": {
           "1": [
@@ -46016,7 +46016,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Balance",
         "classID": 11
@@ -46024,7 +46024,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-15T21:57:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/druid/balance/bis-gear",
         "slots": {
           "16": [
@@ -47439,7 +47439,7 @@
             "updatedAt": "2026-10-13T21:53:00Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Feral",
         "classID": 11
@@ -47447,7 +47447,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T22:21:25Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/druid/feral/bis-gear",
         "slots": {
           "16": [
@@ -48868,7 +48868,7 @@
             "updatedAt": "2026-10-13T21:53:01Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Guardian",
         "classID": 11
@@ -48876,7 +48876,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/druid/guardian/bis-gear",
         "slots": {
           "16": [
@@ -50356,7 +50356,7 @@
             "updatedAt": "2026-10-13T21:53:02Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Restoration",
         "classID": 11
@@ -50364,7 +50364,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/druid/restoration/bis-gear",
         "slots": {
           "1": [
@@ -51829,7 +51829,7 @@
             "updatedAt": "2026-10-13T21:52:55Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Havoc",
         "classID": 12
@@ -51837,7 +51837,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-17T07:43:07Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/havoc/bis-gear",
         "slots": {
           "16": [
@@ -53410,7 +53410,7 @@
             "updatedAt": "2026-10-15T19:54:42Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Vengeance",
         "classID": 12
@@ -53418,7 +53418,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
         "slots": {
           "16": [
@@ -54971,7 +54971,7 @@
             "updatedAt": "2026-10-13T21:52:56Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Devourer",
         "classID": 12
@@ -54979,7 +54979,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
         "slots": {
           "16": [
@@ -56496,7 +56496,7 @@
             "updatedAt": "2026-10-13T21:53:00Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Devastation",
         "classID": 13
@@ -56504,7 +56504,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/evoker/devastation/bis-gear",
         "slots": {
           "16": [
@@ -58079,7 +58079,7 @@
             "updatedAt": "2026-10-13T21:52:55Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Preservation",
         "classID": 13
@@ -58087,7 +58087,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:53Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
         "slots": {
           "1": [
@@ -59570,7 +59570,7 @@
             "updatedAt": "2026-10-13T21:52:58Z"
           }
         ],
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "primarySource": "Murlok.io",
         "specName": "Augmentation",
         "classID": 13
@@ -59578,7 +59578,7 @@
       "raid": {
         "patch": "12.1",
         "updatedAt": "2026-10-13T21:52:54Z",
-        "retrievedAt": "2026-10-20T06:58:47Z",
+        "retrievedAt": "2026-10-20T07:19:24Z",
         "sourceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
         "slots": {
           "16": [
@@ -60347,7 +60347,7 @@
       "classSlug": "evoker"
     }
   ],
-  "generatedAt": "2026-10-20T06:58:47Z",
+  "generatedAt": "2026-10-20T07:19:24Z",
   "schema": 1,
   "sources": {
     "archon": {

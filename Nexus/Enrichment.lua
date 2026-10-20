@@ -23,12 +23,37 @@ end
 function R.ItemLevel(item, actual)
     if not item then return nil end
     if not actual and item.targetIlvl then return item.targetIlvl end
-    if actual and item.ilvl then return item.ilvl end
+    if actual and item.slotID and C_Item and C_Item.GetCurrentItemLevel and ItemLocation and ItemLocation.CreateFromEquipmentSlot then
+        local ok,level=pcall(C_Item.GetCurrentItemLevel,ItemLocation:CreateFromEquipmentSlot(item.slotID))
+        if ok and R.IsReadable(level) and type(level)=="number" and level>0 then return level end
+    end
     local api = C_Item and C_Item.GetDetailedItemLevelInfo or GetDetailedItemLevelInfo
     if item.link and api then
         local level = api(item.link)
-        if R.IsReadable(level) then return level end
+        if R.IsReadable(level) and type(level)=="number" and level>0 then return level end
     end
+end
+local function secondaryProfile(idOrLink)
+ local api=C_Item and C_Item.GetItemStats or GetItemStats
+ if not api then return end
+ local ok,stats=pcall(api,idOrLink);if not ok or type(stats)~="table" then return end
+ local out={};local total=0
+ for _,key in ipairs({"ITEM_MOD_CRIT_RATING_SHORT","ITEM_MOD_HASTE_RATING_SHORT","ITEM_MOD_MASTERY_RATING_SHORT","ITEM_MOD_VERSATILITY"}) do
+  local value=stats[key]
+  if value and R.IsReadable(value) and type(value)=="number" and value>0 then out[key]=value;total=total+value end
+ end
+ if total>0 then for key,value in pairs(out) do out[key]=value/total end;return out end
+end
+function R.GearOwnership(item,slotID)
+ local state=R.Ownership(item.id,slotID)
+ if state~="EQUIPPED" or not (item.catalyst or item.catalystOption) then return state end
+ local current=R.scan and R.scan.equipped[slotID]
+ local actual=current and current.link and secondaryProfile(current.link)
+ local expected=item.acquisitionItemID and secondaryProfile(item.acquisitionItemID)
+ if not actual or not expected then return "TIER_STATS_UNVERIFIED" end
+ for key,value in pairs(expected) do if not actual[key] or math.abs(actual[key]-value)>.025 then return "TIER_STATS_DIFFERENT" end end
+ for key in pairs(actual) do if not expected[key] then return "TIER_STATS_DIFFERENT" end end
+ return "EQUIPPED"
 end
 function R.LootInfo(item)
     if not item then return nil end
@@ -51,12 +76,24 @@ function R.OpenLoot(item)
    if instanceID and instanceID>0 then route={instanceID=instanceID,encounterID=info.encounterID,bossName=boss,isRaid=item.sourceType=="raid"} end
   end
  end
+ if not route and R.ResolveJournalRoute then
+  local pending=R.ResolveJournalRoute(item,function(found)
+   if found then R.ShowJournalRoute(item,found) else
+    R.journalStatus={id=item.id,key=InCombatLockdown() and "AFTER_COMBAT" or "JOURNAL_NOT_FOUND"}
+    if R.UI then R.UI:JournalStatusChanged(item.id) end
+   end
+  end)
+  if pending then if R.UI then R.UI:JournalStatusChanged(item.id) end;return true end
+ end
  if not route then
   R.journalStatus={id=item.id,key="JOURNAL_NOT_FOUND"}
-  R.Print(R.L("JOURNAL_NOT_FOUND"))
   if R.UI then R.UI:JournalStatusChanged(item.id) end
   return false
  end
+ return R.ShowJournalRoute(item,route)
+end
+function R.ShowJournalRoute(item,route)
+ if InCombatLockdown() then return false end
  if EJ_SetLootFilter then EJ_SetLootFilter(0,0) end
  if C_EncounterJournal and C_EncounterJournal.ResetSlotFilter then C_EncounterJournal.ResetSlotFilter() end
  if EJ_SetSearch then EJ_SetSearch("") end

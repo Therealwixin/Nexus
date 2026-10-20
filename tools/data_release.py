@@ -9,7 +9,7 @@ def due(now=None,event=None):
  now=now or dt.datetime.now(dt.timezone.utc)
  previous=json.loads((ROOT/'data/snapshot.json').read_text(encoding='utf-8'))
  checked=dt.datetime.fromisoformat(previous['generatedAt'].replace('Z','+00:00'))
- result=(event or os.environ.get('EVENT_KIND'))=='workflow_dispatch' or (now-checked).total_seconds()>=72*3600
+ result=(event or os.environ.get('EVENT_KIND'))=='workflow_dispatch' or (now-checked).total_seconds()>=23*3600
  if os.environ.get('GITHUB_OUTPUT'):
   with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f:f.write('due='+str(result).lower()+'\n')
  print('Data refresh due:',result)
@@ -30,6 +30,8 @@ def stage(keep_version=False):
   if not -60<=age<=24*3600:raise ValueError('Candidate must be collected within the last 24 hours')
  transfers=[('snapshot.json','data/snapshot.json'),('meta-snapshot.json','data/meta-snapshot.json'),('Data.lua','Nexus/Data.lua'),('MetaData.lua','Nexus/MetaData.lua'),('GuideData.lua','Nexus/GuideData.lua'),('guide-snapshot.json','data/guide-snapshot.json')]
  contents=[(ROOT/dest,(candidate/src).read_bytes()) for src,dest in transfers]
+ for src,dest in [('SourceStatus.lua','Nexus/SourceStatus.lua'),('source-status.json','data/source-status.json')]:
+  if (candidate/src).exists():contents.append((ROOT/dest,(candidate/src).read_bytes()))
  wcl_path=ROOT/'build/wcl/wcl-snapshot.json'
  if wcl_path.exists():
   from wcl_public import validate_snapshot
@@ -43,7 +45,7 @@ def stage(keep_version=False):
   temp=dest.with_suffix(dest.suffix+'.tmp');temp.write_bytes(content);temp.replace(dest)
  if not keep_version:
   suffix='-beta.data.' if channel=='beta' else '-data.'
-  set_version('0.6.0'+suffix+now.strftime('%Y%m%d%H%M'))
+  set_version('0.6.1'+suffix+now.strftime('%Y%m%d%H%M'))
  print('Staged gear/meta candidates. Tests must pass before committing or publishing.')
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('action',choices=['due','stage','version']);p.add_argument('--keep-version',action='store_true');a=p.parse_args()

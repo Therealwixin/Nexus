@@ -1,3 +1,14 @@
+## 0.6.1-beta.1 and daily data builds
+
+- Remove the character model and artificial gaps; use compact aligned paper-doll columns and item-quality name colors.
+- Fix false/nil socket visibility: only actual sockets and actual recommendations are shown.
+- Read equipped ilvl from the native equipment ItemLocation, with full-link fallback. Do not use generic cached ilvl.
+- Put Alternatives before acquisition/WCL details and include clearly labelled same-spec observed alternatives in Overall.
+- Respect Catalyst stat retention: preview the original source item, compare available secondary-stat profiles and keep unverified variants labelled.
+- Resolve unopened Adventure Guide routes asynchronously, limited to current-expansion raids and seasonal dungeons, with at most 24 loot reads per callback and saved native filters/state. Reuse verified boss encounter IDs for tier sources. No repeated chat errors.
+- Enable daily data collection/testing/publishing. Show publication and last-check dates separately. Add Raider.IO EU affix context and honest Archon availability status; blocked Archon pages are not imported as gear data.
+- Add screenshot-specific regression checks and a detailed Slovak update/install guide.
+
 ## 0.6.0-beta.4
 
 - Import all 40 live Wowhead guides, preserving named sets, alternatives, publication dates and live patch checks.

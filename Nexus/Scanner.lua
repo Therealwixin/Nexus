@@ -7,7 +7,7 @@ function R.ScanEquipment()
         local link = GetInventoryItemLink("player", slot.id)
         local id = GetInventoryItemID("player", slot.id)
         if R.IsReadable(link) and R.IsReadable(id) and id then
-            scan.equipped[slot.id] = { id = id, link = link, icon = GetInventoryItemTexture("player", slot.id) }
+            scan.equipped[slot.id] = { id = id, link = link, slotID=slot.id, icon = GetInventoryItemTexture("player", slot.id) }
             R.RequestItem(id)
         end
     end

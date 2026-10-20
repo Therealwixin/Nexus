@@ -24,6 +24,7 @@ if __name__=='__main__':
  lua.globals().TEST.R=ns
  lua.execute((ROOT/'tests/lean.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/look.lua').read_text(encoding='utf-8'))
+ lua.execute((ROOT/'tests/fixes.lua').read_text(encoding='utf-8'))
  report={'simulationChecks':lua.globals().TEST.leanChecks,'layoutChecks':lua.globals().TEST.lookChecks,'loadedAddonKiB':round(memory,1)}
  baseline=Path('C:/Users/South/Downloads/Nexus-0.5.0-beta.5/Nexus')
  if baseline.exists():

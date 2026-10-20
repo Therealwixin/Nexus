@@ -12,3 +12,5 @@ ignore:
   - TEST-RESULTS.json
   - CURSEFORGE.md
   - SETUP.md
+  - AKTUALIZACIE_SK.md
+  - DATA-SOURCES.md

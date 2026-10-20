@@ -4,7 +4,7 @@ A focused World of Warcraft Retail addon for gear goals, equipment ownership and
 
 ## Current preview
 
-Nexus 0.6.0 beta 4 uses a character-panel equipment layout, compact scrolling preparation cards and multi-item socket comparisons. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives and anonymous WCL usage evidence. Native fonts, icons and tooltips are retained. Player-profile browsing and talent databases have been removed.
+Nexus 0.6.1 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives and anonymous WCL usage evidence. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
 
 - **Equipment:** recommended Raid/Mythic+ gear and ownership on the current character.
 - **Preparation:** enchantments, equipped sockets, gem suggestions and consumables.
@@ -38,12 +38,12 @@ The live Wowhead collector was exercised across all 40 specs on 2026-10-20; publ
     python tools/refresh_gear.py
     python tools/data_release.py stage --keep-version
 
-See [SETUP.md](SETUP.md) for GitHub Actions and CurseForge setup. Scheduled collection and publishing are disabled until the corresponding repository variables are enabled. The prepared project description is in [CURSEFORGE.md](CURSEFORGE.md).
+Daily data collection, validation and configured publishing are enabled. See [AKTUALIZACIE_SK.md](AKTUALIZACIE_SK.md) for the detailed Slovak installation/update guide and [SETUP.md](SETUP.md) for setup details. The prepared project description is in [CURSEFORGE.md](CURSEFORGE.md).
 
 No API keys or game libraries are bundled in the addon. Existing owner license terms are retained in `Nexus/LICENSE.txt`.
 
 ## Warcraft Logs and Archon
 
-The manual **Verify Warcraft Logs** workflow uses `WCL_CLIENT_ID` and `WCL_CLIENT_SECRET` repository secrets. Its default is a public OAuth/quota probe. The optional single-encounter query caches anonymous frequencies for six hours. **Collect guides** reads one ranking page for each spec in two verified current-season contexts: The Coiled Altar (Mythic raid) and Murder Row (M+). It stops at 80% of the hourly budget. Healers use HPS; others DPS. Samples below 20 usable gear sets are omitted. Beta 4 includes 40 M+ and 34 raid contexts; details show counts, encounter, metric and retrieval date. These are encounter-specific observations and never reorder the guide or establish acquisition source. No credentials, player names, private logs or event streams are bundled. **Refresh Nexus data** collects this evidence alongside guides, validates and tests before publishing; the scheduled run remains gated by `AUTO_DATA_REFRESH`.
+The manual **Verify Warcraft Logs** workflow uses `WCL_CLIENT_ID` and `WCL_CLIENT_SECRET` repository secrets. Its default is a public OAuth/quota probe. The optional single-encounter query caches anonymous frequencies for six hours. **Collect guides** reads one ranking page for each spec in two verified current-season contexts: The Coiled Altar (Mythic raid) and Murder Row (M+). It stops at 80% of the hourly budget. Healers use HPS; others DPS. Samples below 20 usable gear sets are omitted. Beta 4 includes 40 M+ and 34 raid contexts; details show counts, encounter, metric and retrieval date. These are encounter-specific observations and never reorder the guide or establish acquisition source. No credentials, player names, private logs or event streams are bundled. **Refresh Nexus data** collects this evidence alongside guides, validates and tests before publishing; daily scheduled collection is enabled.
 
-Archon build data is not integrated. Its published API documentation covers log data; a supported aggregate-build feed and permission to redistribute it still need verification.
+Raider.IO provides EU affix context through its public API. Archon build data is not integrated: the public gear page currently returns human verification. The daily collector reports that status honestly without bypassing the check or treating it as gear data. Publication and last-check dates are shown separately.
