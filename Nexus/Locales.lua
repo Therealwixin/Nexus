@@ -194,3 +194,10 @@ for lang,values in pairs({
  SK={WCL_WINDOW="Obdobie logov: %s – %s",WCL_COLLECTION="Zozbierané %d/40 specov · vhodné: %d raid / %d M+"},
  CZ={WCL_WINDOW="Období logů: %s – %s",WCL_COLLECTION="Sesbíráno %d/40 speců · použitelné: %d raid / %d M+"}
 }) do for key,value in pairs(values) do strings[lang][key]=value end end
+
+local dungeonBiS={
+ EN={DUNGEON_WARNING="BiS available in this dungeon",DUNGEON_WARNING_HINT="Click an item to open its details.",DUNGEON_BIS_ITEM="BiS",DUNGEON_BIS_CATALYST="BiS via Catalyst"},
+ SK={DUNGEON_WARNING="BiS dostupný v tomto dungeone",DUNGEON_WARNING_HINT="Kliknutím na predmet otvoríš detail.",DUNGEON_BIS_ITEM="BiS",DUNGEON_BIS_CATALYST="BiS cez Catalyst"},
+ CZ={DUNGEON_WARNING="BiS dostupný v tomto dungeonu",DUNGEON_WARNING_HINT="Kliknutím na předmět otevřeš detail.",DUNGEON_BIS_ITEM="BiS",DUNGEON_BIS_CATALYST="BiS přes Catalyst"}
+}
+for language,strings in pairs(dungeonBiS) do for key,value in pairs(strings) do R.Locales[language][key]=value end end

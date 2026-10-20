@@ -124,7 +124,8 @@ function A:RenderBanner()
  for index,b in ipairs(self.rows) do
   local entry=self.entries[(self.page-1)*3+index];b.entry=entry;b:SetShown(entry~=nil)
   if entry then
-   shown=shown+1;b.icon:SetTexture(R.ItemIcon(entry.item));b.name:SetText(R.ItemName(entry.item));b.source:SetText(R.L(R.SLOT_BY_ID[entry.slotID].key).." · "..(self.visit.name or ""));R.SkinPanel(b,"card")
+   local kind=entry.item.acquisitionItemID and "DUNGEON_BIS_CATALYST" or "DUNGEON_BIS_ITEM"
+   shown=shown+1;b.icon:SetTexture(R.ItemIcon(entry.item));b.name:SetText(R.ItemName(entry.item));b.source:SetText(R.L(kind).." · "..R.L(R.SLOT_BY_ID[entry.slotID].key).." · "..(self.visit.name or ""));R.SkinPanel(b,"card")
   end
  end
  local paged=self.pages>1;f:SetHeight(60+shown*54+(paged and 38 or 12));R.SkinPanel(f,"detail")
@@ -148,6 +149,21 @@ function A:Retry()
   self.pending=nil;self:Check()
  end)
 end
+function A:CollectEntries(loot,specID)
+ local entries,seen={},{}
+ for _,slot in ipairs(R.SLOTS) do
+  -- Entry warnings describe the authored BiS target, never the source-restricted
+  -- alternative pool. Match the actual drop ID for a Catalyst recommendation.
+  local item=R.GetGearTarget(slot.id,specID,"overall")
+  if item then
+   local dropID=item.acquisitionItemID or item.journalItemID or item.id
+   if not item.crafted and loot[dropID] and not seen[dropID] and R.Ownership(item.id,slot.id)=="MISSING" and R.Ownership(dropID,slot.id)=="MISSING" then
+    entries[#entries+1]={item=item,slotID=slot.id,specID=specID};seen[dropID]=true;R.RequestItem(item.id)
+   end
+  end
+ end
+ return entries
+end
 function A:CheckVisit()
  if not R.db then return end
  local context=self:Context()
@@ -163,20 +179,11 @@ function A:CheckVisit()
  if not seasonal then if not ready then self:Retry() end;return end
  visit.challengeMapID=seasonal
  if InCombatLockdown() then return end -- PLAYER_REGEN_ENABLED resumes safely.
- local dataset=specID and R.GetDataset("mythicplus",specID);if not dataset then return end
+ local dataset=specID and R.GetGuideDataset(specID);if not dataset then return end
  R.ScanEquipment()
  local loot,pending=self:ReadLoot(context)
  if not loot or pending then self:Retry();return end
- local entries,seen={},{}
- for _,slot in ipairs(R.SLOTS) do
-  for _,item in ipairs(R.GetGearCandidates(slot.id,specID,"mythicplus")) do
-   local dropID=item.acquisitionItemID or item.journalItemID or item.id
-   if not item.crafted and loot[dropID] and not seen[dropID] and R.Ownership(item.id,slot.id)=="MISSING" and R.Ownership(dropID,slot.id)=="MISSING" then
-    entries[#entries+1]={item=item,slotID=slot.id,specID=specID};seen[dropID]=true;R.RequestItem(item.id)
-    break -- Highest recommended missing option from this dungeon for the slot.
-   end
-  end
- end
+ local entries=self:CollectEntries(loot,specID)
  visit.notified[specID or 0]=true
  if #entries>0 then self:Show(entries) end
 end

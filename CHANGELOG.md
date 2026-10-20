@@ -1,3 +1,10 @@
+## 0.6.4-beta.2
+
+- Restrict dungeon-entry alerts to the active specialization's primary authored BiS targets. Source-restricted alternatives and observed M+ items no longer inflate the popup.
+- Match Catalyst recommendations against the original dungeon drop ID and label the conversion explicitly.
+- Keep ownership checks, paired-slot/source deduplication and the existing per-visit notification limits.
+- Add a six-loot/two-BiS regression, alternative-only pool, exact Catalyst source, ownership and banner-label checks.
+
 ## 0.6.4-beta.1
 
 - Integrate the latest authored/Murlok refresh with the Catalyst passive-effect fixes.

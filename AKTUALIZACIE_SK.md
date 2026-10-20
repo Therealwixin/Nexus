@@ -141,3 +141,9 @@ Všetko beží na GitHube, aj keď máš vypnutý počítač:
 Ručne môžeš otvoriť repozitár → **Actions → Refresh weekly WCL evidence → Run workflow → main**. Bežne netreba nič klikať. Ak úloha zlyhá opakovane, otvor neúspešný krok a pošli odkaz; API kľúče nevkladaj do chatu. Denný zber guideov tým nie je zastavený.
 
 Krátka fáza zápisu dát je chránená spoločným zámkom, aby si úlohy neprepísali súbory. Niekoľkohodinový WCL zber tento zámok nedrží. Inštalácia nového balíka na tvojom počítači stále prebieha cez CurseForge aplikáciu alebo ručný ZIP.
+
+## Dungeonové upozornenie (od 0.6.4-beta.2)
+
+Pri vstupe do sezónneho dungeonu sa porovná jeho skutočný loot pool iba s hlavným BiS zoznamom tvojho aktívneho specu. Alternatívy a pozorované M+ predmety sa do vstupného BiS hlásenia nezapočítavajú. Naďalej ich nájdeš v detaile slotu. Hlásenie sa riadi aktuálnymi dátami, nie ručne napísaným zoznamom dungeonov.
+
+Pri odporúčanom Catalyst kuse sa hľadá pôvodné drop ID a riadok je označený **BiS cez Catalyst**. Tier výsledok sa neprezentuje ako priamy drop. Predmety, ktoré už máš nasadené alebo v taške, a duplicitné ring/trinket možnosti sa nepočítajú opakovane.
