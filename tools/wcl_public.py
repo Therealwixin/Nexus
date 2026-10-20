@@ -15,8 +15,9 @@ def request(url,payload,headers):
 
 class Client:
  def __init__(self):
-  client_id=os.environ.get('WCL_CLIENT_ID');secret=os.environ.get('WCL_CLIENT_SECRET')
+  client_id=os.environ.get('WCL_CLIENT_ID','').strip();secret=os.environ.get('WCL_CLIENT_SECRET','').strip()
   if not client_id or not secret:raise ValueError('Set GitHub secrets WCL_CLIENT_ID and WCL_CLIENT_SECRET')
+  if client_id==secret:raise ValueError('Client ID and Client Secret are identical; use the two distinct values from the same Warcraft Logs API application')
   auth=base64.b64encode((client_id+':'+secret).encode()).decode()
   response=request('https://www.warcraftlogs.com/oauth/token',b'grant_type=client_credentials',{'Authorization':'Basic '+auth,'Content-Type':'application/x-www-form-urlencoded'})
   self.token=response.get('access_token')
