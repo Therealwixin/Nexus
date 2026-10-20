@@ -22,9 +22,6 @@ function UI:Layout()
   self.sectionTitle=label(f,16,GOLD);self.sectionTitle:SetHeight(20)
   self.gearHeaders={slot=label(self.gearChild,10,MUTED),item=label(self.gearChild,10,MUTED),state=label(self.gearChild,10,MUTED)}
   self.sourceButtons={}
-  for _,entry in ipairs({{"overall","Overall BIS"},{"raid","Raid BIS"},{"mythicplus","Mythic+ BIS"}}) do
-   local key=entry[1];local b=CreateFrame("Button",nil,f,"UIPanelButtonTemplate");b:SetSize(106,25);b:SetText(entry[2]);b:GetFontString():SetFont(R.FONT,11,"");b:SetScript("OnClick",function()R.db.gearSource=key;self:Refresh()end);self.sourceButtons[key]=b
-  end
  end
  if ButtonFrameTemplate_HidePortrait then ButtonFrameTemplate_HidePortrait(f) elseif f.PortraitContainer then f.PortraitContainer:Hide() end
  place(f.Inset,"TOPLEFT",f,"TOPLEFT",8,-151);f.Inset:SetPoint("BOTTOMRIGHT",f,"BOTTOMRIGHT",-8,47)
@@ -47,8 +44,8 @@ function UI:Layout()
  place(self.footer,"BOTTOMLEFT",f,"BOTTOMLEFT",22,18);self.footer:SetWidth(f:GetWidth()-200);self.footer:SetHeight(14)
  self.characterName:Hide();self.themeButton:Hide()
  local equipment=self.view=="equipment"
- for index,key in ipairs({"overall","raid","mythicplus"}) do local b=self.sourceButtons[key];place(b,"TOPRIGHT",f,"TOPRIGHT",-22-(3-index)*110,-83);b:SetShown(equipment);b:SetEnabled(R.GearSource()~=key) end
- self.buttons.MYTHICPLUS:SetShown(not equipment);self.buttons.RAID:SetShown(not equipment)
+ for _,b in pairs(self.sourceButtons) do b:Hide() end
+ self.buttons.MYTHICPLUS:SetShown(self.view=="meta");self.buttons.RAID:SetShown(self.view=="meta")
  for index,b in ipairs(self.languageButtons) do place(b,"TOPLEFT",f,"TOPLEFT",181+(index-1)*38,-119) end
 end
 -- Equipment follows the native paper doll: armor left/right, weapons below.
@@ -147,7 +144,7 @@ function UI:Refresh()
  if not self.frame or not self.frame:IsShown() then return end
  self:Layout();previousRefresh(self)
  self.title:SetText(R.NAME);self.themeButton:Hide();self.characterName:Hide()
- self.sectionTitle:SetText(R.L(self.view=="equipment" and "EQUIPMENT" or self.view=="preparation" and "PREPARATION" or self.view=="meta" and "META" or "DATA_SETTINGS"))
+ self.sectionTitle:SetText(self.view=="equipment" and "Overall BiS" or R.L(self.view=="preparation" and "PREPARATION" or self.view=="meta" and "META" or "DATA_SETTINGS"))
  self.buttons.SOURCES:SetText(R.L("DATA_UPDATES"))
  for key,view in pairs({EQUIPMENT="equipment",PREPARATION="preparation",META="meta",SOURCES="sources"}) do R.StyleNavigation(self.buttons[key],self.view==view) end
  self.buttons.MYTHICPLUS:SetText(self.view=="meta" and R.L("META_MPLUS") or "Mythic+");self.buttons.RAID:SetText(self.view=="meta" and R.L("META_RAID") or "Raid")

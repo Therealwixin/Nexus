@@ -46,7 +46,7 @@ end
 for _,scope in ipairs({"raid","mythicplus"}) do
  R.db.gearSource=scope
  for id in pairs(R.Data.specs) do R.SetViewSpec(id)
-  for _,slot in ipairs(R.SLOTS) do for _,item in ipairs(R.GetGearCandidates(slot.id)) do
+  for _,slot in ipairs(R.SLOTS) do for _,item in ipairs(R.GetGearCandidates(slot.id,nil,scope)) do
    check(item.acquisition==(scope=="raid" and "raid" or "dungeon") and not item.crafted,"Source restrictions are real")
   end end
  end

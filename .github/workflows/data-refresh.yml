@@ -50,6 +50,7 @@ jobs:
           python tools/test_maintenance.py
           python tools/test_meta.py
           python tools/test_guides.py
+          python tools/test_alternatives.py
           python tools/test_wcl.py
       - name: Save verified data revision
         if: steps.cadence.outputs.due == 'true'

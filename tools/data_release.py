@@ -45,7 +45,8 @@ def stage(keep_version=False):
   temp=dest.with_suffix(dest.suffix+'.tmp');temp.write_bytes(content);temp.replace(dest)
  if not keep_version:
   suffix='-beta.data.' if channel=='beta' else '-data.'
-  set_version('0.6.1'+suffix+now.strftime('%Y%m%d%H%M'))
+  base=re.search(r'^## Version: (\d+\.\d+\.\d+)',(ROOT/'Nexus/Nexus.toc').read_text(encoding='utf-8'),re.M).group(1)
+  set_version(base+suffix+now.strftime('%Y%m%d%H%M'))
  print('Staged gear/meta candidates. Tests must pass before committing or publishing.')
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('action',choices=['due','stage','version']);p.add_argument('--keep-version',action='store_true');a=p.parse_args()

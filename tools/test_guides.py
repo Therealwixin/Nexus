@@ -26,9 +26,9 @@ for spec,guide in pairs(R.GuideData.specs) do
  for _,scope in ipairs({"overall","raid","mythicplus"}) do
   R.db.gearSource=scope;local count=0
   for _,slot in ipairs(R.SLOTS) do
-   local target=R.GetGearTarget(slot.id)
+   local target=R.GetGearTarget(slot.id,nil,scope)
    if target then count=count+1;assert(target.name and target.icon,"Missing display metadata") end
-   for _,item in ipairs(R.GetGearCandidates(slot.id)) do
+   for _,item in ipairs(R.GetGearCandidates(slot.id,nil,scope)) do
     if scope~="overall" then assert(item.acquisition==(scope=="raid" and "raid" or "dungeon") and not item.crafted) end
     if item.catalyst then assert(item.journalItemID==item.acquisitionItemID and item.id~=item.journalItemID) end
    end
@@ -36,7 +36,7 @@ for spec,guide in pairs(R.GuideData.specs) do
   assert(count>0,"Numeric Lua source slot keys lost")
   if scope=="overall" then assert(count>=14,"Authored set incomplete in game") end
   if scope~="overall" then for _,pair in ipairs({{11,12},{13,14}}) do
-   local a,b=R.GetGearTarget(pair[1]),R.GetGearTarget(pair[2]);assert(not a or not b or a.id~=b.id,"Duplicate ring/trinket selected")
+   local a,b=R.GetGearTarget(pair[1],nil,scope),R.GetGearTarget(pair[2],nil,scope);assert(not a or not b or a.id~=b.id,"Duplicate ring/trinket selected")
   end end
  end
  checked=checked+1

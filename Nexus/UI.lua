@@ -125,14 +125,16 @@ function UI:RenderDetail(override,slotOverride)
  if item.count then local d=R.GetDataset();self:DetailText(R.L("SAMPLE")..": "..item.count.." / "..(item.sampleSize or (d and d.sampleSize) or "?")) end
  if item.updatedAt then self:DetailText(R.L("SNAPSHOT")..": "..item.updatedAt:sub(1,10),GREY) end
  if slot and self.view=="equipment" then
-  local candidates=R.GetGearCandidates(slotID)
+  local candidates=R.GetGearAlternatives(slotID)
   self:DetailSection(R.L("ALTERNATIVES"),GOLD)
-  local shown=0
+  local shown=0;local hasDungeon=false
   for _,alternative in ipairs(candidates) do if alternative.id~=item.id and shown<4 then
    local alt=alternative;shown=shown+1
-   self:DetailItem(alt,(alt.source or "")..(alt.observedAlternative and " · "..R.L("OBSERVED_ALTERNATIVE") or ""),function()self:RenderDetail(alt,slotID)end)
+   if alt.acquisition=="dungeon" then hasDungeon=true end
+   self:DetailItem(alt,(alt.acquisition=="dungeon" and "Dungeon · " or "")..(alt.source or "")..(alt.catalystTargetID and " · Catalyst" or alt.observedAlternative and " · "..R.L("OBSERVED_ALTERNATIVE") or ""),function()self:RenderDetail(alt,slotID)end)
   end end
   if shown==0 then self:DetailText(R.L("NO_ALTERNATIVES"),GREY,11) end
+  if not hasDungeon then self:DetailText(R.L("NO_DUNGEON_ALTERNATIVE"),GREY,11) end
  end
  local wcl,count=R.GetWCLEvidence(item.id)
  if wcl then
@@ -275,6 +277,7 @@ function UI:RenderSources()
  local guide=R.GetGuideDataset()
  if guide then
   self:ListLine("Wowhead · BiS sets",nil,guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10),function()self:ShowCopy(guide.sourceURL)end,GOLD)
+  if guide.alternativeGuideURL then self:ListLine("Icy Veins · Alternatives",nil,guide.alternativeGuideUpdatedAt:sub(1,10)..(guide.alternativeGuideRefreshStatus=="unavailable" and " · "..R.L("SOURCE_UNAVAILABLE") or " · "..R.L("CHECKED").." "..(guide.alternativeGuideCheckedAt or guide.retrievedAt):sub(1,10)),function()self:ShowCopy(guide.alternativeGuideURL)end,GOLD) end
   for _,set in ipairs(guide.sets) do self:ListLine(set.name,nil,set.scope,nil,WHITE) end
   self:DetailText(R.L("SOURCE_SCOPE_NOTE"),GREY,11)
  end

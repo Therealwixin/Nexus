@@ -18,7 +18,7 @@ Recommendations are source snapshots, not a personalized simulation. Raid repres
 
 Download an installable Nexus ZIP, close WoW and replace the `Nexus` addon folder. The result must be `_retail_/Interface/AddOns/Nexus/Nexus.toc`. Preserve SavedVariables. Open `/nexus`.
 
-Overall uses the authored Wowhead set. Raid/M+ filters use explicitly identified drops, including original Catalyst base items and verified same-spec alternatives. These lists remain incomplete; unknown acquisition sources and crafted items are excluded. An activity-oriented Mythic+ guide can recommend raid gear, so its title alone is not treated as dungeon-drop evidence. See [DATA-SOURCES.md](DATA-SOURCES.md) for all 40 specs, source links and actual slot/sample coverage. Dungeon warnings check the highest recommended missing option available in the visited dungeon for each slot.
+Equipment now has only Overall BiS, with up to four distinct verified alternatives per slot. A dungeon option is reserved whenever one is known. Wowhead, Icy Veins and same-spec observed alternatives are labelled by source. Lists are not padded when source data is incomplete. Catalyst alternatives retain the original source item. See [DATA-SOURCES.md](DATA-SOURCES.md) for actual coverage.
 
 The addon is still a preview. Real-client appearance and combat behavior require testing; the Lua simulator does not reproduce WoW's renderer or secure execution.
 

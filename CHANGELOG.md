@@ -1,3 +1,11 @@
+## 0.6.2-beta.1
+
+- Keep only Overall BiS in Equipment; remove Raid/Mythic+ source selectors and ignore obsolete saved source selections.
+- Show at most four distinct alternatives per slot, reserving a place for a verified dungeon option whenever available.
+- Add authored Icy Veins gear options for all 40 specs to the existing Wowhead/Murlok pools. Label dungeon options explicitly; retain original source-item identity for Catalyst alternatives.
+- Keep missing options explicit rather than padding lists. Include these sources in daily collection, preserving previous dated alternatives if temporarily unavailable.
+- Test the four-option cap, dungeon reservation, item identity and all-spec selection. Data releases keep the current code version prefix.
+
 ## 0.6.1-beta.1 and daily data builds
 
 - Remove the character model and artificial gaps; use compact aligned paper-doll columns and item-quality name colors.

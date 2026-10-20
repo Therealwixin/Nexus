@@ -159,6 +159,8 @@ def validate_guides(data):
  for sid,spec in data['specs'].items():
   if not spec.get('sourceURL') or not spec.get('updatedAt') or not spec['sets']:raise ValueError('Missing guide provenance')
   if '.'.join(spec.get('sourcePatch','').split('.')[:2])!=data['patch']:raise ValueError('Guide patch differs from snapshot')
+  for slot,keys in spec.get('alternatives',{}).items():
+   if int(slot) not in {1,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17} or not keys or any(k not in data['items'] for k in keys):raise ValueError('Invalid alternative reference')
   for authored in spec['sets']:
    if len(authored['slots'])<14:raise ValueError('Incomplete authored set')
   for scope,slots in spec['sourceLists'].items():

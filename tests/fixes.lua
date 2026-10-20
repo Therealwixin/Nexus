@@ -5,6 +5,7 @@ C_Item.GetItemInfo=function(value)check(value~=nil,"Native item API cannot recei
 check(R.ItemColor({name="Spell-only enchant"})~=nil,"Spell-only enchant color must be safe")
 R.db.gearSource="overall";R.SetViewSpec(261);R.UI.gearView="targets";R.UI:SetView("equipment")
 check(not R.UI.paperDoll or not R.UI.paperDoll:IsShown(),"Character model must be removed")
+check(next(R.UI.sourceButtons)==nil and R.UI.sectionTitle:GetText()=="Overall BiS","No Raid/Mythic gear-source selectors remain")
 local wrist=R.UI.rows[6];local chest=R.UI.rows[5]
 check(math.abs(chest:GetBottom()-wrist:GetTop())<4,"No artificial gap before wrists")
 local a,b=R.GetGearCandidates(1,261,"overall")[1],R.GetGearCandidates(1,261,"overall")[2]
