@@ -30,3 +30,22 @@ try:source_date('No publication timestamp','2026-10-19T00:00:00Z')
 except ValueError:pass
 else:raise AssertionError('Retrieval time used as source date')
 print('Meta: role coverage, hero-build aggregation, difficulty and authentic source timestamps: PASS')
+from refresh_meta import collect_meta
+from unittest.mock import patch
+from pathlib import Path
+import copy
+original=copy.deepcopy(meta)
+def partial_source(url,*args):
+ if 'u.gg' in url:raise OSError('HTTP 403')
+ group=url.rsplit('/',1)[-1]
+ text='Patch 12.1 <time datetime="2026-10-16T10:00:00Z"></time>'
+ for i,s in enumerate(roles[group]):text+=f'<a class="meta-item" href="/{s["classSlug"]}/{s["slug"]}/m+">{i+1} {s["name"]} {4000-i}</a>'
+ return text
+with patch('refresh_meta.fetch',partial_source):updated=collect_meta(meta,Path('.'),True)
+assert meta==original
+assert all(r['refreshStatus']=='ok' and r.get('retrievedAt') for r in updated['modes']['mythicplus']['roles'].values())
+for group,r in updated['modes']['raid']['roles'].items():
+ assert r['refreshStatus']=='unavailable' and r['updatedAt']==meta['modes']['raid']['roles'][group]['updatedAt']
+ assert r['entries']==meta['modes']['raid']['roles'][group]['entries']
+ assert r.get('retrievedAt')==meta['modes']['raid']['roles'][group].get('retrievedAt')
+print('Meta: blocked independent source retains original dates and values; other sources still refresh PASS')

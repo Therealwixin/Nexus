@@ -79,3 +79,6 @@ for _,lang in ipairs({"EN","SK","CZ"}) do
  l.SOURCE_UNAVAILABLE=lang=="EN" and "unavailable" or lang=="SK" and "nedostupný" or "nedostupný"
  l.SOURCE_NOT_INTEGRATED=lang=="EN" and "not integrated" or lang=="SK" and "nezapojený" or "nezapojený"
 end
+R.Locales.EN.META_REFRESH_FAILED="Source unavailable at last check; showing the previous dated snapshot."
+R.Locales.SK.META_REFRESH_FAILED="Zdroj pri poslednej kontrole nebol dostupný; zobrazené sú pôvodné datované údaje."
+R.Locales.CZ.META_REFRESH_FAILED="Zdroj při poslední kontrole nebyl dostupný; zobrazené jsou původní datované údaje."

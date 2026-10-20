@@ -66,14 +66,22 @@ def collect_meta(previous,cache,offline=False):
  result=copy.deepcopy(previous);now=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ');result['generatedAt']=now
  for group in ['dps','healer','tank']:
   url=previous['modes']['mythicplus']['roles'][group]['sourceURL']
-  html=fetch(url,cache,'meta-'+group+'.html',offline);entries,patch=murlok(html,group)
-  if patch!=result['patch']:raise ValueError('M+ meta patch mismatch')
-  stamp=source_date(html,now)
-  result['modes']['mythicplus']['roles'][group]=dict(entries=entries,sourceURL=url,updatedAt=stamp,retrievedAt=now,updatedEpoch=epoch(stamp),sourceHash=hashlib.sha256(html.encode()).hexdigest())
+  try:
+   html=fetch(url,cache,'meta-'+group+'.html',offline);entries,patch=murlok(html,group)
+   if patch!=result['patch']:raise ValueError('M+ meta patch mismatch')
+   stamp=source_date(html,now)
+   result['modes']['mythicplus']['roles'][group]=dict(entries=entries,sourceURL=url,updatedAt=stamp,retrievedAt=now,updatedEpoch=epoch(stamp),sourceHash=hashlib.sha256(html.encode()).hexdigest(),refreshStatus='ok',lastAttemptAt=now)
+  except (OSError,ValueError):
+   result['modes']['mythicplus']['roles'][group].update(refreshStatus='unavailable',lastAttemptAt=now)
+   print('M+ meta '+group+': source unavailable; retaining original dated snapshot')
  url=previous['modes']['raid']['roles']['dps']['sourceURL']
- html=fetch(url,cache,'meta-raid.html',offline);roles=raid(html,result['patch'])
- for group,record in roles.items():
-  record.update(sourceURL=previous['modes']['raid']['roles'][group]['sourceURL'],retrievedAt=now,sourceHash=hashlib.sha256(html.encode()).hexdigest())
- result['modes']['raid']['roles']=roles
+ try:
+  html=fetch(url,cache,'meta-raid.html',offline);roles=raid(html,result['patch'])
+  for group,record in roles.items():
+   record.update(sourceURL=previous['modes']['raid']['roles'][group]['sourceURL'],retrievedAt=now,sourceHash=hashlib.sha256(html.encode()).hexdigest(),refreshStatus='ok',lastAttemptAt=now)
+  result['modes']['raid']['roles']=roles
+ except (OSError,ValueError):
+  for record in result['modes']['raid']['roles'].values():record.update(refreshStatus='unavailable',lastAttemptAt=now)
+  print('Raid meta: source unavailable; retaining original dated snapshot')
  validate_meta(result)
  return result

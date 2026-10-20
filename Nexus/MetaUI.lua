@@ -85,6 +85,7 @@ function UI:RenderMetaDetail(record,why)
  self:DetailText(record.dataset.source..(record.dataset.upstream and " · "..record.dataset.upstream or ""),WHITE)
  self:DetailText(record.dataset.scope..(record.dataset.difficulty and " · "..record.dataset.difficulty or ""),GREY,11)
  self:DetailText("Patch "..R.MetaData.patch.." · "..R.L("META_SOURCE_DATE")..": "..record.group.updatedAt:sub(1,16):gsub("T"," ").." UTC",GREY,11)
+  if record.group.refreshStatus=="unavailable" then self:DetailText(R.L("META_REFRESH_FAILED"),RED,11) end
  local age=R.MetaAge(record.group)
  if age and age>7 then self:DetailText(R.L("STALE"),RED,12) end
  self:DetailButton(record.dataset.source.." · "..R.L("COPY_URL"),function()self:ShowCopy(record.group.sourceURL)end)
@@ -96,6 +97,7 @@ function UI:RenderMeta()
  for role,button in pairs(self.metaRoleButtons) do button:SetText(R.L(roleKeys[role]));button:SetEnabled(role~=self.metaRole) end
  self.metaSummary:SetText((data and data.source.." · "..data.scope..(data.difficulty and " · "..data.difficulty or "") or R.L("META")).." · "..R.L("META_SPEC_COUNT",#records))
  self.metaHint:SetText(R.L(data and data.method=="raid_representation" and "META_RAID_HINT" or "META_MPLUS_HINT"))
+  for _,group in pairs(data and data.roles or {}) do if group.refreshStatus=="unavailable" then self.metaHint:SetText(R.L("META_REFRESH_FAILED"));break end end
  self.metaEmpty:SetShown(#records==0);self.metaEmpty:SetText(R.L(why or "META_UNAVAILABLE"))
  local width=self.metaScroll:GetWidth();local height=62
  self.metaChild:SetWidth(width);self.metaChild:SetHeight(math.max(1,#records*height))
