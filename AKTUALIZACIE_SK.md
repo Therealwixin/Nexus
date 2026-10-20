@@ -36,9 +36,9 @@ Na aktualizáciu serverových dát nemusíš nič programovať, sťahovať Pytho
 
 ## Automatická inštalácia cez CurseForge
 
-Projekt [Nexus: Gear & Preparation](https://www.curseforge.com/wow/addons/nexus-gear-preparation) je zatiaľ v schvaľovaní. Kým ho moderátor neschváli, súbory sa nemusia zobrazovať v bežnom vyhľadávaní a synchronizovať v aplikácii. Toto GitHub ani addon nevie urýchliť.
+Projekt [Nexus: Gear & Preparation](https://www.curseforge.com/wow/addons/nexus-gear-preparation) je už schválený. Každý nový súbor však ešte môže samostatne čakať na kontrolu: najnovší balík 0.6.1 je práve **Under Review**. Kým sa schváli, aplikácia môže ponúkať staršiu beta 4. Ak potrebuješ opravy hneď, použi priložený ZIP z GitHubu. Schvaľovanie GitHub ani addon nevie urýchliť.
 
-Po schválení:
+Nastavenie aplikácie:
 
 1. V CurseForge aplikácii vyber **World of Warcraft** a správny **Retail** profil/inštaláciu.
 2. Vyhľadaj a nainštaluj **Nexus: Gear & Preparation**.

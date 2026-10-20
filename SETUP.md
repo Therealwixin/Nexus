@@ -5,7 +5,7 @@ Repository selected by the owner: https://github.com/Therealwixin/Nexus
 CurseForge project: **Nexus: Gear & Preparation**, ID **1754795**.
 Author dashboard: https://authors.curseforge.com/#/projects/1754795/files
 The project is created with All Rights Reserved licensing and its GitHub source link.
-The upload token, project ID and tagged publishing are configured. The first beta uploaded successfully to CurseForge and GitHub on 2026-10-19. Moderator approval is pending. Daily data refresh is enabled; see AKTUALIZACIE_SK.md.
+The upload token, project ID and tagged publishing are configured. The first beta uploaded successfully to CurseForge and GitHub on 2026-10-19. The project and earlier betas are approved; a new file can still be under review. Daily data refresh is enabled; see AKTUALIZACIE_SK.md.
 
 ## Prepared behavior
 
