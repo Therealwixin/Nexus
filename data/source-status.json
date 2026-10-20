@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-20T07:27:19.491057+00:00",
+  "generatedAt": "2026-10-20T07:38:09.550307+00:00",
   "sources": {
     "Raider.IO": {
-      "checkedAt": "2026-10-20T07:27:19.491057+00:00",
+      "checkedAt": "2026-10-20T07:38:09.550307+00:00",
       "url": "https://raider.io/api/v1/mythic-plus/affixes?region=eu&locale=en",
       "status": "available",
       "purpose": "Seasonal affixes; not gear recommendations",
@@ -26,7 +26,7 @@
       ]
     },
     "Archon": {
-      "checkedAt": "2026-10-20T07:27:19.491057+00:00",
+      "checkedAt": "2026-10-20T07:38:09.550307+00:00",
       "url": "https://www.archon.gg/wow/builds/subtlety/rogue/mythic-plus/gear-and-tier-set/high-keys/all-dungeons/this-week",
       "status": "blocked",
       "purpose": "Aggregate gear feed not integrated"
