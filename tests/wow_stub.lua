@@ -41,6 +41,7 @@ function Frame:SetPoint(point,a,b,c,d)
     else relative,relativePoint,x,y=self.parent,point,a or 0,b or 0 end
     assert(relative,"SetPoint without a relative frame")
     assert(type(relativePoint)=="string" and type(x)=="number" and type(y)=="number")
+    for index=#self.points,1,-1 do if self.points[index].point==point then table.remove(self.points,index) end end
     self.points[#self.points+1]={point=point,relative=relative,relativePoint=relativePoint,x=x,y=y}
 end
 function Frame:SetAllPoints(relative) self.allPoints=relative or self.parent end
@@ -107,7 +108,7 @@ function Frame:GetRegions()
 end
 function Frame:CreateTexture() return CreateFrame("Texture",nil,self) end
 function Frame:CreateFontString() return CreateFrame("FontString",nil,self) end
-for _,method in ipairs({"SetShadowOffset","SetJustifyH","SetMaxLines","SetTexCoord","SetAutoFocus",
+for _,method in ipairs({"SetDrawLayer","SetUnit","SetShadowOffset","SetJustifyH","SetMaxLines","SetTexCoord","SetAutoFocus",
     "HighlightText","SetFrameStrata","SetFrameLevel","SetClampedToScreen","SetMovable","EnableMouse","SetResizable",
     "SetResizeBounds","RegisterForDrag","RegisterForClicks","StartMoving","StopMovingOrSizing","StartSizing","EnableMouseWheel",
     "SetHighlightTexture","SetNormalTexture"}) do Frame[method]=function() end end

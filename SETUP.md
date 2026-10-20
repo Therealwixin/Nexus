@@ -44,3 +44,7 @@ The workflow uses the repository-provided `GITHUB_TOKEN`; a personal GitHub toke
 CurseForge requires a Release file before normal app syncing; beta files use the user's beta preference. Do not mark a preview stable merely to bypass that distinction.
 
 References: [BigWigs packager](https://github.com/BigWigsMods/packager), [supported token names](https://github.com/BigWigsMods/packager/blob/master/release.sh), [CurseForge submission](https://support.curseforge.com/support/solutions/articles/9000197241-creating-and-submitting-a-project).
+
+## Public Warcraft Logs trial
+
+Create your own Warcraft Logs API application and enter its Client ID and Client Secret as GitHub repository secrets `WCL_CLIENT_ID` and `WCL_CLIENT_SECRET`. Never paste them in chat. Run **Verify Warcraft Logs** with encounter ID 0 to verify OAuth and the point budget. Optional encounter samples are anonymous gear frequencies, kept separate from addon snapshots; they do not establish where items drop or a simulated best-in-slot set. Archon aggregate-build integration remains unverified.

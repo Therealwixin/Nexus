@@ -1,0 +1,773 @@
+{
+  "patch": "12.1",
+  "items": {
+    "271456": {
+      "kind": "raid",
+      "source": "Kithix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warrior/fury/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268265": {
+      "kind": "raid",
+      "source": "Ula'tek (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271454": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warrior/fury/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268253": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271459": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warrior/fury/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271457": {
+      "kind": "raid",
+      "source": "Entombed Sentinels",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warrior/fury/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268259": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/unholy/bis-gear",
+      "updatedAt": "2026-10-14T01:06:46Z"
+    },
+    "271878": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/unholy/bis-gear",
+      "updatedAt": "2026-10-14T01:06:46Z"
+    },
+    "281029": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "273792": {
+      "kind": "dungeon",
+      "source": "Altar of Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/unholy/bis-gear",
+      "updatedAt": "2026-10-14T01:06:46Z"
+    },
+    "270173": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "270175": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268213": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/unholy/bis-gear",
+      "updatedAt": "2026-10-14T01:06:46Z"
+    },
+    "252258": {
+      "kind": "dungeon",
+      "source": "Voidscar Arena",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/restoration/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "280799": {
+      "kind": "raid",
+      "source": "Kithix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warrior/fury/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "281239": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/paladin/protection/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268252": {
+      "kind": "raid",
+      "source": "Sszorak",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268209": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268196": {
+      "kind": "raid",
+      "source": "The Lost Explorers (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271465": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/paladin/holy/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271463": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/paladin/holy/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271468": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/paladin/holy/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268239": {
+      "kind": "raid",
+      "source": "The Lost Explorers",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/paladin/holy/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271466": {
+      "kind": "raid",
+      "source": "Entombed Sentinels",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/paladin/holy/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271464": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/paladin/retribution/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268260": {
+      "kind": "raid",
+      "source": "Vashnik the Malignant",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/paladin/retribution/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268249": {
+      "kind": "raid",
+      "source": "Vashnik the Malignant",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "270162": {
+      "kind": "raid",
+      "source": "Nek'zali the Soulcoiler (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268211": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268262": {
+      "kind": "raid",
+      "source": "Nymrissa Wavecaller",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/elemental/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271492": {
+      "kind": "raid",
+      "source": "The Twin Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/hunter/beast-mastery/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271490": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/hunter/beast-mastery/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271495": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/hunter/beast-mastery/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271493": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/hunter/beast-mastery/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271491": {
+      "kind": "raid",
+      "source": "Tier Set|The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/hunter/survival/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "159388": {
+      "kind": "dungeon",
+      "source": "Temple of Sethraliss",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "281215": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "270168": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268207": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/hunter/marksmanship/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268258": {
+      "kind": "raid",
+      "source": "The Lost Explorers",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/enhancement/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271876": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/hunter/survival/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271093": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
+      "updatedAt": "2026-10-14T09:41:20Z"
+    },
+    "271510": {
+      "kind": "raid",
+      "source": "Tier Set - Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
+      "updatedAt": "2026-10-14T09:41:20Z"
+    },
+    "271508": {
+      "kind": "raid",
+      "source": "Tier Set - Vashnik the Malignant",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
+      "updatedAt": "2026-10-14T09:41:20Z"
+    },
+    "281236": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/havoc/bis-gear",
+      "updatedAt": "2026-10-17T07:43:07Z"
+    },
+    "271511": {
+      "kind": "dungeon",
+      "source": "Tier Set - Temple of Sethraliss",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
+      "updatedAt": "2026-10-14T09:41:20Z"
+    },
+    "268256": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271509": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
+      "updatedAt": "2026-10-14T09:41:20Z"
+    },
+    "275070": {
+      "kind": "dungeon",
+      "source": "Altar of Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/assassination/bis-gear",
+      "updatedAt": "2026-10-14T06:35:37Z"
+    },
+    "271875": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/guardian/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268248": {
+      "kind": "raid",
+      "source": "Nek'zali the Soulcoiler (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268240": {
+      "kind": "raid",
+      "source": "Nek'zali the Soulcoiler",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/guardian/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268266": {
+      "kind": "raid",
+      "source": "Nymrissa Wavebinder",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271513": {
+      "kind": "raid",
+      "source": "Tier Set - Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
+      "updatedAt": "2026-10-14T09:41:20Z"
+    },
+    "159304": {
+      "kind": "dungeon",
+      "source": "King's Rest",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
+      "updatedAt": "2026-10-14T09:41:20Z"
+    },
+    "162544": {
+      "kind": "dungeon",
+      "source": "Temple of Sethraliss",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
+      "updatedAt": "2026-10-14T09:41:20Z"
+    },
+    "271556": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/priest/shadow/bis-gear",
+      "updatedAt": "2026-10-14T00:26:46Z"
+    },
+    "271555": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/priest/shadow/bis-gear",
+      "updatedAt": "2026-10-14T00:26:46Z"
+    },
+    "239045": {
+      "kind": "dungeon",
+      "source": "King's Rest",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/priest/shadow/bis-gear",
+      "updatedAt": "2026-10-14T00:26:46Z"
+    },
+    "271558": {
+      "kind": "raid",
+      "source": "Vashnik the Malignant",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/priest/shadow/bis-gear",
+      "updatedAt": "2026-10-14T00:26:46Z"
+    },
+    "281235": {
+      "kind": "raid",
+      "source": "Kith'Ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "268255": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "250215": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
+      "updatedAt": "2026-10-14T22:02:49Z"
+    },
+    "271092": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268197": {
+      "kind": "raid",
+      "source": "Entombed Sentinels",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271474": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/blood/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "271472": {
+      "kind": "dungeon",
+      "source": "Temple of Sethraliss",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/blood/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "271477": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/frost/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271475": {
+      "kind": "dungeon",
+      "source": "King's Rest",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/blood/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "273777": {
+      "kind": "dungeon",
+      "source": "Altar of Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/blood/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "251194": {
+      "kind": "dungeon",
+      "source": "Blinding Vale",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/blood/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "268245": {
+      "kind": "raid",
+      "source": "Nek'zali the Soulcoiler",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/frost/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268202": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/death-knight/frost/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271484": {
+      "kind": "raid",
+      "source": "Tier Set/The Unbinding of Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/elemental/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268254": {
+      "kind": "raid",
+      "source": "Vashnik the Malignant (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "273796": {
+      "kind": "dungeon",
+      "source": "Altar of Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/balance/bis-gear",
+      "updatedAt": "2026-10-15T21:57:53Z"
+    },
+    "271483": {
+      "kind": "raid",
+      "source": "Twin Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/enhancement/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "159380": {
+      "kind": "dungeon",
+      "source": "Temple of Sethraliss",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268216": {
+      "kind": "raid",
+      "source": "Nek'zali the Soulcoiler (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "251125": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "251148": {
+      "kind": "dungeon",
+      "source": "Den of Nalorakk",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/brewmaster/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271564": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
+      "updatedAt": "2026-10-14T22:02:49Z"
+    },
+    "271562": {
+      "kind": "raid",
+      "source": "The Twin Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
+      "updatedAt": "2026-10-14T22:02:49Z"
+    },
+    "271567": {
+      "kind": "dungeon",
+      "source": "Altar of Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
+      "updatedAt": "2026-10-14T22:02:49Z"
+    },
+    "271565": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
+      "updatedAt": "2026-10-14T22:02:49Z"
+    },
+    "268257": {
+      "kind": "raid",
+      "source": "Sszorak",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/mage/fire/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271563": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
+      "updatedAt": "2026-10-14T22:02:49Z"
+    },
+    "159459": {
+      "kind": "dungeon",
+      "source": "King's Rest",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "270164": {
+      "kind": "raid",
+      "source": "The Lost Explorers (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268263": {
+      "kind": "raid",
+      "source": "Nymrissa Wavecaller",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/mage/frost/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271874": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "271544": {
+      "kind": "raid",
+      "source": "The Lost Explorers",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "271549": {
+      "kind": "raid",
+      "source": "Vashnik the Malignant",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "271547": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/affliction/bis-gear",
+      "updatedAt": "2026-10-17T20:33:45Z"
+    },
+    "251222": {
+      "kind": "dungeon",
+      "source": "Voidscar Arena",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/affliction/bis-gear",
+      "updatedAt": "2026-10-17T20:33:45Z"
+    },
+    "271542": {
+      "kind": "raid",
+      "source": "Entombed Sentinels",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/demonology/bis-gear",
+      "updatedAt": "2026-10-13T22:41:26Z"
+    },
+    "280835": {
+      "kind": "raid",
+      "source": "Kith'Ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
+      "updatedAt": "2026-10-13T21:52:52Z"
+    },
+    "270160": {
+      "kind": "raid",
+      "source": "The Lost Explorers",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/brewmaster/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "159617": {
+      "kind": "dungeon",
+      "source": "Kings' Rest",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/brewmaster/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268215": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/guardian/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271517": {
+      "kind": "raid",
+      "source": "The Lost Explorers",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/windwalker/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "251124": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/windwalker/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268225": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/balance/bis-gear",
+      "updatedAt": "2026-10-15T21:57:53Z"
+    },
+    "158366": {
+      "kind": "dungeon",
+      "source": "Temple of Sethraliss",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "193763": {
+      "kind": "dungeon",
+      "source": "Ruby Life Pools",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "251135": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "251189": {
+      "kind": "dungeon",
+      "source": "The Blinding Vale",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268247": {
+      "kind": "raid",
+      "source": "Nymrissa Wavebinder",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "270167": {
+      "kind": "raid",
+      "source": "Nymrissa Wavebinder (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/restoration/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "251123": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268246": {
+      "kind": "raid",
+      "source": "Vashnik the Malignant",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/balance/bis-gear",
+      "updatedAt": "2026-10-15T21:57:53Z"
+    },
+    "268234": {
+      "kind": "raid",
+      "source": "Sszorak",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/balance/bis-gear",
+      "updatedAt": "2026-10-15T21:57:53Z"
+    },
+    "159327": {
+      "kind": "dungeon",
+      "source": "Temple of Sethraliss",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/havoc/bis-gear",
+      "updatedAt": "2026-10-17T07:43:07Z"
+    },
+    "271531": {
+      "kind": "raid",
+      "source": "Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/feral/bis-gear",
+      "updatedAt": "2026-10-13T22:21:25Z"
+    },
+    "268261": {
+      "kind": "raid",
+      "source": "The Twin Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/guardian/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271529": {
+      "kind": "raid",
+      "source": "Entomed Sentinels (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/druid/restoration/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271537": {
+      "kind": "raid",
+      "source": "Ula'tek",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271535": {
+      "kind": "raid",
+      "source": "Vashnik the Malignant",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271538": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "271536": {
+      "kind": "raid",
+      "source": "The Coiled Altar",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "251136": {
+      "kind": "dungeon",
+      "source": "Murder Row",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/havoc/bis-gear",
+      "updatedAt": "2026-10-17T07:43:07Z"
+    },
+    "271540": {
+      "kind": "raid",
+      "source": "General Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "251153": {
+      "kind": "dungeon",
+      "source": "Den of Nalorakk",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "280617": {
+      "kind": "raid",
+      "source": "The Unbinding of Kith'ix",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268233": {
+      "kind": "raid",
+      "source": "Sszorak",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    },
+    "268217": {
+      "kind": "raid",
+      "source": "Nymrissa Wavebinder (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "271502": {
+      "kind": "raid",
+      "source": "Kithix (Raid)",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:53Z"
+    },
+    "268251": {
+      "kind": "raid",
+      "source": "Twin Fangs",
+      "evidenceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
+      "updatedAt": "2026-10-13T21:52:54Z"
+    }
+  }
+}

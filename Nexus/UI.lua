@@ -1,6 +1,6 @@
 local _,R=...
 local UI={view="equipment",selectedSlot=1,gearView="targets",prepCategory="enchants",prepPage=1};R.UI=UI
-local GOLD,WHITE,GREEN,RED,GREY={.86,.73,.45},{.88,.87,.82},{.49,.72,.48},{.89,.65,.31},{.60,.60,.56}
+local GOLD,WHITE,GREEN,RED,GREY={.86,.73,.45},{.88,.87,.82},{.1,1,.1},{1,.1,.1},{.60,.60,.56}
 local function Font(parent,size,color)
  local f=parent:CreateFontString(nil,"OVERLAY","GameFontNormal");f:SetFont(R.FONT,size or 12,"");f:SetShadowOffset(1,-1);f:SetJustifyH("LEFT");f:SetTextColor(unpack(color or WHITE));return f
 end
@@ -73,7 +73,7 @@ function UI:DetailButton(text,callback)
 end
 local function ItemRow(parent)
  local b=CreateFrame("Button",nil,parent,"BackdropTemplate");b.icon=b:CreateTexture(nil,"ARTWORK");b.icon:SetSize(38,38);b.icon:SetPoint("LEFT",8,0);b.icon:SetTexCoord(.07,.93,.07,.93)
- b.border=b:CreateTexture(nil,"OVERLAY");b.border:SetTexture("Interface\\Buttons\\UI-Quickslot2");b.border:SetPoint("TOPLEFT",b.icon,"TOPLEFT",-6,6);b.border:SetPoint("BOTTOMRIGHT",b.icon,"BOTTOMRIGHT",6,-6)
+ b.border=b:CreateTexture(nil,"OVERLAY");b.border:SetColorTexture(.55,.47,.32,1);b.border:SetDrawLayer("BACKGROUND");b.border:SetPoint("TOPLEFT",b.icon,"TOPLEFT",-1,1);b.border:SetPoint("BOTTOMRIGHT",b.icon,"BOTTOMRIGHT",1,-1)
  b.text=Font(b,12);b.text:SetPoint("TOPLEFT",48,-5);b.text:SetMaxLines(2)
  b.note=Font(b,11,GREY);b.note:SetPoint("BOTTOMLEFT",48,5);b.note:SetMaxLines(1)
  b.red=b:CreateTexture(nil,"OVERLAY");b.red:SetAllPoints(b.icon);b.red:SetColorTexture(.85,.02,.02,.34)
@@ -106,7 +106,7 @@ function UI:JournalStatusChanged(id)
 end
 function UI:GetShownItem(slot)
  if self.gearView=="mine" then return R.scan and R.scan.equipped[slot] end
- return R.GetTarget(slot)
+ return R.GetGearTarget(slot)
 end
 function UI:RenderDetail(override,slotOverride)
  self:DetailClear();local slotID=slotOverride or self.selectedSlot;if slotOverride==false then slotID=nil end;local slot=R.SLOT_BY_ID[slotID]
@@ -137,7 +137,7 @@ function UI:RenderDetail(override,slotOverride)
    if not materials or #materials==0 then self:DetailText(R.L("CRAFT_PENDING"),GREY)
    else for _,group in ipairs(materials) do for _,reagent in ipairs(group.choices) do self:DetailItem(reagent,group.count.." × "..R.L("REAGENT_CHOICE")) end end end
   end
-  local candidates=R.GetCandidates(slotID)
+  local candidates=R.GetGearCandidates(slotID)
   if #candidates>1 then
    self:DetailSection(R.L("ALTERNATIVES"),GREY)
    for _,alternative in ipairs(candidates) do
@@ -147,7 +147,7 @@ function UI:RenderDetail(override,slotOverride)
    end
   end
  end
- self:DetailEndSection();self:DetailText(R.L("POPULARITY_NOTE"),GREY,11)
+ self:DetailEndSection();self:DetailText(R.L(self.view=="equipment" and "SOURCE_SCOPE_NOTE" or "POPULARITY_NOTE"),GREY,11)
  self:DetailButton("Wowhead · "..R.L("COPY_URL"),function()self:ShowCopy("https://www.wowhead.com/item="..item.id)end)
  self:DetailFinish()
 end
@@ -198,7 +198,7 @@ end
 function UI:RenderPreparation()
  local d=R.GetDataset();local entries={};local needs,ready,empty=0,0,0;local browsing=R.IsViewingOtherClass()
  for category,b in pairs(self.prepTabs) do b:SetText(R.L(category=="enchants" and "ENCHANTS" or category=="gems" and "SOCKETS_GEMS" or "CONSUMABLES"));b:SetEnabled(category~=self.prepCategory) end
- self.socketPane:SetShown(self.prepCategory=="gems" and not browsing)
+ self.socketPane:Hide();self.prepScroll:Show();self.prepPrev:Hide();self.prepNext:Hide();self.prepPosition:Hide()
  if self.prepCategory=="gems" and not browsing then for _,row in ipairs(self.prepRows) do row:Hide() end;self:RenderSockets();return end
  self.prepPrev:SetScript("OnClick",function()self.prepPage=math.max(1,self.prepPage-1);self:Refresh()end)
  self.prepNext:SetScript("OnClick",function()self.prepPage=math.min(self.prepPages or 1,self.prepPage+1);self:Refresh()end)
@@ -226,16 +226,20 @@ function UI:RenderPreparation()
  end
  local viewed=R.SpecInfo(R.ViewSpecID())
  self.prepSummary:SetText(browsing and viewed and R.L("PREVIEW_RECOMMENDATIONS",viewed.class.name,viewed.name) or R.L("PREP_SUMMARY",needs,ready))
- local pageSize=6;self.prepPages=math.max(1,math.ceil(#entries/pageSize));self.prepPage=math.min(self.prepPage,self.prepPages)
+ local pageSize=#self.prepRows;self.prepPages=1;self.prepPage=1
  self.prepPosition:SetText(self.prepPage.." / "..self.prepPages);self.prepPrev:SetEnabled(self.prepPage>1);self.prepNext:SetEnabled(self.prepPage<self.prepPages)
- local width=self.prepPane:GetWidth()/2;local height=(self.prepPane:GetHeight()-118)/4
+ local contentWidth=self.prepScroll:GetWidth();self.prepChild:SetWidth(contentWidth);local width=contentWidth/2;local height=74
+ self.prepChild:SetHeight(math.max(1,math.ceil(#entries/2)*height));self.prepPrev:Hide();self.prepNext:Hide();self.prepPosition:Hide();self.prepScroll:Show()
  for index,row in ipairs(self.prepRows) do
-  local entry=index<=pageSize and entries[(self.prepPage-1)*pageSize+index];row:SetShown(entry~=nil)
+  local entry=entries[index];row:SetShown(entry~=nil)
   if entry then
-   row:ClearAllPoints();row:SetPoint("TOPLEFT",self.prepPane,"TOPLEFT",((index-1)%2)*width+8,-70-math.floor((index-1)/2)*height);row:SetSize(width-16,height-9);R.SkinPanel(row,"card")
-   row.text:SetWidth(width-92);row.note:SetWidth(width-92);row.status:SetWidth(width-92)
+   row:ClearAllPoints();row:SetPoint("TOPLEFT",self.prepChild,"TOPLEFT",((index-1)%2)*width+2,-math.floor((index-1)/2)*height);row:SetSize(width-6,height-4);R.SkinPanel(row,"card")
+   row.icon:ClearAllPoints();row.icon:SetPoint("LEFT",8,0);row.icon:SetSize(32,32)
+   row.text:ClearAllPoints();row.text:SetPoint("TOPLEFT",50,-7);row.text:SetSize(width-62,12);row.text:SetFont(R.FONT,10,"")
+   row.note:ClearAllPoints();row.note:SetPoint("TOPLEFT",50,-22);row.note:SetSize(width-62,27);row.note:SetMaxLines(2);row.note:SetFont(R.FONT,11,"")
+   row.status:ClearAllPoints();row.status:SetPoint("BOTTOMLEFT",50,5);row.status:SetSize(width-62,12);row.status:SetFont(R.FONT,10,"")
    row.text:SetText(entry.title);row.text:SetTextColor(unpack(GOLD));row.note:SetText(entry.note);row.status:SetText(entry.status);row.status:SetTextColor(unpack(entry.preview and GREY or entry.needed and RED or GREEN))
-   self:BindItem(row,entry.item,entry.slotID,false,false);row.red:SetShown(entry.needed);row.check:SetShown(entry.matched);row.icon:SetVertexColor(1,entry.needed and .28 or 1,entry.needed and .28 or 1);row.selected:Hide()
+   self:BindItem(row,entry.item,entry.slotID,false,false);row.red:Hide();row.check:Hide();row.selected:Hide()
    row:SetScript("OnClick",function()
     self:DetailClear();self.detailActiveItem=nil;self:DetailSection(entry.title,GOLD);self:DetailItem(entry.item,entry.status,nil,true);self:DetailText(entry.note,GREY)
     if entry.current then self:DetailSection(R.L("CURRENT_ITEM"),GREEN);self:DetailItem(entry.current,R.L("ILVL")..": "..(R.ItemLevel(entry.current,true) or "?")) end
@@ -248,93 +252,6 @@ function UI:RenderPreparation()
  self.prepEmpty:SetShown(#entries==0);self.prepEmpty:SetText(R.L(not browsing and R.db.needsOnly and "PREP_READY" or "NO_DATA"))
  self:DetailClear();self.detailActiveItem=nil;self:DetailSection(R.L("PREPARATION"),GOLD);self:DetailText(R.L("PREP_NAV_HELP"));self:DetailText(R.L("ENCHANT_HELP"),GREY);self:DetailFinish()
  if browsing then self:DetailText(R.L("PREVIEW_PREPARATION_HINT"),GREY);self:DetailFinish() end
-end
-function UI:CreateSocketPane()
- local pane=CreateFrame("Frame",nil,self.prepPane);pane:SetAllPoints();self.socketPane=pane
- self.socketHero=CreateFrame("Frame",nil,pane,"BackdropTemplate");R.SkinPanel(self.socketHero,"detail")
- self.socketItem=CreateFrame("Button",nil,self.socketHero);self.socketItem:SetSize(62,62);self.socketItem:SetPoint("TOP",0,-10)
- self.socketItem.icon=self.socketItem:CreateTexture(nil,"ARTWORK");self.socketItem.icon:SetAllPoints();self.socketItem.icon:SetTexCoord(.07,.93,.07,.93)
- self.socketItem.border=self.socketItem:CreateTexture(nil,"OVERLAY");self.socketItem.border:SetTexture("Interface\\Buttons\\UI-Quickslot2");self.socketItem.border:SetPoint("TOPLEFT",-8,8);self.socketItem.border:SetPoint("BOTTOMRIGHT",8,-8)
- self.socketName=Font(self.socketHero,14,GOLD);self.socketName:SetPoint("TOP",0,-78);self.socketName:SetJustifyH("CENTER");self.socketName:SetMaxLines(2)
- self.socketState=Font(self.socketHero,11);self.socketState:SetPoint("BOTTOM",0,11);self.socketState:SetJustifyH("CENTER")
- self.socketCurrent=CreateFrame("Frame",nil,pane,"BackdropTemplate");R.SkinPanel(self.socketCurrent,"card")
- self.socketRecommended=CreateFrame("Frame",nil,pane,"BackdropTemplate");R.SkinPanel(self.socketRecommended,"card")
- self.socketCurrentTitle=Font(self.socketCurrent,13,GOLD);self.socketCurrentTitle:SetPoint("TOPLEFT",12,-12)
- self.socketRecommendedTitle=Font(self.socketRecommended,13,GOLD);self.socketRecommendedTitle:SetPoint("TOPLEFT",12,-12)
- self.socketCurrentRows={};self.socketRecommendedRows={}
- for i=1,4 do
-  for _,group in ipairs({{self.socketCurrent,self.socketCurrentRows},{self.socketRecommended,self.socketRecommendedRows}}) do
-   local row=ItemRow(group[1]);row.text:SetMaxLines(1);row.text:SetFont(R.FONT,11,"");row.text:ClearAllPoints();row.text:SetPoint("TOPLEFT",45,-5)
-   row.note:ClearAllPoints();row.note:SetPoint("BOTTOMLEFT",45,5);row.note:SetFont(R.FONT,10,"");row.icon:SetSize(28,28);group[2][i]=row
-  end
- end
- self.socketMessage=Font(self.socketRecommended,11,GREY);self.socketMessage:SetPoint("TOPLEFT",12,-44);self.socketMessage:SetMaxLines(5)
- pane:Hide()
-end
-function UI:MoveSocket(delta)
- local entries=self.socketEntries or {};if #entries==0 then return end
- local nextIndex=math.max(1,math.min(#entries,(self.socketIndex or 1)+delta))
- self.socketSlotID=entries[nextIndex].slotID;self:Refresh()
-end
-function UI:RenderSockets()
- local overview=R.GetSocketOverview();self.socketOverview=overview
- local entries={};for _,entry in ipairs(overview.items) do if not R.db.needsOnly or entry.sockets.empty>0 then entries[#entries+1]=entry end end
- self.socketEntries=entries;self.socketIndex=1
- for i,entry in ipairs(entries) do if entry.slotID==self.socketSlotID then self.socketIndex=i;break end end
- local entry=entries[self.socketIndex];self.socketSlotID=entry and entry.slotID
- self.prepSummary:SetText(R.L("SOCKET_OVERVIEW",overview.filled,overview.total,overview.recommended,overview.empty))
- self.prepPages=math.max(1,#entries);self.prepPosition:SetText((entry and self.socketIndex or 0).." / "..#entries)
- self.prepPrev:SetEnabled(self.socketIndex>1);self.prepNext:SetEnabled(self.socketIndex<#entries)
- self.prepPrev:SetScript("OnClick",function()self:MoveSocket(-1)end);self.prepNext:SetScript("OnClick",function()self:MoveSocket(1)end)
- self.prepEmpty:SetShown(not entry);self.prepEmpty:SetText(R.L(R.db.needsOnly and "NO_EMPTY_SOCKETS" or "NO_SOCKETS"));self.socketPane:SetShown(entry~=nil)
- self:DetailClear();self.detailActiveItem=nil
- if not entry then
-  self:DetailSection(R.L("SOCKETS_GEMS"),GOLD);self:DetailText(R.L("SOCKET_HELP"));self:DetailFinish();return
- end
- local width=self.prepPane:GetWidth();self.socketHero:ClearAllPoints();self.socketHero:SetPoint("TOPLEFT",8,-72);self.socketHero:SetSize(width-16,140)
- self.socketName:SetWidth(width-44);self.socketState:SetWidth(width-44)
- self.socketName:SetText(R.ItemName(entry.item));self.socketState:SetText(R.L(R.SLOT_BY_ID[entry.slotID].key).." · "..R.L("ITEM_SOCKET_COUNT",entry.sockets.filled,entry.sockets.total))
- self.socketState:SetTextColor(unpack(entry.sockets.empty>0 and RED or GREEN))
- self.socketItem.icon:SetTexture(R.ItemIcon(entry.item));self.socketItem:SetScript("OnEnter",function(owner)self:ShowItemTooltip(owner,entry.item,entry.slotID,true)end);self.socketItem:SetScript("OnLeave",function()GameTooltip:Hide()end)
- self.socketCurrent:ClearAllPoints();self.socketCurrent:SetPoint("TOPLEFT",8,-223);self.socketCurrent:SetPoint("BOTTOMRIGHT",self.prepPane,"BOTTOMLEFT",width/2-5,42)
- self.socketRecommended:ClearAllPoints();self.socketRecommended:SetPoint("TOPLEFT",width/2+5,-223);self.socketRecommended:SetPoint("BOTTOMRIGHT",self.prepPane,"BOTTOMRIGHT",-8,42)
- self.socketCurrentTitle:SetText(R.L("CURRENT_GEMS"));self.socketRecommendedTitle:SetText(R.L("RECOMMENDED_GEMS"))
- local function bind(row,item,title,note,parent,index,color)
-  local h=math.min(48,(parent:GetHeight()-45)/4)
-  row:ClearAllPoints();row:SetPoint("TOPLEFT",8,-36-(index-1)*h);row:SetSize(parent:GetWidth()-16,h-2)
-  row.text:SetWidth(row:GetWidth()-50);row.note:SetWidth(row:GetWidth()-50);row.text:SetText(title);row.text:SetTextColor(unpack(color or WHITE));row.note:SetText(note)
-  self:BindItem(row,item,nil,false,false);row.selected:Hide();row:Show()
-  row:SetScript("OnClick",function()if item then self:DetailClear();self:DetailSection(R.L("RECOMMENDED_GEM"),GOLD);self:DetailItem(item,note,nil,true);self:DetailText(R.L("GEM_EVIDENCE"),GREY);self:DetailFinish()end end)
- end
- local recommendedIDs={};for _,gem in ipairs(overview.regular) do recommendedIDs[gem.id]=true end;for _,gem in ipairs(overview.diamonds) do recommendedIDs[gem.id]=true end
- for i,row in ipairs(self.socketCurrentRows) do
-  local socket=entry.sockets.gems[i];row:Hide()
-  if socket then
-   local item=socket.item
-   bind(row,item or {name=R.L("EMPTY_SOCKET"),icon="Interface\\ItemSocketingFrame\\UI-EmptySocket-Prismatic"},item and R.ItemName(item) or R.L("EMPTY_SOCKET"),R.L("SOCKET_INDEX",socket.index).." · "..R.L(item and (recommendedIDs[item.id] and "RECOMMENDED" or "OTHER_GEM") or "EMPTY_SOCKET"),self.socketCurrent,i,item and WHITE or RED)
-   row.red:SetShown(not item);row.check:SetShown(item and recommendedIDs[item.id] or false)
-  end
- end
- for i,row in ipairs(self.socketRecommendedRows) do
-  local rec=entry.recommendations[i];row:Hide()
-  if rec then
-   local count=R.scan.bags[rec.item.id] or 0
-   bind(row,rec.item,rec.count.." × "..R.ItemName(rec.item),R.L("GEM_BAG_COUNT",count),self.socketRecommended,i,GOLD)
-   row.check:SetShown(count>=rec.count);row.red:SetShown(count<rec.count)
-  end
- end
- self.socketMessage:SetWidth(self.socketRecommended:GetWidth()-24);self.socketMessage:SetShown(#entry.recommendations==0)
- self.socketMessage:SetText(R.L(entry.sockets.empty==0 and "SOCKETS_FILLED" or "NO_GEM_DATA"))
- self:DetailSection(R.L("SOCKET_PLAN"),GOLD);local selected=self:DetailItem(entry.item,R.L("ITEM_SOCKET_COUNT",entry.sockets.filled,entry.sockets.total),nil,true)
- self:BindItem(selected,entry.item,entry.slotID,true,false)
- if overview.diamondCount>0 then self:DetailText(R.L("DIAMOND_EQUIPPED",overview.diamondCount),GREEN)
- elseif overview.pending or overview.unknown>0 then self:DetailText(R.L("GEM_PENDING"),GREY)
- else self:DetailText(R.L("DIAMOND_LIMIT"),GREY) end
- if #entry.recommendations>0 then
-  self:DetailSection(R.L("RECOMMENDED_GEMS"),GOLD)
-  for _,rec in ipairs(entry.recommendations) do self:DetailItem(rec.item,rec.count.." × · "..R.L("GEM_BAG_COUNT",R.scan.bags[rec.item.id] or 0)) end
- end
- self:DetailEndSection();self:DetailText(R.L("GEM_EVIDENCE"),GREY,11);self:DetailFinish()
 end
 function UI:RenderSources()
  self:ListClear();self:DetailClear()
@@ -431,8 +348,9 @@ function UI:Create()
   previous=b;self.prepTabs[category]=b
  end
  self.prepSummary=Font(self.prepPane,12,GOLD);self.prepSummary:SetPoint("TOPLEFT",12,-45);self.prepSummary:SetWidth(500)
- for index=1,8 do
-  local row=ItemRow(self.prepPane);row.text:SetMaxLines(1);row.text:ClearAllPoints();row.text:SetPoint("TOPLEFT",58,-10);row.note:ClearAllPoints();row.note:SetPoint("TOPLEFT",58,-28);row.note:SetMaxLines(2)
+ self.prepScroll,self.prepChild=Scroll(self.prepPane);self.prepScroll:ClearAllPoints();self.prepScroll:SetPoint("TOPLEFT",8,-69);self.prepScroll:SetPoint("BOTTOMRIGHT",-27,8)
+ for index=1,20 do
+  local row=ItemRow(self.prepChild);row.text:SetMaxLines(1);row.text:ClearAllPoints();row.text:SetPoint("TOPLEFT",58,-10);row.note:ClearAllPoints();row.note:SetPoint("TOPLEFT",58,-28);row.note:SetMaxLines(2)
   row.status=Font(row,10);row.status:SetPoint("BOTTOMLEFT",58,10);R.SkinPanel(row,"card");self.prepRows[index]=row
  end
  self.prepPrev=Button(self.prepPane,80,"<",function()self.prepPage=math.max(1,self.prepPage-1);self:Refresh()end);self.prepPrev:SetPoint("BOTTOMLEFT",10,10)
@@ -455,7 +373,7 @@ function UI:Toggle()
  self:Create();if self.frame:IsShown() then self.frame:Hide() else self.view="equipment";R.ScanEquipment();self.frame:Show();self:Refresh() end
 end
 function UI:OpenRecommendedItem(item,slotID)
- self:Create();R.SetViewSpec(nil);self:CloseSpecMenus();R.db.mode="mythicplus";R.db.needsOnly=false;self.view="equipment";self.gearView="targets";self.selectedSlot=slotID
+ self:Create();R.SetViewSpec(nil);self:CloseSpecMenus();R.db.mode="mythicplus";R.db.gearSource="mythicplus";R.db.needsOnly=false;self.view="equipment";self.gearView="targets";self.selectedSlot=slotID
  R.ScanEquipment();self.frame:Show();self:Refresh();self:RevealGearSlot(slotID);self:RenderDetail(item,slotID)
 end
 function UI:ShowSources()self:Create();self.frame:Show();self:SetView("sources")end

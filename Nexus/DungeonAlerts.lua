@@ -60,7 +60,14 @@ function A:ReadLoot(context)
   local ids={};local waiting=false
   for index=1,count do
    local info=C_EncounterJournal.GetLootInfoByIndex(index)
-   if info and R.IsReadable(info) and number(info.itemID) then ids[info.itemID]=true else waiting=true end
+   if info and R.IsReadable(info) and number(info.itemID) then
+    ids[info.itemID]=true
+    -- Reuse the one dungeon pool already read for the warning. No extra EJ scan.
+    R.SourceCatalog=R.SourceCatalog or {};R.SourceCatalog[info.itemID]={kind="dungeon",source=context.name}
+    if number(info.encounterID) then
+     R.journalIndex=R.journalIndex or {byItem={}};R.journalIndex.byItem[info.itemID]={instanceID=journalID,encounterID=info.encounterID,isRaid=false,instanceName=context.name}
+    end
+   else waiting=true end
   end
   return ids,waiting
  end)

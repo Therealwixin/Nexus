@@ -56,3 +56,10 @@ local layoutStrings={
  CZ={GEAR_SLOT="SLOT",GEAR_ITEM="PŘEDMĚT",GEAR_STATE="STAV",GEAR_NOTHING_MISSING="Všechny doporučené předměty již vlastníš.",DATA_UPDATES="Data a aktualizace"},
 }
 for language,values in pairs(layoutStrings) do for key,value in pairs(values) do R.Locales[language][key]=value end end
+
+local repairStrings={
+ EN={NO_SOURCE_OPTION="No verified source option",JOURNAL_NOT_FOUND="The exact boss could not be resolved safely. Use the Wowhead link below.",SOURCE_SCOPE_NOTE="Overall: authored all-source guide. Raid/M+: source-restricted alternatives from available candidates, not a simulated best set. Unknown sources are excluded; some slots may be empty."},
+ SK={NO_SOURCE_OPTION="Bez overenej alternatívy",JOURNAL_NOT_FOUND="Presného bossa sa nepodarilo bezpečne určiť. Použi odkaz na Wowhead nižšie.",SOURCE_SCOPE_NOTE="Overall: guide zo všetkých zdrojov. Raid/M+: alternatívy z dostupného vzorku, nie simulovaný BIS set. Neznáme zdroje sú vynechané; niektoré sloty môžu byť prázdne."},
+ CZ={NO_SOURCE_OPTION="Bez ověřené alternativy",JOURNAL_NOT_FOUND="Přesného bosse se nepodařilo bezpečně určit. Použij odkaz na Wowhead níže.",SOURCE_SCOPE_NOTE="Overall: guide ze všech zdrojů. Raid/M+: alternativy z dostupného vzorku, nikoli simulovaný BIS set. Neznámé zdroje jsou vynechány; některé sloty mohou být prázdné."},
+}
+for lang,values in pairs(repairStrings) do for key,value in pairs(values) do R.Locales[lang][key]=value end end
