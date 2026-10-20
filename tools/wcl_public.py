@@ -3,13 +3,14 @@
 A successful probe verifies access, not the quality or completeness of BiS data.
 Optional rankings are reduced to anonymous item frequencies before writing files.
 """
-import argparse,base64,collections,datetime as dt,json,os,time,urllib.request,urllib.error
+import argparse,base64,collections,copy,datetime as dt,json,os,time,urllib.request,urllib.error
 from pathlib import Path
 API='https://www.warcraftlogs.com/api/v2/client'
 RANKINGS='query($id:Int!,$class:String!,$spec:String!,$difficulty:Int!){worldData{encounter(id:$id){id name journalID characterRankings(page:1,difficulty:$difficulty,className:$class,specName:$spec,metric:METRIC,includeCombatantInfo:true)}}}'
 
 # Scope IDs are verified against worldData on every collection; no one-boss fallback.
 SEASON_ZONES={'mythicplus':(55,10,8),'raid':(53,5,10)}
+SEASON_ENCOUNTERS={'mythicplus':{12993,12825,61762,12813,112521,61877,12859,12923},'raid':{3470,3445,3455,3497,3420,3421,3429,3492,3379,3513}}
 PAGES=2
 MIN_CONTEXT=20
 MIN_UNIQUE=200
@@ -18,17 +19,29 @@ def validate_snapshot(data):
  from catalog import SPECS
  if data.get('schema')!=2 or data.get('patch')!='12.1' or set(data.get('specs',{}))!={str(s['id']) for s in SPECS}:raise ValueError('Incomplete broad WCL snapshot')
  if not data.get('windowStart') or not data.get('windowEnd'):raise ValueError('Missing WCL sampling window')
+ start=dt.datetime.fromisoformat(data['windowStart']);end=dt.datetime.fromisoformat(data['windowEnd'])
+ if not start.tzinfo or not end.tzinfo or abs((end-start).total_seconds()-14*86400)>60:raise ValueError('Invalid WCL window')
  for spec in data['specs'].values():
   for mode,record in spec.items():
    if mode not in SEASON_ZONES or not record.get('retrievedAt'):raise ValueError('Missing WCL provenance')
    expected=SEASON_ZONES[mode][2]
    if record['expectedEncounterCount']!=expected or len(record['encounters'])!=expected:raise ValueError('Wrong seasonal scope')
+   if {c['encounterID'] for c in record['encounters']}!=SEASON_ENCOUNTERS[mode]:raise ValueError('Missing/duplicate seasonal encounter')
    covered=sum(c['sampleSize']>=MIN_CONTEXT for c in record['encounters'])
    if record['coveredEncounterCount']!=covered:raise ValueError('False WCL coverage')
    if record['eligible']!=(covered==expected and record['sampleSize']>=MIN_UNIQUE):raise ValueError('Invalid evidence eligibility')
    if any(not str(k).isdigit() or not isinstance(v,int) or not 0<v<=record['sampleSize'] for k,v in record['items'].items()):raise ValueError('Invalid unique-character count')
    for c in record['encounters']:
     if not 0<=c['pagesRead']<=PAGES or any(not 0<n<=c['sampleSize'] for n in c['items'].values()):raise ValueError('Invalid context counts')
+
+def runtime_snapshot(data):
+ """Keep detailed per-encounter item maps in the audit JSON, not WoW RAM."""
+ out=copy.deepcopy(data)
+ for modes in out['specs'].values():
+  for record in modes.values():
+   record.pop('balancedUsage',None)
+   for context in record['encounters']:context.pop('items',None)
+ return out
 
 def quota_guard(client,wait=False):
  while True:
@@ -44,7 +57,7 @@ def load_scopes(client):
  scopes={}
  for mode,(zone_id,difficulty,expected) in SEASON_ZONES.items():
   zone=client.query('query($id:Int!){worldData{zone(id:$id){id name encounters{id name}}}}',{'id':zone_id})['worldData']['zone']
-  if not zone or zone['id']!=zone_id or len(zone['encounters'])!=expected:raise ValueError('Seasonal WCL encounters changed; review scope before publishing')
+  if not zone or zone['id']!=zone_id or len(zone['encounters'])!=expected or {c['id'] for c in zone['encounters']}!=SEASON_ENCOUNTERS[mode]:raise ValueError('Seasonal WCL encounters changed; review scope before publishing')
   scopes[mode]=dict(zoneID=zone_id,difficulty=difficulty,name=zone['name'],encounters=zone['encounters'])
  return scopes
 
@@ -79,7 +92,7 @@ def collect_guides(client,root,guides_path=None,spec_ids=None,now=None,wait=Fals
  scopes=load_scopes(client);known={i['id'] for i in guides['items'].values()}
  now=now or dt.datetime.now(dt.timezone.utc);start=now-dt.timedelta(days=14)
  begin,end=start.timestamp()*1000,now.timestamp()*1000
- result={'schema':2,'patch':'12.1','generatedAt':now.isoformat(),'source':'Warcraft Logs','windowStart':start.isoformat(),'windowEnd':now.isoformat(),'specs':{str(s['id']):{} for s in SPECS},'failures':[],
+ result={'schema':2,'patch':'12.1','generatedAt':now.isoformat(),'collectionComplete':False,'source':'Warcraft Logs','windowStart':start.isoformat(),'windowEnd':now.isoformat(),'specs':{str(s['id']):{} for s in SPECS},'failures':[],
  'methodology':{'population':'Top-ranked DPS/HPS results per spec and encounter, current WCL default partition; not all logs or a random player sample','pagesPerEncounter':PAGES,'windowDays':14,'minimumKey':10,'minimumPerEncounter':MIN_CONTEXT,'minimumUniqueCharacters':MIN_UNIQUE,'deduplication':'Latest complete loadout per character within each spec/mode; names/server identities exist only in memory','selection':'No WCL frequency selects or ranks Overall BiS','scope':{m:{k:v for k,v in scope.items() if k!='encounters'} for m,scope in scopes.items()}}}
  healers={65,256,257,264,270,105,1468};requests=0
  for spec in SPECS:
@@ -116,18 +129,25 @@ def collect_guides(client,root,guides_path=None,spec_ids=None,now=None,wait=Fals
    record['balancedUsage']={id:round(sum(c['items'].get(id,0)/c['sampleSize'] if c['sampleSize'] else 0 for c in contexts)/len(contexts),6) for id in record['items']}
    result['specs'][sid][mode]=record
    print('WCL spec',sid,mode,record['coveredEncounterCount'],'/',len(contexts),'contexts;',len(pooled),'unique characters; eligible',record['eligible'],flush=True)
+  result['collectionComplete']=all(len(modes)==2 for modes in result['specs'].values())
   validate_snapshot(result)
   if checkpoint:
    dest=root/'build/wcl';dest.mkdir(parents=True,exist_ok=True)
-   (dest/'wcl-snapshot.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+   (dest/'checkpoint.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
  validate_snapshot(result)
  return result
 
 def request(url,payload,headers):
  req=urllib.request.Request(url,data=payload,headers=headers,method='POST')
- try:
-  with urllib.request.urlopen(req,timeout=30) as response:return json.load(response)
- except urllib.error.HTTPError as error:raise RuntimeError('Warcraft Logs HTTP '+str(error.code)+'; credentials and response body omitted') from None
+ for attempt in range(3):
+  try:
+   with urllib.request.urlopen(req,timeout=30) as response:return json.load(response)
+  except urllib.error.HTTPError as error:
+   if error.code in {429,500,502,503,504} and attempt<2:time.sleep(2**(attempt+1));continue
+   raise RuntimeError('Warcraft Logs HTTP '+str(error.code)+'; credentials and response body omitted') from None
+  except (urllib.error.URLError,TimeoutError):
+   if attempt<2:time.sleep(2**(attempt+1));continue
+   raise RuntimeError('Warcraft Logs network unavailable; credentials omitted') from None
 
 class Client:
  def __init__(self):
@@ -199,7 +219,7 @@ def main():
   dest=Path('build/wcl');dest.mkdir(parents=True,exist_ok=True)
   (dest/'wcl-snapshot.json').write_text(json.dumps(out,indent=2)+'\n',encoding='utf-8')
   from refresh_gear import compact_lua
-  (dest/'WCLData.lua').write_text('local _,R=...\nR.WCLData='+compact_lua(out)+'\n',encoding='utf-8')
+  (dest/'WCLData.lua').write_text('local _,R=...\nR.WCLData='+compact_lua(runtime_snapshot(out))+'\n',encoding='utf-8')
   print('Anonymous evidence snapshot complete; failures:',len(out['failures']));return
  if a.discover_world or os.environ.get('WCL_DISCOVER_WORLD')=='true':
   expansions=c.query('{worldData{expansions{id name}}}')['worldData']['expansions']

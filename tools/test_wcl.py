@@ -2,7 +2,7 @@
 import base64,collections,contextlib,copy,datetime as dt,io,json
 from unittest.mock import patch
 from pathlib import Path
-from wcl_public import Client,validate_snapshot,collect_guides,usable_row,retain_latest,reduce_characters,SEASON_ZONES
+from wcl_public import Client,validate_snapshot,collect_guides,usable_row,retain_latest,reduce_characters,SEASON_ZONES,runtime_snapshot
 from test_lean import load_addon,ROOT
 from refresh_gear import compact_lua
 
@@ -53,6 +53,9 @@ latest={};key,value=usable_row(row,start,stamp);retain_latest(latest,key,value)
 retain_latest(latest,key,(stamp,{123},'EU'))
 assert reduce_characters(latest,{270175,123})=={'123':1},'Latest loadout must replace old votes'
 validate_snapshot(collected)
+runtime=runtime_snapshot(collected)
+assert runtime['specs']['71']['mythicplus']['items']==collected['specs']['71']['mythicplus']['items']
+assert 'items' not in runtime['specs']['71']['mythicplus']['encounters'][0], 'Detailed audit maps must not consume WoW RAM'
 bad=copy.deepcopy(collected);bad['specs']['71']['mythicplus']['encounters'][0]['sampleSize']=0
 try:validate_snapshot(bad)
 except ValueError:pass

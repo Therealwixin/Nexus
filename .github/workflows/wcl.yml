@@ -1,8 +1,5 @@
 name: Verify Warcraft Logs
 on:
-  push:
-    branches: [main]
-    paths: ['tools/wcl_public.py', '.github/workflows/wcl.yml']
   workflow_dispatch:
     inputs:
       collect_guides:
@@ -20,7 +17,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: nexus-wcl-reader
+  group: nexus-data-refresh
   cancel-in-progress: false
 jobs:
   verify:
@@ -42,9 +39,8 @@ jobs:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
           WCL_DISCOVER_WORLD: ${{ inputs.discover_world }}
-          WCL_COLLECT_GUIDES: ${{ inputs.collect_guides || github.event_name == 'push' }}
-          WCL_SPEC_IDS: ${{ github.event_name == 'push' && '71,261' || '' }}
-          WCL_WAIT_FOR_QUOTA: ${{ github.event_name != 'push' }}
+          WCL_COLLECT_GUIDES: ${{ inputs.collect_guides }}
+          WCL_WAIT_FOR_QUOTA: 'true'
           ENCOUNTER_ID: ${{ inputs.encounter_id || '0' }}
         run: python tools/wcl_public.py --encounter "$ENCOUNTER_ID"
       - uses: actions/upload-artifact@v7

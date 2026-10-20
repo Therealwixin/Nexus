@@ -188,3 +188,9 @@ local evidenceStrings={
  CZ={GEAR_EVIDENCE="Zdroje a podklady",AUTHORED_GUIDE="Doporučení autora guide",MPLUS_OBSERVATION="Snímek výbavy M+ hráčů",MURLOK_SAMPLE="Používá %d / %d nejlépe hodnocených M+ profilů",SOURCE_SCOPE_NOTE="Overall vychází z autorského setu Wowhead. Icy Veins doplňuje autorské alternativy. Murlok ukazuje používání mezi top profily; ne simulaci tvé postavy.",WCL_BROAD="WCL · sezónní pokrytí",WCL_COVERAGE="%d / %d encounterů · %d unikátních postav",WCL_INSUFFICIENT="Nedostatečné pokrytí — nepoužívá se jako podklad",WCL_POPULATION="Vzorek žebříčkových postav, ne všichni logovaní hráči. Popularita z WCL neurčuje Overall BiS."}
 }
 for lang,values in pairs(evidenceStrings) do for key,value in pairs(values) do strings[lang][key]=value end end
+
+for lang,values in pairs({
+ EN={WCL_WINDOW="Log window: %s – %s",WCL_COLLECTION="Collected %d/40 specs · eligible: %d raid / %d M+"},
+ SK={WCL_WINDOW="Obdobie logov: %s – %s",WCL_COLLECTION="Zozbierané %d/40 specov · vhodné: %d raid / %d M+"},
+ CZ={WCL_WINDOW="Období logů: %s – %s",WCL_COLLECTION="Sesbíráno %d/40 speců · použitelné: %d raid / %d M+"}
+}) do for key,value in pairs(values) do strings[lang][key]=value end end

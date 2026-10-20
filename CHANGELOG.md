@@ -1,3 +1,13 @@
+## 0.6.3-beta.1
+
+- Move Acquisition & upgrades above Alternatives. Put source attribution in its own section, with author/profile distinction, denominators, publication dates, check dates and source links.
+- Prioritize authored Wowhead/Icy Veins alternatives before observed Murlok profiles; keep the reserved verified dungeon option.
+- Withdraw legacy single-dungeon/single-boss WCL evidence from Overall, alternatives and item tooltips. WCL popularity never selects Overall BiS; blocked Archon access is not presented as a working data feed.
+- Collect two ranking pages per spec across all 8 seasonal dungeons and 10 Mythic raid encounters. Filter to a 14-day window, M+ keys >=10 and complete loadouts. Deduplicate by character, retaining the latest loadout per spec/mode.
+- Gate statistical eligibility on all planned encounters having >=20 unique characters and >=200 unique characters overall. Display missing coverage explicitly. Keep detailed maps in the audit JSON and compact summaries in WoW.
+- Seed real broad Arms/Subtlety snapshots; daily automation expands to all 40 specs, respects quota resets, retries transient errors and retains previous dated broad data on failure. Incomplete checkpoints are not published.
+- Add source-attribution, section-order, pagination, temporal filtering, duplicate-character, coverage, quota and runtime-payload regressions.
+
 ## 0.6.2-beta.3
 
 - Restore native item tooltips on ordinary hover. Build complete level-90 item strings with validated seasonal bonus IDs: Myth 6/6 (334), elevated raid (344), maximum-quality Myth crafted (331).

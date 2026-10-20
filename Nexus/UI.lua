@@ -178,7 +178,6 @@ function UI:RenderDetail(override,slotOverride)
  end
  self:DetailEndSection();if self.view=="equipment" then self:DetailText(R.GetGearSummary(),GOLD,11) end;self:DetailText(R.L(self.view=="equipment" and "SOURCE_SCOPE_NOTE" or "POPULARITY_NOTE"),GREY,11)
  if item.acquisitionItemID and item.acquisitionItemID~=item.id then self:DetailText("Catalyst · ".."Wowhead item #"..item.acquisitionItemID,GOLD,11) end
- if item.guideURL then self:DetailButton((item.source or "Guide").." guide · "..R.L("COPY_URL"),function()self:ShowCopy(item.guideURL)end) end
  self:DetailButton("Wowhead · "..R.L("COPY_URL"),function()self:ShowCopy("https://www.wowhead.com/item="..item.id)end)
  self:DetailFinish()
 end
@@ -306,6 +305,13 @@ function UI:RenderSources()
   end
  end
  if R.WCLData and R.WCLData.schema==2 and R.WCLData.patch==R.GuideData.patch then
+  local collected,raids,mplus=0,0,0
+  for _,modes in pairs(R.WCLData.specs) do
+   if modes.raid and modes.mythicplus then collected=collected+1 end
+   if modes.raid and modes.raid.eligible then raids=raids+1 end
+   if modes.mythicplus and modes.mythicplus.eligible then mplus=mplus+1 end
+  end
+  self:ListLine(R.L("WCL_COLLECTION",collected,raids,mplus),nil,R.L("WCL_WINDOW",R.WCLData.windowStart:sub(1,10),R.WCLData.windowEnd:sub(1,10)),nil,GOLD)
   local spec=R.WCLData.specs[R.ViewSpecID()]
   for _,mode in ipairs({"raid","mythicplus"}) do
    local evidence=spec and spec[mode]

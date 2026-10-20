@@ -10,7 +10,7 @@ Archon is not a gear feed until verified access is available. Its availability s
 
 | Spec | Overall slots | Four alternatives | Dungeon alternative | Murlok profiles | WCL raid / M+ coverage | Guides |
 |---|---:|---:|---:|---:|---|---|
-| Warrior Arms | 15 | 4 | 13 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/warrior/arms/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/arms-warrior-pve-dps-gear-best-in-slot) |
+| Warrior Arms | 15 | 4 | 13 | 50 | 10/10; n=1057 eligible / 8/8; n=332 eligible | [Wowhead](https://www.wowhead.com/guide/classes/warrior/arms/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/arms-warrior-pve-dps-gear-best-in-slot) |
 | Warrior Fury | 16 | 6 | 14 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/warrior/fury/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/fury-warrior-pve-dps-gear-best-in-slot) |
 | Warrior Protection | 16 | 5 | 16 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/warrior/protection/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/protection-warrior-pve-tank-gear-best-in-slot) |
 | Paladin Holy | 16 | 6 | 16 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/paladin/holy/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/holy-paladin-pve-healing-gear-best-in-slot) |
@@ -21,7 +21,7 @@ Archon is not a gear feed until verified access is available. Its availability s
 | Hunter Survival | 16 | 5 | 15 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/hunter/survival/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/survival-hunter-pve-dps-gear-best-in-slot) |
 | Rogue Assassination | 16 | 6 | 14 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/rogue/assassination/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/assassination-rogue-pve-dps-gear-best-in-slot) |
 | Rogue Outlaw | 16 | 6 | 16 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/rogue/outlaw/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/outlaw-rogue-pve-dps-gear-best-in-slot) |
-| Rogue Subtlety | 16 | 7 | 16 | 44 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-gear-best-in-slot) |
+| Rogue Subtlety | 16 | 7 | 16 | 44 | 10/10; n=990 eligible / 8/8; n=382 eligible | [Wowhead](https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-gear-best-in-slot) |
 | Priest Discipline | 16 | 7 | 16 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/priest/discipline/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/discipline-priest-pve-healing-gear-best-in-slot) |
 | Priest Holy | 16 | 7 | 16 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/priest/holy/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/holy-priest-pve-healing-gear-best-in-slot) |
 | Priest Shadow | 16 | 6 | 15 | 50 | not collected / not collected | [Wowhead](https://www.wowhead.com/guide/classes/priest/shadow/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/shadow-priest-pve-dps-gear-best-in-slot) |

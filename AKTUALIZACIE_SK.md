@@ -67,7 +67,7 @@ Nexus rozlišuje dátum publikácie zdroja a dátum, kedy ho znovu skontroloval.
 |---|---|
 | Wowhead | Autorské gear odporúčania, príprava a explicitné zdroje predmetov. |
 | Murlok.io | Agregovaná výbava, enchanty, gemy a M+ meta. Profily jednotlivých hráčov sa nezobrazujú. |
-| Warcraft Logs | Anonymné počty používania predmetov v uvedenom encounteri. Minimálne 20 použiteľných záznamov; používanie nie je dôkaz najlepšieho gearu pre tvoju postavu. |
+| Warcraft Logs | Samostatná sezónna štatistika: 8 dungeonov a 10 raid encounterov, po dve stránky pre každý spec, posledných 14 dní. Vyžaduje aspoň 20 unikátnych postáv v každom encounteri a 200 v danom spec/režime. Neurčuje Overall BiS. |
 | Raider.IO | Verejné EU affixy/sezónny kontext. Nie ďalší BiS gear feed. |
 | Archon | Kontrola dostupnosti a odkaz. Momentálne vracia overenie človeka; jeho gear štatistiky nie sú zapojené. WCL prístup automaticky neznamená prístup k Archon build feedu. |
 
@@ -94,3 +94,26 @@ My gear a Currently equipped používajú presný nasadený slot a jeho skutočn
 Odkazy na varianty sú overené proti dátam SimulationCraft pre build 12.1.5.70448 a živým Wowhead tooltipom troch hlásených príkladov: Silken Voodoo Drape (344), C’thraxxi Binders Pauldrons (334, Myth 6/6), Spellbreaker’s March (331). Vykreslenie a spoluprácu s ostatnými addonmi ešte treba potvrdiť v skutočnom klientovi WoW.
 
 Neoverené pozorované alternatívy, ktorým nemožno priradiť aktuálny sezónny variant, sa nezobrazujú. Týka sa to aj starých predmetov z minulých expanzií. Niektoré sloty preto majú menej než štyri možnosti; overené dungeonové možnosti majú naďalej rezervované miesto.
+
+## Poradie detailu a pravidlá dát (od 0.6.3-beta.1)
+
+Detail má poradie **Selected item → Acquisition & upgrades → Alternatives → Currently equipped / craft materiály → Zdroje a podklady**. Warcraft Logs počty už nie sú vložené pod alternatívu ani pri Overall predmete. Pri každom skutočne doloženom zdroji je odkaz, dátum obsahu a dátum posledného načítania.
+
+Overall používa pomenovaný autorský set Wowhead. Autorské možnosti Wowhead a Icy Veins majú v alternatívach prednosť pred pozorovanou výbavou Murloku. Zhoda mena tier predmetu sama nepotvrdzuje zhodu pôvodného Catalyst predmetu a jeho statov. Dva guide weby ani Archon/WCL sa nepočítajú ako nezávislé hlasy v hlasovaní o BiS.
+
+Murlok ukazuje snímku top hodnotených M+ profilov, spravidla 50. Číslo pri predmete znamená **koľko z týchto profilov ho používa**. Neznamená to percento všetkých hráčov, počet všetkých logov ani optimálnu voľbu pre konkrétnu postavu.
+
+WCL má oddelený širší zber pre aktuálnu sezónu: všetkých 8 dungeonov na kľúčoch aspoň +10 a 10 Mythic raid encounterov. Pre každý spec a encounter sa načítajú najviac dve stránky po 100 rebríčkových výsledkoch. Zostávajú iba záznamy z pevného 14-dňového obdobia s kompletnou výbavou. Identita postavy podľa mena a servera slúži iba v pamäti zberača na odstránenie duplicít; v JSON/Lua nie sú uložené hráčske mená, servery ani report kódy. V rámci spec/režimu sa použije najnovší kompletný loadout každej postavy. Počty z viacerých bossov sa nesčítajú ako nezávislí hráči.
+
+Vzorka sa označí ako vhodná až pri minimálne 20 unikátnych postavách v **každom** plánovanom encounteri a aspoň 200 unikátnych postavách celkovo v danom spec/režime. Chýbajúci dungeon sa nezamení za kompletné sezónne pokrytie. V prehľade dát je počet zozbieraných specov, presné pokrytie, veľkosť vzorky a obdobie. Aj tak ide o top rebríčkovú vzorku, nie náhodný výber či všetky logy. Tanky a DPS používajú DPS rebríček, healeri HPS; samotné poradie nepoukazuje na najlepšiu obrannú alebo liečiteľskú výbavu.
+
+Prvý nový živý dataset obsahuje Arms a Subtlety, oba s 8/8 dungeonmi a 10/10 raid encountermi. Kompletný zber všetkých 40 specov je súčasťou denného workflow. Starý dataset z jedného dungeonu/jedného bossa bol odstránený. Archon zostáva označený ako nezapojený, pretože verejný prístup vracia HTTP 403; WCL kľúč sám tento prístup nezabezpečuje.
+
+### Ako prebehne automatická aktualizácia
+
+1. GitHub denne spustí **Refresh Nexus data**. Ručne ho nájdeš cez repozitár → Actions → Refresh Nexus data → Run workflow → vetva main → Run workflow.
+2. Najprv sa načítajú guidey a Murlok. Širší WCL zber môže pri hodinovej kvóte čakať na jej obnovenie; celé spracovanie môže trvať niekoľko hodín. Kým beží, nespúšťaj ďalšiu rovnakú úlohu. Žltý bežiaci stav počas čakania nie je chyba.
+3. Ak WCL dočasne zlyhá, ponechá sa predošlý dátovaný široký snapshot. Nedokončený checkpoint sa nepublikuje; aktualizácia guideov/Murloku môže pokračovať. Zlyhanie je označené varovaním v Actions.
+4. Až po testoch workflow uloží dáta a vydá nový beta balík na CurseForge/GitHub. V CurseForge aplikácii potom treba vykonať aktualizáciu addonu; samotný WoW nemá prístup na internet a nový snapshot si počas hrania nestiahne.
+
+Detailné WCL mapy jednotlivých encounterov zostávajú v auditnom JSON súbore repozitára. Do WoW sa načítajú zmenšené súhrny, aby sa zbytočne nezvyšovala RAM. Šírka vzorky, presné filtre a verejné odkazy robia dáta overiteľnými; tvrdenie o absolútne nespochybniteľnom osobnom BiS by bolo zavádzajúce.

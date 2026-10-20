@@ -28,12 +28,17 @@ jobs:
         if: steps.cadence.outputs.due == 'true'
         run: python tools/refresh_gear.py
       - name: Collect anonymous WCL evidence
+        id: wcl
+        continue-on-error: true
         if: steps.cadence.outputs.due == 'true'
         env:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
           WCL_WAIT_FOR_QUOTA: 'true'
         run: python tools/wcl_public.py --collect-guides --guide-snapshot build/candidate/guide-snapshot.json
+      - name: Report retained WCL snapshot
+        if: steps.cadence.outputs.due == 'true' && steps.wcl.outcome == 'failure'
+        run: echo "::warning::WCL collection failed; retain the previous dated broad snapshot. Author guides and Murlok may still refresh. Incomplete checkpoints are not published."
       - name: Stage complete candidate
         if: steps.cadence.outputs.due == 'true'
         run: python tools/data_release.py stage

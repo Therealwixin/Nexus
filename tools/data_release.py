@@ -34,13 +34,13 @@ def stage(keep_version=False):
   if (candidate/src).exists():contents.append((ROOT/dest,(candidate/src).read_bytes()))
  wcl_path=ROOT/'build/wcl/wcl-snapshot.json'
  if wcl_path.exists():
-  from wcl_public import validate_snapshot
+  from wcl_public import validate_snapshot,runtime_snapshot
   from refresh_gear import compact_lua
   wcl=json.loads(wcl_path.read_text(encoding='utf-8'));validate_snapshot(wcl)
   if wcl['patch']!=guides['patch']:raise ValueError('WCL patch mismatch')
   age=(now-dt.datetime.fromisoformat(wcl['generatedAt'].replace('Z','+00:00'))).total_seconds()
   if not -60<=age<=24*3600:raise ValueError('WCL candidate too old')
-  contents.extend([(ROOT/'data/wcl-snapshot.json',wcl_path.read_bytes()),(ROOT/'Nexus/WCLData.lua',('local _,R=...\nR.WCLData='+compact_lua(wcl)+'\n').encode('utf-8'))])
+  contents.extend([(ROOT/'data/wcl-snapshot.json',wcl_path.read_bytes()),(ROOT/'Nexus/WCLData.lua',('local _,R=...\nR.WCLData='+compact_lua(runtime_snapshot(wcl))+'\n').encode('utf-8'))])
  for dest,content in contents:
   temp=dest.with_suffix(dest.suffix+'.tmp');temp.write_bytes(content);temp.replace(dest)
  if not keep_version:
