@@ -94,6 +94,13 @@ function R.GearPreviewLink(item,slot)
    end
   end
  else bonuses={range.max==344 and 13848 or 12854};if range.kind=="raid" then bonuses[#bonuses+1]=13335 end end
+ -- Source effects are classified during collection from current ItemBonus data.
+ -- Match the exact original item; never graft the tier result's proc onto it.
+ local present={}
+ for _,bonus in ipairs(bonuses) do present[bonus]=true end
+ for _,bonus in ipairs(item.previewEffectBonusIDs or {}) do
+  if not present[bonus] then bonuses[#bonuses+1]=bonus;present[bonus]=true end
+ end
  local context=range.kind=="crafted" and 13 or range.kind=="dungeon" and 35 or 16
  -- Fields after item ID: enchant, four gems, suffix, unique ID, link level,
  -- spec, upgrade type, context, bonus count/list, modifier count/list.

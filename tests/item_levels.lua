@@ -87,3 +87,30 @@ for spec in pairs(R.Data.specs) do
 end
 print("Item-level regressions PASS: native variant hyperlinks for screenshot items, no Shift/base fallback, crafted quality/stat pairs, Catalyst originals, equipped upgrade caps; covered targets "..known..", explicitly unknown "..unknown)
 check(known>600 and unknown==0,"All occupied Overall slots have a seasonal preview")
+
+R.SetViewSpec(261)
+for _,slot in ipairs({1,5}) do
+ local item=R.GetGearTarget(slot,261)
+ local link=R.GearPreviewLink(item,slot);local ids,f=bonuses(link)
+ local fixture
+ for _,entry in ipairs(TEST.variantEvidence.cases) do if tostring(entry.id)==f[2] then fixture=entry end end
+ check(fixture and fixture.effect and fixture.nativeTooltip:find("Equip:",1,true),"Screenshot source has externally verified passive effect")
+ for _,bonus in ipairs(fixture.bonusIDs) do check(ids[bonus],"Source effect bonus must survive maximum-ilvl tooltip construction") end
+ R.UI:ShowItemTooltip(R.UI.frame,item,slot)
+ check(table.concat(GameTooltip.lines," "):find("Catalyst: ",1,true),"Catalyst conversion uses a supported colon, not an unsupported arrow glyph")
+end
+R.UI:SetView("equipment")
+local savedAlternatives=R.GetGearAlternatives
+local savedDetailText=R.UI.DetailText
+local emptyMessage,dungeonMessage=0,0
+R.UI.DetailText=function(self,text,...)
+ if text==R.L("NO_ALTERNATIVES") then emptyMessage=emptyMessage+1 end
+ if text==R.L("NO_DUNGEON_ALTERNATIVE") then dungeonMessage=dungeonMessage+1 end
+ return savedDetailText(self,text,...)
+end
+R.GetGearAlternatives=function()return {}end
+R.UI:RenderDetail(R.GetGearTarget(1,261),1)
+check(emptyMessage==1 and dungeonMessage==0,"No alternatives must be explicit without a duplicate no-dungeon message")
+R.UI.DetailText=savedDetailText
+R.GetGearAlternatives=savedAlternatives
+print("Catalyst source passives, supported conversion label and explicit missing alternatives PASS")

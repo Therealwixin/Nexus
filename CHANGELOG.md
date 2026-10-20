@@ -1,3 +1,11 @@
+## 0.6.3-beta.2
+
+- Preserve published source-item passive effects in maximum-ilvl and Catalyst previews. Verify Gaze at 344 and Chestwrap at Myth 6/6, 334 against live tooltip data.
+- Classify effect-only bonus lists from current SimulationCraft ItemBonus data during daily collection. Reject conflicting level modifiers, ambiguous inherited variants and cross-item/crafted-effect guesses; retain original source dates.
+- Rename the displayed set to BiS. Explicitly state when no verified alternatives are available, without a redundant second empty-dungeon message.
+- Replace unsupported conversion/range arrow glyphs with a colon/plain separator.
+- Add source-effect, build mismatch, maximum-ilvl conflict, exact-item inheritance and empty-alternative regressions.
+
 ## 0.6.3-beta.1
 
 - Move Acquisition & upgrades above Alternatives. Put source attribution in its own section, with author/profile distinction, denominators, publication dates, check dates and source links.

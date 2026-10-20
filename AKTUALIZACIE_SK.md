@@ -10,7 +10,7 @@ Workflow **Refresh Nexus data** je zapnutý denne približne o 04:17 UTC. V Brat
 
 1. Stiahne aktuálne stránky Murlok a Wowhead pre všetkých 40 špecializácií a meta dáta.
 2. Skontroluje dostupnosť Raider.IO a Archon.
-3. Cez Warcraft Logs API načíta anonymné gear štatistiky pre 40 špecializácií. Používa jeden aktuálny raidový encounter a jeden M+ dungeon; nie sú to výsledky zo všetkých bossov a dungeonov.
+3. Cez Warcraft Logs API načíta anonymné gear štatistiky pre 40 špecializácií. Používa všetkých 8 sezónnych M+ dungeonov a 10 raid encounterov; úplnosť a veľkosť vzorky ukazuje pri konkrétnej špecializácii.
 4. Overí patch, úplnosť, zdroje a počty vzoriek. Spustí regresné testy addonu.
 5. Uloží novú verziu a vytvorí ZIP na GitHube aj na CurseForge.
 
@@ -36,7 +36,7 @@ Na aktualizáciu serverových dát nemusíš nič programovať, sťahovať Pytho
 
 ## Automatická inštalácia cez CurseForge
 
-Projekt [Nexus: Gear & Preparation](https://www.curseforge.com/wow/addons/nexus-gear-preparation) je už schválený. Každý nový súbor však ešte môže samostatne čakať na kontrolu: najnovší balík 0.6.1 je práve **Under Review**. Kým sa schváli, aplikácia môže ponúkať staršiu beta 4. Ak potrebuješ opravy hneď, použi priložený ZIP z GitHubu. Schvaľovanie GitHub ani addon nevie urýchliť.
+Projekt [Nexus: Gear & Preparation](https://www.curseforge.com/wow/addons/nexus-gear-preparation) je už schválený. Každý nový súbor však ešte môže samostatne čakať na kontrolu: súbor môže byť označený **Under Review**. Kým sa schváli, aplikácia môže ponúkať staršiu verziu. Ak potrebuješ opravy hneď, použi priložený ZIP z GitHubu. Schvaľovanie GitHub ani addon nevie urýchliť.
 
 Nastavenie aplikácie:
 
@@ -67,7 +67,7 @@ Nexus rozlišuje dátum publikácie zdroja a dátum, kedy ho znovu skontroloval.
 |---|---|
 | Wowhead | Autorské gear odporúčania, príprava a explicitné zdroje predmetov. |
 | Murlok.io | Agregovaná výbava, enchanty, gemy a M+ meta. Profily jednotlivých hráčov sa nezobrazujú. |
-| Warcraft Logs | Samostatná sezónna štatistika: 8 dungeonov a 10 raid encounterov, po dve stránky pre každý spec, posledných 14 dní. Vyžaduje aspoň 20 unikátnych postáv v každom encounteri a 200 v danom spec/režime. Neurčuje Overall BiS. |
+| Warcraft Logs | Samostatná sezónna štatistika: 8 dungeonov a 10 raid encounterov, po dve stránky pre každý spec, posledných 14 dní. Vyžaduje aspoň 20 unikátnych postáv v každom encounteri a 200 v danom spec/režime. Neurčuje BiS. |
 | Raider.IO | Verejné EU affixy/sezónny kontext. Nie ďalší BiS gear feed. |
 | Archon | Kontrola dostupnosti a odkaz. Momentálne vracia overenie človeka; jeho gear štatistiky nie sú zapojené. WCL prístup automaticky neznamená prístup k Archon build feedu. |
 
@@ -79,9 +79,9 @@ Po nainštalovaní skontroluj Equipment bez modelu postavy, reálny ilvl pri **M
 
 Testy mimo hry pomáhajú zachytiť regresie, ale nenahrádzajú vykreslenie a bezpečné správanie v skutočnom klientovi WoW.
 
-## Overall BiS a alternatívy
+## BiS a alternatívy
 
-Equipment má iba Overall BiS. Pri slote sú najviac štyri odlišné overené alternatívy. Ak je známa dungeonová možnosť, má rezervované miesto a označenie Dungeon. Keď zdroje poskytujú menej možností, zoznam sa nedopĺňa vymyslenými predmetmi. Wowhead/Murlok dopĺňajú autorské možnosti Icy Veins, ktoré sa zbierajú v dennej aktualizácii.
+Equipment má iba BiS. Pri slote sú najviac štyri odlišné overené alternatívy. Ak je známa dungeonová možnosť, má rezervované miesto a označenie Dungeon. Keď zdroje poskytujú menej možností, zoznam sa nedopĺňa vymyslenými predmetmi. Wowhead/Murlok dopĺňajú autorské možnosti Icy Veins, ktoré sa zbierajú v dennej aktualizácii.
 
 ## Ilvl a tooltipy (od 0.6.2-beta.3)
 
@@ -117,3 +117,13 @@ Prvý nový živý dataset obsahuje Arms a Subtlety, oba s 8/8 dungeonmi a 10/10
 4. Až po testoch workflow uloží dáta a vydá nový beta balík na CurseForge/GitHub. V CurseForge aplikácii potom treba vykonať aktualizáciu addonu; samotný WoW nemá prístup na internet a nový snapshot si počas hrania nestiahne.
 
 Detailné WCL mapy jednotlivých encounterov zostávajú v auditnom JSON súbore repozitára. Do WoW sa načítajú zmenšené súhrny, aby sa zbytočne nezvyšovala RAM. Šírka vzorky, presné filtre a verejné odkazy robia dáta overiteľnými; tvrdenie o absolútne nespochybniteľnom osobnom BiS by bolo zavádzajúce.
+
+## Efekty predmetov a údržba (od 0.6.3-beta.2)
+
+Názov kategórie je **BiS**. Ak nemáme overené alternatívy, detail to výslovne uvedie. Nie je to tvrdenie, že žiadny iný predmet v hre neexistuje.
+
+Pri Catalyst náhľade je **Catalyst: názov tieru** označenie výslednej konverzie. Predchádzajúca šípka sa v hernom fonte zobrazovala ako chybný znak; dvojbodka je zámerná.
+
+Denný zber zachová bonusy publikované v guideoch a načíta aktuálnu ItemBonus tabuľku SimulationCraft. Efektové bonusy oddelí od ilvl a upgrade bonusov. Pre pôvodný Catalyst kus môže použiť iba efekt doložený pre toto isté pôvodné item ID. Pri rozporných variantoch efekt neodhadne. Voliteľné craft efekty neprenáša medzi odporúčaniami; zachová iba výslovne publikovanú voľbu konkrétneho riadku. Pôvodné dátumy guideov sa pri tomto obohatení nemenia.
+
+Nie je potrebné ručne dopisovať pasíva jednotlivých helm/chest predmetov. Neúplná bonusová tabuľka alebo iný patch zastavia vydanie kandidáta a ponechajú poslednú vydanú verziu. Pri novej sezóne treba overiť ilvl pravidlá a API; nepredstierame, že tieto zmeny možno vždy bezpečne odhadnúť automaticky. WoW naďalej dostáva hotový snapshot cez aktualizáciu balíka.

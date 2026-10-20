@@ -94,7 +94,7 @@ function R.GetGearSummary()
  local guide=R.GetGuideDataset();if not guide then return R.L("NO_DATA") end
  local scope=R.GearSource();local set=scope=="overall" and R.GetGuideSet();local count=0
  for _,slot in ipairs(R.SLOTS) do if R.GetGearTarget(slot.id) then count=count+1 end end
- local title="Overall BiS"
+ local title="BiS"
  return title.." · "..count.." / 16 · Wowhead "..guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10)
 end
 function R.GetGearEvidence(item,slotID,specID)

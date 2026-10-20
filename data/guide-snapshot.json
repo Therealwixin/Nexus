@@ -14,7 +14,10 @@
       "dropSource": "Kithix",
       "acquisition": "raid",
       "acquisitionItemID": 281239,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "268265:268265:raid": {
       "id": 268265,
@@ -107,7 +110,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "dropSource": "Ula'tek",
-      "acquisition": "raid"
+      "acquisition": "raid",
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "237828:237828:crafted": {
       "id": 237828,
@@ -263,7 +269,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 71
+      "evidenceSpec": 71,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "281029:281029:raid:observed:71": {
       "id": 281029,
@@ -508,7 +517,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 72
+      "evidenceSpec": 72,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "252258:252258:dungeon:observed:72": {
       "id": 252258,
@@ -641,7 +653,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "dropSource": "Kith'ix",
-      "acquisition": "raid"
+      "acquisition": "raid",
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271454:271454:unknown": {
       "id": 271454,
@@ -786,7 +801,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 73
+      "evidenceSpec": 73,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "273792:273792:dungeon:observed:73": {
       "id": 273792,
@@ -919,7 +937,10 @@
       "dropSource": "Kith'ix",
       "acquisition": "raid",
       "acquisitionItemID": 281239,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271463:251138:dungeon": {
       "id": 271463,
@@ -980,7 +1001,10 @@
       "dropSource": "Ula'tek",
       "acquisition": "raid",
       "acquisitionItemID": 271878,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "268260:268260:raid": {
       "id": 268260,
@@ -1090,7 +1114,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 65
+      "evidenceSpec": 65,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "159459:159459:dungeon:observed:65": {
       "id": 159459,
@@ -1286,7 +1313,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 66
+      "evidenceSpec": 66,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "273792:273792:dungeon:observed:66": {
       "id": 273792,
@@ -1418,7 +1448,10 @@
       "dropSource": "Tier Set",
       "acquisition": "unknown",
       "acquisitionItemID": 281239,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271463:251138:unknown": {
       "id": 271463,
@@ -1554,7 +1587,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 70
+      "evidenceSpec": 70,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "252258:252258:dungeon:observed:70": {
       "id": 252258,
@@ -1645,7 +1681,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "dropSource": "Ula'tek",
-      "acquisition": "raid"
+      "acquisition": "raid",
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "271492:271492:raid": {
       "id": 271492,
@@ -1707,7 +1746,10 @@
       "dropSource": "Kith'ix",
       "acquisition": "raid",
       "acquisitionItemID": 281238,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "244581:244581:crafted": {
       "id": 244581,
@@ -1930,7 +1972,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 253
+      "evidenceSpec": 253,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "271492:268230:raid": {
       "id": 271492,
@@ -1965,7 +2010,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "acquisition": "raid",
-      "dropSource": "Wowhead raid priority"
+      "dropSource": "Wowhead raid priority",
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271680:271680:dungeon": {
       "id": 271680,
@@ -1998,7 +2046,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "acquisition": "dungeon",
-      "dropSource": "Wowhead Mythic+ dungeon priority"
+      "dropSource": "Wowhead Mythic+ dungeon priority",
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "268265:268265:raid:observed:254": {
       "id": 268265,
@@ -2021,7 +2072,10 @@
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 254
+      "evidenceSpec": 254,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251132:251132:dungeon:observed:254": {
       "id": 251132,
@@ -2053,7 +2107,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 254
+      "evidenceSpec": 254,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "193752:193752:dungeon:observed:254": {
       "id": 193752,
@@ -2194,7 +2251,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 254
+      "evidenceSpec": 254,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "271093:271093:raid": {
       "id": 271093,
@@ -2297,7 +2357,10 @@
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 255
+      "evidenceSpec": 255,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251132:251132:dungeon:observed:255": {
       "id": 251132,
@@ -2340,7 +2403,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 255
+      "evidenceSpec": 255,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "193752:193752:dungeon:observed:255": {
       "id": 193752,
@@ -2480,7 +2546,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 255
+      "evidenceSpec": 255,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268209:268209:raid:observed:255": {
       "id": 268209,
@@ -2539,7 +2608,10 @@
       "dropSource": "Ula'tek",
       "acquisition": "raid",
       "acquisitionItemID": 271875,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "271508:251223:dungeon": {
       "id": 271508,
@@ -2563,7 +2635,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "dropSource": "Kith'ix",
-      "acquisition": "raid"
+      "acquisition": "raid",
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "244576:244576:crafted": {
       "id": 244576,
@@ -2633,7 +2708,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "acquisition": "raid",
-      "dropSource": "Wowhead raid priority"
+      "dropSource": "Wowhead raid priority",
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "250259:250259:dungeon": {
       "id": 250259,
@@ -2677,7 +2755,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 259
+      "evidenceSpec": 259,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:259": {
       "id": 268265,
@@ -2722,7 +2803,10 @@
       "sampleSize": 50,
       "dropSource": "Kith'ix",
       "acquisition": "raid",
-      "evidenceSpec": 259
+      "evidenceSpec": 259,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251135:251135:dungeon:observed:259": {
       "id": 251135,
@@ -2919,7 +3003,10 @@
       "dropSource": "Tier Set",
       "acquisition": "unknown",
       "acquisitionItemID": 281236,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "268240:268240:raid": {
       "id": 268240,
@@ -2989,7 +3076,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 260
+      "evidenceSpec": 260,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:260": {
       "id": 268265,
@@ -3021,7 +3111,10 @@
       "count": 3,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 260
+      "evidenceSpec": 260,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251226:251226:dungeon:observed:260": {
       "id": 251226,
@@ -3206,7 +3299,10 @@
       "dropSource": "Tier Set - Kith'ix",
       "acquisition": "raid",
       "acquisitionItemID": 281236,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271511:159337:dungeon": {
       "id": 271511,
@@ -3263,7 +3359,10 @@
       "quality": 4,
       "sampleSize": 44,
       "acquisition": "raid",
-      "evidenceSpec": 261
+      "evidenceSpec": 261,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:261": {
       "id": 268265,
@@ -3296,7 +3395,10 @@
       "quality": 4,
       "sampleSize": 44,
       "acquisition": "raid",
-      "evidenceSpec": 261
+      "evidenceSpec": 261,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "268256:268256:raid:observed:261": {
       "id": 268256,
@@ -3454,7 +3556,10 @@
       "bisGuide": true,
       "dropSource": "",
       "acquisition": "unknown",
-      "npcID": 268956
+      "npcID": 268956,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:unknown": {
       "id": 268265,
@@ -3635,7 +3740,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "acquisition": "raid",
-      "dropSource": "Wowhead raid priority"
+      "dropSource": "Wowhead raid priority",
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "159667:159667:dungeon": {
       "id": 159667,
@@ -3670,7 +3778,10 @@
       "dropSource": "",
       "npcID": 268956,
       "acquisition": "raid",
-      "evidenceSpec": 256
+      "evidenceSpec": 256,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:256": {
       "id": 268265,
@@ -3723,7 +3834,10 @@
       "count": 2,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 256
+      "evidenceSpec": 256,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251160:251160:dungeon:observed:256": {
       "id": 251160,
@@ -4014,7 +4128,10 @@
       "dropSource": "",
       "npcID": 268956,
       "acquisition": "raid",
-      "evidenceSpec": 257
+      "evidenceSpec": 257,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:257": {
       "id": 268265,
@@ -4059,7 +4176,10 @@
       "count": 3,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 257
+      "evidenceSpec": 257,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251160:251160:dungeon:observed:257": {
       "id": 251160,
@@ -4222,7 +4342,10 @@
       "dropSource": "Ula'tek",
       "acquisition": "raid",
       "acquisitionItemID": 271874,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "239045:239045:unknown": {
       "id": 239045,
@@ -4301,7 +4424,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 258
+      "evidenceSpec": 258,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:258": {
       "id": 268265,
@@ -4345,7 +4471,10 @@
       "sampleSize": 50,
       "dropSource": "Unbinding of Kith'Ix",
       "acquisition": "raid",
-      "evidenceSpec": 258
+      "evidenceSpec": 258,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "281029:281029:raid:observed:258": {
       "id": 281029,
@@ -4470,7 +4599,10 @@
       "dropSource": "Kith'ix",
       "acquisition": "raid",
       "acquisitionItemID": 281239,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271472:239037:dungeon": {
       "id": 271472,
@@ -4631,7 +4763,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 250
+      "evidenceSpec": 250,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "273792:273792:dungeon:observed:250": {
       "id": 273792,
@@ -4860,7 +4995,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 251
+      "evidenceSpec": 251,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "158366:158366:dungeon:observed:251": {
       "id": 158366,
@@ -5038,7 +5176,10 @@
       "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 252
+      "evidenceSpec": 252,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251132:251132:dungeon:observed:252": {
       "id": 251132,
@@ -5091,7 +5232,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 252
+      "evidenceSpec": 252,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "252258:252258:dungeon:observed:252": {
       "id": 252258,
@@ -5226,7 +5370,10 @@
       "dropSource": "Tier Set/The Unbinding of Kith'ix",
       "acquisition": "raid",
       "acquisitionItemID": 281238,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "268254:268254:raid": {
       "id": 268254,
@@ -5349,7 +5496,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 262
+      "evidenceSpec": 262,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251155:251155:dungeon:observed:262": {
       "id": 251155,
@@ -5598,7 +5748,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 263
+      "evidenceSpec": 263,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "268237:268237:raid:observed:263": {
       "id": 268237,
@@ -5837,7 +5990,10 @@
       "count": 1,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 264
+      "evidenceSpec": 264,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "268237:268237:raid:observed:264": {
       "id": 268237,
@@ -5961,7 +6117,10 @@
       "dropSource": "Ula'tek",
       "acquisition": "raid",
       "acquisitionItemID": 271874,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "271562:268241:raid": {
       "id": 271562,
@@ -6024,7 +6183,10 @@
       "dropSource": "Kith'ix",
       "acquisition": "raid",
       "acquisitionItemID": 281235,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "281235:281235:raid": {
       "id": 281235,
@@ -6035,7 +6197,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "acquisition": "raid",
-      "dropSource": "Wowhead raid priority"
+      "dropSource": "Wowhead raid priority",
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "273785:273785:dungeon": {
       "id": 273785,
@@ -6068,7 +6233,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 62
+      "evidenceSpec": 62,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:62": {
       "id": 268265,
@@ -6091,7 +6259,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 62
+      "evidenceSpec": 62,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251148:251148:dungeon:observed:62": {
       "id": 251148,
@@ -6212,7 +6383,10 @@
       "dropSource": "Tier Set",
       "acquisition": "unknown",
       "acquisitionItemID": 271874,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "271562:268241:unknown": {
       "id": 271562,
@@ -6275,7 +6449,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 63
+      "evidenceSpec": 63,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:63": {
       "id": 268265,
@@ -6308,7 +6485,10 @@
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 63
+      "evidenceSpec": 63,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251190:251190:dungeon:observed:63": {
       "id": 251190,
@@ -6350,7 +6530,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 63
+      "evidenceSpec": 63,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "159459:159459:dungeon:observed:63": {
       "id": 159459,
@@ -6518,7 +6701,10 @@
       "dropSource": "Tier Set",
       "acquisition": "unknown",
       "acquisitionItemID": 281235,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "273649:273649:dungeon": {
       "id": 273649,
@@ -6540,7 +6726,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 64
+      "evidenceSpec": 64,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:64": {
       "id": 268265,
@@ -6562,7 +6751,10 @@
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 64
+      "evidenceSpec": 64,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251142:251142:dungeon:observed:64": {
       "id": 251142,
@@ -6604,7 +6796,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 64
+      "evidenceSpec": 64,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251136:251136:dungeon:observed:64": {
       "id": 251136,
@@ -6782,7 +6977,10 @@
       "dropSource": "Kith'ix",
       "acquisition": "raid",
       "acquisitionItemID": 281235,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "273649:273649:unknown": {
       "id": 273649,
@@ -6828,7 +7026,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 265
+      "evidenceSpec": 265,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:265": {
       "id": 268265,
@@ -6850,7 +7051,10 @@
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 265
+      "evidenceSpec": 265,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251142:251142:dungeon:observed:265": {
       "id": 251142,
@@ -6880,7 +7084,10 @@
       "count": 3,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 265
+      "evidenceSpec": 265,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "273792:273792:dungeon:observed:265": {
       "id": 273792,
@@ -7023,7 +7230,10 @@
       "dropSource": "Venomous Abyss Trash Drop",
       "acquisition": "unknown",
       "acquisitionItemID": 281235,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271549:268221:raid": {
       "id": 271549,
@@ -7072,7 +7282,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 266
+      "evidenceSpec": 266,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:266": {
       "id": 268265,
@@ -7095,7 +7308,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 266
+      "evidenceSpec": 266,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "158366:158366:dungeon:observed:266": {
       "id": 158366,
@@ -7250,7 +7466,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 267
+      "evidenceSpec": 267,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268265:268265:raid:observed:267": {
       "id": 268265,
@@ -7272,7 +7491,10 @@
       "count": 6,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 267
+      "evidenceSpec": 267,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251132:251132:dungeon:observed:267": {
       "id": 251132,
@@ -7325,7 +7547,10 @@
       "sampleSize": 50,
       "dropSource": "Kith'Ix",
       "acquisition": "raid",
-      "evidenceSpec": 267
+      "evidenceSpec": 267,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251136:251136:dungeon:observed:267": {
       "id": 251136,
@@ -7484,7 +7709,10 @@
       "source": "Wowhead",
       "bisGuide": true,
       "dropSource": "Ula'tek",
-      "acquisition": "raid"
+      "acquisition": "raid",
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "268206:268206:raid": {
       "id": 268206,
@@ -7615,7 +7843,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 268
+      "evidenceSpec": 268,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:268": {
       "id": 268265,
@@ -7637,7 +7868,10 @@
       "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 268
+      "evidenceSpec": 268,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251142:251142:dungeon:observed:268": {
       "id": 251142,
@@ -7679,7 +7913,10 @@
       "count": 1,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 268
+      "evidenceSpec": 268,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251226:251226:dungeon:observed:268": {
       "id": 251226,
@@ -7810,7 +8047,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 268
+      "evidenceSpec": 268,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "251192:251192:dungeon:observed:268": {
       "id": 251192,
@@ -7866,7 +8106,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 269
+      "evidenceSpec": 269,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:269": {
       "id": 268265,
@@ -7922,7 +8165,10 @@
       "sampleSize": 50,
       "dropSource": "Kith'ix",
       "acquisition": "raid",
-      "evidenceSpec": 269
+      "evidenceSpec": 269,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "268256:268256:raid:observed:269": {
       "id": 268256,
@@ -8036,7 +8282,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 269
+      "evidenceSpec": 269,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "271519:271875:raid": {
       "id": 271519,
@@ -8049,7 +8298,10 @@
       "dropSource": "Ula'tek & Catalyst",
       "acquisition": "raid",
       "acquisitionItemID": 271875,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "271517:251146:dungeon": {
       "id": 271517,
@@ -8086,7 +8338,10 @@
       "dropSource": "Kith'ix & Catalyst",
       "acquisition": "raid",
       "acquisitionItemID": 281236,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251135:251135:dungeon": {
       "id": 251135,
@@ -8202,7 +8457,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 270
+      "evidenceSpec": 270,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:270": {
       "id": 268265,
@@ -8257,7 +8515,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 270
+      "evidenceSpec": 270,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251135:251135:dungeon:observed:270": {
       "id": 251135,
@@ -8445,7 +8706,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 102
+      "evidenceSpec": 102,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:102": {
       "id": 268265,
@@ -8489,7 +8753,10 @@
       "sampleSize": 50,
       "dropSource": "Kith'ix",
       "acquisition": "raid",
-      "evidenceSpec": 102
+      "evidenceSpec": 102,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251135:251135:dungeon:observed:102": {
       "id": 251135,
@@ -8769,7 +9036,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 103
+      "evidenceSpec": 103,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:103": {
       "id": 268265,
@@ -8942,7 +9212,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 103
+      "evidenceSpec": 103,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "271529:271529:unknown": {
       "id": 271529,
@@ -8987,7 +9260,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 104
+      "evidenceSpec": 104,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:104": {
       "id": 268265,
@@ -9011,7 +9287,10 @@
       "sampleSize": 50,
       "dropSource": "Kith'ix",
       "acquisition": "raid",
-      "evidenceSpec": 104
+      "evidenceSpec": 104,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251159:251159:dungeon:observed:104": {
       "id": 251159,
@@ -9131,7 +9410,10 @@
       "sampleSize": 50,
       "dropSource": "Ula'tek",
       "acquisition": "raid",
-      "evidenceSpec": 104
+      "evidenceSpec": 104,
+      "previewEffectBonusIDs": [
+        13846
+      ]
     },
     "158370:158370:dungeon:observed:104": {
       "id": 158370,
@@ -9155,7 +9437,10 @@
       "dropSource": "Ula'tek (Raid) & Catalyst",
       "acquisition": "raid",
       "acquisitionItemID": 271875,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "244572:244572:crafted": {
       "id": 244572,
@@ -9322,7 +9607,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 105
+      "evidenceSpec": 105,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:105": {
       "id": 268265,
@@ -9366,7 +9654,10 @@
       "count": 1,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 105
+      "evidenceSpec": 105,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251135:251135:dungeon:observed:105": {
       "id": 251135,
@@ -9547,7 +9838,10 @@
       "dropSource": "Ula'tek",
       "acquisition": "raid",
       "acquisitionItemID": 271875,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "271535:268246:raid": {
       "id": 271535,
@@ -9595,7 +9889,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 577
+      "evidenceSpec": 577,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:577": {
       "id": 268265,
@@ -9639,7 +9936,10 @@
       "sampleSize": 50,
       "dropSource": "Kith'ix",
       "acquisition": "raid",
-      "evidenceSpec": 577
+      "evidenceSpec": 577,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251135:251135:dungeon:observed:577": {
       "id": 251135,
@@ -9834,7 +10134,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 581
+      "evidenceSpec": 581,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:581": {
       "id": 268265,
@@ -9868,7 +10171,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 581
+      "evidenceSpec": 581,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251135:251135:dungeon:observed:581": {
       "id": 251135,
@@ -10014,7 +10320,10 @@
       "dropSource": "General Kith'ix",
       "acquisition": "raid",
       "acquisitionItemID": 281236,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "240166:240166:crafted": {
       "id": 240166,
@@ -10048,7 +10357,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 1480
+      "evidenceSpec": 1480,
+      "previewEffectBonusIDs": [
+        13847
+      ]
     },
     "268265:268265:raid:observed:1480": {
       "id": 268265,
@@ -10102,7 +10414,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 1480
+      "evidenceSpec": 1480,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "251159:251159:dungeon:observed:1480": {
       "id": 251159,
@@ -10340,7 +10655,10 @@
       "dropSource": "Tier Set",
       "acquisition": "unknown",
       "acquisitionItemID": 281238,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271500:268237:unknown": {
       "id": 271500,
@@ -10439,7 +10757,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 1467
+      "evidenceSpec": 1467,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "193752:193752:dungeon:observed:1467": {
       "id": 193752,
@@ -10642,7 +10963,10 @@
       "dropSource": "Kithix (Raid)",
       "acquisition": "raid",
       "acquisitionItemID": 281238,
-      "catalyst": true
+      "catalyst": true,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "271500:268237:raid": {
       "id": 271500,
@@ -10689,7 +11013,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 1468
+      "evidenceSpec": 1468,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "268237:268237:raid:observed:1468": {
       "id": 268237,
@@ -10916,7 +11243,10 @@
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
-      "evidenceSpec": 1473
+      "evidenceSpec": 1473,
+      "previewEffectBonusIDs": [
+        13708
+      ]
     },
     "251132:251132:dungeon:observed:1473": {
       "id": 251132,
@@ -10948,7 +11278,10 @@
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 1473
+      "evidenceSpec": 1473,
+      "previewEffectBonusIDs": [
+        14049
+      ]
     },
     "193752:193752:dungeon:observed:1473": {
       "id": 193752,
@@ -11106,6 +11439,9 @@
       "catalystTargetID": 271456,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251229:alternative:71:icyveins": {
@@ -11249,6 +11585,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273776:alternative:71:icyveins": {
@@ -11511,6 +11850,9 @@
       "catalystTargetID": 271456,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251229:alternative:72:icyveins": {
@@ -11653,6 +11995,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273776:alternative:72:icyveins": {
@@ -11941,6 +12286,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "239050:alternative:73:icyveins": {
@@ -12000,6 +12348,9 @@
         13668,
         13848,
         13662
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251173:alternative:73:icyveins": {
@@ -12087,6 +12438,9 @@
       "catalystTargetID": 271455,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273776:alternative:73:icyveins": {
@@ -12390,6 +12744,9 @@
       "catalystTargetID": 271465,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251126:alternative:65:icyveins": {
@@ -12532,6 +12889,9 @@
       "catalystTargetID": 271464,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "159435:alternative:65:icyveins": {
@@ -12841,6 +13201,9 @@
         4786,
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "239050:alternative:66:icyveins": {
@@ -13011,6 +13374,9 @@
       "previewBonusIDs": [
         4786,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "159435:alternative:66:icyveins": {
@@ -13075,6 +13441,9 @@
         12384,
         12497,
         13836
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "268222:alternative:66:icyveins": {
@@ -13230,6 +13599,9 @@
         12384,
         12497,
         13836
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270173:alternative:66:icyveins": {
@@ -13335,6 +13707,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251126:alternative:70:icyveins": {
@@ -13408,6 +13783,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "268259:alternative:70:icyveins": {
@@ -13480,6 +13858,9 @@
       "catalystTargetID": 271464,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273776:alternative:70:icyveins": {
@@ -13674,6 +14055,9 @@
         13836,
         8790,
         13454
+      ],
+      "previewEffectBonusIDs": [
+        13454
       ]
     },
     "270175:alternative:70:icyveins": {
@@ -13778,6 +14162,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "193752:alternative:253:icyveins": {
@@ -13808,6 +14195,9 @@
       "previewBonusIDs": [
         13848,
         13708
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251234:alternative:253:icyveins": {
@@ -13822,6 +14212,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "244581:alternative:253:icyveins": {
@@ -13843,6 +14236,9 @@
         8791,
         8960,
         1808
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "268231:alternative:253:icyveins": {
@@ -14076,6 +14472,9 @@
         8791,
         8960,
         1808
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270175:alternative:253:icyveins": {
@@ -14118,6 +14517,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848,
+        13708
+      ],
+      "previewEffectBonusIDs": [
         13708
       ]
     },
@@ -14191,6 +14593,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "193752:alternative:254:icyveins": {
@@ -14221,6 +14626,9 @@
       "previewBonusIDs": [
         13848,
         13708
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251234:alternative:254:icyveins": {
@@ -14235,6 +14643,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "244581:alternative:254:icyveins": {
@@ -14256,6 +14667,9 @@
         8791,
         8960,
         1808
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "268231:alternative:254:icyveins": {
@@ -14503,6 +14917,9 @@
         8791,
         8960,
         1808
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270168:alternative:254:icyveins": {
@@ -14545,6 +14962,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848,
+        13708
+      ],
+      "previewEffectBonusIDs": [
         13708
       ]
     },
@@ -14603,6 +15023,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "160213:alternative:255:icyveins": {
@@ -14632,6 +15055,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848,
+        13708
+      ],
+      "previewEffectBonusIDs": [
         13708
       ]
     },
@@ -14668,6 +15094,9 @@
         8791,
         8960,
         1808
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "268231:alternative:255:icyveins": {
@@ -14915,6 +15344,9 @@
         8791,
         8960,
         1808
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270173:alternative:255:icyveins": {
@@ -14986,6 +15418,9 @@
       "previewBonusIDs": [
         13847,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "273791:alternative:259:icyveins": {
@@ -15044,6 +15479,9 @@
       "previewBonusIDs": [
         13708,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273781:alternative:259:icyveins": {
@@ -15204,6 +15642,9 @@
       "catalystTargetID": 271513,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251159:alternative:259:icyveins": {
@@ -15394,6 +15835,9 @@
       "previewBonusIDs": [
         13847,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "273791:alternative:260:icyveins": {
@@ -15452,6 +15896,9 @@
       "previewBonusIDs": [
         13708,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273781:alternative:260:icyveins": {
@@ -15621,6 +16068,9 @@
       "catalystTargetID": 271513,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251226:alternative:260:icyveins": {
@@ -15852,6 +16302,9 @@
       "previewBonusIDs": [
         13848,
         13847
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "251140:alternative:261:icyveins": {
@@ -15896,6 +16349,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848,
+        13708
+      ],
+      "previewEffectBonusIDs": [
         13708
       ]
     },
@@ -16184,6 +16640,9 @@
         12497,
         13836,
         12384
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "251135:alternative:261:icyveins": {
@@ -16286,6 +16745,9 @@
         12497,
         13852,
         13771
+      ],
+      "previewEffectBonusIDs": [
+        13771
       ]
     },
     "268264:alternative:261:icyveins": {
@@ -16314,6 +16776,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251232:alternative:256:icyveins": {
@@ -16836,6 +17301,9 @@
       "catalystTargetID": 271555,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "239047:alternative:257:icyveins": {
@@ -16909,6 +17377,9 @@
       "previewBonusIDs": [
         12854,
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "239649:alternative:257:icyveins": {
@@ -16927,6 +17398,9 @@
         13836,
         12497,
         8791,
+        12384
+      ],
+      "previewEffectBonusIDs": [
         12384
       ]
     },
@@ -17235,6 +17709,9 @@
         12497,
         8791,
         12384
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "159263:alternative:257:icyveins": {
@@ -17341,6 +17818,9 @@
       "previewBonusIDs": [
         13848,
         13846
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251232:alternative:258:icyveins": {
@@ -17401,6 +17881,9 @@
       "previewBonusIDs": [
         13848,
         13708
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251142:alternative:258:icyveins": {
@@ -17433,6 +17916,9 @@
         12497,
         13836,
         8793,
+        12384
+      ],
+      "previewEffectBonusIDs": [
         12384
       ]
     },
@@ -17504,6 +17990,9 @@
       "catalystTargetID": 271554,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251160:alternative:258:icyveins": {
@@ -17721,6 +18210,9 @@
         13836,
         8793,
         12384
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "251127:alternative:258:icyveins": {
@@ -17836,6 +18328,9 @@
         13698,
         13750,
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "239050:alternative:250:icyveins": {
@@ -17900,6 +18395,9 @@
         13668,
         13848,
         13662
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251173:alternative:250:icyveins": {
@@ -17997,6 +18495,9 @@
         13335,
         13708,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273776:alternative:250:icyveins": {
@@ -18170,6 +18671,9 @@
         9627,
         13768,
         8960
+      ],
+      "previewEffectBonusIDs": [
+        13768
       ]
     },
     "159459:alternative:250:icyveins": {
@@ -18254,6 +18758,9 @@
         8960,
         13764,
         8792
+      ],
+      "previewEffectBonusIDs": [
+        13764
       ]
     },
     "159409:alternative:250:icyveins": {
@@ -18428,6 +18935,9 @@
       "previewBonusIDs": [
         13708,
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "268259:alternative:251:icyveins": {
@@ -18501,6 +19011,9 @@
       "catalystTargetID": 271473,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273776:alternative:251:icyveins": {
@@ -18550,6 +19063,9 @@
         12384,
         8791,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "237828:alternative:251:icyveins": {
@@ -18570,6 +19086,9 @@
         12384,
         8791,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "159412:alternative:251:icyveins": {
@@ -18714,6 +19233,9 @@
         12384,
         8791,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270173:alternative:251:icyveins": {
@@ -18868,6 +19390,9 @@
       "previewBonusIDs": [
         13708,
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "268259:alternative:252:icyveins": {
@@ -18941,6 +19466,9 @@
       "catalystTargetID": 271473,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273776:alternative:252:icyveins": {
@@ -18990,6 +19518,9 @@
         12384,
         8791,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "237828:alternative:252:icyveins": {
@@ -19010,6 +19541,9 @@
         12384,
         8791,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "159412:alternative:252:icyveins": {
@@ -19154,6 +19688,9 @@
         12384,
         8791,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270173:alternative:252:icyveins": {
@@ -19256,6 +19793,9 @@
         13708,
         13848,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251142:alternative:262:icyveins": {
@@ -19429,6 +19969,9 @@
       "previewBonusIDs": [
         13708,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "273789:alternative:262:icyveins": {
@@ -19662,6 +20205,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "193752:alternative:263:icyveins": {
@@ -19693,6 +20239,9 @@
         13848,
         13987,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13987
       ]
     },
     "251234:alternative:263:icyveins": {
@@ -19707,6 +20256,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "268254:alternative:263:icyveins": {
@@ -19866,6 +20418,9 @@
       "previewBonusIDs": [
         13848,
         13846
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "273789:alternative:263:icyveins": {
@@ -19981,6 +20536,9 @@
         13836,
         12384,
         8793
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270173:alternative:263:icyveins": {
@@ -20057,6 +20615,9 @@
         13771,
         8793,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        13771
       ]
     },
     "268230:alternative:264:icyveins": {
@@ -20132,6 +20693,9 @@
         13987,
         13848,
         13335
+      ],
+      "previewEffectBonusIDs": [
+        13987
       ]
     },
     "273781:alternative:264:icyveins": {
@@ -20265,6 +20829,9 @@
         13836,
         8795,
         12384
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "239046:alternative:264:icyveins": {
@@ -20368,6 +20935,9 @@
         12497,
         13836,
         8795,
+        12384
+      ],
+      "previewEffectBonusIDs": [
         12384
       ]
     },
@@ -20486,6 +21056,9 @@
       "previewBonusIDs": [
         13848,
         13846
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251232:alternative:62:icyveins": {
@@ -20546,6 +21119,9 @@
       "previewBonusIDs": [
         13848,
         13987
+      ],
+      "previewEffectBonusIDs": [
+        13987
       ]
     },
     "251142:alternative:62:icyveins": {
@@ -20594,6 +21170,9 @@
         13836,
         12384,
         8790
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "268241:alternative:62:icyveins": {
@@ -20637,6 +21216,9 @@
       "catalystTargetID": 271563,
       "previewBonusIDs": [
         12854,
+        14049
+      ],
+      "previewEffectBonusIDs": [
         14049
       ]
     },
@@ -20858,6 +21440,9 @@
         13836,
         12384,
         8795
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "271092:alternative:62:icyveins": {
@@ -20907,6 +21492,9 @@
         13771,
         8790,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        13771
       ]
     },
     "159667:alternative:62:icyveins": {
@@ -20951,6 +21539,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848,
+        13846
+      ],
+      "previewEffectBonusIDs": [
         13846
       ]
     },
@@ -21012,6 +21603,9 @@
       "previewBonusIDs": [
         13848,
         13987
+      ],
+      "previewEffectBonusIDs": [
+        13987
       ]
     },
     "251142:alternative:63:icyveins": {
@@ -21060,6 +21654,9 @@
         13836,
         12384,
         8792
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "268241:alternative:63:icyveins": {
@@ -21324,6 +21921,9 @@
         13836,
         12384,
         8792
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270164:alternative:63:icyveins": {
@@ -21403,6 +22003,9 @@
         13771,
         8792,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        13771
       ]
     },
     "159667:alternative:63:icyveins": {
@@ -21435,6 +22038,9 @@
         13846,
         13848,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251199:alternative:64:icyveins": {
@@ -21497,6 +22103,9 @@
         13708,
         13848,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251234:alternative:64:icyveins": {
@@ -21511,6 +22120,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "239649:alternative:64:icyveins": {
@@ -21531,6 +22143,9 @@
         12497,
         13836,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "239031:alternative:64:icyveins": {
@@ -21881,6 +22496,9 @@
         13836,
         10835,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        13771
       ]
     },
     "250215:alternative:64:icyveins": {
@@ -21909,6 +22527,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251199:alternative:265:icyveins": {
@@ -21981,6 +22602,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251222:alternative:265:icyveins": {
@@ -22038,6 +22662,9 @@
       "catalystTargetID": 271545,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251160:alternative:265:icyveins": {
@@ -22312,6 +22939,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251199:alternative:266:icyveins": {
@@ -22384,6 +23014,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251222:alternative:266:icyveins": {
@@ -22441,6 +23074,9 @@
       "catalystTargetID": 271545,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251160:alternative:266:icyveins": {
@@ -22712,6 +23348,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251199:alternative:267:icyveins": {
@@ -22784,6 +23423,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251222:alternative:267:icyveins": {
@@ -22841,6 +23483,9 @@
       "catalystTargetID": 271545,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251160:alternative:267:icyveins": {
@@ -23134,6 +23779,9 @@
         13848,
         13847,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "193758:alternative:268:icyveins": {
@@ -23180,6 +23828,9 @@
         13848,
         13708,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251234:alternative:268:icyveins": {
@@ -23194,6 +23845,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "268256:alternative:268:icyveins": {
@@ -23381,6 +24035,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251148:alternative:268:icyveins": {
@@ -23474,6 +24131,9 @@
         10835,
         8795,
         13454
+      ],
+      "previewEffectBonusIDs": [
+        13454
       ]
     },
     "268215:alternative:268:icyveins": {
@@ -23488,6 +24148,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848,
+        13846
+      ],
+      "previewEffectBonusIDs": [
         13846
       ]
     },
@@ -23534,6 +24197,9 @@
         12806,
         13367,
         20374
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "251140:alternative:269:icyveins": {
@@ -23797,6 +24463,9 @@
         12806,
         13367,
         20374
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251159:alternative:269:icyveins": {
@@ -23970,6 +24639,9 @@
         12806,
         13367,
         20374
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "273783:alternative:269:icyveins": {
@@ -24000,6 +24672,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "273791:alternative:270:icyveins": {
@@ -24042,6 +24717,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848,
+        13708
+      ],
+      "previewEffectBonusIDs": [
         13708
       ]
     },
@@ -24203,6 +24881,9 @@
       "catalystTargetID": 271522,
       "previewBonusIDs": [
         12854,
+        14049
+      ],
+      "previewEffectBonusIDs": [
         14049
       ]
     },
@@ -24420,6 +25101,9 @@
       "previewBonusIDs": [
         13847,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "239033:alternative:102:icyveins": {
@@ -24478,6 +25162,9 @@
       "previewBonusIDs": [
         13708,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251234:alternative:102:icyveins": {
@@ -24492,6 +25179,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "268256:alternative:102:icyveins": {
@@ -24637,6 +25327,9 @@
       "catalystTargetID": 271531,
       "previewBonusIDs": [
         12854,
+        14049
+      ],
+      "previewEffectBonusIDs": [
         14049
       ]
     },
@@ -24824,6 +25517,9 @@
       "previewBonusIDs": [
         13848,
         13847
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "251140:alternative:103:icyveins": {
@@ -24885,6 +25581,9 @@
         13848,
         13987,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13987
       ]
     },
     "251142:alternative:103:icyveins": {
@@ -25033,6 +25732,9 @@
         13836,
         12384,
         8793
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "281236:alternative:103:icyveins": {
@@ -25047,6 +25749,9 @@
       "catalystTargetID": 271531,
       "previewBonusIDs": [
         12854,
+        14049
+      ],
+      "previewEffectBonusIDs": [
         14049
       ]
     },
@@ -25163,6 +25868,9 @@
         13836,
         12384,
         8793
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270173:alternative:103:icyveins": {
@@ -25206,6 +25914,9 @@
       "previewBonusIDs": [
         13848,
         13846
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251149:alternative:103:icyveins": {
@@ -25234,6 +25945,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "273791:alternative:104:icyveins": {
@@ -25294,6 +26008,9 @@
         13848,
         13708,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251173:alternative:104:icyveins": {
@@ -25619,6 +26336,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "158370:alternative:104:icyveins": {
@@ -25648,6 +26368,9 @@
       "catalystTargetID": 271528,
       "previewBonusIDs": [
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "251140:alternative:105:icyveins": {
@@ -26103,6 +26826,9 @@
       "previewBonusIDs": [
         13848,
         13847
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "239033:alternative:577:icyveins": {
@@ -26162,6 +26888,9 @@
         13848,
         13987,
         10835
+      ],
+      "previewEffectBonusIDs": [
+        13987
       ]
     },
     "251234:alternative:577:icyveins": {
@@ -26176,6 +26905,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "268256:alternative:577:icyveins": {
@@ -26335,6 +27067,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "239048:alternative:577:icyveins": {
@@ -26453,6 +27188,9 @@
         13836,
         12384,
         8791
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270173:alternative:577:icyveins": {
@@ -26529,6 +27267,9 @@
         13771,
         8791,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        13771
       ]
     },
     "271875:alternative:581:icyveins": {
@@ -26545,6 +27286,9 @@
       "previewBonusIDs": [
         13847,
         13848
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "273791:alternative:581:icyveins": {
@@ -26637,6 +27381,9 @@
         13836,
         12384,
         8792
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "251146:alternative:581:icyveins": {
@@ -26771,6 +27518,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "251226:alternative:581:icyveins": {
@@ -26886,6 +27636,9 @@
         13836,
         12384,
         8792
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "268209:alternative:581:icyveins": {
@@ -26958,6 +27711,9 @@
       "previewBonusIDs": [
         13848,
         13847
+      ],
+      "previewEffectBonusIDs": [
+        13847
       ]
     },
     "239033:alternative:1480:icyveins": {
@@ -27016,6 +27772,9 @@
       "previewBonusIDs": [
         13848,
         13708
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "251234:alternative:1480:icyveins": {
@@ -27030,6 +27789,9 @@
       "quality": 3,
       "previewBonusIDs": [
         12856
+      ],
+      "previewEffectBonusIDs": [
+        13708
       ]
     },
     "268256:alternative:1480:icyveins": {
@@ -27165,6 +27927,9 @@
         13836,
         12384,
         8791
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "281236:alternative:1480:icyveins": {
@@ -27179,6 +27944,9 @@
       "catalystTargetID": 271540,
       "previewBonusIDs": [
         12854,
+        14049
+      ],
+      "previewEffectBonusIDs": [
         14049
       ]
     },
@@ -27267,6 +28035,9 @@
         13836,
         12384,
         8791
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "270164:alternative:1480:icyveins": {
@@ -27398,6 +28169,9 @@
       "catalystTargetID": 271502,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "160213:alternative:1467:icyveins": {
@@ -27427,6 +28201,9 @@
       "quality": 4,
       "previewBonusIDs": [
         13848,
+        13987
+      ],
+      "previewEffectBonusIDs": [
         13987
       ]
     },
@@ -27601,6 +28378,9 @@
       "previewBonusIDs": [
         13848,
         13846
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "273789:alternative:1467:icyveins": {
@@ -27717,6 +28497,9 @@
         12666,
         8791,
         12384
+      ],
+      "previewEffectBonusIDs": [
+        12384
       ]
     },
     "271092:alternative:1467:icyveins": {
@@ -27765,6 +28548,9 @@
         13771,
         8790,
         13852
+      ],
+      "previewEffectBonusIDs": [
+        13771
       ]
     },
     "250214:alternative:1467:icyveins": {
@@ -27822,6 +28608,9 @@
       "catalystTargetID": 271502,
       "previewBonusIDs": [
         12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "160213:alternative:1468:icyveins": {
@@ -28277,6 +29066,9 @@
       "previewBonusIDs": [
         12854,
         14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
       ]
     },
     "193752:alternative:1473:icyveins": {
@@ -28339,6 +29131,9 @@
         12497,
         12666,
         8791,
+        12384
+      ],
+      "previewEffectBonusIDs": [
         12384
       ]
     },
@@ -28471,6 +29266,9 @@
       "previewBonusIDs": [
         13848,
         13846
+      ],
+      "previewEffectBonusIDs": [
+        13846
       ]
     },
     "251233:alternative:1473:icyveins": {
@@ -28589,6 +29387,9 @@
         12497,
         12666,
         8791,
+        12384
+      ],
+      "previewEffectBonusIDs": [
         12384
       ]
     },
@@ -40224,5 +41025,9 @@
       "alternativeGuideCheckedAt": "2026-10-20T09:54:18.070893+00:00",
       "alternativeGuideRefreshStatus": "ok"
     }
+  },
+  "variantEvidence": {
+    "sourceURL": "https://raw.githubusercontent.com/simulationcraft/simc/midnight/engine/dbc/generated/item_bonus.inc",
+    "build": "12.1.5.70448"
   }
 }

@@ -144,7 +144,7 @@ function UI:Refresh()
  if not self.frame or not self.frame:IsShown() then return end
  self:Layout();previousRefresh(self)
  self.title:SetText(R.NAME);self.themeButton:Hide();self.characterName:Hide()
- self.sectionTitle:SetText(self.view=="equipment" and "Overall BiS" or R.L(self.view=="preparation" and "PREPARATION" or self.view=="meta" and "META" or "DATA_SETTINGS"))
+ self.sectionTitle:SetText(self.view=="equipment" and "BiS" or R.L(self.view=="preparation" and "PREPARATION" or self.view=="meta" and "META" or "DATA_SETTINGS"))
  self.buttons.SOURCES:SetText(R.L("DATA_UPDATES"))
  for key,view in pairs({EQUIPMENT="equipment",PREPARATION="preparation",META="meta",SOURCES="sources"}) do R.StyleNavigation(self.buttons[key],self.view==view) end
  self.buttons.MYTHICPLUS:SetText(self.view=="meta" and R.L("META_MPLUS") or "Mythic+");self.buttons.RAID:SetText(self.view=="meta" and R.L("META_RAID") or "Raid")

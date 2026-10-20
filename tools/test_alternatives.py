@@ -43,3 +43,20 @@ for g in fresh['specs'].values():g.pop('alternatives',None)
 merge(fresh,{},old)
 assert fresh['specs']['261']['alternatives']==old['specs']['261']['alternatives'] and fresh['specs']['261']['alternativeGuideRefreshStatus']=='unavailable'
 print('Alternative guides: original source-item identity and failed-source preservation PASS')
+
+from item_variants import effect_catalog,apply_effects
+bonus_text='// Item bonuses, wow build 12.1.5.70448\n'
+bonus_text+='\n'.join('{ %d, %d, 49, 1, 0, 0, 0, 0 },'%(n,n) for n in range(1000,2001))
+bonus_text+='\n{1,13847,4,1,0,0,0,0},{2,13847,23,2,0,0,0,0},{3,14049,23,3,0,0,0,0},{4,9999,23,4,0,0,0,0},{5,9999,49,5,0,0,0,0}'
+safe,provenance=effect_catalog(bonus_text,'12.1')
+assert safe=={13847,14049},'Mixed scaling/effect lists must never override maximum ilvl'
+try:effect_catalog(bonus_text,'12.2')
+except ValueError:pass
+else:raise AssertionError('Wrong build must fail closed')
+g={'items':{'source':{'id':1,'previewBonusIDs':[13847,12854]},'tier':{'id':2,'acquisitionItemID':1},'other':{'id':3},'conflict':{'id':4,'previewBonusIDs':[13847]},'conflict2':{'id':4,'previewBonusIDs':[14049]},'unknown':{'id':5,'acquisitionItemID':4},'craft':{'id':6,'crafted':True,'previewBonusIDs':[13847]},'plaincraft':{'id':6,'crafted':True}}}
+apply_effects(g,safe,provenance)
+assert g['items']['tier']['previewEffectBonusIDs']==[13847]
+assert not g['items']['other'].get('previewEffectBonusIDs') and not g['items']['unknown'].get('previewEffectBonusIDs')
+assert not g['items']['plaincraft'].get('previewEffectBonusIDs'),'Optional crafted effects must not transfer between recommendations'
+assert g['variantEvidence']['build']=='12.1.5.70448'
+print('Daily effect classification: exact source identity, no scaling leakage, ambiguous variants rejected PASS')

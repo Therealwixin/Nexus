@@ -54,6 +54,8 @@ def row_slots(table,meta):
    id=int(match[1]);original=re.search(r'original-item=(\d+)',match[2]);base=int(original[1]) if original else id
    item=copy.copy(meta.get(id,{'id':id,'name':'Item #'+str(id)}));item['source']='Wowhead';item['bisGuide']=True
    item['dropSource']=clean(origin);item['acquisition']=source_kind(origin)
+   bonus=re.search(r'\bbonus(?:-ids?)?=([0-9:/]+)',match[2])
+   if bonus:item['previewBonusIDs']=[int(value) for value in re.split('[:/]',bonus[1])]
    if base!=id:item.update(acquisitionItemID=base,catalyst=True)
    if ('Catalyst' in origin or 'Catalyzed' in row) and base==id:item['catalystOption']=True
    if item['acquisition']=='crafted':item['crafted']=True

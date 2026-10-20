@@ -36,7 +36,7 @@ function UI:ShowItemTooltip(owner,item,slot,inventory,specID,mode)
   if info and info.spellID then GameTooltip:SetSpellByID(info.spellID) else GameTooltip:SetText(item.name or R.L("LOADING")) end
  else GameTooltip:SetText(item.name or R.L("LOADING")) end
  if preview then
-  if item.acquisitionItemID then GameTooltip:AddLine("Catalyst → "..R.ItemName(item),1,.82,0,true) end
+  if item.acquisitionItemID then GameTooltip:AddLine("Catalyst: "..R.ItemName(item),1,.82,0,true) end
   if range.ascended then GameTooltip:AddLine(R.L("ASCENDED_ILVL",range.ascended),.65,.65,.65) end
  elseif inventory then
   local maximum,rank=R.EquippedUpgradeMaximum(item)
@@ -156,7 +156,7 @@ function UI:RenderDetail(override,slotOverride)
    self:DetailItem(alt,(alt.acquisition=="dungeon" and "Dungeon · " or "")..(alt.source or "")..(alt.catalystTargetID and " · Catalyst" or ""),function()self:RenderDetail(alt,slotID)end)
   end end
   if shown==0 then self:DetailText(R.L("NO_ALTERNATIVES"),GREY,11) end
-  if not hasDungeon then self:DetailText(R.L("NO_DUNGEON_ALTERNATIVE"),GREY,11) end
+  if shown>0 and not hasDungeon then self:DetailText(R.L("NO_DUNGEON_ALTERNATIVE"),GREY,11) end
  end
  if slot and self.view=="equipment" then
   local current=R.scan and R.scan.equipped[slotID]
@@ -294,7 +294,7 @@ function UI:RenderSources()
  if guide then
   self:ListLine("Wowhead · BiS sets",nil,guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10),function()self:ShowCopy(guide.sourceURL)end,GOLD)
   if guide.alternativeGuideURL then self:ListLine("Icy Veins · Alternatives",nil,guide.alternativeGuideUpdatedAt:sub(1,10)..(guide.alternativeGuideRefreshStatus=="unavailable" and " · "..R.L("SOURCE_UNAVAILABLE") or " · "..R.L("CHECKED").." "..(guide.alternativeGuideCheckedAt or guide.retrievedAt):sub(1,10)),function()self:ShowCopy(guide.alternativeGuideURL)end,GOLD) end
-  for _,set in ipairs(guide.sets) do self:ListLine(set.name,nil,set.scope,nil,WHITE) end
+  for _,set in ipairs(guide.sets) do self:ListLine(set.scope=="overall" and "BiS" or set.name,nil,set.scope,nil,WHITE) end
   self:DetailText(R.L("SOURCE_SCOPE_NOTE"),GREY,11)
  end
  for _,name in ipairs({"Raider.IO","Archon"}) do

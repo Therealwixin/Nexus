@@ -87,9 +87,12 @@ def main():
  candidate=build_candidate(previous,args.cache,args.offline)
  meta=collect_meta(previous_meta,args.cache,args.offline)
  guides=build_guides(candidate,args.cache)
+ from item_variants import load_catalog,apply_effects
+ effect_ids,effect_provenance=load_catalog(args.cache,guides['patch'],args.offline)
  from alternative_guides import collect as collect_alternatives,merge as merge_alternatives
  old_guides=json.loads((ROOT/'data/guide-snapshot.json').read_text(encoding='utf-8'))
  merge_alternatives(guides,collect_alternatives(args.cache,guides['patch'],args.offline),old_guides,candidate)
+ apply_effects(guides,effect_ids,effect_provenance)
  from wowhead_sets import validate_guides
  validate_guides(guides)
  output=ROOT/'build/candidate';output.mkdir(parents=True,exist_ok=True)

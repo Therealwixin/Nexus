@@ -116,6 +116,8 @@ def merge(guides,options,previous=None,snapshot=None):
 if __name__=='__main__':
  data=json.loads((ROOT/'data/guide-snapshot.json').read_text(encoding='utf-8'))
  options=collect(ROOT/'.cache',data['patch']);merge(data,options,snapshot=json.loads((ROOT/'data/snapshot.json').read_text(encoding='utf-8')))
+ from item_variants import load_catalog,apply_effects
+ safe,provenance=load_catalog(ROOT/'.cache',data['patch']);apply_effects(data,safe,provenance)
  from refresh_gear import compact_lua
  (ROOT/'build/candidate/guide-snapshot.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  (ROOT/'build/candidate/GuideData.lua').write_text('local _,R=...\nR.GuideData='+compact_lua(data)+'\n',encoding='utf-8')
