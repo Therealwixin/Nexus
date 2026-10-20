@@ -111,7 +111,7 @@ function R.ItemColor(item)
  if not item then return .6,.6,.6 end
  local quality=item.quality
  local api=C_Item and C_Item.GetItemInfo or GetItemInfo
- if api then local _,_,native=api(item.link or item.id);if R.IsReadable(native) and type(native)=="number" then quality=native end end
+ if api and (item.link or R.ItemID(item.id)) then local _,_,native=api(item.link or item.id);if R.IsReadable(native) and type(native)=="number" then quality=native end end
  local color=ITEM_QUALITY_COLORS and ITEM_QUALITY_COLORS[quality or 4]
  if color then return color.r,color.g,color.b end
  if quality==3 then return 0,.44,.87 elseif quality==2 then return .12,1,0 elseif quality==5 then return 1,.5,0 end

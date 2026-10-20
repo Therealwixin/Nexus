@@ -1,5 +1,8 @@
 local R=TEST.R
 local function check(value,message)assert(value,message)end
+local info=C_Item.GetItemInfo
+C_Item.GetItemInfo=function(value)check(value~=nil,"Native item API cannot receive nil for spell-only enchant rows");return info(value)end
+check(R.ItemColor({name="Spell-only enchant"})~=nil,"Spell-only enchant color must be safe")
 R.db.gearSource="overall";R.SetViewSpec(261);R.UI.gearView="targets";R.UI:SetView("equipment")
 check(not R.UI.paperDoll or not R.UI.paperDoll:IsShown(),"Character model must be removed")
 local wrist=R.UI.rows[6];local chest=R.UI.rows[5]
