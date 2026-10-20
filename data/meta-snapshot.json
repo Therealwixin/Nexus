@@ -1,6 +1,6 @@
 {
   "patch": "12.1",
-  "generatedAt": "2026-10-20T07:38:09Z",
+  "generatedAt": "2026-10-20T17:44:50Z",
   "modes": {
     "mythicplus": {
       "scope": "Midnight Season 2",
@@ -172,11 +172,11 @@
           ],
           "sourceURL": "https://murlok.io/meta/dps/m%2B",
           "updatedAt": "2026-10-16T10:13:29Z",
-          "retrievedAt": "2026-10-20T07:38:09Z",
+          "retrievedAt": "2026-10-20T17:44:50Z",
           "updatedEpoch": 1792145609,
-          "sourceHash": "24cdae6e5012cc7b34be2082219707cc05c408346c003cf5a05b488becd49539",
+          "sourceHash": "e51044156074d92cdc853edbb0b7d28d28f7d9d2d032af85ff03ad3faed6e69b",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-10-20T07:38:09Z"
+          "lastAttemptAt": "2026-10-20T17:44:50Z"
         },
         "tank": {
           "entries": [
@@ -219,11 +219,11 @@
           ],
           "sourceURL": "https://murlok.io/meta/tank/m%2B",
           "updatedAt": "2026-10-16T10:13:23Z",
-          "retrievedAt": "2026-10-20T07:38:09Z",
+          "retrievedAt": "2026-10-20T17:44:50Z",
           "updatedEpoch": 1792145603,
-          "sourceHash": "75fa24af5d2259e2821d94dc85e8beba68bdd04788e12a1594236a03b7a919c8",
+          "sourceHash": "96ca87ca984701108b100c60b1096b89c4efa8c38b1465f003bc6d4bf61d8335",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-10-20T07:38:09Z"
+          "lastAttemptAt": "2026-10-20T17:44:50Z"
         },
         "healer": {
           "entries": [
@@ -272,11 +272,11 @@
           ],
           "sourceURL": "https://murlok.io/meta/healer/m%2B",
           "updatedAt": "2026-10-16T10:11:26Z",
-          "retrievedAt": "2026-10-20T07:38:09Z",
+          "retrievedAt": "2026-10-20T17:44:50Z",
           "updatedEpoch": 1792145486,
-          "sourceHash": "9d5cc19ad3798fd0d3d663856869d17e80b10ebb69602c22a92741629faa40b9",
+          "sourceHash": "33f94556524e52a5ab54e346a7032f93bd7fa7e431c171c6ef772e4dd2288bd5",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-10-20T07:38:09Z"
+          "lastAttemptAt": "2026-10-20T17:44:50Z"
         }
       },
       "source": "Murlok.io",
@@ -461,7 +461,7 @@
           "retrievedAt": "2026-10-20T07:19:39Z",
           "sourceHash": "d070ce501d237931c87a6ba685ad85a379cdb2411001df8ff01cd76d244be8ee",
           "refreshStatus": "unavailable",
-          "lastAttemptAt": "2026-10-20T07:38:09Z"
+          "lastAttemptAt": "2026-10-20T17:44:50Z"
         },
         "healer": {
           "entries": [
@@ -515,7 +515,7 @@
           "retrievedAt": "2026-10-20T07:19:39Z",
           "sourceHash": "d070ce501d237931c87a6ba685ad85a379cdb2411001df8ff01cd76d244be8ee",
           "refreshStatus": "unavailable",
-          "lastAttemptAt": "2026-10-20T07:38:09Z"
+          "lastAttemptAt": "2026-10-20T17:44:50Z"
         },
         "tank": {
           "entries": [
@@ -563,7 +563,7 @@
           "retrievedAt": "2026-10-20T07:19:39Z",
           "sourceHash": "d070ce501d237931c87a6ba685ad85a379cdb2411001df8ff01cd76d244be8ee",
           "refreshStatus": "unavailable",
-          "lastAttemptAt": "2026-10-20T07:38:09Z"
+          "lastAttemptAt": "2026-10-20T17:44:50Z"
         }
       },
       "methodologyURL": "https://u.gg/wow/faq",
