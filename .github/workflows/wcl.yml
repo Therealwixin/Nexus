@@ -44,7 +44,7 @@ jobs:
           WCL_DISCOVER_WORLD: ${{ inputs.discover_world }}
           WCL_COLLECT_GUIDES: ${{ inputs.collect_guides }}
           WCL_AUDIT_SCHEMA: ${{ github.event_name == 'push' }}
-          ENCOUNTER_ID: ${{ inputs.encounter_id }}
+          ENCOUNTER_ID: ${{ inputs.encounter_id || '0' }}
         run: python tools/wcl_public.py --encounter "$ENCOUNTER_ID"
       - uses: actions/upload-artifact@v7
         with:
