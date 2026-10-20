@@ -2,6 +2,10 @@ name: Verify Warcraft Logs
 on:
   workflow_dispatch:
     inputs:
+      discover_world:
+        description: 'Discover current expansion zones and native journal encounter IDs'
+        type: boolean
+        default: false
       encounter_id:
         description: 'Optional WCL encounter ID (0 = authentication/quota probe only)'
         default: '0'
@@ -30,6 +34,7 @@ jobs:
         env:
           WCL_CLIENT_ID: ${{ secrets.WCL_CLIENT_ID }}
           WCL_CLIENT_SECRET: ${{ secrets.WCL_CLIENT_SECRET }}
+          WCL_DISCOVER_WORLD: ${{ inputs.discover_world }}
           ENCOUNTER_ID: ${{ inputs.encounter_id }}
         run: python tools/wcl_public.py --encounter "$ENCOUNTER_ID"
       - uses: actions/upload-artifact@v7

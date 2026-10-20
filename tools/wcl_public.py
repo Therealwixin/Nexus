@@ -41,10 +41,16 @@ def aggregate(rankings):
  return {'sampleSize':samples,'items':[{'id':i,'count':n} for i,n in counts.most_common()]}
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--encounter',type=int,default=0);p.add_argument('--class-name',default='Rogue');p.add_argument('--spec-name',default='Subtlety');p.add_argument('--difficulty',type=int,default=5);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--discover-world',action='store_true');p.add_argument('--encounter',type=int,default=0);p.add_argument('--class-name',default='Rogue');p.add_argument('--spec-name',default='Subtlety');p.add_argument('--difficulty',type=int,default=5);a=p.parse_args()
  c=Client();quota=c.query('{rateLimitData{limitPerHour pointsSpentThisHour pointsResetIn}}')['rateLimitData']
  if quota['pointsSpentThisHour']>=quota['limitPerHour']*.8:raise ValueError('80% API budget threshold reached; no further requests')
  now=dt.datetime.now(dt.timezone.utc).isoformat();out={'source':'Warcraft Logs','retrievedAt':now,'quota':quota,'authenticated':True,'scope':'public'}
+ if a.discover_world or os.environ.get('WCL_DISCOVER_WORLD')=='true':
+  expansions=c.query('{worldData{expansions{id name}}}')['worldData']['expansions']
+  current=[e for e in expansions if e['name'].casefold()=='midnight']
+  if len(current)!=1:raise ValueError('Current expansion could not be identified; no guessed IDs used')
+  zones=c.query('query($exp:Int!){worldData{zones(expansion_id:$exp){id name difficulties{id name} encounters{id name journalID}}}}',{'exp':current[0]['id']})['worldData']['zones']
+  out.update(expansion=current[0],zones=zones)
  if a.encounter:
   q='query($id:Int!,$class:String!,$spec:String!,$difficulty:Int!){worldData{encounter(id:$id){id name journalID characterRankings(page:1,difficulty:$difficulty,className:$class,specName:$spec,includeCombatantInfo:true)}}}'
   cache=Path('.cache/wcl');cache.mkdir(parents=True,exist_ok=True)
