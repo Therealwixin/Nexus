@@ -304,31 +304,6 @@ function UI:RenderSources()
   for _,set in ipairs(guide.sets) do self:ListLine(set.scope=="overall" and "BiS" or set.name,nil,set.scope,nil,WHITE) end
   self:DetailText(R.L("SOURCE_SCOPE_NOTE"),GREY,11)
  end
- for _,name in ipairs({"Raider.IO","Archon"}) do
-  local record=R.SourceStatus and R.SourceStatus.sources[name]
-  if record then
-   self:ListLine(name.." · "..R.L("SOURCE_"..record.status:upper()),nil,record.purpose.." · "..R.L("CHECKED").." "..record.checkedAt:sub(1,10),function()self:ShowCopy(record.url)end,record.status=="available" and GREEN or GOLD)
-   if record.affixes then for _,affix in ipairs(record.affixes) do self:ListLine(affix.name,nil,"Raider.IO · EU",nil,WHITE) end end
-  end
- end
- if R.WCLData and R.WCLData.schema==2 and R.WCLData.patch==R.GuideData.patch then
-  local collected,raids,mplus=0,0,0
-  for _,modes in pairs(R.WCLData.specs) do
-   if modes.raid and modes.mythicplus then collected=collected+1 end
-   if modes.raid and modes.raid.eligible then raids=raids+1 end
-   if modes.mythicplus and modes.mythicplus.eligible then mplus=mplus+1 end
-  end
-  self:ListLine(R.L("WCL_COLLECTION",collected,raids,mplus),nil,R.L("WCL_WINDOW",R.WCLData.windowStart:sub(1,10),R.WCLData.windowEnd:sub(1,10)),nil,GOLD)
-  local spec=R.WCLData.specs[R.ViewSpecID()]
-  for _,mode in ipairs({"raid","mythicplus"}) do
-   local evidence=spec and spec[mode]
-   if evidence then
-    self:ListLine(R.L("WCL_BROAD").." · "..R.L(mode=="raid" and "RAID" or "MYTHICPLUS"),nil,R.L("WCL_COVERAGE",evidence.coveredEncounterCount,evidence.expectedEncounterCount,evidence.sampleSize),nil,evidence.eligible and WHITE or GREY)
-    if not evidence.eligible then self:ListLine(R.L("WCL_INSUFFICIENT"),nil,evidence.retrievedAt:sub(1,10),nil,GREY) end
-   end
-  end
-  self:DetailText(R.L("WCL_POPULATION"),GREY,11)
- end
  for _,mode in ipairs({"mythicplus","raid"}) do
   local dataset=R.GetDataset(mode)
   if dataset then

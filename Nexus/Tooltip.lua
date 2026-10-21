@@ -18,7 +18,6 @@ function R.DecorateTooltip(tooltip, data)
     if not isTarget and not item then return end
     tooltip:AddLine(" ")
     if item and item.source == "Wowhead" then tooltip:AddLine(R.NAME .. " · " .. R.L("GUIDE_RECOMMENDATION"), .8,.5,1)
-    elseif item and item.source == "Archon.gg" then tooltip:AddLine(R.NAME .. " · " .. R.L("POPULAR_ITEM"), .8,.5,1)
     else tooltip:AddLine(R.NAME .. " · " .. R.L("TOP_ITEM"), .8,.5,1) end
     if item and item.bisGuide then tooltip:AddLine(R.L("BIS_LIST"),1,.82,0) end
     if item and item.count then

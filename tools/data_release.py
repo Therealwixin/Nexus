@@ -30,8 +30,6 @@ def stage(keep_version=False):
   if not -60<=age<=24*3600:raise ValueError('Candidate must be collected within the last 24 hours')
  transfers=[('snapshot.json','data/snapshot.json'),('meta-snapshot.json','data/meta-snapshot.json'),('Data.lua','Nexus/Data.lua'),('MetaData.lua','Nexus/MetaData.lua'),('GuideData.lua','Nexus/GuideData.lua'),('guide-snapshot.json','data/guide-snapshot.json')]
  contents=[(ROOT/dest,(candidate/src).read_bytes()) for src,dest in transfers]
- for src,dest in [('SourceStatus.lua','Nexus/SourceStatus.lua'),('source-status.json','data/source-status.json')]:
-  if (candidate/src).exists():contents.append((ROOT/dest,(candidate/src).read_bytes()))
  for dest,content in contents:
   temp=dest.with_suffix(dest.suffix+'.tmp');temp.write_bytes(content);temp.replace(dest)
  if not keep_version:

@@ -51,13 +51,12 @@ jobs:
           python tools/test_meta.py
           python tools/test_guides.py
           python tools/test_alternatives.py
-          python tools/test_wcl.py
       - name: Save verified data revision
         if: steps.cadence.outputs.due == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add Nexus/Data.lua Nexus/MetaData.lua Nexus/GuideData.lua Nexus/SourceStatus.lua Nexus/Nexus.toc data/snapshot.json data/meta-snapshot.json data/guide-snapshot.json data/source-status.json DATA-SOURCES.md
+          git add Nexus/Data.lua Nexus/MetaData.lua Nexus/GuideData.lua Nexus/Nexus.toc data/snapshot.json data/meta-snapshot.json data/guide-snapshot.json DATA-SOURCES.md
           git commit -m 'Refresh verified Nexus snapshots'
           version=$(python tools/data_release.py version)
           git tag -a "v$version" -m "Nexus data $version"

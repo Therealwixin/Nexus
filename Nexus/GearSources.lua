@@ -151,13 +151,3 @@ function R.GetGearEvidence(item,slotID,specID)
  if count and samples then result[#result+1]={source="Murlok.io",kind="observation",url=mp.sourceURL,updatedAt=mp.updatedAt,retrievedAt=mp.retrievedAt or mp.updatedAt,count=count,sampleSize=samples} end
  return result
 end
-function R.GetWCLEvidence(itemID,specID,mode)
- local data=R.WCLData
- if not data or data.schema~=2 or not R.GuideData or data.patch~=R.GuideData.patch then return end
- local spec=data.specs[specID or R.ViewSpecID()]
- local scope=R.GearSource();mode=mode or ((scope=="overall" or scope=="mplus_usage") and R.GetMode() or scope)
- local context=spec and spec[mode]
- if not context or not context.eligible or context.coveredEncounterCount~=context.expectedEncounterCount then return end
- local count=context and context.items[tostring(itemID)]
- if count then return context,count end
-end

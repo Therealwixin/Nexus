@@ -62347,33 +62347,17 @@
   "generatedAt": "2026-10-20T18:40:10Z",
   "schema": 1,
   "sources": {
-    "archon": {
-      "status": "SOURCE_BLOCKED",
-      "url": "https://www.archon.gg",
-      "name": "Archon.gg"
-    },
     "murlok": {
       "status": "SOURCE_READY",
       "url": "https://murlok.io",
       "name": "Murlok.io",
       "updatedAt": "2026-10-05T19:28:37Z"
     },
-    "raiderio": {
-      "status": "SOURCE_READY",
-      "url": "https://raider.io/api",
-      "name": "Raider.IO",
-      "updatedAt": "2026-10-06T10:14:10Z"
-    },
     "wowhead": {
       "status": "SOURCE_READY",
       "url": "https://www.wowhead.com",
       "name": "Wowhead",
       "updatedAt": "2026-10-05T19:28:37Z"
-    },
-    "warcraftlogs": {
-      "status": "SOURCE_AUTH",
-      "url": "https://www.warcraftlogs.com/api/docs",
-      "name": "Warcraft Logs"
     }
   },
   "upgradeRules": {
@@ -62393,7 +62377,7 @@
     "crestID": 3446,
     "craftIlvl": 331
   },
-  "contentHash": "85d620fd2ed6f2f5b83c5290b6e7827b481f2fb23530ee70e12bd4be0a0aec71",
+  "contentHash": "f6e55930b0e0b1435c7cc73f23b83c34319a66ce1506151643ba2a899af1e521",
   "statRules": {
     "patch": "12.1",
     "build": "12.1.5.70448",

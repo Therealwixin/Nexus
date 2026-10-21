@@ -47,6 +47,12 @@ for _,lang in ipairs({"EN","SK","CZ"}) do
 end
 R.SetViewSpec(nil);R.db.mode="mythicplus";R.db.language="EN"
 R.UI:SetView("sources");check(R.UI.languageButtons[1]:IsShown() and not R.UI.themeButton:IsShown(),"Settings accessible; one consistent theme")
+check(not R.WCLData and not R.SourceStatus and not R.GetWCLEvidence,"Retired source data and hooks are not loaded")
+for _,pool in ipairs({R.UI.listPool,R.UI.detailPool}) do for _,entry in ipairs(pool) do
+ for _,field in ipairs({"text","note"}) do local part=entry[field];if part and part:IsShown() then
+  for _,label in ipairs({"Collected","Archon","Raider.IO","WCL"}) do check(not part:GetText():find(label,1,true),"Retired sources hidden in Data & updates") end
+ end end
+end end
 R.UI:SetView("players");check(R.UI.view=="equipment","Removed view cannot be selected")
 for _,theme in ipairs(R.THEME_ORDER) do check(R.SetTheme(theme),"Theme "..theme) end
 for _,category in ipairs({"enchants","gems","consumables"}) do

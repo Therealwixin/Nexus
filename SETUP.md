@@ -13,7 +13,6 @@ The upload token, project ID and tagged publishing are configured. The first bet
 - Tagged releases run the same checks and build an installable ZIP.
 - Data refresh runs daily at 04:17 UTC and checks whether 23 hours have elapsed since the last successful collection. Manual runs force collection.
 - The daily collector downloads aggregate Murlok gear, Wowhead/Icy Veins guides, verified item-effect bonuses, Murlok role rankings and U.GG Mythic raid representation. It makes no individual player-profile requests.
-- Weekly WCL collection has its own workflow. A daily 04:47 UTC due check starts it only when the weekly snapshot is due or incomplete. Failures retry automatically, resuming compatible anonymous checkpoints for up to 48 hours. Only complete 40-spec collections are saved; the next daily addon build ships them. WCL API waits never block daily guide updates.
 - All 40 specs, both gear modes and all six meta groups must pass validation before any candidate is staged.
 - Source publication dates are retained. Collection time is recorded separately.
 - A failed collection/test exits before committing/publishing. The last published package remains available.
@@ -45,7 +44,3 @@ The workflow uses the repository-provided `GITHUB_TOKEN`; a personal GitHub toke
 CurseForge requires a Release file before normal app syncing; beta files use the user's beta preference. Do not mark a preview stable merely to bypass that distinction.
 
 References: [BigWigs packager](https://github.com/BigWigsMods/packager), [supported token names](https://github.com/BigWigsMods/packager/blob/master/release.sh), [CurseForge submission](https://support.curseforge.com/support/solutions/articles/9000197241-creating-and-submitting-a-project).
-
-## Public Warcraft Logs trial
-
-Create your own Warcraft Logs API application and enter its Client ID and Client Secret as GitHub repository secrets `WCL_CLIENT_ID` and `WCL_CLIENT_SECRET`. Never paste them in chat. Run **Verify Warcraft Logs** with encounter ID 0 to verify OAuth and the point budget. Optional encounter samples are anonymous gear frequencies, kept separate from addon snapshots; they do not establish where items drop or a simulated best-in-slot set. Archon aggregate-build integration remains unverified.

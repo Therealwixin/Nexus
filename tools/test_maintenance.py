@@ -45,22 +45,22 @@ assert len(requested)==3 and all('raider.io' not in u and 'individual-profile' n
 assert not result[1].get('players')
 print('Maintenance: snapshot immutability, all-spec candidate, Lua roundtrip, source failure, zero profile requests: PASS')
 
-# A leftover or failed WCL candidate must never affect daily gear publication.
+# Retired source artifacts in an old candidate must not be promoted back into the addon.
 import datetime as dt,tempfile
 import data_release
+
 tempbase=ROOT/'build/maintenance-tests';tempbase.mkdir(parents=True,exist_ok=True)
 with tempfile.TemporaryDirectory(dir=tempbase) as directory:
  root=Path(directory)
- for folder in ['data','Nexus','build/candidate','build/wcl']:(root/folder).mkdir(parents=True,exist_ok=True)
+ for folder in ['data','Nexus','build/candidate']:(root/folder).mkdir(parents=True,exist_ok=True)
  for name in ['snapshot.json','meta-snapshot.json','guide-snapshot.json']:
   value=json.loads((ROOT/'data'/name).read_text(encoding='utf-8'));value['generatedAt']=dt.datetime.now(dt.timezone.utc).isoformat()
   (root/'build/candidate'/name).write_text(json.dumps(value),encoding='utf-8')
  for name in ['Data.lua','MetaData.lua','GuideData.lua']:(root/'build/candidate'/name).write_text('-- test candidate',encoding='utf-8')
- (root/'data/wcl-snapshot.json').write_text('previous WCL',encoding='utf-8')
- (root/'Nexus/WCLData.lua').write_text('-- previous WCL',encoding='utf-8')
- (root/'build/wcl/wcl-snapshot.json').write_text('broken candidate',encoding='utf-8')
+ for name in ['SourceStatus.lua','WCLData.lua','source-status.json','wcl-snapshot.json']:(root/'build/candidate'/name).write_text('retired source',encoding='utf-8')
  with patch.object(data_release,'ROOT',root):data_release.stage(keep_version=True)
- assert (root/'data/wcl-snapshot.json').read_text()=='previous WCL'
- assert (root/'Nexus/WCLData.lua').read_text()=='-- previous WCL'
-print('Maintenance: daily publication ignores failed/stale WCL candidates and preserves existing evidence PASS')
-
+ assert not (root/'Nexus/SourceStatus.lua').exists() and not (root/'Nexus/WCLData.lua').exists()
+ assert not (root/'data/source-status.json').exists() and not (root/'data/wcl-snapshot.json').exists()
+for file in ['wcl.yml','wcl-refresh.yml']:assert not (ROOT/'.github/workflows'/file).exists()
+assert 'source_health' not in (ROOT/'tools/refresh_gear.py').read_text(encoding='utf-8')
+print('Maintenance: retired collectors/workflows removed; stale candidate artifacts cannot reappear PASS')

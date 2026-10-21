@@ -63,9 +63,6 @@ local repairStrings={
  CZ={NO_SOURCE_OPTION="Bez ověřené alternativy",JOURNAL_NOT_FOUND="Přesného bosse se nepodařilo bezpečně určit. Použij odkaz na Wowhead níže.",SOURCE_SCOPE_NOTE="Overall: guide ze všech zdrojů. Raid/M+: alternativy z dostupného vzorku, nikoli simulovaný BIS set. Neznámé zdroje jsou vynechány; některé sloty mohou být prázdné."},
 }
 for lang,values in pairs(repairStrings) do for key,value in pairs(values) do R.Locales[lang][key]=value end end
-R.Locales.EN.WCL_EVIDENCE_NOTE="One ranking page for this encounter. Observed usage, not a personal simulation."
-R.Locales.SK.WCL_EVIDENCE_NOTE="Jedna stránka rebríčka pre tento encounter. Používanie predmetov, nie osobná simulácia."
-R.Locales.CZ.WCL_EVIDENCE_NOTE="Jedna stránka žebříčku pro tento encounter. Používání předmětů, nikoli osobní simulace."
 local fixes={
  EN={TIER_STATS_UNVERIFIED="Tier equipped · verify stats",TIER_STATS_DIFFERENT="Tier equipped · different stats",CATALYST_NOTE="Catalyst keeps the original item's secondary stats, sockets and special effects. The default tier tooltip does not prove the converted variant's stats.",JOURNAL_RESOLVING="Finding loot in current raids and seasonal dungeons…",NO_ALTERNATIVES="No verified alternatives available for this item.",OBSERVED_ALTERNATIVE="Observed alternative",CHECKED="Checked"},
  SK={TIER_STATS_UNVERIFIED="Tier nasadený · over staty",TIER_STATS_DIFFERENT="Tier nasadený · iné staty",CATALYST_NOTE="Catalyst zachová sekundárne staty, sockety a špeciálne efekty pôvodného predmetu. Bežný tier tooltip nepotvrdzuje staty konvertovanej verzie.",JOURNAL_RESOLVING="Hľadám loot v aktuálnych raidoch a sezónnych dungeonoch…",NO_ALTERNATIVES="Pre tento predmet nemáme overené alternatívy.",OBSERVED_ALTERNATIVE="Používaná alternatíva",CHECKED="Overené"},

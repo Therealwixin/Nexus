@@ -1,3 +1,10 @@
+## 0.6.6-beta.5
+
+- Remove direct Warcraft Logs collection, snapshots, runtime evidence hooks, diagnostic/weekly workflows and the incomplete-spec coverage panel.
+- Remove Archon availability checks and Raider.IO affix collection/status panels. Retired source files are no longer loaded or packaged, and stale candidate files cannot restore them during daily publication.
+- Keep daily Wowhead/Icy Veins/Murlok collection and U.GG raid Meta. U.GG retains attribution for its underlying data methodology; Nexus no longer calls the WCL API.
+- Update current setup/coverage documentation and regression checks for the simplified source list.
+
 ## 0.6.6-beta.4
 
 - Fit the complete specialization artwork inside the equipment pane instead of cropping it to fill the pane. Preserve the original aspect ratio and full atlas UV range, center the illustration and never enlarge it beyond native dimensions.

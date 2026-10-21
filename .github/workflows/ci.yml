@@ -20,7 +20,6 @@ jobs:
       - run: python tools/test_stats.py
       - run: python tools/test_maintenance.py
       - run: python tools/test_meta.py
-      - run: python tools/test_wcl.py
       - run: python tools/test_guides.py
       - run: python tools/test_alternatives.py
       - run: python tools/package.py --output dist
