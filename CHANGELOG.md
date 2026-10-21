@@ -1,3 +1,10 @@
+## 0.6.7-beta.3
+
+- Restore the two equipment columns to the original outer edges. Remove the reserved portrait strip; artwork may sit behind any item.
+- Remove manual atlas UV remapping. Select the native atlas with reset coordinates, disable texture slicing, scale its complete image to the measured equipment viewport and let the existing game ScrollFrame clip overflow.
+- Preserve image proportions, right alignment and vertical centering at the minimum cover scale. No additional zoom, masks, legacy portraits or central icons.
+- Replace the old UV-math simulation with regressions for native atlas selection/reset, zero manual UV calls, actual viewport geometry, original column bounds and resizing across all 40 specs.
+
 ## 0.6.7-beta.2
 
 - Restore current Blizzard talent background atlases consistently across all 40 specializations, including Vengeance, Devourer and Evoker. Remove the enlarged spec-icon fallback, central headings and legacy square illustrations.

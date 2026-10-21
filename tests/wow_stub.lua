@@ -195,7 +195,8 @@ C_TradeSkillUI={
 }
 TooltipDataProcessor={AddTooltipPostCall=function(_,fn) TEST.tooltipHooks=TEST.tooltipHooks or {};table.insert(TEST.tooltipHooks,fn) end}
 
-function Frame:SetAtlas(name) self.atlas=name end
+function Frame:SetAtlas(name,useAtlasSize,filterMode,resetTexCoords) self.atlas=name;self.atlasResetTexCoords=resetTexCoords end
+function Frame:ClearTextureSlice() self.textureSliceCleared=true end
 function Frame:SetTexCoord(...) self.texCoord={...} end
 
 function Frame:CreateMaskTexture() return CreateFrame("MaskTexture",nil,self) end
