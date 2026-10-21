@@ -70,7 +70,7 @@ with tempfile.TemporaryDirectory(dir=tempbase) as directory:
  root=Path(directory);(root/'data').mkdir()
  (root/'data/snapshot.json').write_text(json.dumps({'generatedAt':'2026-10-20T22:00:00Z'}),encoding='utf-8')
  for file in ['meta-snapshot.json','guide-snapshot.json']:(root/'data'/file).write_text('{}',encoding='utf-8')
- with patch.object(data_release,'ROOT',root):
+ with patch.object(data_release,'ROOT',root),patch.dict(data_release.os.environ,{'GITHUB_STEP_SUMMARY':'','GITHUB_OUTPUT':''}):
   assert data_release.due(dt.datetime(2026,10,21,4,17,tzinfo=dt.timezone.utc),'schedule')
   assert not data_release.due(dt.datetime(2026,10,20,23,17,tzinfo=dt.timezone.utc),'schedule')
   assert data_release.due(dt.datetime(2026,10,20,23,17,tzinfo=dt.timezone.utc),'workflow_dispatch')
