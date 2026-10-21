@@ -7,13 +7,13 @@ Murlok is a snapshot of top-rated M+ profiles (normally 50), not all players or 
 | Spec | Mythic+ slots | Four alternatives | Dungeon alternative | Murlok profiles | Guides |
 |---|---:|---:|---:|---:|---|
 | Warrior Arms | 15 | 5 | 14 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/warrior/arms/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/arms-warrior-pve-dps-gear-best-in-slot) |
-| Warrior Fury | 16 | 6 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/warrior/fury/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/fury-warrior-pve-dps-gear-best-in-slot) |
+| Warrior Fury | 16 | 5 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/warrior/fury/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/fury-warrior-pve-dps-gear-best-in-slot) |
 | Warrior Protection | 16 | 4 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/warrior/protection/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/protection-warrior-pve-tank-gear-best-in-slot) |
 | Paladin Holy | 16 | 7 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/paladin/holy/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/holy-paladin-pve-healing-gear-best-in-slot) |
 | Paladin Protection | 16 | 6 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/paladin/protection/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/protection-paladin-pve-tank-gear-best-in-slot) |
 | Paladin Retribution | 15 | 4 | 10 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/paladin/retribution/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/retribution-paladin-pve-dps-gear-best-in-slot) |
 | Hunter Beast Mastery | 15 | 4 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/hunter/beast-mastery/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/beast-mastery-hunter-pve-dps-gear-best-in-slot) |
-| Hunter Marksmanship | 15 | 4 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/hunter/marksmanship/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/marksmanship-hunter-pve-dps-gear-best-in-slot) |
+| Hunter Marksmanship | 15 | 4 | 14 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/hunter/marksmanship/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/marksmanship-hunter-pve-dps-gear-best-in-slot) |
 | Hunter Survival | 16 | 5 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/hunter/survival/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/survival-hunter-pve-dps-gear-best-in-slot) |
 | Rogue Assassination | 16 | 7 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/rogue/assassination/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/assassination-rogue-pve-dps-gear-best-in-slot) |
 | Rogue Outlaw | 16 | 6 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/rogue/outlaw/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/outlaw-rogue-pve-dps-gear-best-in-slot) |
@@ -29,7 +29,7 @@ Murlok is a snapshot of top-rated M+ profiles (normally 50), not all players or 
 | Shaman Restoration | 16 | 4 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/restoration-shaman-pve-healing-gear-best-in-slot) |
 | Mage Arcane | 16 | 8 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/mage/arcane/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/arcane-mage-pve-dps-gear-best-in-slot) |
 | Mage Fire | 16 | 5 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/mage/fire/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/fire-mage-pve-dps-gear-best-in-slot) |
-| Mage Frost | 16 | 7 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/mage/frost/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/frost-mage-pve-dps-gear-best-in-slot) |
+| Mage Frost | 16 | 8 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/mage/frost/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/frost-mage-pve-dps-gear-best-in-slot) |
 | Warlock Affliction | 16 | 5 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/warlock/affliction/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/affliction-warlock-pve-dps-gear-best-in-slot) |
 | Warlock Demonology | 16 | 7 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/warlock/demonology/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/demonology-warlock-pve-dps-gear-best-in-slot) |
 | Warlock Destruction | 16 | 7 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/destruction-warlock-pve-dps-gear-best-in-slot) |
@@ -37,9 +37,9 @@ Murlok is a snapshot of top-rated M+ profiles (normally 50), not all players or 
 | Monk Windwalker | 15 | 4 | 14 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/monk/windwalker/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/windwalker-monk-pve-dps-gear-best-in-slot) |
 | Monk Mistweaver | 16 | 6 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/mistweaver-monk-pve-healing-gear-best-in-slot) |
 | Druid Balance | 16 | 6 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/druid/balance/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/balance-druid-pve-dps-gear-best-in-slot) |
-| Druid Feral | 15 | 7 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/druid/feral/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/feral-druid-pve-dps-gear-best-in-slot) |
+| Druid Feral | 15 | 5 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/druid/feral/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/feral-druid-pve-dps-gear-best-in-slot) |
 | Druid Guardian | 15 | 4 | 14 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/druid/guardian/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/guardian-druid-pve-tank-gear-best-in-slot) |
-| Druid Restoration | 16 | 7 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/druid/restoration/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/restoration-druid-pve-healing-gear-best-in-slot) |
+| Druid Restoration | 16 | 6 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/druid/restoration/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/restoration-druid-pve-healing-gear-best-in-slot) |
 | Demon Hunter Havoc | 16 | 4 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/demon-hunter/havoc/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/havoc-demon-hunter-pve-dps-gear-best-in-slot) |
 | Demon Hunter Vengeance | 16 | 7 | 15 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/vengeance-demon-hunter-pve-tank-gear-best-in-slot) |
 | Demon Hunter Devourer | 16 | 7 | 16 | 50 | [Wowhead](https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear) · [Icy Veins](https://www.icy-veins.com/wow/devourer-demon-hunter-pve-dps-gear-best-in-slot) |
