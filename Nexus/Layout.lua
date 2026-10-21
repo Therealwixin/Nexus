@@ -68,7 +68,7 @@ local portraitNames={
 function UI:UpdateGearBackground()
  if not self.gearBackground then
   self.gearBackground=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-8)
-  self.gearBackground:SetAlpha(.9)
+  self.gearBackground:SetAlpha(1)
   self.gearBackgroundMask=self.gearChild:CreateMaskTexture()
   self.gearBackgroundMask:SetTexture(R.ASSET_PATH.."equipment-art-mask.tga")
   self.gearBackgroundMask:SetAllPoints(self.gearBackground)
@@ -86,13 +86,13 @@ function UI:UpdateGearBackground()
  local width,height=self.gearChild:GetWidth(),self.gearChild:GetHeight()
  local name=portraitNames[spec.id];local portrait=false
  if name then portrait=self.gearBackground:SetTexture("Interface\\TalentFrame\\bg-"..name)~=false end
- local size=math.min(width*.9,height*.9,512)
+ local center=width*.30
+ local size=math.min(center-12,height*.72,384)
  self.gearBackground:ClearAllPoints();self.gearBackground:SetPoint("CENTER",self.gearChild,"CENTER",0,-20)
  self.gearBackground:SetSize(size,size);self.gearBackground:SetTexCoord(0,1,0,1);self.gearBackground:SetShown(portrait)
  -- A clear, full-colour crest replaces missing portraits (DH/Evoker), never
  -- another specialization's painting or an almost-black talent atlas crop.
- local center=width*.24
- local crest=math.min(portrait and 64 or 144,center-20)
+ local crest=math.min(portrait and 64 or 144,(center-8)/1.55)
  self.gearCrest:ClearAllPoints();self.gearCrest:SetPoint("CENTER",self.gearChild,"CENTER",0,portrait and height*.34 or 24)
  self.gearCrest:SetSize(crest,crest);R.SetSpecIcon(self.gearCrest,spec);self.gearCrest:Show()
  self.gearCrestBorder:ClearAllPoints();self.gearCrestBorder:SetPoint("CENTER",self.gearCrest,"CENTER",0,0);self.gearCrestBorder:SetSize(crest*1.55,crest*1.55);self.gearCrestBorder:Show()
@@ -107,7 +107,7 @@ function UI:RenderRows()
  local width,height=self.gearScroll:GetWidth(),self.gearScroll:GetHeight()
  self.gearChild:SetSize(width,height);self:UpdateGearBackground();self.gearRange=0;self:ScrollGear(0)
  for _,header in pairs(self.gearHeaders) do header:Hide() end
- local side=math.floor(width*.38);local stride=(height-12)/8
+ local side=math.floor(width*.35);local stride=(height-12)/8
  local left={[1]=0,[2]=1,[3]=2,[15]=3,[5]=4,[9]=5,[16]=6,[17]=7}
  local right={[10]=0,[6]=1,[7]=2,[8]=3,[11]=4,[12]=5,[13]=6,[14]=7}
  if self.paperDoll then self.paperDoll:Hide() end

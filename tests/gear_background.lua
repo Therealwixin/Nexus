@@ -11,7 +11,8 @@ for _,size in ipairs({{960,700},{1200,816},{1280,900}}) do
    assert(not art:IsShown(),"New specs use own crest, never borrowed/abstract art")
   else
    assert(art:IsShown() and art.texture:find("Interface\\TalentFrame\\bg-",1,true),"Native character painting")
-   assert(art:GetWidth()==art:GetHeight() and art:GetWidth()>=400,"Full square painting, no talent-atlas crop")
+   assert(art:GetWidth()==art:GetHeight() and art:GetWidth()>=160,"Recognizable full square painting, no talent-atlas crop")
+   assert(art:GetLeft()>=ui.gearChild:GetLeft()+ui.rows[1]:GetWidth() and art:GetRight()<=ui.gearChild:GetRight()-ui.rows[1]:GetWidth(),"Painting stays in its own center column, never underneath item labels")
    local coords=art.texCoord;assert(coords[1]==0 and coords[2]==1 and coords[3]==0 and coords[4]==1,"Full painting stays intact")
   end
   for _,row in ipairs(ui.rows) do

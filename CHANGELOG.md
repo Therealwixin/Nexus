@@ -1,8 +1,10 @@
 ## 0.6.7-beta.1
 
-- Rebuild Equipment around two equipment columns and a dedicated central spec identity. Replace wide talent-atlas crops with complete native character paintings where available and a clear specialization crest for newer specs or missing client art. Allow two lines for item names; retain weapons below wrists.
+- Rebuild Equipment around two equipment columns and a dedicated central spec identity. Keep illustration and crest completely outside item labels, with full-color artwork instead of dark overlays. Replace wide talent-atlas crops with complete native character paintings where available and a clear specialization crest for newer specs or missing client art. Allow two lines for item names; retain weapons below wrists.
 - Fix Murlok Meta collection: load the rendered public page rather than accepting stale initial HTML. Require a complete role cohort and a source date within 36 hours, reject date regressions and preserve the last good snapshot on failure. Run the renderer only in the external daily data job.
 - Separate successful collection time from the source-reported publication date in Meta details, hover and footer. Open the character's role initially instead of mixing all roles.
+- Add one ordinary public-browser fallback for unavailable U.GG HTML; a failed attempt retains previous data and its original collection date.
+- Bundle verified 2026-10-21 Murlok Meta: all 40 specs, with Arms / Elemental / Subtlety leading the current DPS role.
 - Rename the raid view to Raid popularity. Explain that Nexus imports parse representation, not U.GG's performance tier-list order, DPS/HPS or tank survivability. U.GG does publish healer HPS; do not imply otherwise.
 
 ## 0.6.6-beta.7
