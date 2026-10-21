@@ -56,6 +56,9 @@ function UI:UpdateGearBackground()
  if not self.gearBackground then
   self.gearBackground=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-8)
   self.gearBackground:SetAlpha(1)
+  self.gearBackgroundDim=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-7)
+  self.gearBackgroundDim:SetAllPoints(self.gearChild)
+  self.gearBackgroundDim:SetColorTexture(0,0,0,.30)
  end
  local specID=R.ViewSpecID();local atlas
  if ClassTalentUtil and ClassTalentUtil.GetVisualsForSpecID then
@@ -69,7 +72,7 @@ function UI:UpdateGearBackground()
  local info=atlas and C_Texture and C_Texture.GetAtlasInfo and C_Texture.GetAtlasInfo(atlas)
  local width,height=self.gearChild:GetWidth(),self.gearChild:GetHeight()
  if not info or not info.width or not info.height or info.width<=0 or info.height<=0 or width<=0 or height<=0 then
-  self.gearBackground:Hide();self.gearBackgroundAtlas=nil;return
+  self.gearBackground:Hide();self.gearBackgroundDim:Hide();self.gearBackgroundAtlas=nil;return
  end
  -- Let the client apply the atlas rectangle. Sheet coordinates must not be
  -- reapplied to an already selected atlas. Explicitly reset UVs on spec changes.
@@ -84,7 +87,7 @@ function UI:UpdateGearBackground()
  self.gearBackground:ClearAllPoints()
  self.gearBackground:SetPoint("RIGHT",self.gearChild,"RIGHT",0,0)
  self.gearBackground:SetSize(info.width*scale,info.height*scale)
- self.gearBackground:Show()
+ self.gearBackground:Show();self.gearBackgroundDim:Show()
 end
 -- Eight slots per side; both weapons follow wrists on the left.
 
@@ -94,18 +97,19 @@ function UI:RenderRows()
  local width,height=self.gearScroll:GetWidth(),self.gearScroll:GetHeight()
  self.gearChild:SetSize(width,height);self:UpdateGearBackground();self.gearRange=0;self:ScrollGear(0)
  for _,header in pairs(self.gearHeaders) do header:Hide() end
- local side=math.floor((width-24)/2);local stride=(height-12)/8
+ local side=math.floor(width/2);local stride=(height-12)/8
  local left={[1]=0,[2]=1,[3]=2,[15]=3,[5]=4,[9]=5,[16]=6,[17]=7}
  local right={[10]=0,[6]=1,[7]=2,[8]=3,[11]=4,[12]=5,[13]=6,[14]=7}
  if self.paperDoll then self.paperDoll:Hide() end
  for index,slot in ipairs(R.SLOTS) do
   local row=self.rows[index];local item=self:GetShownItem(slot.id);local onRight=right[slot.id]~=nil
   local top=(left[slot.id] or right[slot.id] or 0)*stride+4
-  local x=onRight and width-side or 0
-  place(row,"TOPLEFT",self.gearChild,"TOPLEFT",x,-top);row:SetSize(side,stride-2);row.gridTop=top
+  local x=onRight and side or 0
+  local rowWidth=onRight and width-side or side
+  place(row,"TOPLEFT",self.gearChild,"TOPLEFT",x,-top);row:SetSize(rowWidth,stride-2);row.gridTop=top
   local state=self:BindItem(row,item,slot.id,self.gearView=="mine",true)
   local icon=math.floor(math.min(36,(stride-4)/1.55));place(row.icon,onRight and "RIGHT" or "LEFT",row,onRight and "RIGHT" or "LEFT",onRight and -16 or 16,0);row.icon:SetSize(icon,icon)
-  for _,f in ipairs({row.text,row.note,row.ownership}) do f:ClearAllPoints();f:SetWidth(side-icon-32);f:SetJustifyH(onRight and "RIGHT" or "LEFT") end
+  for _,f in ipairs({row.text,row.note,row.ownership}) do f:ClearAllPoints();f:SetWidth(rowWidth-icon-32);f:SetJustifyH(onRight and "RIGHT" or "LEFT") end
   local anchor=onRight and "TOPRIGHT" or "TOPLEFT";local offset=onRight and -icon-24 or icon+24
   local contentTop=math.max(2,(stride-64)/2)
   row.text:SetPoint(anchor,row,anchor,offset,-contentTop);row.text:SetHeight(11);row.text:SetFont(R.FONT,10,"");row.text:SetTextColor(unpack(MUTED));row.text:SetText(R.L(slot.key))

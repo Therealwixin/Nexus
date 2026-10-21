@@ -1,3 +1,8 @@
+## 0.6.7-beta.4
+
+- Add a uniform 30% black overlay above the talent artwork and below equipment rows, keeping icons and labels bright.
+- Join both equipment columns at one exact shared edge, removing the brighter center strip. Keep the validated native background scale, crop and outer slot positions.
+
 ## 0.6.7-beta.3
 
 - Restore the two equipment columns to the original outer edges. Remove the reserved portrait strip; artwork may sit behind any item.

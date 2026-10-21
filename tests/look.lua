@@ -15,6 +15,7 @@ for _,size in ipairs({{960,700},{1200,816},{1280,900}}) do
   inside(row.slotBevel,row,"Native slot bevel contained in row")
  end
  check(R.UI.rows[1]:GetLeft()<R.UI.rows[7]:GetLeft(),"Head left / gloves right")
+ check(math.abs(R.UI.rows[1]:GetRight()-R.UI.rows[7]:GetLeft())<.01,"Equipment columns meet without a bright center seam")
  check(R.UI.rows[15]:GetTop()<R.UI.rows[6]:GetBottom(),"Main hand below wrists")
  check(R.UI.rows[16]:GetTop()<R.UI.rows[15]:GetBottom() and R.UI.rows[16]:GetLeft()==R.UI.rows[6]:GetLeft(),"Offhand below main hand in left column")
  for _,category in ipairs({"enchants","consumables"}) do
