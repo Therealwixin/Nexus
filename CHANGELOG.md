@@ -1,3 +1,8 @@
+## 0.6.6-beta.4
+
+- Fit the complete specialization artwork inside the equipment pane instead of cropping it to fill the pane. Preserve the original aspect ratio and full atlas UV range, center the illustration and never enlarge it beyond native dimensions.
+- Cover wide, tall, square and small textures at supported window sizes, in addition to the existing specialization/atlas fallback checks.
+
 ## 0.6.6-beta.3
 
 - Add the selected specialization's native Blizzard talent artwork behind equipment. Use the client's mapping when already loaded, otherwise resolve the known talent atlas naming scheme, and check atlas availability before use.

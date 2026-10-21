@@ -68,16 +68,16 @@ function UI:UpdateGearBackground()
  local info=atlas and C_Texture and C_Texture.GetAtlasInfo and C_Texture.GetAtlasInfo(atlas)
  if not info then self.gearBackground:Hide();self.gearBackgroundDim:Hide();self.gearBackgroundAtlas=nil;return end
  if self.gearBackgroundAtlas~=atlas then self.gearBackground:SetAtlas(atlas);self.gearBackgroundAtlas=atlas end
- -- Crop inside the atlas coordinates rather than stretching the illustration.
+ -- Fit the complete illustration: a wide talent atlas must not be zoomed/cropped
+ -- to fill a taller equipment pane. Never enlarge beyond its native dimensions.
  local width,height=self.gearChild:GetWidth(),self.gearChild:GetHeight()
- if info.width and info.height and width>0 and height>0 then
-  local x,y=1,1;local aspect=width/height;local native=info.width/info.height
-  if aspect>native then y=native/aspect else x=aspect/native end
-  local left,right=info.leftTexCoord or 0,info.rightTexCoord or 1
-  local top,bottom=info.topTexCoord or 0,info.bottomTexCoord or 1
-  local dx,dy=(right-left)*(1-x)/2,(bottom-top)*(1-y)/2
-  self.gearBackground:SetTexCoord(left+dx,right-dx,top+dy,bottom-dy)
+ if not info.width or not info.height or info.width<=0 or info.height<=0 or width<=0 or height<=0 then
+  self.gearBackground:Hide();self.gearBackgroundDim:Hide();return
  end
+ local scale=math.min(width/info.width,height/info.height,1)
+ self.gearBackground:ClearAllPoints();self.gearBackground:SetPoint("CENTER",self.gearChild,"CENTER",0,0)
+ self.gearBackground:SetSize(info.width*scale,info.height*scale)
+ self.gearBackground:SetTexCoord(info.leftTexCoord or 0,info.rightTexCoord or 1,info.topTexCoord or 0,info.bottomTexCoord or 1)
  self.gearBackground:Show();self.gearBackgroundDim:Show()
 end
 -- Eight slots per side; both weapons follow wrists on the left.
