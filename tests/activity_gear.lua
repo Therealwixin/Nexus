@@ -4,6 +4,10 @@ assert(not R.IsGearItem({id=240908}),"Known gem must never be equipment")
 TEST.items[98098]={name="Test non-gear",equipLoc=""}
 assert(not R.IsGearItem({id=98098}),"Native non-gear type must override an imported raid label")
 R.SetViewSpec(1480);R.db.mode="mythicplus"
+local mpFixture=R.GetDataset("mythicplus",1480);local liveOffhand=mpFixture.slots[17]
+local raidTarget=R.GetGearTarget(17,1480,"overall")
+mpFixture.slots[17]={{id=237840,name="Crafted regression weapon",crafted=true,source="Murlok.io",count=27},{id=268211,source="Murlok.io",count=2},{id=268211,source="Wowhead",bisGuide=true}}
+
 local target=R.GetGearTarget(17)
 assert(target and target.id==237840 and target.crafted and target.source=="Murlok.io" and target.count==27,"Devourer M+ offhand must follow its observed crafted weapon")
 local original=R.GetDataset("mythicplus").slots[17][1]
@@ -19,10 +23,11 @@ for _,size in ipairs({{960,700},{1280,900}}) do
  assert(R.UI.buttons.RAID:GetRight()<=R.UI.frame:GetRight()-18,"Activity choices fit minimum window")
 end
 R.UI.buttons.RAID:Fire("OnClick")
-assert(R.GetGearTarget(17).id==268211 and R.GetGearTarget(17).source=="Wowhead","Raid guide remains independently authored")
+assert(R.GetGearTarget(17).id==raidTarget.id and R.GetGearTarget(17).source=="Wowhead","Raid guide remains independently authored")
 assert(R.UI.sectionTitle:GetText()==R.L("RAID_GEAR_TITLE"),"Switch refreshes title")
 R.UI.buttons.MYTHICPLUS:Fire("OnClick")
 assert(R.GetGearTarget(17).id==237840,"Switch restores M+ crafted target")
+mpFixture.slots[17]=liveOffhand
 local shown=0
 for sid in pairs(R.Data.specs) do
  R.SetViewSpec(sid)

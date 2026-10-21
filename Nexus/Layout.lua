@@ -53,8 +53,12 @@ end
 -- Reference: Blizzard_PlayerSpells/ClassTalents/Blizzard_ClassTalentUtil.lua.
 function UI:UpdateGearBackground()
  if not self.gearBackground then
-  self.gearBackground=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-8);self.gearBackground:SetAllPoints();self.gearBackground:SetAlpha(.72)
-  self.gearBackgroundDim=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-7);self.gearBackgroundDim:SetAllPoints();self.gearBackgroundDim:SetColorTexture(0,0,0,.24)
+  self.gearBackground=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-8);self.gearBackground:SetAllPoints();self.gearBackground:SetAlpha(.85)
+  self.gearBackgroundDim=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-7);self.gearBackgroundDim:SetAllPoints();self.gearBackgroundDim:SetColorTexture(0,0,0,.12)
+  self.gearBackgroundMask=self.gearChild:CreateMaskTexture()
+  self.gearBackgroundMask:SetTexture(R.ASSET_PATH.."equipment-art-mask.tga")
+  self.gearBackgroundMask:SetAllPoints(self.gearBackground)
+  self.gearBackground:AddMaskTexture(self.gearBackgroundMask)
  end
  local specID=R.ViewSpecID();local atlas
  if ClassTalentUtil and ClassTalentUtil.GetVisualsForSpecID then
@@ -74,7 +78,7 @@ function UI:UpdateGearBackground()
  if not info.width or not info.height or info.width<=0 or info.height<=0 or width<=0 or height<=0 then
   self.gearBackground:Hide();self.gearBackgroundDim:Hide();return
  end
- local scale=math.min(width/info.width,height/info.height,1)
+ local scale=math.min(width*.68/info.width,height*.68/info.height,1)
  self.gearBackground:ClearAllPoints();self.gearBackground:SetPoint("CENTER",self.gearChild,"CENTER",0,0)
  self.gearBackground:SetSize(info.width*scale,info.height*scale)
  self.gearBackground:SetTexCoord(info.leftTexCoord or 0,info.rightTexCoord or 1,info.topTexCoord or 0,info.bottomTexCoord or 1)

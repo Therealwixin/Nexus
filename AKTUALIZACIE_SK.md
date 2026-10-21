@@ -4,7 +4,7 @@
 
 GitHub je miesto, kde je uložený zdrojový kód Nexusu. GitHub Actions je služba, ktorá na serveri spustí zber dát, testy a vytvorí nový ZIP. Nemusíš mať počas toho zapnutý počítač ani WoW.
 
-Workflow **Refresh Nexus data** je zapnutý denne približne o 04:17 UTC. V Bratislave je to v lete 06:17, v zime 05:17. GitHub môže štart odložiť. Ak od posledného úspešného zberu ešte neuplynulo 23 hodín, plánovaný beh nový balík nevytvorí. Ručný beh kontrolu času preskočí.
+Workflow **Refresh Nexus data** kontroluje každý nový UTC kalendárny deň o 04:17 UTC. Ďalšie pokusy pri chybe alebo neúplnej aktualizácii zdroja sú o 10:17 a 16:17 UTC. Po úspešnej kompletnej kontrole dnešného dňa sa ďalší plánovaný beh preskočí. Včerajší večerný ručný zber nepreskočí dnešnú kontrolu. Ručný beh zber vynúti vždy. GitHub môže štart odložiť.
 
 Úspešný beh:
 

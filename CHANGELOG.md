@@ -1,3 +1,11 @@
+## 0.6.6-beta.6
+
+- Fix daily refresh cadence: check each new UTC calendar day instead of requiring 23 elapsed hours. Add two later retry opportunities for failed/partial source refreshes, with an explicit skipped/required run summary.
+- Bundle an actual fresh 2026-10-21 collection: all 40 Wowhead/Murlok/Icy Veins guides, stats/DR rules, item bonuses and all six Meta role datasets checked successfully. Preserve original source publication dates.
+- Distinguish Published / Checked in source status. Freshly checked older articles are no longer labeled as an old snapshot merely because the author did not update the article today.
+- Use the requested smaller centered equipment artwork (at most 68% of pane dimensions) with a reusable procedural feather mask; preserve full aspect/atlas bounds and keep text outside the mask.
+- Add calendar-boundary/retry regressions and make the Devourer source-conflict fixture independent of changing live popularity counts.
+
 ## 0.6.6-beta.5
 
 - Remove direct Warcraft Logs collection, snapshots, runtime evidence hooks, diagnostic/weekly workflows and the incomplete-spec coverage panel.

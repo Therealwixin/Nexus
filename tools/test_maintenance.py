@@ -64,3 +64,25 @@ with tempfile.TemporaryDirectory(dir=tempbase) as directory:
 for file in ['wcl.yml','wcl-refresh.yml']:assert not (ROOT/'.github/workflows'/file).exists()
 assert 'source_health' not in (ROOT/'tools/refresh_gear.py').read_text(encoding='utf-8')
 print('Maintenance: retired collectors/workflows removed; stale candidate artifacts cannot reappear PASS')
+
+# A prior evening manual run must not suppress the following calendar day's run.
+with tempfile.TemporaryDirectory(dir=tempbase) as directory:
+ root=Path(directory);(root/'data').mkdir()
+ (root/'data/snapshot.json').write_text(json.dumps({'generatedAt':'2026-10-20T22:00:00Z'}),encoding='utf-8')
+ for file in ['meta-snapshot.json','guide-snapshot.json']:(root/'data'/file).write_text('{}',encoding='utf-8')
+ with patch.object(data_release,'ROOT',root):
+  assert data_release.due(dt.datetime(2026,10,21,4,17,tzinfo=dt.timezone.utc),'schedule')
+  assert not data_release.due(dt.datetime(2026,10,20,23,17,tzinfo=dt.timezone.utc),'schedule')
+  assert data_release.due(dt.datetime(2026,10,20,23,17,tzinfo=dt.timezone.utc),'workflow_dispatch')
+  (root/'data/meta-snapshot.json').write_text(json.dumps({'refreshStatus':'unavailable'}),encoding='utf-8')
+  assert data_release.due(dt.datetime(2026,10,20,23,17,tzinfo=dt.timezone.utc),'schedule')
+print('Daily cadence PASS: next calendar day, same-day success skip, forced run and partial-source retry')
+
+# The artwork feather is a bounded, smooth alpha mask with transparent edges.
+import struct
+mask=(ROOT/'Nexus/Media/equipment-art-mask.tga').read_bytes()
+width,height=struct.unpack_from('<HH',mask,12)
+assert (width,height)==(256,256) and mask[16]==32
+alpha=mask[21::4]
+assert len(alpha)==width*height and alpha[0]==0 and alpha[(height//2)*width+width//2]==255 and len(set(alpha))>32
+print('Artwork feather PASS: bounded RGBA mask, transparent edges and opaque center')

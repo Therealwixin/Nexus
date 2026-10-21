@@ -9,9 +9,20 @@ def due(now=None,event=None):
  now=now or dt.datetime.now(dt.timezone.utc)
  previous=json.loads((ROOT/'data/snapshot.json').read_text(encoding='utf-8'))
  checked=dt.datetime.fromisoformat(previous['generatedAt'].replace('Z','+00:00'))
- result=(event or os.environ.get('EVENT_KIND'))=='workflow_dispatch' or (now-checked).total_seconds()>=23*3600
+ # Calendar-day freshness: a manual evening collection must not skip the next day.
+ def failed(value):
+  if isinstance(value,dict):
+   return any((k.endswith('RefreshStatus') or k=='refreshStatus') and v=='unavailable' for k,v in value.items()) or any(failed(v) for v in value.values())
+  return isinstance(value,list) and any(failed(v) for v in value)
+ retry=failed(previous)
+ for filename in ['meta-snapshot.json','guide-snapshot.json']:
+  source=json.loads((ROOT/'data'/filename).read_text(encoding='utf-8'));retry=retry or failed(source)
+ result=(event or os.environ.get('EVENT_KIND'))=='workflow_dispatch' or now.date()>checked.date() or retry
  if os.environ.get('GITHUB_OUTPUT'):
   with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f:f.write('due='+str(result).lower()+'\n')
+ if os.environ.get('GITHUB_STEP_SUMMARY'):
+  with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
+   f.write('## Daily data check\n'+('Collection required: a new UTC day, manual request or incomplete source refresh.' if result else 'Skipped: today already has a successful complete source check.')+'\nLast data collection: '+previous['generatedAt']+'\n')
  print('Data refresh due:',result)
  return result
 def stage(keep_version=False):

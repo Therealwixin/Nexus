@@ -36,17 +36,17 @@ function R.DataAge(dataset)
 end
 function R.DataStatus(dataset)
     if not dataset then return R.L("NO_DATA") end
-    local age=R.DataAge(dataset)
-    local text=(dataset.primarySource or "").." · "..tostring(dataset.updatedAt or "?"):sub(1,10)
+    local age=R.DataAge({updatedAt=dataset.retrievedAt or dataset.updatedAt})
+    local text=(dataset.primarySource or "").." · "..R.L("SOURCE_PUBLISHED").." "..tostring(dataset.updatedAt or "?"):sub(1,10)
     if dataset.retrievedAt then text=text.." · "..R.L("CHECKED").." "..dataset.retrievedAt:sub(1,10) elseif age then text=text.." · "..R.L("DATA_AGE",age) end
-    if age and age>7 then text="|cffffb347"..R.L("DATA_OLD").." · "..text.."|r" end
+    if age and age>1 then text="|cffffb347"..R.L("DATA_OLD").." · "..text.."|r" end
     return text
 end
 
 local extra={
- EN={RESCAN_GEAR="Scan gear",DATA_SETTINGS="Data / settings",DATA_AGE="%d days old",DATA_OLD="Older snapshot",UPDATE_NOTE="Recommendations are bundled snapshots, not live data. Scan gear checks your equipment and bags only. Install a new Nexus package to update recommendations. Source dates are preserved; snapshots older than 7 days are flagged.",SOURCE_OPEN="Source page",SIMPLIFIED_NOTE="Compact Nexus: gear, preparation and meta. Player profiles and talents are not loaded."},
- SK={RESCAN_GEAR="Overiť výbavu",DATA_SETTINGS="Dáta / nastavenia",DATA_AGE="vek: %d dní",DATA_OLD="Starší dátový balík",UPDATE_NOTE="Odporúčania sú pribalené dáta, nie živé údaje. Overiť výbavu kontroluje iba tvoje vybavenie a tašky. Odporúčania aktualizuje nový balík Nexusu. Dátumy zdrojov nemeníme; dáta staršie než 7 dní sú označené.",SOURCE_OPEN="Stránka zdroja",SIMPLIFIED_NOTE="Odľahčený Nexus: výbava, príprava a meta. Profily hráčov ani talenty sa nenačítavajú."},
- CZ={RESCAN_GEAR="Ověřit výbavu",DATA_SETTINGS="Data / nastavení",DATA_AGE="stáří: %d dní",DATA_OLD="Starší datový balík",UPDATE_NOTE="Doporučení jsou přibalená data, nikoli živé údaje. Ověřit výbavu kontroluje pouze vybavení a tašky. Doporučení aktualizuje nový balík Nexusu. Data starší než 7 dní jsou označena.",SOURCE_OPEN="Stránka zdroje",SIMPLIFIED_NOTE="Odlehčený Nexus: výbava, příprava a meta. Profily hráčů ani talenty se nenačítají."},
+ EN={RESCAN_GEAR="Scan gear",DATA_SETTINGS="Data / settings",DATA_AGE="%d days old",DATA_OLD="Older snapshot",UPDATE_NOTE="Recommendations are bundled snapshots, not live data. Scan gear checks your equipment and bags only. Install a new Nexus package to update recommendations. Source dates are preserved; publication dates and successful check dates are separate. Source checks older than one day are flagged.",SOURCE_OPEN="Source page",SIMPLIFIED_NOTE="Compact Nexus: gear, preparation and meta. Player profiles and talents are not loaded."},
+ SK={RESCAN_GEAR="Overiť výbavu",DATA_SETTINGS="Dáta / nastavenia",DATA_AGE="vek: %d dní",DATA_OLD="Starší dátový balík",UPDATE_NOTE="Odporúčania sú pribalené dáta, nie živé údaje. Overiť výbavu kontroluje iba tvoje vybavenie a tašky. Odporúčania aktualizuje nový balík Nexusu. Dátum publikácie zdroja a úspešnej kontroly je oddelený. Kontroly staršie než jeden deň sú označené.",SOURCE_OPEN="Stránka zdroja",SIMPLIFIED_NOTE="Odľahčený Nexus: výbava, príprava a meta. Profily hráčov ani talenty sa nenačítavajú."},
+ CZ={RESCAN_GEAR="Ověřit výbavu",DATA_SETTINGS="Data / nastavení",DATA_AGE="stáří: %d dní",DATA_OLD="Starší datový balík",UPDATE_NOTE="Doporučení jsou přibalená data, nikoli živé údaje. Ověřit výbavu kontroluje pouze vybavení a tašky. Doporučení aktualizuje nový balík Nexusu. Datum publikace zdroje a úspěšné kontroly je oddělený. Kontroly starší než jeden den jsou označeny.",SOURCE_OPEN="Stránka zdroje",SIMPLIFIED_NOTE="Odlehčený Nexus: výbava, příprava a meta. Profily hráčů ani talenty se nenačítají."},
 }
 for language,values in pairs(extra) do for key,value in pairs(values) do R.Locales[language][key]=value end end
 
@@ -97,3 +97,10 @@ local mplusAlerts={
  SK={DUNGEON_WARNING="Mythic+ ciele v tomto dungeone",DUNGEON_BIS_ITEM="M+ voľba",DUNGEON_BIS_CATALYST="M+ voľba cez Catalyst"},
  CZ={DUNGEON_WARNING="Mythic+ cíle v tomto dungeonu",DUNGEON_BIS_ITEM="M+ volba",DUNGEON_BIS_CATALYST="M+ volba přes Catalyst"}}
 for lang,values in pairs(mplusAlerts) do for key,value in pairs(values) do R.Locales[lang][key]=value end end
+
+R.Locales.EN.SOURCE_PUBLISHED="Published"
+R.Locales.SK.SOURCE_PUBLISHED="Zdroj"
+R.Locales.CZ.SOURCE_PUBLISHED="Zdroj"
+R.Locales.EN.DATA_OLD="Older source check"
+R.Locales.SK.DATA_OLD="Staršia kontrola zdroja"
+R.Locales.CZ.DATA_OLD="Starší kontrola zdroje"

@@ -308,7 +308,7 @@ function UI:RenderSources()
   local dataset=R.GetDataset(mode)
   if dataset then
    local url=dataset.sourceURL
-   self:ListLine(R.L(mode=="raid" and "RAID" or "MYTHICPLUS"),nil,R.DataStatus(dataset),function()
+   self:ListLine(mode=="raid" and "Raid · Wowhead" or "Mythic+ · Murlok",nil,R.DataStatus(dataset),function()
     if url then self:ShowCopy(url,R.L("SOURCE_OPEN").." · Ctrl+C") end
    end,GOLD)
   end

@@ -197,3 +197,6 @@ TooltipDataProcessor={AddTooltipPostCall=function(_,fn) TEST.tooltipHooks=TEST.t
 
 function Frame:SetAtlas(name) self.atlas=name end
 function Frame:SetTexCoord(...) self.texCoord={...} end
+
+function Frame:CreateMaskTexture() return CreateFrame("MaskTexture",nil,self) end
+function Frame:AddMaskTexture(mask) self.mask=mask end
