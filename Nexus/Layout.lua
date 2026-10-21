@@ -67,17 +67,24 @@ function UI:RenderRows()
   if slot.id==16 or slot.id==17 then top=8*stride+4;x=slot.id==16 and 0 or width-side end
   place(row,"TOPLEFT",self.gearChild,"TOPLEFT",x,-top);row:SetSize(side,stride-2);row.gridTop=top
   local state=self:BindItem(row,item,slot.id,self.gearView=="mine",true)
-  local icon=math.min(42,stride-8);place(row.icon,onRight and "RIGHT" or "LEFT",row,onRight and "RIGHT" or "LEFT",onRight and -5 or 5,0);row.icon:SetSize(icon,icon)
-  for _,f in ipairs({row.text,row.note,row.ownership}) do f:ClearAllPoints();f:SetWidth(side-icon-18);f:SetJustifyH(onRight and "RIGHT" or "LEFT") end
-  local anchor=onRight and "TOPRIGHT" or "TOPLEFT";local offset=onRight and -icon-12 or icon+12
-  row.text:SetPoint(anchor,row,anchor,offset,-4);row.text:SetHeight(11);row.text:SetFont(R.FONT,10,"");row.text:SetTextColor(unpack(MUTED));row.text:SetText(R.L(slot.key))
-  row.note:SetPoint(anchor,row,anchor,offset,-18);row.note:SetHeight(16);row.note:SetFont(R.FONT,12,"");row.note:SetMaxLines(1);row.note:SetTextColor(R.ItemColor(item));row.note:SetText(item and R.ItemName(item) or R.L("NO_SOURCE_OPTION"))
+  local icon=math.floor(math.min(36,(stride-4)/1.55));place(row.icon,onRight and "RIGHT" or "LEFT",row,onRight and "RIGHT" or "LEFT",onRight and -16 or 16,0);row.icon:SetSize(icon,icon)
+  for _,f in ipairs({row.text,row.note,row.ownership}) do f:ClearAllPoints();f:SetWidth(side-icon-32);f:SetJustifyH(onRight and "RIGHT" or "LEFT") end
+  local anchor=onRight and "TOPRIGHT" or "TOPLEFT";local offset=onRight and -icon-24 or icon+24
+  local contentTop=math.max(4,(stride-56)/2)
+  row.text:SetPoint(anchor,row,anchor,offset,-contentTop);row.text:SetHeight(11);row.text:SetFont(R.FONT,10,"");row.text:SetTextColor(unpack(MUTED));row.text:SetText(R.L(slot.key))
+  row.note:SetPoint(anchor,row,anchor,offset,-contentTop-15);row.note:SetHeight(16);row.note:SetFont(R.FONT,12,"");row.note:SetMaxLines(1);row.note:SetTextColor(R.ItemColor(item));row.note:SetText(item and R.ItemName(item) or R.L("NO_SOURCE_OPTION"))
   if item and self.gearView=="mine" then local level=R.ItemLevel(item,true);if level then row.text:SetText(R.L(slot.key).." · "..level) end end
   if item and self.gearView~="mine" then state=R.GearOwnership(item,slot.id) end
-  row.ownership:SetPoint(onRight and "BOTTOMRIGHT" or "BOTTOMLEFT",row,onRight and "BOTTOMRIGHT" or "BOTTOMLEFT",offset,3);row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or state:find("TIER_STATS",1,true) and GOLD or GREEN))
-  row.red:Hide();row.check:Hide();row.selected:Hide();row.icon:SetVertexColor(1,1,1)
+  row.ownership:SetPoint(anchor,row,anchor,offset,-contentTop-36);row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or state:find("TIER_STATS",1,true) and GOLD or GREEN))
+  row.red:Hide();row.check:Hide();row.icon:SetVertexColor(1,1,1)
+  row.border:SetColorTexture(R.ItemColor(item))
+  if not row.slotBevel then
+   row.slotBevel=row:CreateTexture(nil,"OVERLAY");row.slotBevel:SetTexture("Interface\\Buttons\\UI-Quickslot2");row.slotBevel:SetPoint("CENTER",row.icon,"CENTER",0,0)
+  end
+  row.slotBevel:SetSize(icon*1.55,icon*1.55)
+  row.selected:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight");row.selected:SetVertexColor(1,.82,.35);row.selected:SetAlpha(.24);row.selected:SetShown(self.selectedSlot==slot.id)
   local here=item and R.DungeonAlerts:IsHighlighted(item.id)
-  R.SkinPanel(row,here and "dungeon" or "card",self.selectedSlot==slot.id)
+  R.SkinPanel(row,"equipment");row.selected:SetShown(self.selectedSlot==slot.id or here)
   row:SetShown(not R.db.needsOnly or self.gearView=="mine" or state=="MISSING" or state:find("TIER_STATS",1,true))
   row:SetScript("OnClick",function(owner)self.selectedSlot=owner.slotID;self:RenderRows();self:RenderDetail()end)
   if item then R.RequestItem(item.id) end

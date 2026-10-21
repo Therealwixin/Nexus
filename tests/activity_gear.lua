@@ -1,5 +1,8 @@
 local R=TEST.R
 local mode=R.db.mode
+assert(not R.IsGearItem({id=240908}),"Known gem must never be equipment")
+TEST.items[98098]={name="Test non-gear",equipLoc=""}
+assert(not R.IsGearItem({id=98098}),"Native non-gear type must override an imported raid label")
 R.SetViewSpec(1480);R.db.mode="mythicplus"
 local target=R.GetGearTarget(17)
 assert(target and target.id==237840 and target.crafted and target.source=="Murlok.io" and target.count==27,"Devourer M+ offhand must follow its observed crafted weapon")

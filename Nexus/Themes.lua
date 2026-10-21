@@ -7,6 +7,12 @@ function R.Theme()return R.THEMES.warcraft end
 function R.SkinPanel(frame,kind,selected)
  if not frame._nexusPanel then frame._nexusPanel={};R.themePanels[#R.themePanels+1]=frame end
  frame._nexusPanel.kind=kind or "card";frame._nexusPanel.selected=selected and true or false
+ if kind=="equipment" then
+  frame:SetBackdrop(nil)
+  if not frame.slotShade then frame.slotShade=frame:CreateTexture(nil,"BACKGROUND");frame.slotShade:SetAllPoints();frame.slotShade:SetColorTexture(0,0,0,.14) end
+  frame.slotShade:Show()
+  return
+ end
  local theme=R.Theme();local marked=selected or kind=="dungeon"
  local bg=marked and theme.selected or frame._stripe and {.115,.11,.095,1} or theme[kind or "card"] or theme.card
  local border=kind~="row" and kind~="detail" and kind~="nav" and kind~="card"

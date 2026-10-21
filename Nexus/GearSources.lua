@@ -1,6 +1,22 @@
 local _,R=...
 -- Acquisition scope and activity are separate: an M+ playstyle set may contain raid gear.
 function R.GearSource() return R.GetMode()=="mythicplus" and "mplus_usage" or "overall" end
+-- Native instant metadata excludes gems/consumables even if an external feed mislabels them.
+function R.IsGearItem(item)
+ local api=C_Item and C_Item.GetItemInfoInstant or GetItemInfoInstant
+ if api then
+  local _,_,_,location=api(item.acquisitionItemID or item.id)
+  if not R.IsReadable(location) then return false end
+  if location=="" then return false end
+ end
+ if not R.nonGearGemIDs then
+  R.nonGearGemIDs={}
+  for _,modes in pairs(R.Data and R.Data.specs or {}) do
+   for _,data in pairs(modes) do for _,gem in ipairs(data.gems or {}) do R.nonGearGemIDs[gem.id]=true end end
+  end
+ end
+ return not R.nonGearGemIDs[item.id]
+end
 -- Activity recommendations include all acquisition sources, including crafts and raids.
 function R.GetMPlusGearCandidates(slotID,specID)
  local data=R.GetDataset("mythicplus",specID);local result,seen={},{}
@@ -9,7 +25,7 @@ function R.GetMPlusGearCandidates(slotID,specID)
    local item={};for k,v in pairs(raw) do item[k]=v end
    item.gearSlotID=slotID;item.bisGuide=nil;item.observedAlternative=true
    item.updatedAt=data.updatedAt;item.sourceURL=data.sourceURL
-   if R.GearLevelRange(item,slotID) then result[#result+1]=item;seen[item.id]=true end
+   if R.IsGearItem(item) and R.GearLevelRange(item,slotID) then result[#result+1]=item;seen[item.id]=true end
   end
  end
  table.sort(result,function(a,b)if a.count~=b.count then return a.count>b.count end;return a.id<b.id end)
@@ -35,7 +51,7 @@ function R.GuideItem(key,specID)
  local spec=specID or R.ViewSpecID();local guide=R.GetGuideDataset(spec);if not guide then return end
  R.guideItems=R.guideItems or {};R.guideItems[spec]=R.guideItems[spec] or {}
  if not R.guideItems[spec][key] then
-  local raw=R.GuideData.items[key];if not raw then return end
+  local raw=R.GuideData.items[key];if not raw or not R.IsGearItem(raw) then return end
   local item={};for k,v in pairs(raw) do item[k]=v end
   if item.source=="Wowhead" then item.updatedAt=guide.updatedAt;item.guideURL=guide.sourceURL end
   item.journalItemID=item.acquisitionItemID or item.id
@@ -52,7 +68,7 @@ function R.GetGearCandidates(slotID,specID,scope)
  local slots=set and set.slots or guide.sourceLists[scope];local result={};local seen={}
  for _,key in ipairs(slots and slots[slotID] or {}) do
   local item=R.GuideItem(key,specID)
-  if item and not seen[item.id] then item.gearSlotID=slotID;result[#result+1]=item;seen[item.id]=true end
+  if item and R.IsGearItem(item) and not seen[item.id] then item.gearSlotID=slotID;result[#result+1]=item;seen[item.id]=true end
  end
  if scope=="overall" and #result>0 then
   local observed=R.GetDataset("mythicplus",specID)
@@ -76,7 +92,7 @@ function R.GetGearAlternatives(slotID,specID)
  local guide=R.GetGuideDataset(specID);if not guide then return {} end
  local main=R.GetGearTarget(slotID,specID);local pool,seen={},{}
  local function add(raw)
-  if not raw then return end
+  if not raw or not R.IsGearItem(raw) then return end
   if main and raw.id==main.id and raw.acquisitionItemID==main.acquisitionItemID then return end
   local item=raw
   if raw.acquisitionItemID and raw.acquisitionItemID~=raw.id then

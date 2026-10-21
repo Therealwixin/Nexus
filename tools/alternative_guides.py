@@ -17,7 +17,7 @@ def parse(text,url,patch):
  if not heading or not re.search(r'\b'+re.escape(patch)+r'(?:\.\d+)?\b',heading.text()):raise ValueError('Alternative guide patch mismatch')
  stamp=source_date(text,None);out={};seen={};metadata={}
  for node in page.root.all():
-  found=re.match(r'wow/item/(\d+)',node.attrs.get('data-iv-tooltip',''))
+  found=re.match(r'wow(?:xptr)?/item/(\d+)',node.attrs.get('data-iv-tooltip',''))
   if found:
    icon=node.first('img');quality=re.search(r'\bq([0-7])\b',node.attrs.get('class',''))
    if icon and icon.attrs.get('alt'):metadata[int(found[1])]={'name':icon.attrs['alt'].removesuffix(' Icon'),'icon':int(icon.attrs['src'].rsplit('/',1)[-1].split('.')[0]),'quality':int(quality[1]) if quality else 4}
@@ -26,9 +26,9 @@ def parse(text,url,patch):
   for card in region.all('div'):
    if not classes(card,'bis_item'):continue
    slot=next((n.text().strip().lower() for n in card.all('span') if classes(n,'bis_item_slot')),None)
-   ids=SLOT_NAMES.get(slot or '');itemNode=next((n for n in card.all('span') if re.match(r'wow/item/\d+',n.attrs.get('data-iv-tooltip',''))),None)
+   ids=SLOT_NAMES.get(slot or '');itemNode=next((n for n in card.all('span') if n.parent is card and re.match(r'wow(?:xptr)?/item/\d+',n.attrs.get('data-iv-tooltip',''))),None)
    if not ids or not itemNode:continue
-   tooltip=itemNode.attrs['data-iv-tooltip'];itemID=int(re.match(r'wow/item/(\d+)',tooltip)[1]);original=re.search(r'(?:[?&])original=(\d+)',tooltip)
+   tooltip=itemNode.attrs['data-iv-tooltip'];itemID=int(re.match(r'wow(?:xptr)?/item/(\d+)',tooltip)[1]);original=re.search(r'(?:[?&])original=(\d+)',tooltip)
    base=int(original[1]) if original else itemID
    drop=next((n for n in card.all('span') if classes(n,'bis_item_drop')),None)
    links=[n.attrs.get('href','') for n in drop.all('a')] if drop else []

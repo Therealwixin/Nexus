@@ -11,6 +11,8 @@ for _,size in ipairs({{960,700},{1200,816},{1280,900}}) do
   inside(row,R.UI.gearChild,"Equipment fits paper doll")
   for _,part in ipairs({row.icon,row.text,row.note,row.ownership}) do inside(part,row,"Gear labels/icons stay inside slot") end
   check(row.border:GetWidth()==row.icon:GetWidth()+2,"Icon border hugs texture")
+  check(not row.backdrop and row.slotBevel.texture=="Interface\\Buttons\\UI-Quickslot2","Gear uses native slot bevel without flat card border")
+  inside(row.slotBevel,row,"Native slot bevel contained in row")
  end
  check(R.UI.rows[1]:GetLeft()<R.UI.rows[7]:GetLeft(),"Head left / gloves right")
  check(R.UI.rows[15]:GetTop()<R.UI.rows[6]:GetBottom(),"Weapons below armor")

@@ -1,3 +1,10 @@
+## 0.6.6-beta.2
+
+- Refine both equipment views with native WoW Quickslot bevels, quality borders, quieter backgrounds, vertically grouped slot/name/status labels and the native quest highlight for selection. Keep paper-doll placement and native hover tooltips.
+- Fix Icy Veins primary-item parsing: handle the published wowxptr namespace and select only the direct gear tooltip, never nested gems or enchants. Reparse all 40 cached source guides without changing source publication/check dates.
+- Reject known gems and native non-equippable items from runtime gear candidates and alternatives, even if imported source metadata labels them as raid drops.
+- Add nested-gem/PTR regression fixtures, all-spec stored gem exclusion checks, runtime non-gear guards and native slot bounds across supported window sizes.
+
 ## 0.6.6-beta.1
 
 - Separate Equipment by activity: Raid uses the existing authored Wowhead guide; Mythic+ uses observed Murlok M+ item usage. Both include all acquisition sources, including crafted and raid gear.

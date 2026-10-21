@@ -62,3 +62,19 @@ assert not g['items']['other'].get('previewEffectBonusIDs') and not g['items']['
 assert not g['items']['plaincraft'].get('previewEffectBonusIDs'),'Optional crafted effects must not transfer between recommendations'
 assert g['variantEvidence']['build']=='12.1.5.70448'
 print('Daily effect classification: exact source identity, no scaling leakage, ambiguous variants rejected PASS')
+
+# A PTR-namespaced primary item and nested socket/enchant extras must remain distinct.
+base='<h1>Gear 12.1.5</h1><time datetime="2026-10-20T00:00:00Z"></time><div class="image_block_content" id="bis_0_1">'
+for i,slot in enumerate(['Helm','Neck','Shoulders','Back','Chest','Wrist','Hands','Waist','Legs','Feet','Ring','Ring','Trinket','Trinket','Main Hand','Off Hand']):
+ base+=f'<div class="bis_item"><span data-iv-tooltip="wowxptr/item/{700+i}"><img src="https://example.invalid/123.webp" alt="Actual gear Icon"></span><span class="bis_item_slot">{slot}</span><div class="bis_item_extras"><span data-iv-tooltip="wow/item/240908"><img src="https://example.invalid/456.webp" alt="Gem Icon"></span></div><span class="bis_item_drop"><a href="/wow/boss-raid-guide">Boss</a></span></div>'
+repaired=parse(base+'</div>','https://example.invalid/guide','12.1')
+assert repaired['slots']['12'][0]['id']==711 and all(row['id']!=240908 for rows in repaired['slots'].values() for row in rows)
+# An unsupported primary namespace cannot cause a nested gem to become the item.
+try:parse(base.replace('wowxptr/item/','other/item/')+'</div>','https://example.invalid/guide','12.1')
+except ValueError:pass
+else:raise AssertionError('Nested extras cannot replace unrecognized primary gear')
+guide=json.loads((ROOT/'data/guide-snapshot.json').read_text(encoding='utf-8'))
+snapshot=json.loads((ROOT/'data/snapshot.json').read_text(encoding='utf-8'))
+gems={g['id'] for modes in snapshot['specs'].values() for data in modes.values() for g in data['gems']}
+assert all(guide['items'][key]['id'] not in gems for spec in guide['specs'].values() for keys in spec.get('alternatives',{}).values() for key in keys)
+print('Alternative import PASS: direct primary item, PTR namespace, nested extras rejected, all-spec stored gem exclusion')

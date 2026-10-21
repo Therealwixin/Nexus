@@ -11612,7 +11612,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281239",
+      "name": "Corroded Hulk's Skullcap",
       "quality": 4,
       "catalystTargetID": 271456,
       "previewBonusIDs": [
@@ -11620,7 +11620,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7515797
     },
     "251229:alternative:71:icyveins": {
       "id": 251229,
@@ -11862,17 +11863,6 @@
         12854
       ]
     },
-    "240892:alternative:71:icyveins": {
-      "id": 240892,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/arms-warrior-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Peridot",
-      "icon": 7549142,
-      "quality": 4
-    },
     "251136:alternative:71:icyveins": {
       "id": 251136,
       "source": "Icy Veins",
@@ -12023,7 +12013,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281239",
+      "name": "Corroded Hulk's Skullcap",
       "quality": 4,
       "catalystTargetID": 271456,
       "previewBonusIDs": [
@@ -12031,7 +12021,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7515797
     },
     "251229:alternative:72:icyveins": {
       "id": 251229,
@@ -12272,17 +12263,6 @@
         12854
       ]
     },
-    "240892:alternative:72:icyveins": {
-      "id": 240892,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/fury-warrior-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Peridot",
-      "icon": 7549142,
-      "quality": 4
-    },
     "251136:alternative:72:icyveins": {
       "id": 251136,
       "source": "Icy Veins",
@@ -12426,17 +12406,6 @@
         12854
       ]
     },
-    "273072:alternative:72:icyveins": {
-      "id": 273072,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/fury-warrior-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Enchant Weapon - Rite of the Hash'ey",
-      "icon": 7548966,
-      "quality": 4
-    },
     "251230:alternative:72:icyveins": {
       "id": 251230,
       "source": "Icy Veins",
@@ -12458,7 +12427,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281239",
+      "name": "Corroded Hulk's Skullcap",
       "quality": 4,
       "catalystTargetID": 271456,
       "previewBonusIDs": [
@@ -12467,7 +12436,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7515797
     },
     "239050:alternative:73:icyveins": {
       "id": 239050,
@@ -12756,17 +12726,6 @@
         12854
       ]
     },
-    "240890:alternative:73:icyveins": {
-      "id": 240890,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/protection-warrior-pve-tank-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Deadly Peridot",
-      "icon": 7549127,
-      "quality": 4
-    },
     "252258:alternative:73:icyveins": {
       "id": 252258,
       "source": "Icy Veins",
@@ -12917,7 +12876,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281239",
+      "name": "Corroded Hulk's Skullcap",
       "quality": 4,
       "catalystTargetID": 271465,
       "previewBonusIDs": [
@@ -12925,7 +12884,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7515797
     },
     "251126:alternative:65:icyveins": {
       "id": 251126,
@@ -13172,17 +13132,6 @@
         12854
       ]
     },
-    "240900:alternative:65:icyveins": {
-      "id": 240900,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/holy-paladin-pve-healing-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Quick Amethyst",
-      "icon": 7549137,
-      "quality": 4
-    },
     "158366:alternative:65:icyveins": {
       "id": 158366,
       "source": "Icy Veins",
@@ -13372,7 +13321,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281239",
+      "name": "Corroded Hulk's Skullcap",
       "quality": 4,
       "catalystTargetID": 271465,
       "previewBonusIDs": [
@@ -13382,7 +13331,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7515797
     },
     "239050:alternative:66:icyveins": {
       "id": 239050,
@@ -13879,7 +13829,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281239",
+      "name": "Corroded Hulk's Skullcap",
       "quality": 4,
       "catalystTargetID": 271465,
       "previewBonusIDs": [
@@ -13888,7 +13838,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7515797
     },
     "251126:alternative:70:icyveins": {
       "id": 251126,
@@ -14142,17 +14093,6 @@
         12854
       ]
     },
-    "240892:alternative:70:icyveins": {
-      "id": 240892,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/retribution-paladin-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Peridot",
-      "icon": 7549142,
-      "quality": 3
-    },
     "252258:alternative:70:icyveins": {
       "id": 252258,
       "source": "Icy Veins",
@@ -14334,7 +14274,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281238",
+      "name": "Aberrant Commander's Gauntlets",
       "quality": 4,
       "catalystTargetID": 271493,
       "previewBonusIDs": [
@@ -14343,7 +14283,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7554478
     },
     "193752:alternative:253:icyveins": {
       "id": 193752,
@@ -14592,17 +14533,6 @@
         12854
       ]
     },
-    "240898:alternative:253:icyveins": {
-      "id": 240898,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/beast-mastery-hunter-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Deadly Amethyst",
-      "icon": 7549128,
-      "quality": 4
-    },
     "251136:alternative:253:icyveins": {
       "id": 251136,
       "source": "Icy Veins",
@@ -14765,7 +14695,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281238",
+      "name": "Aberrant Commander's Gauntlets",
       "quality": 4,
       "catalystTargetID": 271493,
       "previewBonusIDs": [
@@ -14774,7 +14704,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7554478
     },
     "193752:alternative:254:icyveins": {
       "id": 193752,
@@ -15023,17 +14954,6 @@
         12854
       ]
     },
-    "240908:alternative:254:icyveins": {
-      "id": 240908,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/marksmanship-hunter-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Garnet",
-      "icon": 7549144,
-      "quality": 4
-    },
     "251136:alternative:254:icyveins": {
       "id": 251136,
       "source": "Icy Veins",
@@ -15195,7 +15115,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281238",
+      "name": "Aberrant Commander's Gauntlets",
       "quality": 4,
       "catalystTargetID": 271493,
       "previewBonusIDs": [
@@ -15204,7 +15124,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7554478
     },
     "160213:alternative:255:icyveins": {
       "id": 160213,
@@ -15449,17 +15370,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240898:alternative:255:icyveins": {
-      "id": 240898,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/survival-hunter-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Deadly Amethyst",
-      "icon": 7549128,
-      "quality": 4
     },
     "251136:alternative:255:icyveins": {
       "id": 251136,
@@ -15815,7 +15725,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281236",
+      "name": "Chestwrap of Palpable Terror",
       "quality": 4,
       "catalystTargetID": 271513,
       "previewBonusIDs": [
@@ -15823,7 +15733,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7678398
     },
     "251159:alternative:259:icyveins": {
       "id": 251159,
@@ -15867,17 +15778,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240906:alternative:259:icyveins": {
-      "id": 240906,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/assassination-rogue-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Quick Garnet",
-      "icon": 7549138,
-      "quality": 4
     },
     "251136:alternative:259:icyveins": {
       "id": 251136,
@@ -16241,7 +16141,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281236",
+      "name": "Chestwrap of Palpable Terror",
       "quality": 4,
       "catalystTargetID": 271513,
       "previewBonusIDs": [
@@ -16249,7 +16149,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7678398
     },
     "251226:alternative:260:icyveins": {
       "id": 251226,
@@ -16749,17 +16650,6 @@
         12854
       ]
     },
-    "240892:alternative:261:icyveins": {
-      "id": 240892,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Peridot",
-      "icon": 7549142,
-      "quality": 4
-    },
     "252258:alternative:261:icyveins": {
       "id": 252258,
       "source": "Icy Veins",
@@ -17137,17 +17027,6 @@
         12854
       ]
     },
-    "240155:alternative:256:icyveins": {
-      "id": 240155,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/discipline-priest-pve-healing-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Arcanoweave Spellthread",
-      "icon": 5931153,
-      "quality": 4
-    },
     "268253:alternative:256:icyveins": {
       "id": 268253,
       "source": "Icy Veins",
@@ -17260,17 +17139,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240892:alternative:256:icyveins": {
-      "id": 240892,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/discipline-priest-pve-healing-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Peridot",
-      "icon": 7549142,
-      "quality": 4
     },
     "158366:alternative:256:icyveins": {
       "id": 158366,
@@ -18498,7 +18366,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281239",
+      "name": "Corroded Hulk's Skullcap",
       "quality": 4,
       "catalystTargetID": 271474,
       "previewBonusIDs": [
@@ -18509,7 +18377,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7515797
     },
     "239050:alternative:250:icyveins": {
       "id": 239050,
@@ -18790,17 +18659,6 @@
         13750,
         12854
       ]
-    },
-    "240906:alternative:250:icyveins": {
-      "id": 240906,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/blood-death-knight-pve-tank-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Quick Garnet",
-      "icon": 7549138,
-      "quality": 4
     },
     "158366:alternative:250:icyveins": {
       "id": 158366,
@@ -19496,17 +19354,6 @@
         13848
       ]
     },
-    "240983:alternative:252:icyveins": {
-      "id": 240983,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Indecipherable Eversong Diamond",
-      "icon": 7549096,
-      "quality": 4
-    },
     "251126:alternative:252:icyveins": {
       "id": 251126,
       "source": "Icy Veins",
@@ -19804,17 +19651,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240908:alternative:252:icyveins": {
-      "id": 240908,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Garnet",
-      "icon": 7549144,
-      "quality": 3
     },
     "252258:alternative:252:icyveins": {
       "id": 252258,
@@ -20205,17 +20041,6 @@
         12854
       ]
     },
-    "240892:alternative:262:icyveins": {
-      "id": 240892,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/elemental-shaman-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Peridot",
-      "icon": 7549142,
-      "quality": 4
-    },
     "158366:alternative:262:icyveins": {
       "id": 158366,
       "source": "Icy Veins",
@@ -20387,7 +20212,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281238",
+      "name": "Aberrant Commander's Gauntlets",
       "quality": 4,
       "catalystTargetID": 271484,
       "previewBonusIDs": [
@@ -20396,7 +20221,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7554478
     },
     "193752:alternative:263:icyveins": {
       "id": 193752,
@@ -20653,17 +20479,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240900:alternative:263:icyveins": {
-      "id": 240900,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/enhancement-shaman-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Quick Amethyst",
-      "icon": 7549137,
-      "quality": 4
     },
     "273792:alternative:263:icyveins": {
       "id": 273792,
@@ -21399,7 +21214,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281235",
+      "name": "Voidweaver's Leggings",
       "quality": 4,
       "catalystTargetID": 271563,
       "previewBonusIDs": [
@@ -21408,7 +21223,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7807657
     },
     "193750:alternative:62:icyveins": {
       "id": 193750,
@@ -23409,17 +23225,6 @@
         12854
       ]
     },
-    "240906:alternative:266:icyveins": {
-      "id": 240906,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/demonology-warlock-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Quick Garnet",
-      "icon": 7549138,
-      "quality": 4
-    },
     "251136:alternative:266:icyveins": {
       "id": 251136,
       "source": "Icy Veins",
@@ -24170,17 +23975,6 @@
         12854
       ]
     },
-    "243983:alternative:268:icyveins": {
-      "id": 243983,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/brewmaster-monk-pve-tank-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "unknown",
-      "dropSource": "Mythical Soul Fragment",
-      "name": "Enchant Boots - Shaladrassil's Roots",
-      "icon": 7548963,
-      "quality": 4
-    },
     "159304:alternative:268:icyveins": {
       "id": 159304,
       "source": "Icy Veins",
@@ -24231,7 +24025,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281236",
+      "name": "Chestwrap of Palpable Terror",
       "quality": 4,
       "catalystTargetID": 271522,
       "previewBonusIDs": [
@@ -24240,7 +24034,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7678398
     },
     "251148:alternative:268:icyveins": {
       "id": 251148,
@@ -24719,17 +24514,6 @@
         20374
       ]
     },
-    "240892:alternative:269:icyveins": {
-      "id": 240892,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/windwalker-monk-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Peridot",
-      "icon": 7549142,
-      "quality": 4
-    },
     "252258:alternative:269:icyveins": {
       "id": 252258,
       "source": "Icy Veins",
@@ -25078,7 +24862,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281236",
+      "name": "Chestwrap of Palpable Terror",
       "quality": 4,
       "catalystTargetID": 271522,
       "previewBonusIDs": [
@@ -25087,7 +24871,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7678398
     },
     "251226:alternative:270:icyveins": {
       "id": 251226,
@@ -25550,17 +25335,6 @@
         12854
       ]
     },
-    "240900:alternative:102:icyveins": {
-      "id": 240900,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/balance-druid-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Vashnik",
-      "name": "Flawless Quick Amethyst",
-      "icon": 7549137,
-      "quality": 4
-    },
     "252258:alternative:102:icyveins": {
       "id": 252258,
       "source": "Icy Veins",
@@ -25946,7 +25720,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281236",
+      "name": "Chestwrap of Palpable Terror",
       "quality": 4,
       "catalystTargetID": 271531,
       "previewBonusIDs": [
@@ -25955,7 +25729,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7678398
     },
     "251159:alternative:103:icyveins": {
       "id": 251159,
@@ -25999,17 +25774,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240900:alternative:103:icyveins": {
-      "id": 240900,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/feral-druid-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Quick Amethyst",
-      "icon": 7549137,
-      "quality": 4
     },
     "158366:alternative:103:icyveins": {
       "id": 158366,
@@ -26376,17 +26140,6 @@
         12854
       ]
     },
-    "243977:alternative:104:icyveins": {
-      "id": 243977,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/guardian-druid-pve-tank-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Catalyst or Kith'ix",
-      "name": "Enchant Chest - Mark of the Worldsoul",
-      "icon": 7548963,
-      "quality": 4
-    },
     "251159:alternative:104:icyveins": {
       "id": 251159,
       "source": "Icy Veins",
@@ -26429,17 +26182,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240906:alternative:104:icyveins": {
-      "id": 240906,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/guardian-druid-pve-tank-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Quick Garnet",
-      "icon": 7549138,
-      "quality": 4
     },
     "252258:alternative:104:icyveins": {
       "id": 252258,
@@ -26824,17 +26566,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240892:alternative:105:icyveins": {
-      "id": 240892,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/restoration-druid-pve-healing-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "unknown",
-      "dropSource": "Nymrissa Wavecaller",
-      "name": "Flawless Masterful Peridot",
-      "icon": 7549142,
-      "quality": 4
     },
     "159459:alternative:105:icyveins": {
       "id": 159459,
@@ -27263,7 +26994,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281236",
+      "name": "Chestwrap of Palpable Terror",
       "quality": 4,
       "catalystTargetID": 271540,
       "previewBonusIDs": [
@@ -27272,7 +27003,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7678398
     },
     "239048:alternative:577:icyveins": {
       "id": 239048,
@@ -27714,7 +27446,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281236",
+      "name": "Chestwrap of Palpable Terror",
       "quality": 4,
       "catalystTargetID": 271540,
       "previewBonusIDs": [
@@ -27723,7 +27455,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7678398
     },
     "251226:alternative:581:icyveins": {
       "id": 251226,
@@ -27739,17 +27472,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240890:alternative:581:icyveins": {
-      "id": 240890,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/vengeance-demon-hunter-pve-tank-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Deadly Peridot",
-      "icon": 7549127,
-      "quality": 4
     },
     "251148:alternative:581:icyveins": {
       "id": 251148,
@@ -28141,7 +27863,7 @@
       "updatedAt": "2026-10-12T16:30:00Z",
       "acquisition": "unknown",
       "dropSource": "",
-      "name": "Item #281236",
+      "name": "Chestwrap of Palpable Terror",
       "quality": 4,
       "catalystTargetID": 271540,
       "previewBonusIDs": [
@@ -28150,7 +27872,8 @@
       ],
       "previewEffectBonusIDs": [
         14049
-      ]
+      ],
+      "icon": 7678398
     },
     "251159:alternative:1480:icyveins": {
       "id": 251159,
@@ -28166,17 +27889,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240908:alternative:1480:icyveins": {
-      "id": 240908,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/devourer-demon-hunter-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Kith'ix",
-      "name": "Flawless Masterful Garnet",
-      "icon": 7549144,
-      "quality": 4
     },
     "158366:alternative:1480:icyveins": {
       "id": 158366,
@@ -28599,17 +28311,6 @@
       "previewBonusIDs": [
         12854
       ]
-    },
-    "240906:alternative:1467:icyveins": {
-      "id": 240906,
-      "source": "Icy Veins",
-      "guideURL": "https://www.icy-veins.com/wow/devastation-evoker-pve-dps-gear-best-in-slot",
-      "updatedAt": "2026-10-12T16:30:00Z",
-      "acquisition": "raid",
-      "dropSource": "Unbinding of Kith'ix",
-      "name": "Flawless Quick Garnet",
-      "icon": 7549138,
-      "quality": 4
     },
     "158366:alternative:1467:icyveins": {
       "id": 158366,
@@ -31592,6 +31293,627 @@
       "acquisition": "dungeon",
       "dropSource": "The Blinding Vale",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/preservation-evoker-pve-healing-gear-best-in-slot"
+    },
+    "281029:alternative:71:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/arms-warrior-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:72:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/fury-warrior-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "280799:alternative:72:icyveins": {
+      "id": 280799,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/fury-warrior-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Lu'selama, Light's Justice",
+      "icon": 7350841,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281029:alternative:73:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/protection-warrior-pve-tank-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:65:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/holy-paladin-pve-healing-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:70:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/retribution-paladin-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:253:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/beast-mastery-hunter-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:253:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/beast-mastery-hunter-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281029:alternative:254:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/marksmanship-hunter-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:255:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/survival-hunter-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:259:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/assassination-rogue-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:259:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/assassination-rogue-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281029:alternative:261:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281235:alternative:256:icyveins": {
+      "id": 281235,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/discipline-priest-pve-healing-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Voidweaver's Leggings",
+      "icon": 7807657,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
+      ]
+    },
+    "281029:alternative:256:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/discipline-priest-pve-healing-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:250:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/blood-death-knight-pve-tank-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        13750,
+        4786,
+        12854
+      ]
+    },
+    "281239:alternative:252:icyveins": {
+      "id": 281239,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Corroded Hulk's Skullcap",
+      "icon": 7515797,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854,
+        14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
+      ]
+    },
+    "281029:alternative:252:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281238:alternative:262:icyveins": {
+      "id": 281238,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/elemental-shaman-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Catalyst on the item from Kith'ix",
+      "name": "Aberrant Commander's Gauntlets",
+      "icon": 7554478,
+      "quality": 4,
+      "previewBonusIDs": [
+        13335,
+        12854
+      ],
+      "previewEffectBonusIDs": [
+        14049
+      ]
+    },
+    "281029:alternative:262:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/elemental-shaman-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:262:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/elemental-shaman-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281029:alternative:263:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/enhancement-shaman-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:264:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/restoration-shaman-pve-healing-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281215:alternative:62:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/arcane-mage-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854,
+        12856
+      ]
+    },
+    "281215:alternative:265:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/affliction-warlock-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:266:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/demonology-warlock-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:266:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/demonology-warlock-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:267:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/destruction-warlock-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "272240:alternative:268:icyveins": {
+      "id": 272240,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/brewmaster-monk-pve-tank-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "unknown",
+      "dropSource": "Mythical Soul Fragment",
+      "name": "Miststalker's Striders",
+      "icon": 7878580,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:268:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/brewmaster-monk-pve-tank-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281029:alternative:269:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/windwalker-monk-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12806,
+        13367,
+        20374
+      ]
+    },
+    "281029:alternative:102:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/balance-druid-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Vashnik",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:102:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/balance-druid-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281029:alternative:103:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/feral-druid-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281236:alternative:104:icyveins": {
+      "id": 281236,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/guardian-druid-pve-tank-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Catalyst or Kith'ix",
+      "name": "Chestwrap of Palpable Terror",
+      "icon": 7678398,
+      "quality": 4,
+      "previewBonusIDs": [
+        14049
+      ],
+      "previewEffectBonusIDs": [
+        14049
+      ]
+    },
+    "281029:alternative:104:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/guardian-druid-pve-tank-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:105:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/restoration-druid-pve-healing-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "unknown",
+      "dropSource": "Nymrissa Wavecaller",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281029:alternative:581:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/vengeance-demon-hunter-pve-tank-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:581:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/vengeance-demon-hunter-pve-tank-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281029:alternative:1480:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/devourer-demon-hunter-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:1480:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/devourer-demon-hunter-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
+    },
+    "281029:alternative:1467:icyveins": {
+      "id": 281029,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/devastation-evoker-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Unbinding of Kith'ix",
+      "name": "Band of the Swarmcaller",
+      "icon": 8268560,
+      "quality": 4,
+      "previewBonusIDs": [
+        12854
+      ]
+    },
+    "281215:alternative:1467:icyveins": {
+      "id": 281215,
+      "source": "Icy Veins",
+      "guideURL": "https://www.icy-veins.com/wow/devastation-evoker-pve-dps-gear-best-in-slot",
+      "updatedAt": "2026-10-12T16:30:00Z",
+      "acquisition": "raid",
+      "dropSource": "Unbinding of Kith'ix",
+      "name": "Twisted Horror's Tendril",
+      "icon": 8268563,
+      "quality": 4,
+      "previewBonusIDs": [
+        12856
+      ]
     }
   },
   "specs": {
@@ -31790,7 +32112,7 @@
           "251151:alternative:71:icyveins"
         ],
         "11": [
-          "240892:alternative:71:icyveins",
+          "281029:alternative:71:icyveins",
           "251136:alternative:71:icyveins"
         ],
         "12": [
@@ -31946,13 +32268,13 @@
           ],
           "10": [
             "271457:271457:dungeon",
-            "251214:alternative:72:icyveins",
-            "251197:alternative:72:observed-dungeon"
+            "251197:alternative:72:observed-dungeon",
+            "251214:alternative:72:icyveins"
           ],
           "2": [
             "251142:251142:dungeon:observed:72",
-            "273781:alternative:72:icyveins",
-            "251173:alternative:72:observed-dungeon"
+            "251173:alternative:72:observed-dungeon",
+            "273781:alternative:72:icyveins"
           ],
           "15": [
             "251190:251190:dungeon:observed:72",
@@ -31968,8 +32290,8 @@
             "251230:alternative:72:icyveins"
           ],
           "7": [
-            "273776:alternative:72:icyveins",
-            "159435:alternative:72:observed-dungeon"
+            "159435:alternative:72:observed-dungeon",
+            "273776:alternative:72:icyveins"
           ],
           "5": [
             "193753:alternative:72:icyveins"
@@ -32027,7 +32349,7 @@
           "193753:alternative:72:icyveins"
         ],
         "11": [
-          "240892:alternative:72:icyveins",
+          "281029:alternative:72:icyveins",
           "251136:alternative:72:icyveins"
         ],
         "12": [
@@ -32050,7 +32372,7 @@
           "273782:alternative:72:icyveins"
         ],
         "17": [
-          "273072:alternative:72:icyveins",
+          "280799:alternative:72:icyveins",
           "251230:alternative:72:icyveins"
         ]
       },
@@ -32201,8 +32523,8 @@
             "239050:alternative:73:icyveins"
           ],
           "2": [
-            "251173:alternative:73:icyveins",
-            "273781:alternative:73:observed-dungeon"
+            "273781:alternative:73:observed-dungeon",
+            "251173:alternative:73:icyveins"
           ],
           "3": [
             "239037:alternative:73:icyveins"
@@ -32266,7 +32588,7 @@
           "268252:alternative:73:icyveins"
         ],
         "12": [
-          "240890:alternative:73:icyveins",
+          "281029:alternative:73:icyveins",
           "252258:alternative:73:icyveins"
         ],
         "13": [
@@ -32438,8 +32760,8 @@
             "239050:alternative:65:observed-dungeon"
           ],
           "10": [
-            "159413:alternative:65:icyveins",
-            "251214:alternative:65:observed-dungeon"
+            "251214:alternative:65:observed-dungeon",
+            "159413:alternative:65:icyveins"
           ],
           "2": [
             "251142:alternative:65:icyveins"
@@ -32451,8 +32773,8 @@
             "159435:alternative:65:icyveins"
           ],
           "15": [
-            "251190:alternative:65:icyveins",
-            "193763:alternative:65:observed-dungeon"
+            "193763:alternative:65:observed-dungeon",
+            "251190:alternative:65:icyveins"
           ],
           "8": [
             "159412:alternative:65:icyveins"
@@ -32464,8 +32786,8 @@
             "250214:alternative:65:icyveins"
           ],
           "9": [
-            "251133:alternative:65:icyveins",
-            "159409:alternative:65:observed-dungeon"
+            "159409:alternative:65:observed-dungeon",
+            "251133:alternative:65:icyveins"
           ],
           "14": [
             "250215:alternative:65:icyveins"
@@ -32512,14 +32834,14 @@
           "193753:alternative:65:icyveins"
         ],
         "11": [
-          "240900:alternative:65:icyveins",
+          "281029:alternative:65:icyveins",
           "158366:alternative:65:icyveins",
           "268249:alternative:65:icyveins"
         ],
         "12": [
           "268249:alternative:65:icyveins",
           "252258:alternative:65:icyveins",
-          "240900:alternative:65:icyveins"
+          "281029:alternative:65:icyveins"
         ],
         "13": [
           "270162:alternative:65:icyveins",
@@ -32675,8 +32997,8 @@
           ],
           "2": [
             "251142:251142:dungeon:observed:66",
-            "273781:alternative:66:icyveins",
-            "251173:alternative:66:observed-dungeon"
+            "251173:alternative:66:observed-dungeon",
+            "273781:alternative:66:icyveins"
           ],
           "15": [
             "251190:251190:dungeon:observed:66",
@@ -32697,9 +33019,9 @@
             "159459:alternative:66:icyveins"
           ],
           "10": [
-            "159413:alternative:66:icyveins",
             "251214:alternative:66:observed-dungeon",
-            "251197:alternative:66:observed-dungeon"
+            "251197:alternative:66:observed-dungeon",
+            "159413:alternative:66:icyveins"
           ],
           "3": [
             "251138:alternative:66:icyveins"
@@ -32970,7 +33292,7 @@
           "193753:alternative:70:icyveins"
         ],
         "11": [
-          "240892:alternative:70:icyveins",
+          "281029:alternative:70:icyveins",
           "252258:alternative:70:icyveins"
         ],
         "12": [
@@ -33138,8 +33460,8 @@
             "239035:alternative:253:icyveins"
           ],
           "10": [
-            "193752:alternative:253:icyveins",
-            "251165:alternative:253:observed-dungeon"
+            "251165:alternative:253:observed-dungeon",
+            "193752:alternative:253:icyveins"
           ],
           "3": [
             "251131:alternative:253:icyveins"
@@ -33199,10 +33521,10 @@
         "11": [
           "268249:alternative:253:icyveins",
           "158366:alternative:253:icyveins",
-          "240898:alternative:253:icyveins"
+          "281029:alternative:253:icyveins"
         ],
         "12": [
-          "240898:alternative:253:icyveins",
+          "281029:alternative:253:icyveins",
           "251136:alternative:253:icyveins",
           "268252:alternative:253:icyveins"
         ],
@@ -33210,7 +33532,7 @@
           "244584:alternative:253:icyveins"
         ],
         "13": [
-          "270175:alternative:253:icyveins",
+          "281215:alternative:253:icyveins",
           "159617:alternative:253:icyveins"
         ],
         "16": [
@@ -33218,6 +33540,7 @@
           "271680:alternative:253:icyveins"
         ],
         "14": [
+          "270175:alternative:253:icyveins",
           "250214:alternative:253:icyveins"
         ]
       },
@@ -33431,7 +33754,7 @@
           "158366:alternative:254:icyveins"
         ],
         "12": [
-          "240908:alternative:254:icyveins",
+          "281029:alternative:254:icyveins",
           "251136:alternative:254:icyveins"
         ],
         "13": [
@@ -33572,7 +33895,8 @@
         },
         "mythicplus": {
           "1": [
-            "271492:239035:dungeon"
+            "271492:239035:dungeon",
+            "239035:alternative:255:icyveins"
           ],
           "10": [
             "160213:160213:dungeon",
@@ -33673,7 +33997,7 @@
           "252258:alternative:255:icyveins"
         ],
         "12": [
-          "240898:alternative:255:icyveins",
+          "281029:alternative:255:icyveins",
           "251136:alternative:255:icyveins"
         ],
         "13": [
@@ -33866,8 +34190,8 @@
             "159301:alternative:259:icyveins"
           ],
           "7": [
-            "268225:alternative:259:icyveins",
-            "251130:alternative:259:observed-dungeon"
+            "251130:alternative:259:observed-dungeon",
+            "268225:alternative:259:icyveins"
           ]
         }
       },
@@ -33914,14 +34238,14 @@
           "273792:alternative:259:icyveins"
         ],
         "12": [
-          "240906:alternative:259:icyveins",
+          "281029:alternative:259:icyveins",
           "251136:alternative:259:icyveins"
         ],
         "9": [
           "244576:alternative:259:icyveins"
         ],
         "13": [
-          "270175:alternative:259:icyveins",
+          "281215:alternative:259:icyveins",
           "250259:alternative:259:icyveins"
         ],
         "16": [
@@ -33932,6 +34256,7 @@
           "237837:alternative:259:icyveins"
         ],
         "14": [
+          "270175:alternative:259:icyveins",
           "159617:alternative:259:icyveins"
         ]
       },
@@ -34090,13 +34415,13 @@
             "273791:alternative:260:icyveins"
           ],
           "10": [
-            "251124:alternative:260:icyveins",
             "159312:alternative:260:observed-dungeon",
-            "193758:alternative:260:observed-dungeon"
+            "193758:alternative:260:observed-dungeon",
+            "251124:alternative:260:icyveins"
           ],
           "2": [
-            "273781:alternative:260:icyveins",
-            "251173:alternative:260:observed-dungeon"
+            "251173:alternative:260:observed-dungeon",
+            "273781:alternative:260:icyveins"
           ],
           "15": [
             "193763:alternative:260:icyveins"
@@ -34292,14 +34617,14 @@
         "mythicplus": {
           "10": [
             "271511:159337:dungeon",
-            "251124:alternative:261:icyveins",
-            "159337:alternative:261:observed-dungeon"
+            "159337:alternative:261:observed-dungeon",
+            "251124:alternative:261:icyveins"
           ],
           "12": [
             "162544:162544:dungeon",
             "158366:158366:dungeon:observed:261",
-            "252258:alternative:261:icyveins",
-            "251194:alternative:261:observed-dungeon"
+            "251194:alternative:261:observed-dungeon",
+            "252258:alternative:261:icyveins"
           ],
           "15": [
             "251190:251190:dungeon",
@@ -34325,8 +34650,8 @@
           ],
           "8": [
             "159327:159327:dungeon:observed:261",
-            "251153:alternative:261:icyveins",
-            "159304:alternative:261:observed-dungeon"
+            "159304:alternative:261:observed-dungeon",
+            "251153:alternative:261:icyveins"
           ],
           "11": [
             "158366:158366:dungeon:observed:261",
@@ -34342,17 +34667,17 @@
             "159317:alternative:261:icyveins"
           ],
           "3": [
-            "251223:alternative:261:icyveins",
-            "273774:alternative:261:observed-dungeon"
+            "273774:alternative:261:observed-dungeon",
+            "251223:alternative:261:icyveins"
           ],
           "7": [
-            "251130:alternative:261:icyveins",
             "159329:alternative:261:observed-dungeon",
-            "268225:alternative:261:observed-dungeon"
+            "268225:alternative:261:observed-dungeon",
+            "251130:alternative:261:icyveins"
           ],
           "9": [
-            "251135:alternative:261:icyveins",
-            "251183:alternative:261:observed-dungeon"
+            "251183:alternative:261:observed-dungeon",
+            "251135:alternative:261:icyveins"
           ]
         }
       },
@@ -34399,7 +34724,7 @@
           "268249:alternative:261:icyveins"
         ],
         "12": [
-          "240892:alternative:261:icyveins",
+          "281029:alternative:261:icyveins",
           "252258:alternative:261:icyveins"
         ],
         "13": [
@@ -34562,28 +34887,28 @@
             "251232:alternative:256:icyveins"
           ],
           "10": [
-            "159247:alternative:256:icyveins",
-            "273773:alternative:256:observed-dungeon"
+            "273773:alternative:256:observed-dungeon",
+            "159247:alternative:256:icyveins"
           ],
           "6": [
-            "193691:alternative:256:icyveins",
-            "251222:alternative:256:observed-dungeon"
+            "251222:alternative:256:observed-dungeon",
+            "193691:alternative:256:icyveins"
           ],
           "3": [
-            "239031:alternative:256:icyveins",
-            "239045:alternative:256:observed-dungeon"
+            "239045:alternative:256:observed-dungeon",
+            "239031:alternative:256:icyveins"
           ],
           "8": [
-            "251219:alternative:256:icyveins",
-            "159259:alternative:256:observed-dungeon"
+            "159259:alternative:256:observed-dungeon",
+            "251219:alternative:256:icyveins"
           ],
           "9": [
-            "251127:alternative:256:icyveins",
-            "159263:alternative:256:observed-dungeon"
+            "159263:alternative:256:observed-dungeon",
+            "251127:alternative:256:icyveins"
           ],
           "16": [
-            "159636:alternative:256:icyveins",
-            "193761:alternative:256:observed-dungeon"
+            "193761:alternative:256:observed-dungeon",
+            "159636:alternative:256:icyveins"
           ]
         }
       },
@@ -34614,7 +34939,7 @@
         "7": [
           "271554:alternative:256:icyveins",
           "251160:alternative:256:icyveins",
-          "240155:alternative:256:icyveins"
+          "281235:alternative:256:icyveins"
         ],
         "15": [
           "268253:alternative:256:icyveins",
@@ -34631,7 +34956,7 @@
         "11": [
           "268266:alternative:256:icyveins",
           "273792:alternative:256:icyveins",
-          "240892:alternative:256:icyveins",
+          "281029:alternative:256:icyveins",
           "158366:alternative:256:icyveins"
         ],
         "12": [
@@ -34640,7 +34965,7 @@
           "268266:alternative:256:icyveins",
           "268252:alternative:256:icyveins",
           "158366:alternative:256:icyveins",
-          "240892:alternative:256:icyveins"
+          "281029:alternative:256:icyveins"
         ],
         "13": [
           "270167:alternative:256:icyveins",
@@ -34800,9 +35125,9 @@
             "159247:alternative:257:icyveins"
           ],
           "2": [
-            "251234:alternative:257:icyveins",
             "273781:alternative:257:observed-dungeon",
-            "251173:alternative:257:observed-dungeon"
+            "251173:alternative:257:observed-dungeon",
+            "251234:alternative:257:icyveins"
           ],
           "6": [
             "251222:alternative:257:icyveins"
@@ -34811,20 +35136,20 @@
             "239031:alternative:257:icyveins"
           ],
           "8": [
-            "159259:alternative:257:icyveins",
-            "251219:alternative:257:observed-dungeon"
+            "251219:alternative:257:observed-dungeon",
+            "159259:alternative:257:icyveins"
           ],
           "13": [
-            "250214:alternative:257:icyveins",
-            "250255:alternative:257:observed-dungeon"
+            "250255:alternative:257:observed-dungeon",
+            "250214:alternative:257:icyveins"
           ],
           "9": [
-            "159263:alternative:257:icyveins",
-            "251127:alternative:257:observed-dungeon"
+            "251127:alternative:257:observed-dungeon",
+            "159263:alternative:257:icyveins"
           ],
           "14": [
-            "250215:alternative:257:icyveins",
-            "250255:alternative:257:observed-dungeon"
+            "250255:alternative:257:observed-dungeon",
+            "250215:alternative:257:icyveins"
           ]
         }
       },
@@ -35040,27 +35365,27 @@
           ],
           "17": [
             "273779:273779:dungeon:observed:258",
-            "251191:alternative:258:icyveins",
-            "271681:alternative:258:observed-dungeon"
+            "271681:alternative:258:observed-dungeon",
+            "251191:alternative:258:icyveins"
           ],
           "1": [
             "251232:alternative:258:icyveins"
           ],
           "10": [
-            "273773:alternative:258:icyveins",
-            "159247:alternative:258:observed-dungeon"
+            "159247:alternative:258:observed-dungeon",
+            "273773:alternative:258:icyveins"
           ],
           "2": [
-            "251142:alternative:258:icyveins",
-            "273781:alternative:258:observed-dungeon"
+            "273781:alternative:258:observed-dungeon",
+            "251142:alternative:258:icyveins"
           ],
           "6": [
-            "251185:alternative:258:icyveins",
-            "251222:alternative:258:observed-dungeon"
+            "251222:alternative:258:observed-dungeon",
+            "251185:alternative:258:icyveins"
           ],
           "3": [
-            "239045:alternative:258:icyveins",
-            "239031:alternative:258:observed-dungeon"
+            "239031:alternative:258:observed-dungeon",
+            "239045:alternative:258:icyveins"
           ],
           "8": [
             "251137:alternative:258:icyveins"
@@ -35069,8 +35394,8 @@
             "273785:alternative:258:icyveins"
           ],
           "9": [
-            "251127:alternative:258:icyveins",
-            "159263:alternative:258:observed-dungeon"
+            "159263:alternative:258:observed-dungeon",
+            "251127:alternative:258:icyveins"
           ],
           "16": [
             "273778:alternative:258:icyveins"
@@ -35344,9 +35669,9 @@
             "239050:alternative:250:icyveins"
           ],
           "10": [
-            "251197:alternative:250:icyveins",
             "251214:alternative:250:observed-dungeon",
-            "159413:alternative:250:observed-dungeon"
+            "159413:alternative:250:observed-dungeon",
+            "251197:alternative:250:icyveins"
           ],
           "2": [
             "251173:alternative:250:icyveins"
@@ -35408,7 +35733,7 @@
           "239036:alternative:250:icyveins"
         ],
         "11": [
-          "240906:alternative:250:icyveins",
+          "281029:alternative:250:icyveins",
           "158366:alternative:250:icyveins",
           "268252:alternative:250:icyveins"
         ],
@@ -35585,8 +35910,8 @@
             "251126:alternative:251:icyveins"
           ],
           "10": [
-            "159413:alternative:251:icyveins",
-            "251214:alternative:251:observed-dungeon"
+            "251214:alternative:251:observed-dungeon",
+            "159413:alternative:251:icyveins"
           ],
           "3": [
             "251138:alternative:251:icyveins"
@@ -35598,8 +35923,8 @@
             "159412:alternative:251:icyveins"
           ],
           "5": [
-            "193753:alternative:251:icyveins",
-            "239036:alternative:251:observed-dungeon"
+            "239036:alternative:251:observed-dungeon",
+            "193753:alternative:251:icyveins"
           ],
           "9": [
             "251133:alternative:251:observed-dungeon"
@@ -35810,8 +36135,8 @@
             "273792:alternative:252:icyveins"
           ],
           "10": [
-            "159413:alternative:252:icyveins",
-            "251197:alternative:252:observed-dungeon"
+            "251197:alternative:252:observed-dungeon",
+            "159413:alternative:252:icyveins"
           ],
           "7": [
             "273776:alternative:252:icyveins"
@@ -35828,7 +36153,7 @@
       "alternativeGuideUpdatedAt": "2026-10-12T16:30:00Z",
       "alternatives": {
         "1": [
-          "240983:alternative:252:icyveins",
+          "281239:alternative:252:icyveins",
           "251126:alternative:252:icyveins"
         ],
         "10": [
@@ -35868,7 +36193,7 @@
           "268249:alternative:252:icyveins"
         ],
         "12": [
-          "240908:alternative:252:icyveins",
+          "281029:alternative:252:icyveins",
           "252258:alternative:252:icyveins"
         ],
         "13": [
@@ -36092,16 +36417,15 @@
           "252258:alternative:262:icyveins"
         ],
         "12": [
-          "240892:alternative:262:icyveins",
+          "281029:alternative:262:icyveins",
           "158366:alternative:262:icyveins"
         ],
         "9": [
           "244584:alternative:262:icyveins"
         ],
         "13": [
-          "273796:alternative:262:icyveins",
-          "273794:alternative:262:icyveins",
-          "270164:alternative:262:icyveins"
+          "281215:alternative:262:icyveins",
+          "273794:alternative:262:icyveins"
         ],
         "16": [
           "271092:alternative:262:icyveins",
@@ -36111,10 +36435,12 @@
           "245769:alternative:262:icyveins"
         ],
         "10": [
+          "281238:alternative:262:icyveins",
           "160213:alternative:262:icyveins"
         ],
         "14": [
-          "273796:alternative:262:icyveins"
+          "273796:alternative:262:icyveins",
+          "270164:alternative:262:icyveins"
         ]
       },
       "alternativeGuideCheckedAt": "2026-10-20T18:40:26.252745+00:00",
@@ -36263,8 +36589,8 @@
             "193752:alternative:263:icyveins"
           ],
           "2": [
-            "251234:alternative:263:icyveins",
-            "251173:alternative:263:observed-dungeon"
+            "251173:alternative:263:observed-dungeon",
+            "251234:alternative:263:icyveins"
           ],
           "3": [
             "239049:alternative:263:icyveins"
@@ -36273,8 +36599,8 @@
             "159375:alternative:263:icyveins"
           ],
           "15": [
-            "251190:alternative:263:icyveins",
-            "193763:alternative:263:observed-dungeon"
+            "193763:alternative:263:observed-dungeon",
+            "251190:alternative:263:icyveins"
           ],
           "8": [
             "159388:alternative:263:icyveins"
@@ -36334,7 +36660,7 @@
           "252258:alternative:263:icyveins"
         ],
         "12": [
-          "240900:alternative:263:icyveins",
+          "281029:alternative:263:icyveins",
           "273792:alternative:263:icyveins"
         ],
         "13": [
@@ -36517,8 +36843,8 @@
             "273781:alternative:264:icyveins"
           ],
           "6": [
-            "251155:alternative:264:icyveins",
-            "251228:alternative:264:observed-dungeon"
+            "251228:alternative:264:observed-dungeon",
+            "251155:alternative:264:icyveins"
           ],
           "3": [
             "251131:alternative:264:icyveins"
@@ -36577,7 +36903,7 @@
           "244584:alternative:264:icyveins"
         ],
         "13": [
-          "270164:alternative:264:icyveins",
+          "281215:alternative:264:icyveins",
           "193757:alternative:264:icyveins"
         ],
         "16": [
@@ -36589,6 +36915,7 @@
           "268196:alternative:264:icyveins"
         ],
         "14": [
+          "270164:alternative:264:icyveins",
           "250215:alternative:264:icyveins"
         ]
       },
@@ -36738,12 +37065,12 @@
             "251232:alternative:62:icyveins"
           ],
           "10": [
-            "251129:alternative:62:icyveins",
-            "159247:alternative:62:observed-dungeon"
+            "159247:alternative:62:observed-dungeon",
+            "251129:alternative:62:icyveins"
           ],
           "2": [
-            "251142:alternative:62:icyveins",
-            "251173:alternative:62:observed-dungeon"
+            "251173:alternative:62:observed-dungeon",
+            "251142:alternative:62:icyveins"
           ],
           "3": [
             "158344:alternative:62:icyveins"
@@ -36752,8 +37079,8 @@
             "193750:alternative:62:icyveins"
           ],
           "15": [
-            "251190:alternative:62:icyveins",
-            "193763:alternative:62:observed-dungeon"
+            "193763:alternative:62:observed-dungeon",
+            "251190:alternative:62:icyveins"
           ],
           "8": [
             "251137:alternative:62:icyveins"
@@ -36831,6 +37158,7 @@
           "159667:alternative:62:icyveins"
         ],
         "14": [
+          "281215:alternative:62:icyveins",
           "250214:alternative:62:icyveins"
         ]
       },
@@ -37208,8 +37536,8 @@
           ],
           "15": [
             "251132:251132:dungeon:observed:64",
-            "251190:alternative:64:icyveins",
-            "193763:alternative:64:observed-dungeon"
+            "193763:alternative:64:observed-dungeon",
+            "251190:alternative:64:icyveins"
           ],
           "16": [
             "273778:273778:dungeon:observed:64"
@@ -37221,20 +37549,20 @@
             "159247:alternative:64:icyveins"
           ],
           "3": [
-            "239031:alternative:64:icyveins",
-            "239045:alternative:64:observed-dungeon"
+            "239045:alternative:64:observed-dungeon",
+            "239031:alternative:64:icyveins"
           ],
           "7": [
             "159234:alternative:64:icyveins",
             "193750:alternative:64:icyveins"
           ],
           "8": [
-            "251137:alternative:64:icyveins",
-            "159259:alternative:64:observed-dungeon"
+            "159259:alternative:64:observed-dungeon",
+            "251137:alternative:64:icyveins"
           ],
           "9": [
-            "251154:alternative:64:icyveins",
-            "251127:alternative:64:observed-dungeon"
+            "251127:alternative:64:observed-dungeon",
+            "251154:alternative:64:icyveins"
           ],
           "6": [
             "251185:alternative:64:observed-dungeon"
@@ -37463,8 +37791,8 @@
             "273778:273778:dungeon:observed:265"
           ],
           "1": [
-            "251199:alternative:265:icyveins",
-            "239047:alternative:265:observed-dungeon"
+            "239047:alternative:265:observed-dungeon",
+            "251199:alternative:265:icyveins"
           ],
           "10": [
             "159247:alternative:265:icyveins"
@@ -37476,13 +37804,13 @@
             "251160:alternative:265:icyveins"
           ],
           "8": [
-            "251137:alternative:265:icyveins",
             "251219:alternative:265:observed-dungeon",
-            "159259:alternative:265:observed-dungeon"
+            "159259:alternative:265:observed-dungeon",
+            "251137:alternative:265:icyveins"
           ],
           "5": [
-            "273785:alternative:265:icyveins",
-            "239032:alternative:265:observed-dungeon"
+            "239032:alternative:265:observed-dungeon",
+            "273785:alternative:265:icyveins"
           ],
           "9": [
             "251127:alternative:265:observed-dungeon"
@@ -37550,6 +37878,7 @@
           "245769:alternative:265:icyveins"
         ],
         "14": [
+          "281215:alternative:265:icyveins",
           "250224:alternative:265:icyveins"
         ]
       },
@@ -37701,12 +38030,12 @@
             "251199:alternative:266:icyveins"
           ],
           "10": [
-            "159247:alternative:266:icyveins",
-            "273773:alternative:266:observed-dungeon"
+            "273773:alternative:266:observed-dungeon",
+            "159247:alternative:266:icyveins"
           ],
           "2": [
-            "251234:alternative:266:icyveins",
-            "273781:alternative:266:observed-dungeon"
+            "273781:alternative:266:observed-dungeon",
+            "251234:alternative:266:icyveins"
           ],
           "6": [
             "251222:alternative:266:icyveins"
@@ -37718,8 +38047,8 @@
             "251160:alternative:266:icyveins"
           ],
           "15": [
-            "251132:alternative:266:icyveins",
-            "193763:alternative:266:observed-dungeon"
+            "193763:alternative:266:observed-dungeon",
+            "251132:alternative:266:icyveins"
           ],
           "8": [
             "251137:alternative:266:icyveins"
@@ -37776,7 +38105,7 @@
           "268249:alternative:266:icyveins"
         ],
         "12": [
-          "240906:alternative:266:icyveins",
+          "281029:alternative:266:icyveins",
           "251136:alternative:266:icyveins"
         ],
         "13": [
@@ -37794,6 +38123,7 @@
           "245769:alternative:266:icyveins"
         ],
         "14": [
+          "281215:alternative:266:icyveins",
           "250224:alternative:266:icyveins"
         ]
       },
@@ -37961,20 +38291,20 @@
             "251199:alternative:267:icyveins"
           ],
           "10": [
-            "159247:alternative:267:icyveins",
-            "273773:alternative:267:observed-dungeon"
+            "273773:alternative:267:observed-dungeon",
+            "159247:alternative:267:icyveins"
           ],
           "6": [
-            "251222:alternative:267:icyveins",
             "193691:alternative:267:observed-dungeon",
-            "251185:alternative:267:observed-dungeon"
+            "251185:alternative:267:observed-dungeon",
+            "251222:alternative:267:icyveins"
           ],
           "3": [
             "239031:alternative:267:icyveins"
           ],
           "8": [
-            "251137:alternative:267:icyveins",
-            "251219:alternative:267:observed-dungeon"
+            "251219:alternative:267:observed-dungeon",
+            "251137:alternative:267:icyveins"
           ],
           "9": [
             "251127:alternative:267:observed-dungeon"
@@ -38042,6 +38372,7 @@
           "245769:alternative:267:icyveins"
         ],
         "14": [
+          "281215:alternative:267:icyveins",
           "250224:alternative:267:icyveins"
         ]
       },
@@ -38174,8 +38505,8 @@
           ],
           "10": [
             "271520:193758:dungeon",
-            "193758:alternative:268:icyveins",
-            "159337:alternative:268:observed-dungeon"
+            "159337:alternative:268:observed-dungeon",
+            "193758:alternative:268:icyveins"
           ],
           "11": [
             "251148:251148:dungeon",
@@ -38183,8 +38514,8 @@
           ],
           "14": [
             "159617:159617:dungeon",
-            "158374:alternative:268:icyveins",
-            "250245:alternative:268:observed-dungeon"
+            "250245:alternative:268:observed-dungeon",
+            "158374:alternative:268:icyveins"
           ],
           "16": [
             "251192:251192:dungeon"
@@ -38213,8 +38544,8 @@
             "251189:alternative:268:icyveins"
           ],
           "7": [
-            "159329:alternative:268:icyveins",
-            "268225:alternative:268:observed-dungeon"
+            "268225:alternative:268:observed-dungeon",
+            "159329:alternative:268:icyveins"
           ]
         }
       },
@@ -38250,7 +38581,7 @@
           "251132:alternative:268:icyveins"
         ],
         "8": [
-          "243983:alternative:268:icyveins",
+          "272240:alternative:268:icyveins",
           "159304:alternative:268:icyveins",
           "268261:alternative:268:icyveins"
         ],
@@ -38277,6 +38608,7 @@
           "251192:alternative:268:icyveins"
         ],
         "14": [
+          "281215:alternative:268:icyveins",
           "158374:alternative:268:icyveins"
         ]
       },
@@ -38411,8 +38743,8 @@
             "251223:alternative:269:icyveins"
           ],
           "7": [
-            "251130:alternative:269:icyveins",
-            "268225:alternative:269:observed-dungeon"
+            "268225:alternative:269:observed-dungeon",
+            "251130:alternative:269:icyveins"
           ],
           "8": [
             "251153:alternative:269:icyveins"
@@ -38481,7 +38813,7 @@
           "268252:alternative:269:icyveins"
         ],
         "12": [
-          "240892:alternative:269:icyveins",
+          "281029:alternative:269:icyveins",
           "252258:alternative:269:icyveins"
         ],
         "13": [
@@ -38673,9 +39005,9 @@
         "mythicplus": {
           "3": [
             "271517:251146:dungeon",
-            "251223:alternative:270:icyveins",
             "251146:alternative:270:observed-dungeon",
-            "273774:alternative:270:observed-dungeon"
+            "273774:alternative:270:observed-dungeon",
+            "251223:alternative:270:icyveins"
           ],
           "15": [
             "193763:193763:dungeon",
@@ -38696,9 +39028,9 @@
           ],
           "7": [
             "271518:159313:dungeon",
-            "159313:alternative:270:icyveins",
             "268225:alternative:270:observed-dungeon",
-            "159329:alternative:270:observed-dungeon"
+            "159329:alternative:270:observed-dungeon",
+            "159313:alternative:270:icyveins"
           ],
           "12": [
             "252258:252258:dungeon",
@@ -38719,8 +39051,8 @@
           ],
           "2": [
             "251142:251142:dungeon:observed:270",
-            "251173:alternative:270:icyveins",
-            "273781:alternative:270:observed-dungeon"
+            "273781:alternative:270:observed-dungeon",
+            "251173:alternative:270:icyveins"
           ],
           "1": [
             "273791:alternative:270:icyveins"
@@ -38729,12 +39061,12 @@
             "251226:alternative:270:icyveins"
           ],
           "13": [
-            "273649:alternative:270:icyveins",
-            "250255:alternative:270:observed-dungeon"
+            "250255:alternative:270:observed-dungeon",
+            "273649:alternative:270:icyveins"
           ],
           "14": [
-            "250215:alternative:270:icyveins",
-            "250255:alternative:270:observed-dungeon"
+            "250255:alternative:270:observed-dungeon",
+            "250215:alternative:270:icyveins"
           ],
           "17": [
             "273779:alternative:270:icyveins"
@@ -38935,8 +39267,8 @@
           ],
           "5": [
             "251159:251159:dungeon",
-            "239048:alternative:102:icyveins",
-            "268235:alternative:102:observed-dungeon"
+            "268235:alternative:102:observed-dungeon",
+            "239048:alternative:102:icyveins"
           ],
           "11": [
             "252258:252258:dungeon",
@@ -38966,8 +39298,8 @@
             "239033:alternative:102:icyveins"
           ],
           "2": [
-            "251234:alternative:102:icyveins",
-            "273781:alternative:102:observed-dungeon"
+            "273781:alternative:102:observed-dungeon",
+            "251234:alternative:102:icyveins"
           ],
           "6": [
             "159301:alternative:102:icyveins"
@@ -38976,8 +39308,8 @@
             "251223:alternative:102:icyveins"
           ],
           "7": [
-            "251130:alternative:102:icyveins",
-            "268225:alternative:102:observed-dungeon"
+            "268225:alternative:102:observed-dungeon",
+            "251130:alternative:102:icyveins"
           ],
           "16": [
             "273778:alternative:102:icyveins"
@@ -39023,7 +39355,7 @@
           "239048:alternative:102:icyveins"
         ],
         "11": [
-          "240900:alternative:102:icyveins",
+          "281029:alternative:102:icyveins",
           "252258:alternative:102:icyveins"
         ],
         "12": [
@@ -39045,6 +39377,7 @@
           "245769:alternative:102:icyveins"
         ],
         "14": [
+          "281215:alternative:102:icyveins",
           "250224:alternative:102:icyveins"
         ]
       },
@@ -39202,16 +39535,16 @@
             "159317:alternative:103:icyveins"
           ],
           "3": [
-            "251223:alternative:103:icyveins",
-            "273774:alternative:103:observed-dungeon"
+            "273774:alternative:103:observed-dungeon",
+            "251223:alternative:103:icyveins"
           ],
           "7": [
-            "251130:alternative:103:icyveins",
-            "268225:alternative:103:observed-dungeon"
+            "268225:alternative:103:observed-dungeon",
+            "251130:alternative:103:icyveins"
           ],
           "5": [
-            "251159:alternative:103:icyveins",
-            "268235:alternative:103:observed-dungeon"
+            "268235:alternative:103:observed-dungeon",
+            "251159:alternative:103:icyveins"
           ],
           "9": [
             "251183:alternative:103:observed-dungeon"
@@ -39261,7 +39594,7 @@
           "252258:alternative:103:icyveins"
         ],
         "12": [
-          "240900:alternative:103:icyveins",
+          "281029:alternative:103:icyveins",
           "158366:alternative:103:icyveins"
         ],
         "13": [
@@ -39475,7 +39808,7 @@
           "251153:alternative:104:icyveins"
         ],
         "5": [
-          "243977:alternative:104:icyveins",
+          "281236:alternative:104:icyveins",
           "251159:alternative:104:icyveins"
         ],
         "11": [
@@ -39483,7 +39816,7 @@
           "159459:alternative:104:icyveins"
         ],
         "12": [
-          "240906:alternative:104:icyveins",
+          "281029:alternative:104:icyveins",
           "252258:alternative:104:icyveins"
         ],
         "13": [
@@ -39694,8 +40027,8 @@
           ],
           "7": [
             "271527:159313:dungeon",
-            "159313:alternative:105:icyveins",
-            "159329:alternative:105:observed-dungeon"
+            "159329:alternative:105:observed-dungeon",
+            "159313:alternative:105:icyveins"
           ],
           "8": [
             "251153:251153:dungeon",
@@ -39708,8 +40041,8 @@
           ],
           "13": [
             "250214:250214:dungeon",
-            "193757:alternative:105:icyveins",
-            "250255:alternative:105:observed-dungeon"
+            "250255:alternative:105:observed-dungeon",
+            "193757:alternative:105:icyveins"
           ],
           "14": [
             "250255:250255:dungeon",
@@ -39728,8 +40061,8 @@
             "251191:alternative:105:observed-dungeon"
           ],
           "3": [
-            "251223:alternative:105:icyveins",
-            "273774:alternative:105:observed-dungeon"
+            "273774:alternative:105:observed-dungeon",
+            "251223:alternative:105:icyveins"
           ]
         }
       },
@@ -39773,13 +40106,13 @@
           "251159:alternative:105:icyveins"
         ],
         "11": [
-          "240892:alternative:105:icyveins",
+          "281029:alternative:105:icyveins",
           "159459:alternative:105:icyveins",
           "240949:alternative:105:icyveins"
         ],
         "12": [
           "252258:alternative:105:icyveins",
-          "240892:alternative:105:icyveins"
+          "281029:alternative:105:icyveins"
         ],
         "13": [
           "270167:alternative:105:icyveins",
@@ -39947,8 +40280,8 @@
             "251223:alternative:577:icyveins"
           ],
           "7": [
-            "251130:alternative:577:icyveins",
-            "268225:alternative:577:observed-dungeon"
+            "268225:alternative:577:observed-dungeon",
+            "251130:alternative:577:icyveins"
           ],
           "5": [
             "239048:alternative:577:icyveins"
@@ -40144,8 +40477,8 @@
           "3": [
             "251223:251223:dungeon",
             "271535:251223:dungeon",
-            "251146:alternative:581:icyveins",
-            "273774:alternative:581:observed-dungeon"
+            "273774:alternative:581:observed-dungeon",
+            "251146:alternative:581:icyveins"
           ],
           "10": [
             "251124:251124:dungeon",
@@ -40175,8 +40508,8 @@
             "273791:alternative:581:icyveins"
           ],
           "2": [
-            "251173:alternative:581:icyveins",
-            "273781:alternative:581:observed-dungeon"
+            "273781:alternative:581:observed-dungeon",
+            "251173:alternative:581:icyveins"
           ],
           "15": [
             "193763:alternative:581:icyveins"
@@ -40237,7 +40570,7 @@
           "251226:alternative:581:icyveins"
         ],
         "11": [
-          "240890:alternative:581:icyveins",
+          "281029:alternative:581:icyveins",
           "251148:alternative:581:icyveins"
         ],
         "12": [
@@ -40260,6 +40593,7 @@
           "251143:alternative:581:icyveins"
         ],
         "14": [
+          "281215:alternative:581:icyveins",
           "250228:alternative:581:icyveins"
         ]
       },
@@ -40432,8 +40766,8 @@
             "159301:alternative:1480:icyveins"
           ],
           "7": [
-            "251130:alternative:1480:icyveins",
-            "268225:alternative:1480:observed-dungeon"
+            "268225:alternative:1480:observed-dungeon",
+            "251130:alternative:1480:icyveins"
           ],
           "16": [
             "273778:alternative:1480:icyveins"
@@ -40479,20 +40813,20 @@
           "251159:alternative:1480:icyveins"
         ],
         "11": [
-          "240908:alternative:1480:icyveins",
+          "281029:alternative:1480:icyveins",
           "158366:alternative:1480:icyveins",
           "268249:alternative:1480:icyveins"
         ],
         "12": [
           "158366:alternative:1480:icyveins",
           "251136:alternative:1480:icyveins",
-          "240908:alternative:1480:icyveins"
+          "281029:alternative:1480:icyveins"
         ],
         "9": [
           "244576:alternative:1480:icyveins"
         ],
         "13": [
-          "270164:alternative:1480:icyveins",
+          "281215:alternative:1480:icyveins",
           "250215:alternative:1480:icyveins"
         ],
         "16": [
@@ -40504,6 +40838,7 @@
           "273778:alternative:1480:icyveins"
         ],
         "14": [
+          "270164:alternative:1480:icyveins",
           "193757:alternative:1480:icyveins"
         ]
       },
@@ -40712,7 +41047,7 @@
           "273789:alternative:1467:icyveins"
         ],
         "11": [
-          "240906:alternative:1467:icyveins",
+          "281029:alternative:1467:icyveins",
           "158366:alternative:1467:icyveins"
         ],
         "12": [
@@ -40734,6 +41069,7 @@
           "245769:alternative:1467:icyveins"
         ],
         "14": [
+          "281215:alternative:1467:icyveins",
           "250214:alternative:1467:icyveins"
         ]
       },
@@ -40853,7 +41189,8 @@
         },
         "mythicplus": {
           "1": [
-            "271501:239035:dungeon"
+            "271501:239035:dungeon",
+            "239035:alternative:1468:icyveins"
           ],
           "8": [
             "159388:159388:dungeon",
@@ -40892,31 +41229,31 @@
             "251191:alternative:1468:icyveins"
           ],
           "2": [
-            "251142:alternative:1468:icyveins",
             "273781:alternative:1468:observed-dungeon",
-            "251173:alternative:1468:observed-dungeon"
+            "251173:alternative:1468:observed-dungeon",
+            "251142:alternative:1468:icyveins"
           ],
           "6": [
-            "251155:alternative:1468:icyveins",
-            "251228:alternative:1468:observed-dungeon"
+            "251228:alternative:1468:observed-dungeon",
+            "251155:alternative:1468:icyveins"
           ],
           "3": [
             "239049:alternative:1468:icyveins"
           ],
           "7": [
-            "159375:alternative:1468:icyveins",
-            "271500:alternative:1468:observed-dungeon"
+            "271500:alternative:1468:observed-dungeon",
+            "159375:alternative:1468:icyveins"
           ],
           "15": [
-            "251190:alternative:1468:icyveins",
-            "193763:alternative:1468:observed-dungeon"
+            "193763:alternative:1468:observed-dungeon",
+            "251190:alternative:1468:icyveins"
           ],
           "5": [
             "239034:alternative:1468:icyveins"
           ],
           "9": [
-            "273775:alternative:1468:icyveins",
-            "159380:alternative:1468:observed-dungeon"
+            "159380:alternative:1468:observed-dungeon",
+            "273775:alternative:1468:icyveins"
           ]
         }
       },
@@ -41136,8 +41473,8 @@
             "239049:alternative:1473:icyveins"
           ],
           "7": [
-            "159375:alternative:1473:icyveins",
-            "271500:alternative:1473:observed-dungeon"
+            "271500:alternative:1473:observed-dungeon",
+            "159375:alternative:1473:icyveins"
           ],
           "5": [
             "251233:alternative:1473:icyveins"
@@ -41146,14 +41483,17 @@
             "273778:alternative:1473:icyveins"
           ],
           "17": [
-            "271681:alternative:1473:icyveins",
-            "251191:alternative:1473:observed-dungeon"
+            "251191:alternative:1473:observed-dungeon",
+            "271681:alternative:1473:icyveins"
           ],
           "9": [
             "273775:alternative:1473:observed-dungeon"
           ],
           "6": [
             "251228:alternative:1473:observed-dungeon"
+          ],
+          "1": [
+            "239035:alternative:1473:icyveins"
           ]
         }
       },
