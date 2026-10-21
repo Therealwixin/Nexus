@@ -78,10 +78,16 @@ function UI:UpdateGearBackground()
  if not info.width or not info.height or info.width<=0 or info.height<=0 or width<=0 or height<=0 then
   self.gearBackground:Hide();self.gearBackgroundDim:Hide();return
  end
- local scale=math.min(width*.68/info.width,height*.68/info.height,1)
+ -- Wide talent backgrounds cover both class/spec trees. The spec scene is
+ -- in the right half; fitting the whole canvas centered its empty left area.
+ local sceneLeft=info.width/info.height>=1.5 and .5 or 0
+ local sceneWidth=info.width*(1-sceneLeft)
+ local left,right=info.leftTexCoord or 0,info.rightTexCoord or 1
+ local sceneUVLeft=left+(right-left)*sceneLeft
+ local scale=math.min(width*.68/sceneWidth,height*.68/info.height,1)
  self.gearBackground:ClearAllPoints();self.gearBackground:SetPoint("CENTER",self.gearChild,"CENTER",0,0)
- self.gearBackground:SetSize(info.width*scale,info.height*scale)
- self.gearBackground:SetTexCoord(info.leftTexCoord or 0,info.rightTexCoord or 1,info.topTexCoord or 0,info.bottomTexCoord or 1)
+ self.gearBackground:SetSize(sceneWidth*scale,info.height*scale)
+ self.gearBackground:SetTexCoord(sceneUVLeft,right,info.topTexCoord or 0,info.bottomTexCoord or 1)
  self.gearBackground:Show();self.gearBackgroundDim:Show()
 end
 -- Eight slots per side; both weapons follow wrists on the left.

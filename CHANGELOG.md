@@ -1,3 +1,9 @@
+## 0.6.6-beta.7
+
+- Center the visible spec scene rather than the whole two-tree talent canvas: remove the unused left half of wide talent backgrounds before fitting the illustration. Keep the smaller centered size, feather mask and undistorted scene aspect; non-wide images retain their full canvas.
+- Add a Scan Gear hover explanation: rescans equipped gear/bags and preparation status, while recommendations arrive with addon package updates.
+- Verify that the native right-side scene maps to the rendered center across window sizes, without stretching or changing equipment slot placement.
+
 ## 0.6.6-beta.6
 
 - Fix daily refresh cadence: check each new UTC calendar day instead of requiring 23 elapsed hours. Add two later retry opportunities for failed/partial source refreshes, with an explicit skipped/required run summary.
