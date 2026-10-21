@@ -54,3 +54,21 @@ Completed anonymous spec/mode summaries are cached even on collection failure. C
 **Verify Warcraft Logs** remains a manual OAuth/quota diagnostic using repository secrets `WCL_CLIENT_ID` and `WCL_CLIENT_SECRET`. Optional single-encounter diagnostic outputs never replace broad addon evidence.
 
 Raider.IO provides EU affix context through its public API. Archon build data is not integrated: the public gear page currently returns human verification. The daily collector reports that status honestly without bypassing the check or treating it as gear data. Publication and last-check dates are shown separately.
+
+### Archon aggregate access investigation (2026-10-21)
+
+No documented public endpoint for the precomputed WoW build/gear aggregates was found. The API documentation linked by Archon's help collection documents Warcraft Logs OAuth/GraphQL, which does not establish access to Archon's separate build aggregates. Our existing WCL credentials must not be labeled as an Archon integration or counted as an independent evidence source.
+
+Archon's September 29 API update announces an API refresh and temporarily reduced quotas for newly created keys; it does not announce a public gear aggregate endpoint. The next concrete step is to ask `support@archon.gg` for an approved aggregate feed/partner API and permission to distribute derived snapshots in the Nexus addon. Ask for coverage across all 40 specs (M+/raid), sample denominators, patch/season, source/update timestamps, permitted snapshot retention/distribution, attribution, quotas and refresh frequency. A weekly aggregate export would avoid per-player calls. Keep collection outside the game and bundle only validated anonymous aggregates after access is confirmed.
+
+Sources:
+- https://www.archon.gg/wow/articles/help/help-and-faq-collection
+- https://www.archon.gg/classic-vanilla/articles/help/api-documentation
+- https://www.archon.gg/eso/articles/news/api-updates-are-on-the-way
+- https://www.archon.gg/classic-sod/articles/help/rpg-logs-api-terms-of-service
+
+Suggested access request (not sent):
+
+> Subject: Nexus WoW addon — access to aggregated gear/build data
+>
+> Hello Archon team, I develop Nexus, a WoW gear and preparation addon (https://github.com/Therealwixin/Nexus). Do you offer an approved API, scheduled aggregate export, or partner feed for your WoW gear/build statistics across all 40 specializations in Mythic+ and raids? We want anonymous aggregate item usage, sample sizes, patch/season and update timestamps, collected centrally about once per week, with attribution and no per-player data requests from the addon. Please confirm permitted distribution of derived snapshots inside addon releases, cache/retention limits, rate limits, required credentials and any licensing or fees. We already have WCL API credentials but understand these may not grant access to Archon's build aggregates. Thank you.

@@ -1,3 +1,8 @@
+## 0.6.5-beta.3
+
+- Restore native WoW red button textures, bevels and hover states for the main navigation. Use larger Friz Quadrata labels, classic gold text and a white/gold active selection instead of flat grey underlined links.
+- Document the verified distinction between WCL API access and Archon build aggregates, with a concrete aggregate-feed access request. No unverified feed or credentials are introduced.
+
 ## 0.6.5-beta.2
 
 - Add Equipped / In bags filters to Preparation → Sockets & Gems, with Missing only applied to the selected location.

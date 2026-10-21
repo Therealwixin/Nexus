@@ -23,17 +23,15 @@ function R.SkinButton(button)
 end
 function R.StyleNavigation(button,active)
  R.SkinButton(button)
- for _,texture in ipairs(button._nexusButton.textures) do texture.region:SetAlpha(0) end
+ -- Keep the client-provided red button, bevel, pressed state and mouse highlight.
+ for _,texture in ipairs(button._nexusButton.textures) do texture.region:SetAlpha(texture.alpha) end
  button:SetEnabled(true)
- button:SetBackdrop(nil)
- if not button._nexusUnderline then
-  button._nexusUnderline=button:CreateTexture(nil,"ARTWORK");button._nexusUnderline:SetHeight(2)
-  button._nexusUnderline:SetPoint("BOTTOMLEFT",9,0);button._nexusUnderline:SetPoint("BOTTOMRIGHT",-9,0)
-  button._nexusUnderline:SetColorTexture(.73,.59,.33,1)
- end
- button._nexusUnderline:SetShown(active)
- local f=button:GetFontString();f:SetFont(R.FONT,13,"");f:SetTextColor(active and .91 or .63,active and .79 or .63,active and .52 or .60)
+ button:SetBackdrop(active and {edgeFile=white,edgeSize=1} or nil)
+ if active then button:SetBackdropBorderColor(1,.82,0,.8) end
+ local f=button:GetFontString();f:SetFont(R.FONT,14,"");f:SetShadowOffset(1,-1)
+ f:SetTextColor(1,active and 1 or .82,active and 1 or 0)
 end
+
 function R.ApplyTheme()
  for _,frame in ipairs(R.themePanels) do local state=frame._nexusPanel;R.SkinPanel(frame,state.kind,state.selected) end
  local ui=R.UI
