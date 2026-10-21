@@ -1,3 +1,7 @@
+## 0.6.7-beta.6
+
+- Reduce the background-only black overlay from 60% to 40% opacity.
+
 ## 0.6.7-beta.5
 
 - Increase the background-only black overlay from 30% to 60% opacity for stronger text contrast.
