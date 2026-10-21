@@ -7,7 +7,7 @@ local targets={
  [8]={id=159327,crafted=true,name="Craft fixture",gearSlotID=8},
 }
 R.GetGearTarget=function(slot,spec,scope)
- assert(spec==261 and scope=="overall","Dungeon alerts must use active-spec authored BiS, independently of preview/activity settings")
+ assert(spec==261 and scope=="mplus_usage","Dungeon alerts must use active-spec M+ primary recommendation, independently of preview/activity settings")
  return targets[slot]
 end
 R.GetGearCandidates=function()error("Dungeon alternatives must not become BiS alerts")end
@@ -27,8 +27,8 @@ assert(#A:CollectEntries(loot,261)==2,"The same item in paired target slots must
 targets[11]=nil
 A.visit={name="Temple of Sethraliss"};A:Show(entries)
 assert(A.rows[1].source:GetText():find(R.L("DUNGEON_BIS_CATALYST"),1,true),"A Catalyst source must be visibly labelled as a conversion")
-assert(A.rows[2].source:GetText():find("BiS",1,true),"A direct BiS drop must be visibly distinguished")
+assert(A.rows[2].source:GetText():find(R.L("DUNGEON_BIS_ITEM"),1,true),"A direct M+ target drop must be visibly distinguished")
 assert(#A.entries==2 and A.pages==1,"Two real targets must not leave two pages of alternatives")
 A.frame:Hide();A.visit=nil;A.entries=nil
 R.GetGearTarget,R.GetGearCandidates,R.scan=originalTarget,originalCandidates,originalScan
-print("Dungeon alerts PASS: BiS-only active-spec selection, six-to-two regression, Catalyst source IDs/labels, owned and paired-slot deduplication")
+print("Dungeon alerts PASS: primary M+ active-spec selection, six-to-two regression, Catalyst source IDs/labels, owned and paired-slot deduplication")

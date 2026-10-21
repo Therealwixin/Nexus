@@ -1,6 +1,24 @@
 local _,R=...
 -- Acquisition scope and activity are separate: an M+ playstyle set may contain raid gear.
-function R.GearSource() return "overall" end
+function R.GearSource() return R.GetMode()=="mythicplus" and "mplus_usage" or "overall" end
+-- Activity recommendations include all acquisition sources, including crafts and raids.
+function R.GetMPlusGearCandidates(slotID,specID)
+ local data=R.GetDataset("mythicplus",specID);local result,seen={},{}
+ for _,raw in ipairs(data and data.slots[slotID] or {}) do
+  if raw.source=="Murlok.io" and type(raw.count)=="number" and raw.count>0 and not seen[raw.id] then
+   local item={};for k,v in pairs(raw) do item[k]=v end
+   item.gearSlotID=slotID;item.bisGuide=nil;item.observedAlternative=true
+   item.updatedAt=data.updatedAt;item.sourceURL=data.sourceURL
+   if R.GearLevelRange(item,slotID) then result[#result+1]=item;seen[item.id]=true end
+  end
+ end
+ table.sort(result,function(a,b)if a.count~=b.count then return a.count>b.count end;return a.id<b.id end)
+ if slotID==12 or slotID==14 then
+  local first=R.GetMPlusGearCandidates(slotID==12 and 11 or 13,specID)[1]
+  if first then for i=#result,1,-1 do if result[i].id==first.id then table.remove(result,i) end end end
+ end
+ return result
+end
 function R.GetGuideDataset(specID)
  local data=R.GuideData;local spec=specID or R.ViewSpecID()
  if not data or not spec or not data.specs[spec] then return nil end
@@ -28,8 +46,9 @@ function R.GuideItem(key,specID)
  return R.guideItems[spec][key]
 end
 function R.GetGearCandidates(slotID,specID,scope)
+ scope=scope or R.GearSource();if scope=="mplus_usage" then return R.GetMPlusGearCandidates(slotID,specID) end
  local guide=R.GetGuideDataset(specID);if not guide then return {} end
- scope=scope or R.GearSource();local set=scope=="overall" and R.GetGuideSet(specID)
+ local set=scope=="overall" and R.GetGuideSet(specID)
  local slots=set and set.slots or guide.sourceLists[scope];local result={};local seen={}
  for _,key in ipairs(slots and slots[slotID] or {}) do
   local item=R.GuideItem(key,specID)
@@ -55,7 +74,7 @@ end
 function R.GetGearTarget(slotID,specID,scope) return R.GetGearCandidates(slotID,specID,scope)[1] end
 function R.GetGearAlternatives(slotID,specID)
  local guide=R.GetGuideDataset(specID);if not guide then return {} end
- local main=R.GetGearTarget(slotID,specID,"overall");local pool,seen={},{}
+ local main=R.GetGearTarget(slotID,specID);local pool,seen={},{}
  local function add(raw)
   if not raw then return end
   if main and raw.id==main.id and raw.acquisitionItemID==main.acquisitionItemID then return end
@@ -79,6 +98,7 @@ function R.GetGearAlternatives(slotID,specID)
   if not R.GearLevelRange(copy,slotID) then return end
   seen[copy.id]=copy;pool[#pool+1]=copy
  end
+ if R.GearSource()=="mplus_usage" then for _,item in ipairs(R.GetMPlusGearCandidates(slotID,specID)) do add(item) end end
  for _,item in ipairs(R.GetGearCandidates(slotID,specID,"overall")) do if item.source=="Wowhead" then add(item) end end
  for _,key in ipairs(guide.alternatives and guide.alternatives[slotID] or {}) do add(R.GuideItem(key,specID)) end
  for _,scope in ipairs({"mythicplus","raid"}) do for _,key in ipairs(guide.sourceLists[scope][slotID] or {}) do local item=R.GuideItem(key,specID);if item.source=="Wowhead" then add(item) end end end
@@ -92,10 +112,12 @@ function R.GetGearAlternatives(slotID,specID)
 end
 function R.GetGearSummary()
  local guide=R.GetGuideDataset();if not guide then return R.L("NO_DATA") end
- local scope=R.GearSource();local set=scope=="overall" and R.GetGuideSet();local count=0
+ local count=0
+ local mp=R.GearSource()=="mplus_usage" and R.GetDataset("mythicplus")
+ local source=mp or guide
  for _,slot in ipairs(R.SLOTS) do if R.GetGearTarget(slot.id) then count=count+1 end end
- local title="BiS"
- return title.." · "..count.." / 16 · Wowhead "..guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10)
+ local title=mp and R.L("MPLUS_GEAR_TITLE") or R.L("RAID_GEAR_TITLE")
+ return title.." · "..count.." / 16 · "..(mp and "Murlok.io " or "Wowhead ")..source.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..(source.retrievedAt or source.updatedAt):sub(1,10)
 end
 function R.GetGearEvidence(item,slotID,specID)
  local guide=R.GetGuideDataset(specID);if not guide or not item then return {} end
@@ -117,7 +139,7 @@ function R.GetWCLEvidence(itemID,specID,mode)
  local data=R.WCLData
  if not data or data.schema~=2 or not R.GuideData or data.patch~=R.GuideData.patch then return end
  local spec=data.specs[specID or R.ViewSpecID()]
- local scope=R.GearSource();mode=mode or (scope=="overall" and R.GetMode() or scope)
+ local scope=R.GearSource();mode=mode or ((scope=="overall" or scope=="mplus_usage") and R.GetMode() or scope)
  local context=spec and spec[mode]
  if not context or not context.eligible or context.coveredEncounterCount~=context.expectedEncounterCount then return end
  local count=context and context.items[tostring(itemID)]

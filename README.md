@@ -4,9 +4,9 @@ A focused World of Warcraft Retail addon for gear goals, equipment ownership and
 
 ## Current preview
 
-Nexus 0.6.5 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives and anonymous WCL usage evidence. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
+Nexus 0.6.6 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives and anonymous WCL usage evidence. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
 
-- **Equipment:** BiS gear, up to four verified alternatives per slot, and ownership on the current character.
+- **Equipment:** Raid (authored Wowhead guide) or Mythic+ (Murlok top-profile usage), up to four verified alternatives per slot, and current-character ownership. Activity is separate from acquisition: both modes include raid, dungeon and crafted items.
 - **Stats:** Murlok M+ references for all 40 specs, native active-character values, rating gaps and verified rating-derived DR details on hover.
 - **Preparation:** enchantments, equipped sockets, gem suggestions and consumables.
 - **Meta:** published M+ role rankings and Mythic raid representation, with source dates and methodology.
@@ -19,7 +19,7 @@ Recommendations are source snapshots, not a personalized simulation. Raid repres
 
 Download an installable Nexus ZIP, close WoW and replace the `Nexus` addon folder. The result must be `_retail_/Interface/AddOns/Nexus/Nexus.toc`. Preserve SavedVariables. Open `/nexus`.
 
-Equipment now has only BiS, with up to four distinct verified alternatives per slot. A dungeon option is reserved whenever one is known. Wowhead, Icy Veins and same-spec observed alternatives are labelled by source. Lists are not padded when source data is incomplete. Catalyst alternatives retain the original source item. See [DATA-SOURCES.md](DATA-SOURCES.md) for actual coverage.
+Equipment has two activity contexts: Raid uses the existing authored Wowhead all-source guide; Mythic+ selects the most-used verified current-season item per slot from Murlok M+ profiles. This is an observed reference, not a simulated optimal combined set. The Raid label does not assert the imported all-source guide is an independently authored raid-only performance list. Both modes retain up to four distinct verified alternatives per slot. A dungeon option is reserved whenever one is known. Wowhead, Icy Veins and same-spec observed alternatives are labelled by source. Lists are not padded when source data is incomplete. Catalyst alternatives retain the original source item. See [DATA-SOURCES.md](DATA-SOURCES.md) for actual coverage.
 
 The addon is still a preview. Real-client appearance and combat behavior require testing; the Lua simulator does not reproduce WoW's renderer or secure execution.
 

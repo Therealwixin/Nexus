@@ -131,6 +131,11 @@ function UI:RenderDetail(override,slotOverride)
  if not item then self:DetailText(R.L("NO_DATA"),GREY);self:DetailFinish();return end
  self:DetailSection(R.L("SELECTED_ITEM"),GOLD)
  self:DetailItem(item,item.source or (self.gearView=="mine" and R.L("CURRENT_ITEM")),nil,true)
+ if self.view=="equipment" and item.source=="Murlok.io" and item.count then
+  local mp=R.GetDataset("mythicplus")
+  self:DetailText(R.L("MURLOK_SAMPLE",item.count,item.sampleSize or mp.sampleSize),GOLD,11)
+  self:DetailText(R.L("SNAPSHOT")..": "..(item.updatedAt or mp.updatedAt):sub(1,10),GREY,10)
+ end
  local state=R.GearOwnership(item,slotID or 0);self:DetailText(R.L(state)..(state=="MISSING" and " · "..R.ShortSource(item) or ""),state=="MISSING" and RED or state=="EQUIPPED" and GREEN or GOLD)
  if item.slotID then
   self:DetailText(R.L("ILVL")..": "..(R.ItemLevel(item,true) or "?"),GOLD)
@@ -379,8 +384,8 @@ function UI:Create()
  self.nativeChrome={};for _,key in ipairs({"NineSlice","TitleBg","TopTileStreaks","Inset"}) do local part=f[key];if part then self.nativeChrome[#self.nativeChrome+1]=part end end
  self.characterName=Font(f,10,GREY);self.characterName:SetPoint("BOTTOMLEFT",18,57);self.characterName:SetHeight(11);self.characterName:SetWidth(width-70);self.characterName:SetMaxLines(1)
  self:CreateSpecControls(f)
- self.buttons={};self.buttons.MYTHICPLUS=Button(f,190,"",function()R.db.mode="mythicplus";self.prepPage=1;self:Refresh()end);self.buttons.MYTHICPLUS:SetPoint("TOPRIGHT",-191,-34)
- self.buttons.RAID=Button(f,170,"",function()R.db.mode="raid";self.prepPage=1;self:Refresh()end);self.buttons.RAID:SetPoint("LEFT",self.buttons.MYTHICPLUS,"RIGHT",5,0)
+ self.buttons={};self.buttons.MYTHICPLUS=Button(f,190,"",function()R.db.mode="mythicplus";self.detailActiveItem=nil;self.prepPage=1;self:Refresh()end);self.buttons.MYTHICPLUS:SetPoint("TOPRIGHT",-191,-34)
+ self.buttons.RAID=Button(f,170,"",function()R.db.mode="raid";self.detailActiveItem=nil;self.prepPage=1;self:Refresh()end);self.buttons.RAID:SetPoint("LEFT",self.buttons.MYTHICPLUS,"RIGHT",5,0)
  self.buttons.MY_GEAR=Button(f,105,"",function()self.gearView="mine";self:Refresh()end);self.buttons.MY_GEAR:SetPoint("TOPLEFT",17,-66)
  self.buttons.TARGETS=Button(f,125,"",function()self.gearView="targets";self:Refresh()end);self.buttons.TARGETS:SetPoint("LEFT",self.buttons.MY_GEAR,"RIGHT",5,0)
  self.needs=CreateFrame("CheckButton",nil,f,"UICheckButtonTemplate");self.needs:SetSize(26,26);self.needs:SetPoint("LEFT",self.buttons.TARGETS,"RIGHT",10,0);self.needs:SetScript("OnClick",function(o)R.db.needsOnly=o:GetChecked() and true or false;self:Refresh()end)

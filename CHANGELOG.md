@@ -1,3 +1,12 @@
+## 0.6.6-beta.1
+
+- Separate Equipment by activity: Raid uses the existing authored Wowhead guide; Mythic+ uses observed Murlok M+ item usage. Both include all acquisition sources, including crafted and raid gear.
+- Fix Devourer offhand selection: M+ selects the observed crafted Spellbreaker's Warglaive instead of overriding it with the authored Baleful Hexblade target. Keep counts and source dates visible; do not present independent per-slot popularity as a simulated optimal set.
+- Preserve up to four distinct alternatives and a verified dungeon option where available. Keep M+ ring/trinket slots distinct, exclude unobserved guide rows and off-season items, and never silently substitute the Raid primary when observations are missing.
+- Match dungeon-entry notifications to the active spec's primary M+ recommendations, retaining strict ownership and source-ID checks.
+- Remove the square gold outline around active navigation buttons; retain native red textures and white/gold label states.
+- Cover the Devourer source conflict, activity switching, all-spec popularity/variant validity, paired slots, alternative limits, source isolation and minimum-width layout.
+
 ## 0.6.5-beta.3
 
 - Restore native WoW red button textures, bevels and hover states for the main navigation. Use larger Friz Quadrata labels, classic gold text and a white/gold active selection instead of flat grey underlined links.

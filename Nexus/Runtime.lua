@@ -88,3 +88,15 @@ R.Locales.CZ.NO_DUNGEON_ALTERNATIVE="Pro tento slot nemáme další ověřenou d
 R.Locales.EN.SOURCE_SCOPE_NOTE="BiS plus up to four distinct alternatives. A verified dungeon option is kept when available. Observed usage is not a personal simulation."
 R.Locales.SK.SOURCE_SCOPE_NOTE="BiS a najviac štyri odlišné alternatívy. Ak je dostupná overená dungeonová možnosť, zostáva medzi nimi. Používanie predmetov nie je osobná simulácia."
 R.Locales.CZ.SOURCE_SCOPE_NOTE="BiS a nejvýše čtyři odlišné alternativy. Pokud je dostupná ověřená dungeonová možnost, zůstává mezi nimi. Používání předmětů není osobní simulace."
+
+local activityGear={
+ EN={MPLUS_GEAR_TITLE="Mythic+ gear",RAID_GEAR_TITLE="Raid guide",SOURCE_SCOPE_NOTE="Raid: authored Wowhead guide. Mythic+: most-used current-season items from Murlok top M+ profiles. Both include all acquisition sources. Slot popularity is not a simulated complete set; crafted embellishments and tier bonuses must work together. Up to four alternatives, including a dungeon option when verified."},
+ SK={MPLUS_GEAR_TITLE="Mythic+ gear",RAID_GEAR_TITLE="Raid guide",SOURCE_SCOPE_NOTE="Raid: autorský Wowhead guide. Mythic+: najpoužívanejšie sezónne predmety z top M+ profilov Murloku. Oba režimy zahŕňajú všetky zdroje. Popularita slotov nie je simulovaný celý set; crafted embellishmenty a tier bonusy musia spolu fungovať. Najviac štyri alternatívy vrátane overenej dungeonovej možnosti."},
+ CZ={MPLUS_GEAR_TITLE="Mythic+ gear",RAID_GEAR_TITLE="Raid guide",SOURCE_SCOPE_NOTE="Raid: autorský Wowhead guide. Mythic+: nejpoužívanější sezonní předměty z top M+ profilů Murloku. Oba režimy zahrnují všechny zdroje. Popularita slotů není simulovaný celý set; crafted embellishmenty a tier bonusy musí fungovat společně. Nejvýše čtyři alternativy včetně ověřené dungeonové možnosti."}}
+for lang,values in pairs(activityGear) do for key,value in pairs(values) do R.Locales[lang][key]=value end end
+
+local mplusAlerts={
+ EN={DUNGEON_WARNING="Mythic+ targets in this dungeon",DUNGEON_BIS_ITEM="M+ pick",DUNGEON_BIS_CATALYST="M+ pick via Catalyst"},
+ SK={DUNGEON_WARNING="Mythic+ ciele v tomto dungeone",DUNGEON_BIS_ITEM="M+ voľba",DUNGEON_BIS_CATALYST="M+ voľba cez Catalyst"},
+ CZ={DUNGEON_WARNING="Mythic+ cíle v tomto dungeonu",DUNGEON_BIS_ITEM="M+ volba",DUNGEON_BIS_CATALYST="M+ volba přes Catalyst"}}
+for lang,values in pairs(mplusAlerts) do for key,value in pairs(values) do R.Locales[lang][key]=value end end

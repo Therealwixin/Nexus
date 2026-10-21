@@ -26,8 +26,7 @@ function R.StyleNavigation(button,active)
  -- Keep the client-provided red button, bevel, pressed state and mouse highlight.
  for _,texture in ipairs(button._nexusButton.textures) do texture.region:SetAlpha(texture.alpha) end
  button:SetEnabled(true)
- button:SetBackdrop(active and {edgeFile=white,edgeSize=1} or nil)
- if active then button:SetBackdropBorderColor(1,.82,0,.8) end
+ button:SetBackdrop(nil)
  local f=button:GetFontString();f:SetFont(R.FONT,14,"");f:SetShadowOffset(1,-1)
  f:SetTextColor(1,active and 1 or .82,active and 1 or 0)
 end

@@ -33,8 +33,8 @@ function UI:Layout()
  place(self.classPicker,"TOPLEFT",f,"TOPLEFT",22,-83);self.classPicker:SetSize(140,25)
  place(self.specPicker,"LEFT",self.classPicker,"RIGHT",6,0);self.specPicker:SetSize(170,25)
  place(self.mySpec,"LEFT",self.specPicker,"RIGHT",6,0);self.mySpec:SetSize(90,25)
- place(self.buttons.MYTHICPLUS,"TOPRIGHT",f,"TOPRIGHT",-130,-83);self.buttons.MYTHICPLUS:SetSize(110,25)
- place(self.buttons.RAID,"LEFT",self.buttons.MYTHICPLUS,"RIGHT",6,0);self.buttons.RAID:SetSize(102,25)
+ place(self.buttons.MYTHICPLUS,"TOPRIGHT",f,"TOPRIGHT",self.view=="equipment" and -176 or -130,-83);self.buttons.MYTHICPLUS:SetSize(self.view=="equipment" and 148 or 110,25)
+ place(self.buttons.RAID,"LEFT",self.buttons.MYTHICPLUS,"RIGHT",6,0);self.buttons.RAID:SetSize(self.view=="equipment" and 148 or 102,25)
  place(self.sectionTitle,"TOPLEFT",f,"TOPLEFT",22,-122);self.sectionTitle:SetWidth(150)
  place(self.buttons.MY_GEAR,"TOPLEFT",f,"TOPLEFT",181,-119);self.buttons.MY_GEAR:SetSize(100,24)
  place(self.buttons.TARGETS,"LEFT",self.buttons.MY_GEAR,"RIGHT",5,0);self.buttons.TARGETS:SetSize(130,24)
@@ -46,7 +46,7 @@ function UI:Layout()
  self.characterName:Hide();self.themeButton:Hide()
  local equipment=self.view=="equipment"
  for _,b in pairs(self.sourceButtons) do b:Hide() end
- self.buttons.MYTHICPLUS:SetShown(self.view=="meta");self.buttons.RAID:SetShown(self.view=="meta")
+ self.buttons.MYTHICPLUS:SetShown(self.view=="meta" or self.view=="equipment");self.buttons.RAID:SetShown(self.view=="meta" or self.view=="equipment")
  for index,b in ipairs(self.languageButtons) do place(b,"TOPLEFT",f,"TOPLEFT",181+(index-1)*38,-119) end
 end
 -- Equipment follows the native paper doll: armor left/right, weapons below.
@@ -154,10 +154,10 @@ function UI:Refresh()
  if not self.frame or not self.frame:IsShown() then return end
  self:Layout();previousRefresh(self)
  self.title:SetText(R.NAME);self.themeButton:Hide();self.characterName:Hide()
- self.sectionTitle:SetText(self.view=="equipment" and "BiS" or R.L(self.view=="preparation" and "PREPARATION" or self.view=="stats" and "STATS" or self.view=="meta" and "META" or "DATA_SETTINGS"))
+ self.sectionTitle:SetText(self.view=="equipment" and R.L(R.GetMode()=="mythicplus" and "MPLUS_GEAR_TITLE" or "RAID_GEAR_TITLE") or R.L(self.view=="preparation" and "PREPARATION" or self.view=="stats" and "STATS" or self.view=="meta" and "META" or "DATA_SETTINGS"))
  self.buttons.SOURCES:SetText(R.L("DATA_UPDATES"))
  for key,view in pairs({EQUIPMENT="equipment",STATS="stats",PREPARATION="preparation",META="meta",SOURCES="sources"}) do R.StyleNavigation(self.buttons[key],self.view==view) end
- self.buttons.MYTHICPLUS:SetText(self.view=="meta" and R.L("META_MPLUS") or "Mythic+");self.buttons.RAID:SetText(self.view=="meta" and R.L("META_RAID") or "Raid")
+ self.buttons.MYTHICPLUS:SetText(self.view=="meta" and R.L("META_MPLUS") or "Mythic+ · Murlok");self.buttons.RAID:SetText(self.view=="meta" and R.L("META_RAID") or "Raid · Wowhead")
  self.footer:SetText(R.VERSION.." · "..(self.view=="equipment" and R.GetGearSummary() or R.DataStatus(R.GetDataset())))
  if self.view=="stats" then local profile=R.StatProfile();self.footer:SetText(R.VERSION.." · Murlok.io · M+ · "..(profile and profile.updatedAt:sub(1,10) or R.L("NO_DATA"))) end
 end

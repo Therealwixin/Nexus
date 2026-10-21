@@ -1,9 +1,11 @@
-"""Overall-only UI and bounded diverse alternatives across all specs."""
+"""Activity-aware gear and bounded diverse alternatives across all specs."""
 from test_lean import load_addon,ROOT
 lua,R,_=load_addon(ROOT/'Nexus');lua.globals().TEST.R=R
 lua.execute('''
 local R=TEST.R;R.db={mode="mythicplus",gearSource="raid",language="EN"};R.character={}
-assert(R.GearSource()=="overall","Old saved source selector must not hide Overall")
+assert(R.GearSource()=="mplus_usage","Activity overrides the obsolete acquisition selector")
+R.db.mode="raid"
+assert(R.GearSource()=="overall","Raid selects the authored guide")
 local slots,four,dungeons,missing=0,0,0,0
 for sid,guide in pairs(R.GuideData.specs) do
  R.SetViewSpec(sid)

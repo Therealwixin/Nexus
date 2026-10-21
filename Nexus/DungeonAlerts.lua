@@ -154,7 +154,7 @@ function A:CollectEntries(loot,specID)
  for _,slot in ipairs(R.SLOTS) do
   -- Entry warnings describe the authored BiS target, never the source-restricted
   -- alternative pool. Match the actual drop ID for a Catalyst recommendation.
-  local item=R.GetGearTarget(slot.id,specID,"overall")
+  local item=R.GetGearTarget(slot.id,specID,"mplus_usage")
   if item then
    local dropID=item.acquisitionItemID or item.journalItemID or item.id
    if not item.crafted and loot[dropID] and not seen[dropID] and R.Ownership(item.id,slot.id)=="MISSING" and R.Ownership(dropID,slot.id)=="MISSING" then
