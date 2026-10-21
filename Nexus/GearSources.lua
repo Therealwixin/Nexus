@@ -133,7 +133,7 @@ function R.GetGearSummary()
  local source=mp or guide
  for _,slot in ipairs(R.SLOTS) do if R.GetGearTarget(slot.id) then count=count+1 end end
  local title=mp and R.L("MPLUS_GEAR_TITLE") or R.L("RAID_GEAR_TITLE")
- return title.." · "..count.." / 16 · "..(mp and "Murlok.io " or "Wowhead ")..source.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..(source.retrievedAt or source.updatedAt):sub(1,10)
+ return title.." · "..count.." / 16 · "..(mp and "Murlok.io " or "Wowhead ")..source.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..(source.retrievedAt or source.updatedAt):sub(1,10)..(source.refreshStatus=="unavailable" and " · "..R.L("SOURCE_UNAVAILABLE") or "")
 end
 function R.GetGearEvidence(item,slotID,specID)
  local guide=R.GetGuideDataset(specID);if not guide or not item then return {} end

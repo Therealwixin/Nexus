@@ -63,6 +63,7 @@ check(R.DataAge({updatedAt="garbage"})==nil,"Unknown source date")
 check(not R.DataStatus({updatedAt="2026-10-06",retrievedAt="2026-10-19",primarySource="Source"}):find(R.L("DATA_OLD"),1,true),"Old publication checked today is not an old source check")
 check(R.DataAge({updatedAt="2026-10-20"})==nil,"Future date not falsely fresh")
 check(R.DataStatus({updatedAt="2026-10-06",primarySource="Source"}):find(R.L("DATA_OLD"),1,true),"Stale data is labelled")
+check(R.DataStatus({updatedAt="2026-10-19",retrievedAt="2026-10-19",primarySource="Source",refreshStatus="unavailable"}):find(R.L("SOURCE_UNAVAILABLE"),1,true),"Retained source refresh failure stays visible even when its dates are current")
 local originalScan=R.ScanEquipment;local scans=0
 R.ScanEquipment=function()scans=scans+1;return originalScan()end
 R.UI.frame:Hide()

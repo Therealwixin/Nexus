@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Aggregate collection only. No individual Murlok or Raider.IO profiles are fetched."""
 from __future__ import annotations
-import argparse,concurrent.futures,datetime as dt,hashlib,json,os,re
+import argparse,concurrent.futures,copy,datetime as dt,hashlib,json,os,re
 from pathlib import Path
 from urllib.parse import urlencode
 from catalog import SPECS
@@ -95,20 +95,27 @@ def rio_gear(data,timestamp):
 def collect(spec,cache,timestamp,offline,previous=None,rendered_html=None):
  slug=spec['classSlug']+'-'+spec['slug'];url='https://murlok.io/'+spec['classSlug']+'/'+spec['slug']+'/m%2B'
  html=rendered_html if rendered_html is not None else fetch(url,cache,slug+'-murlok.html',offline)
+ retained=False
  if rendered_html is not None:
   from murlok_live import verify_date
   published=verify_date(html)
-  if previous and published<previous['updatedAt']:raise ValueError('Murlok gear source date regressed')
- dataset=parse_murlok(html,source_date(html,timestamp))
- dataset['retrievedAt']=timestamp
+  retained=bool(previous and published<previous['updatedAt'])
+ if retained:
+  dataset=copy.deepcopy(previous)
+  dataset.update(refreshStatus='unavailable',refreshReason='source_date_regressed',lastAttemptAt=timestamp)
+  print('Murlok '+slug+': older edge snapshot; retaining newer verified gear and dates',flush=True)
+ else:
+  dataset=parse_murlok(html,source_date(html,timestamp))
+  dataset.update(retrievedAt=timestamp,refreshStatus='ok',lastAttemptAt=timestamp)
  dataset.update(sourceURL=url,primarySource='Murlok.io',specName=spec['name'],classID=spec['classID'])
  observed=[];enchant_samples=[];warnings=[]
  previous=previous or {}
  profile=dataset.get('statProfile')
- if profile:
+ if retained and profile:
+  profile['refreshStatus']='unavailable'
+ elif profile:
   profile.update(updatedAt=dataset['updatedAt'],retrievedAt=timestamp,sourceURL=url,sampleSize=dataset['sampleSize'],patch=dataset['patch'],refreshStatus='ok')
  elif previous.get('statProfile'):
-  import copy
   dataset['statProfile']=copy.deepcopy(previous['statProfile']);dataset['statProfile']['refreshStatus']='unavailable'
  dataset.pop('players',None)
  for slot,enchant in dataset['enchants'].items():

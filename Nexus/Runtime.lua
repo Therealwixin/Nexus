@@ -39,7 +39,8 @@ function R.DataStatus(dataset)
     local age=R.DataAge({updatedAt=dataset.retrievedAt or dataset.updatedAt})
     local text=(dataset.primarySource or "").." · "..R.L("SOURCE_PUBLISHED").." "..tostring(dataset.updatedAt or "?"):sub(1,10)
     if dataset.retrievedAt then text=text.." · "..R.L("CHECKED").." "..dataset.retrievedAt:sub(1,10) elseif age then text=text.." · "..R.L("DATA_AGE",age) end
-    if age and age>1 then text="|cffffb347"..R.L("DATA_OLD").." · "..text.."|r" end
+    if dataset.refreshStatus=="unavailable" then text="|cffffb347"..R.L("SOURCE_UNAVAILABLE").." · "..text.."|r"
+    elseif age and age>1 then text="|cffffb347"..R.L("DATA_OLD").." · "..text.."|r" end
     return text
 end
 

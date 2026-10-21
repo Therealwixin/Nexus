@@ -103,3 +103,14 @@ with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_m
  except ValueError:pass
  else:raise AssertionError('Stale rendered gear accepted')
 print('Rendered gear provenance PASS: source dates used, SSR bypassed and stale pages rejected')
+newer=copy.deepcopy(mp);newer.update(updatedAt=fresh_stamp,retrievedAt=fresh_stamp)
+newer['statProfile'].update(updatedAt=fresh_stamp,retrievedAt=fresh_stamp)
+before=copy.deepcopy(newer)
+older=(dt.datetime.now(dt.timezone.utc)-dt.timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
+with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_murlok',side_effect=AssertionError('Older aggregate must not be imported')),patch.object(collect_gear,'guide_slots',lambda *a:(copy.deepcopy(raid['slots']),{})),patch.object(collect_gear,'consumables',lambda *a:copy.deepcopy(mp['consumables'])):
+ retained=collect_gear.collect(spec,Path('.'),fresh_stamp,False,newer,'<time datetime="'+older+'"></time>')[1]
+ assert retained['updatedAt']==newer['updatedAt'] and retained['retrievedAt']==newer['retrievedAt']
+ assert retained['refreshStatus']=='unavailable' and retained['refreshReason']=='source_date_regressed'
+ assert retained['statProfile']['updatedAt']==newer['statProfile']['updatedAt'] and retained['statProfile']['refreshStatus']=='unavailable'
+ assert newer==before,'Retaining a newer aggregate must not mutate the previous snapshot'
+print('Edge regression PASS: newer complete aggregate and dates retained, refresh flagged for retry, unrelated guides still collected')

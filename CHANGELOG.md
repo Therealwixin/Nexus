@@ -1,5 +1,7 @@
 ## 0.6.7-beta.8
 
+- Daily refresh follow-up: keep an already newer same-patch Murlok aggregate when an edge server returns older current-day content; retain its dates, flag the refresh for retry and continue unrelated sources.
+
 - Fix stale Murlok gear, stats, gems and enchants caused by cached initial HTML. Collect all 40 rendered public aggregates with one browser and at most two pages concurrently; reject stale, regressing or incomplete batches.
 - Refresh all 40 specializations from same-day published Murlok aggregates, all Wowhead/Icy Veins guides and both Meta sources.
 - Preserve Meta's source/collection footer through final layout, realign socket-card headings when resizing, and resume manual gear scans deferred during combat.
