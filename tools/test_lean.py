@@ -24,6 +24,7 @@ if __name__=='__main__':
  lua.globals().TEST.R=ns
  lua.execute((ROOT/'tests/lean.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/look.lua').read_text(encoding='utf-8'))
+ lua.execute((ROOT/'tests/bag_sockets.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/fixes.lua').read_text(encoding='utf-8'))
  lua.globals().TEST.variantEvidence=lua.eval(__import__('refresh_gear').compact_lua(json.loads((ROOT/'tests/fixtures/item-variant-evidence.json').read_text(encoding='utf-8'))))
  lua.execute((ROOT/'tests/item_levels.lua').read_text(encoding='utf-8'))

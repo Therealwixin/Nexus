@@ -212,3 +212,9 @@ for language,strings in pairs(statsStrings) do for key,value in pairs(strings) d
 R.Locales.EN.STATS_OLD_RULES="DR source unavailable; using the previous verified rules."
 R.Locales.SK.STATS_OLD_RULES="Zdroj DR je nedostupný; použité sú pôvodné overené pravidlá."
 R.Locales.CZ.STATS_OLD_RULES="Zdroj DR je nedostupný; použita jsou původní ověřená pravidla."
+
+local socketBagLocales={
+ EN={SOCKET_EQUIPPED="Equipped",SOCKET_IN_BAGS="In bags",SOCKET_INSERTED_GEMS="Socketed Gems",NO_BAG_SOCKETS="No socketed items found in your bags.",NO_EMPTY_BAG_SOCKETS="Your bag items have no empty sockets.",SOCKET_BAG_HELP="Browse socketed items carried in your bags. Each copy keeps its own gems and item variant. Regular gem suggestions fill empty sockets; equip the item to check a unique Diamond against your complete gear."},
+ SK={SOCKET_EQUIPPED="Nasadené",SOCKET_IN_BAGS="V taškách",SOCKET_INSERTED_GEMS="Osadené gemy",NO_BAG_SOCKETS="V taškách sa nenašli predmety so socketmi.",NO_EMPTY_BAG_SOCKETS="Predmety v taškách nemajú prázdne sockety.",SOCKET_BAG_HELP="Prezeraj predmety so socketmi v taškách. Každý kus zachováva vlastné gemy a variant. Pre prázdne sockety odporúčame bežné gemy; unikátny Diamond overíme voči celému vybaveniu po nasadení predmetu."},
+ CZ={SOCKET_EQUIPPED="Nasazené",SOCKET_IN_BAGS="V taškách",SOCKET_INSERTED_GEMS="Osazené gemy",NO_BAG_SOCKETS="V taškách nebyly nalezeny předměty se sockety.",NO_EMPTY_BAG_SOCKETS="Předměty v taškách nemají prázdné sockety.",SOCKET_BAG_HELP="Prohlížej předměty se sockety v taškách. Každý kus zachovává vlastní gemy a variantu. Pro prázdné sockety doporučujeme běžné gemy; unikátní Diamond ověříme vůči celé výbavě po nasazení předmětu."}}
+for language,entries in pairs(socketBagLocales) do for key,value in pairs(entries) do R.Locales[language][key]=value end end

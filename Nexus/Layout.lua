@@ -88,11 +88,19 @@ end
 function UI:CreateSocketPane()
  self.socketPane=CreateFrame("Frame",nil,self.prepPane);self.socketPane:SetAllPoints();self.socketPane:Hide()
  self.socketScroll,self.socketChild=scrollFrame(self.socketPane)
- self.socketScroll:ClearAllPoints();self.socketScroll:SetPoint("TOPLEFT",8,-69);self.socketScroll:SetPoint("BOTTOMRIGHT",-27,8)
- self.socketCards={}
+ self.socketScroll:ClearAllPoints();self.socketScroll:SetPoint("TOPLEFT",8,-101);self.socketScroll:SetPoint("BOTTOMRIGHT",-27,8)
+ self.socketCards={};self.socketScopeButtons={}
+ for index,scope in ipairs({"equipped","bags"}) do
+  local b=CreateFrame("Button",nil,self.socketPane,"UIPanelButtonTemplate,BackdropTemplate");b:SetSize(110,25);b:SetPoint("TOPLEFT",12+(index-1)*118,-41);R.SkinButton(b)
+  b:SetScript("OnClick",function()self.socketScope=scope;self.socketScroll:SetVerticalScroll(0);self:Refresh()end)
+  self.socketScopeButtons[scope]=b
+ end
 end
 function UI:RenderSockets()
- local overview=R.GetSocketOverview();self.socketOverview=overview;self.socketEntries={}
+ local inBags=self.socketScope=="bags"
+ for scope,b in pairs(self.socketScopeButtons) do b:SetText(R.L(scope=="bags" and "SOCKET_IN_BAGS" or "SOCKET_EQUIPPED"));b:SetEnabled((self.socketScope or "equipped")~=scope) end
+ self.prepSummary:ClearAllPoints();self.prepSummary:SetPoint("TOPLEFT",12,-77)
+ local overview=R.GetSocketOverview(self.socketScope);self.socketOverview=overview;self.socketEntries={}
  for _,entry in ipairs(overview.items) do if not R.db.needsOnly or entry.sockets.empty>0 then self.socketEntries[#self.socketEntries+1]=entry end end
  self.prepScroll:Hide();self.prepPrev:Hide();self.prepNext:Hide();self.prepPosition:Hide();self.socketPane:Show()
  self.prepSummary:SetText(R.L("SOCKET_OVERVIEW",overview.filled,overview.total,overview.recommended,overview.empty))
@@ -117,7 +125,7 @@ function UI:RenderSockets()
   place(card,"TOPLEFT",self.socketChild,"TOPLEFT",((index-1)%2)*column+2,-math.floor((index-1)/2)*h);card:SetSize(column-6,h-5);R.SkinPanel(card,"card")
   card.title:SetWidth(column-64);card.state:SetWidth(column-64);card.current:SetWidth(column-26);card.plan:SetWidth(column-26)
   card.icon:SetTexture(R.ItemIcon(entry.item));card.title:SetText(R.ItemName(entry.item));card.state:SetText(R.L("ITEM_SOCKET_COUNT",entry.sockets.filled,entry.sockets.total));card.state:SetTextColor(unpack(entry.sockets.empty>0 and RED or GREEN))
-  card.current:SetWidth(column/2-15);card.plan:SetWidth(column/2-15);card.current:SetText(R.L("CURRENT_GEMS"));card.plan:SetText(R.L("RECOMMENDED_GEMS"))
+  card.current:SetWidth(column/2-15);card.plan:SetWidth(column/2-15);card.current:SetText(R.L(inBags and "SOCKET_INSERTED_GEMS" or "CURRENT_GEMS"));card.plan:SetText(R.L("RECOMMENDED_GEMS"))
   for i,button in ipairs(card.gemRows) do
    local current=i<=4;local index=current and i or i-4
    local socket=current and entry.sockets.gems[index];local rec=not current and entry.recommendations[index]
@@ -130,15 +138,16 @@ function UI:RenderSockets()
     button:SetScript("OnEnter",function(owner)if item then self:ShowItemTooltip(owner,item) end end);button:SetScript("OnLeave",function()GameTooltip:Hide()end)
    end
   end
-  card:SetScript("OnEnter",function(owner)self:ShowItemTooltip(owner,entry.item,entry.slotID,true)end);card:SetScript("OnLeave",function()GameTooltip:Hide()end)
+  card:SetScript("OnEnter",function(owner)self:ShowItemTooltip(owner,entry.item,entry.slotID,not inBags)end);card:SetScript("OnLeave",function()GameTooltip:Hide()end)
   card:SetScript("OnClick",function()
    self:DetailClear();self:DetailSection(R.L("SOCKET_PLAN"),GOLD);self:DetailItem(entry.item,R.L("ITEM_SOCKET_COUNT",entry.sockets.filled,entry.sockets.total),nil,true)
    for _,rec in ipairs(entry.recommendations) do self:DetailItem(rec.item,rec.count.." × · "..R.L("GEM_BAG_COUNT",R.scan.bags[rec.item.id] or 0)) end
+   if inBags then self:DetailText(R.L("SOCKET_BAG_HELP"),MUTED,11) end
    self:DetailText(R.L("GEM_EVIDENCE"),MUTED,11);self:DetailFinish()
   end);card:Show()
  end
- self.prepEmpty:SetShown(#self.socketEntries==0);self.prepEmpty:SetText(R.L(R.db.needsOnly and "NO_EMPTY_SOCKETS" or "NO_SOCKETS"))
- self:DetailClear();self:DetailSection(R.L("SOCKETS_GEMS"),GOLD);self:DetailText(R.L("SOCKET_HELP"));self:DetailFinish()
+ self.prepEmpty:SetShown(#self.socketEntries==0);self.prepEmpty:SetText(R.L(inBags and (R.db.needsOnly and "NO_EMPTY_BAG_SOCKETS" or "NO_BAG_SOCKETS") or (R.db.needsOnly and "NO_EMPTY_SOCKETS" or "NO_SOCKETS")))
+ self:DetailClear();self:DetailSection(R.L("SOCKETS_GEMS"),GOLD);self:DetailText(R.L(inBags and "SOCKET_BAG_HELP" or "SOCKET_HELP"));self:DetailFinish()
 end
 local previousRefresh=UI.Refresh
 function UI:Refresh()

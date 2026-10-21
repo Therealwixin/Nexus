@@ -25,8 +25,9 @@ function UI:ShowItemTooltip(owner,item,slot,inventory,specID,mode)
  GameTooltip.nexusItemPreview=true
  local gearSlot=item.gearSlotID
  local preview,range
- if gearSlot and not inventory and not item.slotID then preview,range=R.GearPreviewLink(item,gearSlot) end
- if inventory and slot then GameTooltip:SetInventoryItem("player",slot)
+ if gearSlot and not inventory and not item.slotID and item.bagID==nil then preview,range=R.GearPreviewLink(item,gearSlot) end
+ if item.bagID~=nil then GameTooltip:SetHyperlink(item.link)
+ elseif inventory and slot then GameTooltip:SetInventoryItem("player",slot)
  elseif gearSlot and not preview then
   GameTooltip:ClearLines();GameTooltip:SetText(R.ItemName(item),R.ItemColor(item))
   GameTooltip:AddLine(R.L("VARIANT_UNAVAILABLE"),.65,.65,.65,true)
@@ -228,6 +229,7 @@ end
 function UI:RenderPreparation()
  local d=R.GetDataset();local entries={};local needs,ready,empty=0,0,0;local browsing=R.IsViewingOtherClass()
  for category,b in pairs(self.prepTabs) do b:SetText(R.L(category=="enchants" and "ENCHANTS" or category=="gems" and "SOCKETS_GEMS" or "CONSUMABLES"));b:SetEnabled(category~=self.prepCategory) end
+ self.prepSummary:ClearAllPoints();self.prepSummary:SetPoint("TOPLEFT",12,-45)
  self.socketPane:Hide();self.prepScroll:Show();self.prepPrev:Hide();self.prepNext:Hide();self.prepPosition:Hide()
  if self.prepCategory=="gems" and not browsing then for _,row in ipairs(self.prepRows) do row:Hide() end;self:RenderSockets();return end
  self.prepPrev:SetScript("OnClick",function()self.prepPage=math.max(1,self.prepPage-1);self:Refresh()end)
@@ -410,7 +412,7 @@ function UI:Create()
   if previous then b:SetPoint("LEFT",previous,"RIGHT",5,0) else b:SetPoint("TOPLEFT",10,-10) end
   previous=b;self.prepTabs[category]=b
  end
- self.prepSummary=Font(self.prepPane,12,GOLD);self.prepSummary:SetPoint("TOPLEFT",12,-45);self.prepSummary:SetWidth(500)
+ self.prepSummary=Font(self.prepPane,12,GOLD);self.prepSummary:SetPoint("TOPLEFT",12,-45);self.prepSummary:SetWidth(500);self.prepSummary:SetHeight(14)
  self.prepScroll,self.prepChild=Scroll(self.prepPane);self.prepScroll:ClearAllPoints();self.prepScroll:SetPoint("TOPLEFT",8,-69);self.prepScroll:SetPoint("BOTTOMRIGHT",-27,8)
  for index=1,20 do
   local row=ItemRow(self.prepChild);row.text:SetMaxLines(1);row.text:ClearAllPoints();row.text:SetPoint("TOPLEFT",58,-10);row.note:ClearAllPoints();row.note:SetPoint("TOPLEFT",58,-28);row.note:SetMaxLines(2)

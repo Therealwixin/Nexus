@@ -61,7 +61,8 @@ function R.SocketInfo(link)
  end
  return out
 end
-function R.GetSocketOverview()
+function R.GetSocketOverview(scope)
+ local inBags=scope=="bags"
  local data=R.GetDataset();local regular,diamonds={},{};local allowed={};local seen={}
  for _,gem in ipairs(data and data.gems or {}) do
   if not seen[gem.id] then
@@ -72,13 +73,15 @@ function R.GetSocketOverview()
  local function popularity(a,b)return (a.count or 0)>(b.count or 0) end
  table.sort(regular,popularity);table.sort(diamonds,popularity)
  local out={items={},total=0,filled=0,empty=0,recommended=0,diamondCount=0,pending=false,regular=regular,diamonds=diamonds,unknown=0}
- for _,slot in ipairs(R.SLOTS) do
-  local item=R.scan and R.scan.equipped[slot.id]
+ local items={}
+ if inBags then items=R.scan and R.scan.bagItems or {}
+ else for _,slot in ipairs(R.SLOTS) do local item=R.scan and R.scan.equipped[slot.id];if item then items[#items+1]=item end end end
+ for _,item in ipairs(items) do
   if item and item.link then
    local sockets=R.SocketInfo(item.link)
    if not sockets then out.unknown=out.unknown+1
    elseif sockets.total>0 then
-    local entry={item=item,slotID=slot.id,sockets=sockets,recommendations={}}
+    local entry={item=item,slotID=item.slotID,sockets=sockets,recommendations={}}
     out.items[#out.items+1]=entry;out.total=out.total+sockets.total;out.filled=out.filled+sockets.filled;out.empty=out.empty+sockets.empty
     out.pending=out.pending or sockets.pending
     for _,gem in ipairs(sockets.gems) do
@@ -90,13 +93,18 @@ function R.GetSocketOverview()
    end
   end
  end
+ -- Bag copies are alternatives, not a simultaneous loadout: defer unique diamonds until equipped.
  -- Reserve ONE diamond for the whole character, including all unshown slots.
  -- Incomplete gem data blocks the diamond suggestion until native data loads.
  table.sort(out.items,function(a,b)
   if (a.sockets.empty>0)~=(b.sockets.empty>0) then return a.sockets.empty>0 end
+  if inBags then
+   if a.item.bagID~=b.item.bagID then return a.item.bagID<b.item.bagID end
+   return a.item.bagSlot<b.item.bagSlot
+  end
   return a.slotID<b.slotID
  end)
- local diamondAvailable=out.diamondCount==0 and not out.pending and out.unknown==0 and diamonds[1]
+ local diamondAvailable=not inBags and out.diamondCount==0 and not out.pending and out.unknown==0 and diamonds[1]
  for _,entry in ipairs(out.items) do
   local empty=entry.sockets.empty
   if empty>0 and diamondAvailable then

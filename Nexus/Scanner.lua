@@ -2,7 +2,7 @@ local _, R = ...
 
 function R.ScanEquipment()
     if InCombatLockdown and InCombatLockdown() then R.scanAfterCombat = true; return end
-    local scan = { equipped = {}, bags = {} }
+    local scan = { equipped = {}, bags = {}, bagItems = {} }
     for _, slot in ipairs(R.SLOTS) do
         local link = GetInventoryItemLink("player", slot.id)
         local id = GetInventoryItemID("player", slot.id)
@@ -20,6 +20,17 @@ function R.ScanEquipment()
                     local item = C_Container.GetContainerItemInfo(bag, index)
                     if item and R.IsReadable(item.itemID) and R.IsReadable(item.stackCount) and item.itemID then
                         scan.bags[item.itemID] = (scan.bags[item.itemID] or 0) + (item.stackCount or 1)
+                        -- Preserve each carried copy's bonus IDs, gems and bag location.
+                        local link = item.hyperlink
+                        if R.IsReadable(link) and not link and C_Container.GetContainerItemLink then link = C_Container.GetContainerItemLink(bag, index) end
+                        if R.IsReadable(link) and type(link) == "string" then
+                            local api = C_Item and C_Item.GetItemInfoInstant or GetItemInfoInstant
+                            local equipLoc
+                            if api then local _, _, _, location = api(link); equipLoc = location end
+                            if R.IsReadable(equipLoc) and (equipLoc == nil or equipLoc ~= "") then
+                                scan.bagItems[#scan.bagItems + 1] = { id = item.itemID, link = link, bagID = bag, bagSlot = index }
+                            end
+                        end
                     end
                 end
             end

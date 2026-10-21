@@ -1,3 +1,10 @@
+## 0.6.5-beta.2
+
+- Add Equipped / In bags filters to Preparation → Sockets & Gems, with Missing only applied to the selected location.
+- Preserve separate bag copies and complete variant links, gems and actual socket counts. Refresh through existing bag events; keep stack counts for ownership and consumables.
+- Show regular gem plans for bag gear; defer unique Diamond planning until equipped to avoid treating spare pieces as one loadout.
+- Cover duplicate variants, native tooltips, bag removal, scoped empty states, Diamond isolation and compact filter layout in the Lua simulation.
+
 ## 0.6.5-beta.1
 
 - Add a restrained Stats tab between Equipment and Preparation, using the shared 40-spec selector. Show Murlok M+ secondary/minor reference bars as a compact rating/percentage table with current-character values and signed rating differences.
