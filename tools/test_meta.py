@@ -41,7 +41,7 @@ def partial_source(url,*args):
  text='Patch 12.1 <time datetime="2026-10-16T10:00:00Z"></time>'
  for i,s in enumerate(roles[group]):text+=f'<a class="meta-item" href="/{s["classSlug"]}/{s["slug"]}/m+">{i+1} {s["name"]} {4000-i}</a>'
  return text
-with patch('refresh_meta.fetch',partial_source):updated=collect_meta(meta,Path('.'),True)
+with patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page',return_value=None):updated=collect_meta(meta,Path('.'),True)
 assert meta==original
 assert all(r['refreshStatus']=='ok' and r.get('retrievedAt') for r in updated['modes']['mythicplus']['roles'].values())
 for group,r in updated['modes']['raid']['roles'].items():
@@ -59,16 +59,26 @@ for stamp in ['2026-10-16T10:00:00Z','2026-10-22T10:00:00Z']:
  try:verify_date('<time datetime="'+stamp+'"></time>',now)
  except ValueError:pass
  else:raise AssertionError('Old SSR/future timestamp accepted as current rendered Meta')
-with patch('refresh_meta.collect_pages',lambda cache:{}),patch('refresh_meta.fetch',partial_source):
+with patch('refresh_meta.collect_pages',lambda cache:{}),patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page',return_value=None):
  failed=collect_meta(meta,Path('.'))
 for r in failed['modes']['mythicplus']['roles'].values():
  assert r['refreshStatus']=='unavailable' and not r.get('retrievedAt')
-with patch('refresh_meta.collect_pages',lambda cache:{g:partial_source('https://murlok.io/meta/'+g) for g in roles}),patch('refresh_meta.fetch',partial_source):
+with patch('refresh_meta.collect_pages',lambda cache:{g:partial_source('https://murlok.io/meta/'+g) for g in roles}),patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page',return_value=None):
  rendered=collect_meta(meta,Path('.'))
 assert all(r['refreshStatus']=='ok' for r in rendered['modes']['mythicplus']['roles'].values())
 newer=copy.deepcopy(meta)
 for r in newer['modes']['mythicplus']['roles'].values():r['updatedAt']='2026-10-21T10:00:00Z'
-with patch('refresh_meta.collect_pages',lambda cache:{g:partial_source('https://murlok.io/meta/'+g) for g in roles}),patch('refresh_meta.fetch',partial_source):
+with patch('refresh_meta.collect_pages',lambda cache:{g:partial_source('https://murlok.io/meta/'+g) for g in roles}),patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page',return_value=None):
  regressed=collect_meta(newer,Path('.'))
 assert all(r['refreshStatus']=='unavailable' and r['updatedAt']=='2026-10-21T10:00:00Z' for r in regressed['modes']['mythicplus']['roles'].values())
 print('Meta: hydrated-page requirement, 36h freshness guard, future/stale rejection and no source-date regression PASS')
+
+# A normal rendered public U.GG page may replace a blocked initial response;
+# parsing/difficulty validation still applies, and offline mode never launches it.
+with patch('refresh_meta.collect_pages',lambda cache:{}),patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page',return_value=html) as browser:
+ fallback=collect_meta(meta,Path('.'))
+assert browser.call_count==1 and all(r['refreshStatus']=='ok' for r in fallback['modes']['raid']['roles'].values())
+with patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page') as browser:
+ collect_meta(meta,Path('.'),True)
+assert browser.call_count==0
+print('Raid fallback PASS: one public rendered-page attempt, same validation, no browser in offline tests')

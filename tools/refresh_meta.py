@@ -4,7 +4,7 @@ import copy,datetime as dt,hashlib,json,re
 from catalog import SPECS
 from collect_gear import fetch,source_date
 from parsers import Page
-from murlok_live import collect_pages
+from murlok_live import collect_pages,render_raid_page
 TANKS={73,66,250,268,104,581};HEALERS={65,256,257,264,270,105,1468}
 def role(spec):return 'tank' if spec in TANKS else 'healer' if spec in HEALERS else 'dps'
 def normalized(value):return re.sub('[^a-z0-9]','',value.lower())
@@ -82,7 +82,13 @@ def collect_meta(previous,cache,offline=False):
    print('M+ meta '+group+': source unavailable; retaining original dated snapshot')
  url=previous['modes']['raid']['roles']['dps']['sourceURL']
  try:
-  html=fetch(url,cache,'meta-raid.html',offline);roles=raid(html,result['patch'])
+  try:
+   html=fetch(url,cache,'meta-raid.html',offline);roles=raid(html,result['patch'])
+  except (OSError,ValueError) as error:
+   print('Raid direct collection failed: '+type(error).__name__)
+   html=None if offline else render_raid_page(url)
+   if not html:raise ValueError('Public raid page unavailable') from error
+   roles=raid(html,result['patch'])
   for group,record in roles.items():
    record.update(retrievedEpoch=epoch(now),sourceURL=previous['modes']['raid']['roles'][group]['sourceURL'],retrievedAt=now,sourceHash=hashlib.sha256(html.encode()).hexdigest(),refreshStatus='ok',lastAttemptAt=now)
   result['modes']['raid']['roles']=roles
