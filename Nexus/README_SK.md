@@ -1,25 +1,31 @@
-# Nexus 0.6.0 preview 2
+# Nexus
 
-Nový smer: jeden striedmy Warcraft vzhľad, prehľadný zoznam výbavy a detail predmetu vpravo.
-Players a Talents sú odstránené z kódu aj dát. Preparation má šesť čitateľných riadkov na stránku.
+Addon pre World of Warcraft Retail: odporúčaná výbava, Stats, príprava postavy a Meta.
+Podporuje všetkých 40 specov a rozhranie EN/SK/CZ. Výbava používa natívne pozadia talentov.
 
 ## Inštalácia
 
-Vypni WoW, zálohuj starý priečinok Nexus a nahraď ho celým novým priečinkom z addon ZIPu.
-Výsledok: `_retail_/Interface/AddOns/Nexus/Nexus.toc`. SavedVariables ponechaj. Otvor `/nexus`.
+Rozbaľ inštalačný ZIP a nahraď priečinok Nexus. Výsledok musí byť
+`_retail_/Interface/AddOns/Nexus/Nexus.toc`. SavedVariables ponechaj. Otvor `/nexus`.
 
 ## Dáta a aktualizácie
 
-Zber bol 19. 10. 2026 overený pre všetkých 40 specov v Raid aj Mythic+ režime a pre obe mety.
-V addone zostávajú skutočné dátumy zdrojov, napríklad 16. 10. pri Murloku alebo 13. 10. pri niektorých Wowhead návodoch.
-Odporúčania nie sú osobná simulácia výbavy. Raid meta vyjadruje zastúpenie vo vzorke Mythic parsov, nie čistú silu specu.
+Raid výbava vychádza z autorského Wowhead guide. Mythic+ výbava a Stats používajú
+agregované dáta Murloku, alternatívy zahŕňajú aj Icy Veins. Odporúčania nie sú osobná simulácia.
+M+ Meta zachováva poradie Murloku v rámci roly. Raid popularita ukazuje zastúpenie parsov
+z U.GG, nie výkonový tier list ani odolnosť tankov.
 
-Overiť výbavu kontroluje iba vybavenie a tašky. Webové odporúčania prináša nový balík addonu.
-Pripravené GitHub workflowy kontrolujú kód a dáta, balia addon a umožňujú trojdňový refresh po zapojení repozitára a CurseForge projektu.
-Plánovanie a publikovanie sú predvolene vypnuté. Addon sám vo WoW nekomunikuje s webom ani neprepisuje súbory.
+Denný zber beží na GitHube o 04:17 UTC, s opakovaním neúspešných kontrol o 10:17 a 16:17 UTC.
+Po úspešných kontrolách workflow vytvorí a publikuje dátový balík podľa konfigurácie projektu.
+Dátumy publikácie zdrojov a úspešného načítania zostávajú oddelené. Pri výpadku sa zachovávajú
+pôvodné označené dáta; nepredstiera sa úspešná aktualizácia. CurseForge môže nový súbor ešte schvaľovať.
+
+Scan gear kontroluje iba nasadenú výbavu a tašky vrátane enchantov a socketov.
+Výbava sa obnovuje aj automaticky po zmenách inventára. Webové odporúčania aktualizuje
+inštalácia novšieho balíka addonu. Addon vo WoW neposiela webové požiadavky.
 
 ## Overenie v hre
 
-Skontroluj výbavu, filter chýbajúcich predmetov, enchanty/sockety, zmenu veľkosti okna, oba režimy a dungeon upozornenie.
-Vykreslenie, combat taint a reálnu RAM musí potvrdiť hra. Pri chybe použi `/nexus debug`.
-Lokálne Lua testy a živý zber prešli; neznamená to overené vydávanie na CurseForge.
+Pred prvým stable releasom over zmenu specu/režimu, tooltipy, enchanty/sockety v bagu,
+resize okna, Scan gear počas/po boji a dungeon upozornenie. Lokálne testy nenahrádzajú
+vykreslenie ani secure execution v skutočnom klientovi. Diagnostika: `/nexus debug`.

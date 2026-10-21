@@ -25,10 +25,15 @@ def due(now=None,event=None):
    f.write('## Daily data check\n'+('Collection required: a new UTC day, manual request or incomplete source refresh.' if result else 'Skipped: today already has a successful complete source check.')+'\nLast data collection: '+previous['generatedAt']+'\n')
  print('Data refresh due:',result)
  return result
+def release_channel(version):
+ channel=os.environ.get('DATA_RELEASE_CHANNEL') or ('beta' if re.search(r'-(?:alpha|beta|preview)',version) else 'release')
+ if channel not in {'beta','release'}:raise ValueError('DATA_RELEASE_CHANNEL must be beta or release')
+ return channel
+
 def stage(keep_version=False):
  candidate=ROOT/'build/candidate'
- channel=os.environ.get('DATA_RELEASE_CHANNEL','beta')
- if channel not in {'beta','release'}:raise ValueError('DATA_RELEASE_CHANNEL must be beta or release')
+ current=re.search(r'^## Version: (.+)$',(ROOT/'Nexus/Nexus.toc').read_text(encoding='utf-8'),re.M).group(1)
+ channel=release_channel(current)
  data=json.loads((candidate/'snapshot.json').read_text(encoding='utf-8'))
  meta=json.loads((candidate/'meta-snapshot.json').read_text(encoding='utf-8'))
  guides=json.loads((candidate/'guide-snapshot.json').read_text(encoding='utf-8'))

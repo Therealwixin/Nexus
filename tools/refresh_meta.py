@@ -9,6 +9,13 @@ TANKS={73,66,250,268,104,581};HEALERS={65,256,257,264,270,105,1468}
 def role(spec):return 'tank' if spec in TANKS else 'healer' if spec in HEALERS else 'dps'
 def normalized(value):return re.sub('[^a-z0-9]','',value.lower())
 def epoch(stamp):return int(dt.datetime.fromisoformat(stamp.replace('Z','+00:00')).timestamp())
+
+def verify_raid_dates(roles,previous,now,require_fresh=True):
+ for group,record in roles.items():
+  published=epoch(record['updatedAt'])
+  if published<epoch(previous[group]['updatedAt']):raise ValueError('Raid source date regressed')
+  age=epoch(now)-published
+  if age < -300 or (require_fresh and age>36*3600):raise ValueError('Raid source is stale or future-dated')
 def murlok(html,group):
  page=Page(html);known={(s['classSlug'],s['slug']):s['id'] for s in SPECS};entries=[]
  patch=re.search(r'Patch\s+(\d+\.\d+)',html)
@@ -89,6 +96,7 @@ def collect_meta(previous,cache,offline=False):
    html=None if offline else render_raid_page(url)
    if not html:raise ValueError('Public raid page unavailable') from error
    roles=raid(html,result['patch'])
+  verify_raid_dates(roles,previous['modes']['raid']['roles'],now,not offline)
   for group,record in roles.items():
    record.update(retrievedEpoch=epoch(now),sourceURL=previous['modes']['raid']['roles'][group]['sourceURL'],retrievedAt=now,sourceHash=hashlib.sha256(html.encode()).hexdigest(),refreshStatus='ok',lastAttemptAt=now)
   result['modes']['raid']['roles']=roles

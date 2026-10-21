@@ -1,6 +1,6 @@
 {
   "patch": "12.1",
-  "generatedAt": "2026-10-21T17:35:38Z",
+  "generatedAt": "2026-10-21T19:07:32Z",
   "modes": {
     "mythicplus": {
       "scope": "Midnight Season 2",
@@ -172,12 +172,12 @@
           ],
           "sourceURL": "https://murlok.io/meta/dps/m%2B",
           "updatedAt": "2026-10-21T10:11:24Z",
-          "retrievedAt": "2026-10-21T17:35:38Z",
-          "retrievedEpoch": 1792604138,
+          "retrievedAt": "2026-10-21T19:07:32Z",
+          "retrievedEpoch": 1792609652,
           "updatedEpoch": 1792577484,
-          "sourceHash": "271d519c651664dda3c8c36d236c9e257749a63032ca2408d2e99528748fc735",
+          "sourceHash": "5f67591384416bfbd956cf0214b9e92c274342c07824834eb10d52a37d6eae8a",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-10-21T17:35:38Z"
+          "lastAttemptAt": "2026-10-21T19:07:32Z"
         },
         "tank": {
           "entries": [
@@ -220,12 +220,12 @@
           ],
           "sourceURL": "https://murlok.io/meta/tank/m%2B",
           "updatedAt": "2026-10-21T10:11:18Z",
-          "retrievedAt": "2026-10-21T17:35:38Z",
-          "retrievedEpoch": 1792604138,
+          "retrievedAt": "2026-10-21T19:07:32Z",
+          "retrievedEpoch": 1792609652,
           "updatedEpoch": 1792577478,
-          "sourceHash": "29bcb327e82e780a21d229a1b08e571b3f9791d6ed968ba4763bfae87bddef62",
+          "sourceHash": "06303028154a0d59b0567b46c5d02c9a9b3dfcbc2539274c9e9f71777b5b6c0a",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-10-21T17:35:38Z"
+          "lastAttemptAt": "2026-10-21T19:07:32Z"
         },
         "healer": {
           "entries": [
@@ -274,12 +274,12 @@
           ],
           "sourceURL": "https://murlok.io/meta/healer/m%2B",
           "updatedAt": "2026-10-21T10:11:26Z",
-          "retrievedAt": "2026-10-21T17:35:38Z",
-          "retrievedEpoch": 1792604138,
+          "retrievedAt": "2026-10-21T19:07:32Z",
+          "retrievedEpoch": 1792609652,
           "updatedEpoch": 1792577486,
-          "sourceHash": "150b2d6a75cc3fe7478b41bf4d2a630c93af5c05e01e94b5ce8c2c3639d566bf",
+          "sourceHash": "61e44308b3ce03bd8ec7d5f58da40c633cbb3f1ee9487c271177a312123df01d",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-10-21T17:35:38Z"
+          "lastAttemptAt": "2026-10-21T19:07:32Z"
         }
       },
       "source": "Murlok.io",
@@ -460,11 +460,12 @@
           "sampleSize": 71207,
           "updatedAt": "2026-10-21T02:59:00.188766Z",
           "updatedEpoch": 1792551540,
+          "retrievedEpoch": 1792609652,
           "sourceURL": "https://u.gg/wow/tier-list/dps-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-21T12:24:10Z",
-          "sourceHash": "e02c7a04d055e8ae6cff94c9397faec23eb922cf360d5e02099e4c42e6f46773",
-          "refreshStatus": "unavailable",
-          "lastAttemptAt": "2026-10-21T17:35:38Z"
+          "retrievedAt": "2026-10-21T19:07:32Z",
+          "sourceHash": "85009f31d65570f48651d9a60e7d498d6f746ba0e296bf99e4fbfbf16abb9c4e",
+          "refreshStatus": "ok",
+          "lastAttemptAt": "2026-10-21T19:07:32Z"
         },
         "healer": {
           "entries": [
@@ -514,11 +515,12 @@
           "sampleSize": 21366,
           "updatedAt": "2026-10-21T02:59:00.188766Z",
           "updatedEpoch": 1792551540,
+          "retrievedEpoch": 1792609652,
           "sourceURL": "https://u.gg/wow/tier-list/healer-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-21T12:24:10Z",
-          "sourceHash": "e02c7a04d055e8ae6cff94c9397faec23eb922cf360d5e02099e4c42e6f46773",
-          "refreshStatus": "unavailable",
-          "lastAttemptAt": "2026-10-21T17:35:38Z"
+          "retrievedAt": "2026-10-21T19:07:32Z",
+          "sourceHash": "85009f31d65570f48651d9a60e7d498d6f746ba0e296bf99e4fbfbf16abb9c4e",
+          "refreshStatus": "ok",
+          "lastAttemptAt": "2026-10-21T19:07:32Z"
         },
         "tank": {
           "entries": [
@@ -562,11 +564,12 @@
           "sampleSize": 10747,
           "updatedAt": "2026-10-21T02:59:00.188766Z",
           "updatedEpoch": 1792551540,
+          "retrievedEpoch": 1792609652,
           "sourceURL": "https://u.gg/wow/tier-list/tank-rankings/raid?difficulty=mythic&encounter=all_bosses",
-          "retrievedAt": "2026-10-21T12:24:10Z",
-          "sourceHash": "e02c7a04d055e8ae6cff94c9397faec23eb922cf360d5e02099e4c42e6f46773",
-          "refreshStatus": "unavailable",
-          "lastAttemptAt": "2026-10-21T17:35:38Z"
+          "retrievedAt": "2026-10-21T19:07:32Z",
+          "sourceHash": "85009f31d65570f48651d9a60e7d498d6f746ba0e296bf99e4fbfbf16abb9c4e",
+          "refreshStatus": "ok",
+          "lastAttemptAt": "2026-10-21T19:07:32Z"
         }
       },
       "methodologyURL": "https://u.gg/wow/faq",

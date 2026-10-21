@@ -55,3 +55,8 @@ local serverTime=GetServerTime;GetServerTime=function()return 100001 end
 assert(R.MetaAge(group)==0,"Freshness uses successful collection, not old publication")
 GetServerTime=serverTime
 print("Meta UI provenance PASS: collection/publication labels and freshness")
+R.UI:SetView("meta")
+local metaData=R.GetMetaDataset()
+assert(R.UI.footer:GetText():find(metaData.source,1,true),"Final layout must preserve Meta source footer")
+assert(R.UI.footer:GetText():find(R.L("META_COLLECTED"),1,true),"Final Meta footer must retain its collection date label")
+R.UI:SetView("equipment")

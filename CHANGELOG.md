@@ -1,3 +1,12 @@
+## 0.6.7-beta.8
+
+- Fix stale Murlok gear, stats, gems and enchants caused by cached initial HTML. Collect all 40 rendered public aggregates with one browser and at most two pages concurrently; reject stale, regressing or incomplete batches.
+- Refresh all 40 specializations from same-day published Murlok aggregates, all Wowhead/Icy Veins guides and both Meta sources.
+- Preserve Meta's source/collection footer through final layout, realign socket-card headings when resizing, and resume manual gear scans deferred during combat.
+- Reject stale, future-dated or regressing raid Meta responses. Keep failed-source dates and data intact.
+- Make daily data package channels follow the installed beta/stable version, preserving stable updates after the first release.
+- Update the bundled Slovak setup notes and add regressions for the audit fixes. Keep the approved artwork, slot positions and 55% background dimming.
+
 ## 0.6.7-beta.7
 
 - Increase the background-only black overlay from 40% to 55% opacity.

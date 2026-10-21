@@ -45,12 +45,14 @@ def compact_lua(value,key=None):
  if value is None:return 'nil'
  return json.dumps(value,ensure_ascii=False)
 
-def build_candidate(previous,cache,offline=False):
+def build_candidate(previous,cache,offline=False,rendered_pages=None):
  timestamp=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
  candidate=copy.deepcopy(previous);candidate['specs']={};candidate['generatedAt']=timestamp
  failures=[]
+ if rendered_pages is not None and set(rendered_pages)!={str(s['id']) for s in SPECS}:
+  raise ValueError('Incomplete rendered Murlok coverage; original snapshot retained')
  with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-  jobs={pool.submit(collect,spec,cache,timestamp,offline,previous['specs'][str(spec['id'])]['mythicplus']):spec for spec in SPECS}
+  jobs={pool.submit(collect,spec,cache,timestamp,offline,previous['specs'][str(spec['id'])]['mythicplus'],rendered_pages[str(spec['id'])] if rendered_pages is not None else None):spec for spec in SPECS}
   for job,spec in jobs.items():
    try:
     _,mp,raid,_,warnings=job.result()
@@ -90,7 +92,9 @@ def main():
   if guides['patch']!=previous['upgradeRules']['patch']:raise ValueError('Guide patch mismatch')
   print('Gear, guides and meta snapshots valid; no source requests.');return
  args.cache.mkdir(parents=True,exist_ok=True)
- candidate=build_candidate(previous,args.cache,args.offline)
+ from murlok_live import collect_gear_pages
+ pages=None if args.offline else collect_gear_pages(args.cache)
+ candidate=build_candidate(previous,args.cache,args.offline,pages)
  from stat_rules import load_rules
  try:candidate['statRules']=load_rules(args.cache,candidate['upgradeRules']['patch'],args.offline)
  except (OSError,ValueError):

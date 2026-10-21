@@ -92,9 +92,13 @@ def rio_gear(data,timestamp):
    if enchant.get('id') and raw.get('enchant'):enchants[str(slot)]=dict(id=enchant['id'],name=enchant.get('name'),icon='Interface\\Icons\\'+enchant.get('icon','inv_misc_questionmark'),enchantID=raw['enchant'],source='Raider.IO')
  if len(gear)<14:raise ValueError('Incomplete Raider.IO loadout')
  return gear,enchants
-def collect(spec,cache,timestamp,offline,previous=None):
+def collect(spec,cache,timestamp,offline,previous=None,rendered_html=None):
  slug=spec['classSlug']+'-'+spec['slug'];url='https://murlok.io/'+spec['classSlug']+'/'+spec['slug']+'/m%2B'
- html=fetch(url,cache,slug+'-murlok.html',offline)
+ html=rendered_html if rendered_html is not None else fetch(url,cache,slug+'-murlok.html',offline)
+ if rendered_html is not None:
+  from murlok_live import verify_date
+  published=verify_date(html)
+  if previous and published<previous['updatedAt']:raise ValueError('Murlok gear source date regressed')
  dataset=parse_murlok(html,source_date(html,timestamp))
  dataset['retrievedAt']=timestamp
  dataset.update(sourceURL=url,primarySource='Murlok.io',specName=spec['name'],classID=spec['classID'])

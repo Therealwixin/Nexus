@@ -14,7 +14,7 @@ function R.QueueRefresh(equipmentChanged)
         R.refreshPending=false
         if not R.db or InCombatLockdown() or not (R.UI.frame and R.UI.frame:IsShown()) then return end
         R.RunBackground("refresh",function()
-            if R.equipmentDirty then R.ScanEquipment();R.equipmentDirty=false end
+            if R.equipmentDirty or R.scanAfterCombat then R.ScanEquipment();R.equipmentDirty=false end
             R.UI:Refresh()
         end)
     end)

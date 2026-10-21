@@ -53,6 +53,7 @@ tempbase=ROOT/'build/maintenance-tests';tempbase.mkdir(parents=True,exist_ok=Tru
 with tempfile.TemporaryDirectory(dir=tempbase) as directory:
  root=Path(directory)
  for folder in ['data','Nexus','build/candidate']:(root/folder).mkdir(parents=True,exist_ok=True)
+ (root/'Nexus/Nexus.toc').write_text('## Version: 0.6.7-beta.7\n',encoding='utf-8')
  for name in ['snapshot.json','meta-snapshot.json','guide-snapshot.json']:
   value=json.loads((ROOT/'data'/name).read_text(encoding='utf-8'));value['generatedAt']=dt.datetime.now(dt.timezone.utc).isoformat()
   (root/'build/candidate'/name).write_text(json.dumps(value),encoding='utf-8')
@@ -77,3 +78,28 @@ with tempfile.TemporaryDirectory(dir=tempbase) as directory:
   (root/'data/meta-snapshot.json').write_text(json.dumps({'refreshStatus':'unavailable'}),encoding='utf-8')
   assert data_release.due(dt.datetime(2026,10,20,23,17,tzinfo=dt.timezone.utc),'schedule')
 print('Daily cadence PASS: next calendar day, same-day success skip, forced run and partial-source retry')
+
+# Stable users must receive stable daily packages after the first stable release.
+with patch.dict(data_release.os.environ,{'DATA_RELEASE_CHANNEL':''}):
+ for current,expected in [('0.6.7-beta.7','beta'),('1.0.0','release'),('1.0.0-data.202610211000','release')]:
+  assert data_release.release_channel(current)==expected
+with patch.dict(data_release.os.environ,{'DATA_RELEASE_CHANNEL':'beta'}):
+ assert data_release.release_channel('1.0.0')=='beta'
+print('Release channel PASS: daily versions follow beta/stable channel with an explicit override')
+
+try:build_candidate(data,ROOT/'tests',rendered_pages={})
+except ValueError as error:assert 'Incomplete rendered Murlok coverage' in str(error)
+else:raise AssertionError('Partial hydrated gear must not fall back to stale SSR')
+print('Rendered gear coverage PASS: incomplete live batch cannot overwrite the last verified snapshot')
+
+fresh_stamp=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+rendered='<time datetime="'+fresh_stamp+'"></time>'
+requested=[]
+with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_murlok',lambda html,stamp:dict(copy.deepcopy(mp),updatedAt=stamp)),patch.object(collect_gear,'guide_slots',lambda *a:(copy.deepcopy(raid['slots']),{})),patch.object(collect_gear,'consumables',lambda *a:copy.deepcopy(mp['consumables'])):
+ refreshed=collect_gear.collect(spec,Path('.'),fresh_stamp,False,mp,rendered)[1]
+ assert len(requested)==2 and all('murlok.io' not in url for url in requested),'Hydrated gear must bypass the old initial HTTP page'
+ assert refreshed['updatedAt']==fresh_stamp and refreshed['statProfile']['updatedAt']==fresh_stamp
+ try:collect_gear.collect(spec,Path('.'),fresh_stamp,False,mp,'<time datetime="2026-10-01T00:00:00Z"></time>')
+ except ValueError:pass
+ else:raise AssertionError('Stale rendered gear accepted')
+print('Rendered gear provenance PASS: source dates used, SSR bypassed and stale pages rejected')

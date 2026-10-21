@@ -75,10 +75,19 @@ print('Meta: hydrated-page requirement, 36h freshness guard, future/stale reject
 
 # A normal rendered public U.GG page may replace a blocked initial response;
 # parsing/difficulty validation still applies, and offline mode never launches it.
-with patch('refresh_meta.collect_pages',lambda cache:{}),patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page',return_value=html) as browser:
+fresh_html=html.replace('2026-10-19T03:00:00Z',dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))
+with patch('refresh_meta.collect_pages',lambda cache:{}),patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page',return_value=fresh_html) as browser:
  fallback=collect_meta(meta,Path('.'))
 assert browser.call_count==1 and all(r['refreshStatus']=='ok' for r in fallback['modes']['raid']['roles'].values())
 with patch('refresh_meta.fetch',partial_source),patch('refresh_meta.render_raid_page') as browser:
  collect_meta(meta,Path('.'),True)
 assert browser.call_count==0
 print('Raid fallback PASS: one public rendered-page attempt, same validation, no browser in offline tests')
+from refresh_meta import verify_raid_dates
+for stamp in ['2026-10-16T00:00:00Z','2026-10-22T00:00:00Z']:
+ bad=copy.deepcopy(result)
+ for record in bad.values():record['updatedAt']=stamp
+ try:verify_raid_dates(bad,result,'2026-10-21T17:00:00Z')
+ except ValueError:pass
+ else:raise AssertionError('Stale, regressed or future raid data accepted')
+print('Raid dates PASS: stale, regressed and future source snapshots rejected')

@@ -77,6 +77,11 @@ check(scans==0,"Combat defers equipment scan")
 TEST.combat=false
 R.events:Fire("OnEvent","PLAYER_REGEN_ENABLED");TEST.Flush()
 check(scans==1,"One deferred equipment scan after combat")
+scans=0;R.equipmentDirty=false;TEST.combat=true
+R.ScanEquipment();scans=0
+check(R.scanAfterCombat,"Manual combat scan is queued")
+TEST.combat=false;R.events:Fire("OnEvent","PLAYER_REGEN_ENABLED");TEST.Flush()
+check(scans==1 and not R.scanAfterCombat,"Manual scan resumes after combat without an inventory event")
 R.ScanEquipment=originalScan
 local A=R.DungeonAlerts
 A.visit={gameMapID=123,attempts=12,notified={}};A.pending=nil

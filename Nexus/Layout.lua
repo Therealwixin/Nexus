@@ -173,6 +173,7 @@ function UI:RenderSockets()
   place(card,"TOPLEFT",self.socketChild,"TOPLEFT",((index-1)%2)*column+2,-math.floor((index-1)/2)*h);card:SetSize(column-6,h-5);R.SkinPanel(card,"card")
   card.title:SetWidth(column-64);card.state:SetWidth(column-64);card.current:SetWidth(column-26);card.plan:SetWidth(column-26)
   card.icon:SetTexture(R.ItemIcon(entry.item));card.title:SetText(R.ItemName(entry.item));card.state:SetText(R.L("ITEM_SOCKET_COUNT",entry.sockets.filled,entry.sockets.total));card.state:SetTextColor(unpack(entry.sockets.empty>0 and RED or GREEN))
+  place(card.plan,"TOPLEFT",card,"TOPLEFT",column/2+3,-63)
   card.current:SetWidth(column/2-15);card.plan:SetWidth(column/2-15);card.current:SetText(R.L(inBags and "SOCKET_INSERTED_GEMS" or "CURRENT_GEMS"));card.plan:SetText(R.L("RECOMMENDED_GEMS"))
   for i,button in ipairs(card.gemRows) do
    local current=i<=4;local index=current and i or i-4
@@ -206,6 +207,6 @@ function UI:Refresh()
  self.buttons.SOURCES:SetText(R.L("DATA_UPDATES"))
  for key,view in pairs({EQUIPMENT="equipment",STATS="stats",PREPARATION="preparation",META="meta",SOURCES="sources"}) do R.StyleNavigation(self.buttons[key],self.view==view) end
  self.buttons.MYTHICPLUS:SetText(self.view=="meta" and R.L("META_MPLUS") or "Mythic+ · Murlok");self.buttons.RAID:SetText(self.view=="meta" and R.L("META_RAID") or "Raid · Wowhead")
- self.footer:SetText(R.VERSION.." · "..(self.view=="equipment" and R.GetGearSummary() or R.DataStatus(R.GetDataset())))
+ if self.view~="meta" then self.footer:SetText(R.VERSION.." · "..(self.view=="equipment" and R.GetGearSummary() or R.DataStatus(R.GetDataset()))) end
  if self.view=="stats" then local profile=R.StatProfile();self.footer:SetText(R.VERSION.." · Murlok.io · M+ · "..(profile and profile.updatedAt:sub(1,10) or R.L("NO_DATA"))) end
 end
