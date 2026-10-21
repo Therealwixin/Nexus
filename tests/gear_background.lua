@@ -1,33 +1,49 @@
 local R=TEST.R
+local originalTextureAPI=C_Texture
+local nativeWidth,nativeHeight=1614,776
+C_Texture={GetAtlasInfo=function(name)
+ assert(name:match("^talents%-background%-"),"Current native talent atlas only")
+ return {width=nativeWidth,height=nativeHeight,leftTexCoord=.1,rightTexCoord=.9,topTexCoord=.2,bottomTexCoord=.8}
+end}
 R.UI.frame:Show();R.UI.gearView="targets"
 for _,size in ipairs({{960,700},{1200,816},{1280,900}}) do
  R.UI.frame:SetSize(unpack(size))
  for _,spec in ipairs(R.Data.catalog) do
   R.SetViewSpec(spec.id);R.UI:SetView("equipment")
   local ui=R.UI;local art=ui.gearBackground
-  assert(ui.gearIdentity:GetText()==spec.name and ui.gearClass:GetText()==spec.className,"Composition follows selected specialization")
-  assert(ui.gearCrest:IsShown() and ui.gearCrest:GetWidth()>=60,"Recognizable crest for every spec")
-  if spec.classID==12 or spec.classID==13 then
-   assert(not art:IsShown(),"New specs use own crest, never borrowed/abstract art")
-  else
-   assert(art:IsShown() and art.texture:find("Interface\\TalentFrame\\bg-",1,true),"Native character painting")
-   assert(art:GetWidth()==art:GetHeight() and art:GetWidth()>=160,"Recognizable full square painting, no talent-atlas crop")
-   assert(art:GetLeft()>=ui.gearChild:GetLeft()+ui.rows[1]:GetWidth() and art:GetRight()<=ui.gearChild:GetRight()-ui.rows[1]:GetWidth(),"Painting stays in its own center column, never underneath item labels")
-   local coords=art.texCoord;assert(coords[1]==0 and coords[2]==1 and coords[3]==0 and coords[4]==1,"Full painting stays intact")
-  end
-  for _,row in ipairs(ui.rows) do
-   assert(row:GetRight()<=ui.gearIdentity:GetLeft()+.1 or row:GetLeft()>=ui.gearIdentity:GetRight()-.1,"Labels stay outside central identity")
+  local expected="talents-background-"..spec.classSlug:gsub("-","").."-"..spec.slug:gsub("-","")
+  assert(art:IsShown() and art.atlas==expected,"All 40 specs use their own current talent art")
+  assert(art:GetWidth()==ui.gearChild:GetWidth() and art:GetHeight()==ui.gearChild:GetHeight(),"Art fills entire Equipment pane")
+  assert(art:GetAlpha()==1 and not art.mask,"No black wash or feather hiding the character")
+  assert(not ui.gearCrest and not ui.gearIdentity and not ui.gearClass,"No enlarged icons or central labels")
+  for _,row in ipairs(ui.rows) do assert(row:GetRight()<=ui.gearChild:GetLeft()+ui.gearChild:GetWidth()*.75+.1,"Portrait edge stays free of item names and icons") end
+ end
+end
+for _,native in ipairs({{1614,776},{2048,1024},{1024,2048},{320,180}}) do
+ nativeWidth,nativeHeight=unpack(native)
+ for _,size in ipairs({{960,700},{1200,816},{1280,900}}) do
+  R.UI.frame:SetSize(unpack(size));R.UI:Refresh()
+  local art=R.UI.gearBackground;local uv=art.texCoord
+  assert(uv[1]>=.1-1e-8 and uv[2]<=.9+1e-8 and uv[3]>=.2-1e-8 and uv[4]<=.8+1e-8,"Sampling stays inside atlas rectangle")
+  assert(math.abs(uv[2]-.9)<1e-8,"Keep portrait at right edge of talent image")
+  local sampleW=nativeWidth*(uv[2]-uv[1])/.8
+  local sampleH=nativeHeight*(uv[4]-uv[3])/.6
+  assert(math.abs(sampleW/sampleH-art:GetWidth()/art:GetHeight())<1e-8,"Cover preserves actual artwork aspect")
+  assert(math.abs((uv[3]+uv[4])/2-.5)<1e-8,"Any vertical crop is centered")
+  if nativeWidth/nativeHeight>1.8 and nativeWidth/nativeHeight<2.2 then
+   local portraitX=.1+.88*.8
+   assert(portraitX>uv[1] and portraitX<uv[2],"Inspected DH/paladin character focal point remains visible")
   end
  end
 end
--- Removed/missing client artwork switches to the selected spec's crest.
-local texture=R.UI.gearBackground.SetTexture
-R.UI.gearBackground.SetTexture=function()return false end
-R.SetViewSpec(70);R.UI:Refresh()
-assert(not R.UI.gearBackground:IsShown() and R.UI.gearCrest:IsShown(),"Missing native painting has explicit crest fallback")
-R.UI.gearBackground.SetTexture=texture
-R.SetViewSpec(nil);R.UI.gearView="targets";R.UI:Refresh()
-print("Equipment composition PASS: all 40 specs, responsive columns, full paintings, native crest fallback and missing client assets")
+R.UI.gearView="mine";R.UI:Refresh();assert(R.UI.gearBackground:IsShown(),"Both equipment views share talent art")
+ClassTalentUtil={GetVisualsForSpecID=function()return {background="talents-background-client-override"}end}
+R.UI:Refresh();assert(R.UI.gearBackground.atlas=="talents-background-client-override","Prefer loaded native client mapping")
+ClassTalentUtil=nil
+C_Texture.GetAtlasInfo=function()return nil end
+R.UI:Refresh();assert(not R.UI.gearBackground:IsShown(),"Missing atlas stays plain without an unrelated/icon fallback")
+C_Texture=originalTextureAPI;R.SetViewSpec(nil);R.UI.gearView="targets";R.UI.frame:SetSize(1280,900);R.UI:Refresh()
+print("Talent backgrounds PASS: 40 specs, full pane coverage, atlas UVs, preserved aspect/right portrait, both views and safe missing atlas")
 
 local group={updatedAt="2026-10-16T10:00:00Z",updatedEpoch=1,retrievedAt="2026-10-21T17:00:00Z",retrievedEpoch=100000}
 local dataset={roles={dps=group}}

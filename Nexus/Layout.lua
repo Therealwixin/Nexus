@@ -49,55 +49,40 @@ function UI:Layout()
  self.buttons.MYTHICPLUS:SetShown(self.view=="meta" or self.view=="equipment");self.buttons.RAID:SetShown(self.view=="meta" or self.view=="equipment")
  for index,b in ipairs(self.languageButtons) do place(b,"TOPLEFT",f,"TOPLEFT",181+(index-1)*38,-119) end
 end
--- Older talent portraits are square character paintings, rather than the wide,
--- mostly empty canvases behind the modern two-tree talent window. Use only
--- client assets; newer specs have their own unmistakable specialization crest.
-local portraitNames={
- [250]="deathknight-blood",[251]="deathknight-frost",[252]="deathknight-unholy",
- [102]="druid-balance",[103]="druid-cat",[104]="druid-bear",[105]="druid-restoration",
- [253]="hunter-beastmaster",[254]="hunter-marksman",[255]="hunter-survival",
- [62]="mage-arcane",[63]="mage-fire",[64]="mage-frost",
- [268]="monk-brewmaster",[269]="monk-battledancer",[270]="monk-mistweaver",
- [65]="paladin-holy",[66]="paladin-protection",[70]="paladin-retribution",
- [256]="priest-discipline",[257]="priest-holy",[258]="priest-shadow",
- [259]="rogue-assassination",[260]="rogue-combat",[261]="rogue-subtlety",
- [262]="shaman-elemental",[263]="shaman-enhancement",[264]="shaman-restoration",
- [265]="warlock-affliction",[266]="warlock-demonology",[267]="warlock-destruction",
- [71]="warrior-arms",[72]="warrior-fury",[73]="warrior-protection",
-}
+-- Use the same background atlas as Blizzard's current talent window for every
+-- spec, including DH and Evoker. These compositions deliberately put their
+-- character on the right: height-cover and right alignment retain that artwork.
 function UI:UpdateGearBackground()
  if not self.gearBackground then
   self.gearBackground=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-8)
+  self.gearBackground:SetAllPoints(self.gearChild)
   self.gearBackground:SetAlpha(1)
-  self.gearBackgroundMask=self.gearChild:CreateMaskTexture()
-  self.gearBackgroundMask:SetTexture(R.ASSET_PATH.."equipment-art-mask.tga")
-  self.gearBackgroundMask:SetAllPoints(self.gearBackground)
-  self.gearBackground:AddMaskTexture(self.gearBackgroundMask)
-  self.gearCrest=self.gearChild:CreateTexture(nil,"ARTWORK")
-  self.gearCrestBorder=self.gearChild:CreateTexture(nil,"OVERLAY")
-  self.gearCrestBorder:SetTexture("Interface\\Buttons\\UI-Quickslot2")
-  self.gearIdentity=label(self.gearChild,14,GOLD);self.gearIdentity:SetJustifyH("CENTER")
-  self.gearClass=label(self.gearChild,11,MUTED);self.gearClass:SetJustifyH("CENTER")
  end
- local spec=R.SpecInfo(R.ViewSpecID());if not spec then
-  for _,part in ipairs({self.gearBackground,self.gearCrest,self.gearCrestBorder,self.gearIdentity,self.gearClass}) do part:Hide() end
-  return
+ local specID=R.ViewSpecID();local atlas
+ if ClassTalentUtil and ClassTalentUtil.GetVisualsForSpecID then
+  local visuals=ClassTalentUtil.GetVisualsForSpecID(specID);atlas=visuals and visuals.background
  end
+ if not atlas then
+  for _,spec in ipairs(R.Data and R.Data.catalog or {}) do if spec.id==specID then
+   atlas="talents-background-"..spec.classSlug:gsub("-","").."-"..spec.slug:gsub("-","");break
+  end end
+ end
+ local info=atlas and C_Texture and C_Texture.GetAtlasInfo and C_Texture.GetAtlasInfo(atlas)
  local width,height=self.gearChild:GetWidth(),self.gearChild:GetHeight()
- local name=portraitNames[spec.id];local portrait=false
- if name then portrait=self.gearBackground:SetTexture("Interface\\TalentFrame\\bg-"..name)~=false end
- local center=width*.30
- local size=math.min(center-12,height*.72,384)
- self.gearBackground:ClearAllPoints();self.gearBackground:SetPoint("CENTER",self.gearChild,"CENTER",0,-20)
- self.gearBackground:SetSize(size,size);self.gearBackground:SetTexCoord(0,1,0,1);self.gearBackground:SetShown(portrait)
- -- A clear, full-colour crest replaces missing portraits (DH/Evoker), never
- -- another specialization's painting or an almost-black talent atlas crop.
- local crest=math.min(portrait and 64 or 144,(center-8)/1.55)
- self.gearCrest:ClearAllPoints();self.gearCrest:SetPoint("CENTER",self.gearChild,"CENTER",0,portrait and height*.34 or 24)
- self.gearCrest:SetSize(crest,crest);R.SetSpecIcon(self.gearCrest,spec);self.gearCrest:Show()
- self.gearCrestBorder:ClearAllPoints();self.gearCrestBorder:SetPoint("CENTER",self.gearCrest,"CENTER",0,0);self.gearCrestBorder:SetSize(crest*1.55,crest*1.55);self.gearCrestBorder:Show()
- self.gearIdentity:ClearAllPoints();self.gearIdentity:SetPoint("TOP",self.gearCrest,"BOTTOM",0,-14);self.gearIdentity:SetSize(center-8,32);self.gearIdentity:SetMaxLines(2);self.gearIdentity:SetText(spec.name);self.gearIdentity:Show()
- self.gearClass:ClearAllPoints();self.gearClass:SetPoint("TOP",self.gearIdentity,"BOTTOM",0,-3);self.gearClass:SetSize(center-8,28);self.gearClass:SetMaxLines(2);self.gearClass:SetText(spec.class.name);self.gearClass:Show()
+ if not info or not info.width or not info.height or info.width<=0 or info.height<=0 or width<=0 or height<=0 then
+  self.gearBackground:Hide();self.gearBackgroundAtlas=nil;return
+ end
+ if self.gearBackgroundAtlas~=atlas then self.gearBackground:SetAtlas(atlas);self.gearBackgroundAtlas=atlas end
+ -- Cover the pane without stretching. Keep the atlas's right edge (the face),
+ -- not its empty left canvas; crop vertically around the middle only if needed.
+ -- Map logical image UVs through the atlas rectangle, not the whole sprite sheet.
+ local scale=math.max(width/info.width,height/info.height)
+ local spanX=width/(info.width*scale);local spanY=height/(info.height*scale)
+ local left,right=info.leftTexCoord or 0,info.rightTexCoord or 1
+ local top,bottom=info.topTexCoord or 0,info.bottomTexCoord or 1
+ local startY=(1-spanY)/2
+ self.gearBackground:SetTexCoord(right-(right-left)*spanX,right,top+(bottom-top)*startY,top+(bottom-top)*(startY+spanY))
+ self.gearBackground:Show()
 end
 -- Eight slots per side; both weapons follow wrists on the left.
 
@@ -107,14 +92,16 @@ function UI:RenderRows()
  local width,height=self.gearScroll:GetWidth(),self.gearScroll:GetHeight()
  self.gearChild:SetSize(width,height);self:UpdateGearBackground();self.gearRange=0;self:ScrollGear(0)
  for _,header in pairs(self.gearHeaders) do header:Hide() end
- local side=math.floor(width*.35);local stride=(height-12)/8
+ -- Reserve the portrait edge so gear names never run across the face.
+ local gearWidth=width*.75
+ local side=math.floor((gearWidth-24)/2);local stride=(height-12)/8
  local left={[1]=0,[2]=1,[3]=2,[15]=3,[5]=4,[9]=5,[16]=6,[17]=7}
  local right={[10]=0,[6]=1,[7]=2,[8]=3,[11]=4,[12]=5,[13]=6,[14]=7}
  if self.paperDoll then self.paperDoll:Hide() end
  for index,slot in ipairs(R.SLOTS) do
   local row=self.rows[index];local item=self:GetShownItem(slot.id);local onRight=right[slot.id]~=nil
   local top=(left[slot.id] or right[slot.id] or 0)*stride+4
-  local x=onRight and width-side or 0
+  local x=onRight and gearWidth-side or 0
   place(row,"TOPLEFT",self.gearChild,"TOPLEFT",x,-top);row:SetSize(side,stride-2);row.gridTop=top
   local state=self:BindItem(row,item,slot.id,self.gearView=="mine",true)
   local icon=math.floor(math.min(36,(stride-4)/1.55));place(row.icon,onRight and "RIGHT" or "LEFT",row,onRight and "RIGHT" or "LEFT",onRight and -16 or 16,0);row.icon:SetSize(icon,icon)
@@ -122,10 +109,10 @@ function UI:RenderRows()
   local anchor=onRight and "TOPRIGHT" or "TOPLEFT";local offset=onRight and -icon-24 or icon+24
   local contentTop=math.max(2,(stride-64)/2)
   row.text:SetPoint(anchor,row,anchor,offset,-contentTop);row.text:SetHeight(11);row.text:SetFont(R.FONT,10,"");row.text:SetTextColor(unpack(MUTED));row.text:SetText(R.L(slot.key))
-  row.note:SetPoint(anchor,row,anchor,offset,-contentTop-13);row.note:SetHeight(stride>=70 and 30 or 26);row.note:SetFont(R.FONT,12,"");row.note:SetMaxLines(2);row.note:SetTextColor(R.ItemColor(item));row.note:SetText(item and R.ItemName(item) or R.L("NO_SOURCE_OPTION"))
+  row.note:SetPoint(anchor,row,anchor,offset,-contentTop-13);row.note:SetHeight(stride>=70 and 30 or 26);row.note:SetFont(R.FONT,12,"OUTLINE");row.note:SetMaxLines(2);row.note:SetTextColor(R.ItemColor(item));row.note:SetText(item and R.ItemName(item) or R.L("NO_SOURCE_OPTION"))
   if item and self.gearView=="mine" then local level=R.ItemLevel(item,true);if level then row.text:SetText(R.L(slot.key).." · "..level) end end
   if item and self.gearView~="mine" then state=R.GearOwnership(item,slot.id) end
-  row.ownership:SetPoint(anchor,row,anchor,offset,-contentTop-(stride>=70 and 47 or 41));row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or state:find("TIER_STATS",1,true) and GOLD or GREEN))
+  row.ownership:SetPoint(anchor,row,anchor,offset,-contentTop-(stride>=70 and 47 or 41));row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"OUTLINE");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or state:find("TIER_STATS",1,true) and GOLD or GREEN))
   row.red:Hide();row.check:Hide();row.icon:SetVertexColor(1,1,1)
   row.border:SetColorTexture(R.ItemColor(item))
   if not row.slotBevel then

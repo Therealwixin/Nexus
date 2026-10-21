@@ -1,3 +1,10 @@
+## 0.6.7-beta.2
+
+- Restore current Blizzard talent background atlases consistently across all 40 specializations, including Vengeance, Devourer and Evoker. Remove the enlarged spec-icon fallback, central headings and legacy square illustrations.
+- Fill the entire Equipment pane without stretching: preserve the atlas rectangle, fit to cover and anchor the character's right edge. Remove the feather mask, extra dimming and small central-art sizing that obscured the subject.
+- Reserve the outer 25% for the portrait so names/icons do not cover the face. Give item names more horizontal space and native outlined text for readability. Keep both weapons below Wrists.
+- Visually inspect the actual current Vengeance/Devourer/Holy/Subtlety talent artwork and browser layout previews; test coverage, UV/aspect and portrait retention across supported window sizes. These previews do not replace in-game rendering verification.
+
 ## 0.6.7-beta.1
 
 - Rebuild Equipment around two equipment columns and a dedicated central spec identity. Keep illustration and crest completely outside item labels, with full-color artwork instead of dark overlays. Replace wide talent-atlas crops with complete native character paintings where available and a clear specialization crest for newer specs or missing client art. Allow two lines for item names; retain weapons below wrists.

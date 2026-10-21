@@ -77,12 +77,3 @@ with tempfile.TemporaryDirectory(dir=tempbase) as directory:
   (root/'data/meta-snapshot.json').write_text(json.dumps({'refreshStatus':'unavailable'}),encoding='utf-8')
   assert data_release.due(dt.datetime(2026,10,20,23,17,tzinfo=dt.timezone.utc),'schedule')
 print('Daily cadence PASS: next calendar day, same-day success skip, forced run and partial-source retry')
-
-# The artwork feather is a bounded, smooth alpha mask with transparent edges.
-import struct
-mask=(ROOT/'Nexus/Media/equipment-art-mask.tga').read_bytes()
-width,height=struct.unpack_from('<HH',mask,12)
-assert (width,height)==(256,256) and mask[16]==32
-alpha=mask[21::4]
-assert len(alpha)==width*height and alpha[0]==0 and alpha[(height//2)*width+width//2]==255 and len(set(alpha))>32
-print('Artwork feather PASS: bounded RGBA mask, transparent edges and opaque center')
