@@ -4,7 +4,7 @@ A focused World of Warcraft Retail addon for gear goals, equipment ownership and
 
 ## Current preview
 
-Nexus 0.6.6 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. Equipment uses the selected spec's native talent spec scene, centered at a smaller size with feathered edges and a dim overlay and eight slots per column; both weapons sit below Wrists on the left. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
+Nexus 0.6.6 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. Equipment has two readable equipment columns surrounding a central spec identity. Complete native character paintings are used where available; newer specs or missing client textures use their own clear specialization crest. Both weapons sit below Wrists on the left. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
 
 - **Equipment:** Raid (authored Wowhead guide) or Mythic+ (Murlok top-profile usage), up to four verified alternatives per slot, and current-character ownership. Activity is separate from acquisition: both modes include raid, dungeon and crafted items.
 - **Stats:** Murlok M+ references for all 40 specs, native active-character values, rating gaps and verified rating-derived DR details on hover.
@@ -35,6 +35,8 @@ Python 3.12 and `lupa==2.8` are used outside the game:
 
 The live Wowhead collector was exercised across all 40 specs on 2026-10-20; published source timestamps and live patch are preserved. Preparation, aggregate gear and meta inputs retain their own published timestamps. Collection writes a candidate; staging, tests and publishing are separate steps. An incompatible guide patch or missing complete authored set prevents replacing the last verified snapshot.
 
+    python -m pip install playwright==1.56.0
+    python -m playwright install chromium
     python tools/refresh_gear.py
     python tools/data_release.py stage --keep-version
 
@@ -45,3 +47,5 @@ No API keys or game libraries are bundled in the addon. Existing owner license t
 ## Active sources
 
 Daily collection uses Wowhead, Icy Veins, Murlok and U.GG (raid Meta). Direct WCL collection, its snapshots/workflows, Archon status checks and Raider.IO affix checks have been removed. U.GG's methodology still credits its underlying log source; Nexus makes no direct WCL API requests. Daily publication and addon updates continue as before.
+
+Murlok Meta is collected from the rendered public page after its WebAssembly app finishes loading. Initial HTTP HTML was observed to carry obsolete rankings even when the browser showed current values. The external collector checks all 40 specs across the three roles, refuses source dates older than 36 hours or regressing dates, and retains explicit failed-refresh status instead of claiming fresh data. Playwright runs only in the data job, never in WoW. Meta shows both collection time and the source-reported date. Raid popularity is parse representation, not U.GG's DPS/HPS tier order or a tank-survivability ranking.

@@ -21,7 +21,7 @@ function UI:ScrollMeta(offset)
 end
 function UI:CreateMetaPane()
  local pane=CreateFrame("Frame",nil,self.frame,"InsetFrameTemplate");self.metaPane=pane;pane:SetAllPoints(self.gearPane)
- self.metaRole="all";self.metaRows={};self.metaRoleButtons={}
+ self.metaRole=R.SpecRole(R.ViewSpecID());self.metaRows={};self.metaRoleButtons={}
  local previous
  for _,role in ipairs({"all","dps","healer","tank"}) do
   local key=role;local button=Button(pane,role=="all" and 125 or 95,function()
@@ -56,7 +56,8 @@ function UI:CreateMetaPane()
    GameTooltip:SetOwner(owner,"ANCHOR_RIGHT");GameTooltip:SetText(Identity(record.entry.specID))
    GameTooltip:AddLine(R.L("META_ROLE_RANK",record.entry.rank,R.L(roleKeys[record.role])),1,.82,0)
    local metric,label=Metric(record);GameTooltip:AddLine(label..": "..metric,1,1,1)
-   GameTooltip:AddLine(record.dataset.source.." · "..record.group.updatedAt:sub(1,10),.65,.65,.65)
+   GameTooltip:AddLine(record.dataset.source.." · "..R.L("META_COLLECTED")..": "..(record.group.retrievedAt or "?"):sub(1,10),.65,.65,.65)
+   GameTooltip:AddLine(R.L("META_SOURCE_DATE")..": "..record.group.updatedAt:sub(1,10),.65,.65,.65)
    GameTooltip:AddLine(R.L("META_SELECT_HINT"),1,1,1,true);GameTooltip:Show()
   end)
   row:SetScript("OnLeave",function()GameTooltip:Hide()end);row:Hide()
@@ -84,10 +85,12 @@ function UI:RenderMetaDetail(record,why)
  self:DetailSection(R.L("SOURCE"),GOLD)
  self:DetailText(record.dataset.source..(record.dataset.upstream and " · "..record.dataset.upstream or ""),WHITE)
  self:DetailText(record.dataset.scope..(record.dataset.difficulty and " · "..record.dataset.difficulty or ""),GREY,11)
+ self:DetailText(R.L("META_COLLECTED")..": "..(record.group.retrievedAt or "?"):sub(1,16):gsub("T"," ").." UTC",WHITE,12)
  self:DetailText("Patch "..R.MetaData.patch.." · "..R.L("META_SOURCE_DATE")..": "..record.group.updatedAt:sub(1,16):gsub("T"," ").." UTC",GREY,11)
   if record.group.refreshStatus=="unavailable" then self:DetailText(R.L("META_REFRESH_FAILED"),RED,11) end
+ self:DetailText(R.L("META_DATE_NOTE"),GREY,11)
  local age=R.MetaAge(record.group)
- if age and age>7 then self:DetailText(R.L("STALE"),RED,12) end
+ if age and age>1 then self:DetailText(R.L("STALE"),RED,12) end
  self:DetailButton(record.dataset.source.." · "..R.L("COPY_URL"),function()self:ShowCopy(record.group.sourceURL)end)
  self:DetailFinish()
 end
@@ -129,5 +132,5 @@ function UI:RenderMeta()
  end
  self:ScrollMeta(self.metaOffset)
  self:RenderMetaDetail(R.MetaRecord(selected),why)
- self.footer:SetText(data and data.source.." · "..R.L("META_SOURCE_DATE")..": "..R.MetaDate(data,self.metaRole).." · "..R.L("META_ROLES_NOTE") or R.L(why or "META_UNAVAILABLE"))
+ self.footer:SetText(data and data.source.." · "..R.L("META_COLLECTED")..": "..R.MetaDate(data,self.metaRole,"retrievedAt").." · "..R.L("META_SOURCE_DATE")..": "..R.MetaDate(data,self.metaRole) or R.L(why or "META_UNAVAILABLE"))
 end

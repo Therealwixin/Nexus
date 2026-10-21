@@ -30,16 +30,18 @@ end
 function R.MetaRecord(id,mode)
  for _,record in ipairs(R.MetaEntries(mode,R.SpecRole(id))) do if record.entry.specID==id then return record end end
 end
-function R.MetaDate(data,role)
+function R.MetaDate(data,role,field)
  local oldest
  for key,group in pairs(data and data.roles or {}) do
   if role==nil or role=="all" or key==role then
-   if not oldest or group.updatedAt<oldest then oldest=group.updatedAt end
+   local stamp=group[field or "updatedAt"]
+   if not stamp then return "?" end
+   if not oldest or stamp<oldest then oldest=stamp end
   end
  end
  return oldest and oldest:sub(1,10) or "?"
 end
 function R.MetaAge(group)
  local now=GetServerTime and GetServerTime() or time and time()
- return now and group and group.updatedEpoch and math.max(0,math.floor((now-group.updatedEpoch)/86400))
+ return now and group and group.retrievedEpoch and math.max(0,math.floor((now-group.retrievedEpoch)/86400))
 end

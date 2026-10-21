@@ -4,6 +4,7 @@ import copy,datetime as dt,hashlib,json,re
 from catalog import SPECS
 from collect_gear import fetch,source_date
 from parsers import Page
+from murlok_live import collect_pages
 TANKS={73,66,250,268,104,581};HEALERS={65,256,257,264,270,105,1468}
 def role(spec):return 'tank' if spec in TANKS else 'healer' if spec in HEALERS else 'dps'
 def normalized(value):return re.sub('[^a-z0-9]','',value.lower())
@@ -64,13 +65,18 @@ def validate_meta(data):
   if len(seen)!=40:raise ValueError('Incomplete meta mode')
 def collect_meta(previous,cache,offline=False):
  result=copy.deepcopy(previous);now=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ');result['generatedAt']=now
+ pages=None if offline else collect_pages(cache)
  for group in ['dps','healer','tank']:
   url=previous['modes']['mythicplus']['roles'][group]['sourceURL']
   try:
-   html=fetch(url,cache,'meta-'+group+'.html',offline);entries,patch=murlok(html,group)
+   html=fetch(url,cache,'meta-'+group+'.html',True) if offline else pages.get(group)
+   if not html:raise ValueError('Rendered Murlok Meta unavailable')
+   entries,patch=murlok(html,group)
    if patch!=result['patch']:raise ValueError('M+ meta patch mismatch')
    stamp=source_date(html,now)
-   result['modes']['mythicplus']['roles'][group]=dict(entries=entries,sourceURL=url,updatedAt=stamp,retrievedAt=now,updatedEpoch=epoch(stamp),sourceHash=hashlib.sha256(html.encode()).hexdigest(),refreshStatus='ok',lastAttemptAt=now)
+   prior=previous['modes']['mythicplus']['roles'][group]['updatedAt']
+   if epoch(stamp)<epoch(prior):raise ValueError('Source date regressed; retaining newer published snapshot')
+   result['modes']['mythicplus']['roles'][group]=dict(entries=entries,sourceURL=url,updatedAt=stamp,retrievedAt=now,retrievedEpoch=epoch(now),updatedEpoch=epoch(stamp),sourceHash=hashlib.sha256(html.encode()).hexdigest(),refreshStatus='ok',lastAttemptAt=now)
   except (OSError,ValueError):
    result['modes']['mythicplus']['roles'][group].update(refreshStatus='unavailable',lastAttemptAt=now)
    print('M+ meta '+group+': source unavailable; retaining original dated snapshot')
@@ -78,7 +84,7 @@ def collect_meta(previous,cache,offline=False):
  try:
   html=fetch(url,cache,'meta-raid.html',offline);roles=raid(html,result['patch'])
   for group,record in roles.items():
-   record.update(sourceURL=previous['modes']['raid']['roles'][group]['sourceURL'],retrievedAt=now,sourceHash=hashlib.sha256(html.encode()).hexdigest(),refreshStatus='ok',lastAttemptAt=now)
+   record.update(retrievedEpoch=epoch(now),sourceURL=previous['modes']['raid']['roles'][group]['sourceURL'],retrievedAt=now,sourceHash=hashlib.sha256(html.encode()).hexdigest(),refreshStatus='ok',lastAttemptAt=now)
   result['modes']['raid']['roles']=roles
  except (OSError,ValueError):
   for record in result['modes']['raid']['roles'].values():record.update(refreshStatus='unavailable',lastAttemptAt=now)

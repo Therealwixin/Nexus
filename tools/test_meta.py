@@ -49,3 +49,26 @@ for group,r in updated['modes']['raid']['roles'].items():
  assert r['entries']==meta['modes']['raid']['roles'][group]['entries']
  assert r.get('retrievedAt')==meta['modes']['raid']['roles'][group].get('retrievedAt')
 print('Meta: blocked independent source retains original dates and values; other sources still refresh PASS')
+
+# Production collection must use the hydrated page and refuse stale/regressed data.
+from murlok_live import verify_date
+import datetime as dt
+now=dt.datetime(2026,10,21,17,tzinfo=dt.timezone.utc)
+assert verify_date('<time datetime="2026-10-21T10:00:00Z"></time>',now)=='2026-10-21T10:00:00Z'
+for stamp in ['2026-10-16T10:00:00Z','2026-10-22T10:00:00Z']:
+ try:verify_date('<time datetime="'+stamp+'"></time>',now)
+ except ValueError:pass
+ else:raise AssertionError('Old SSR/future timestamp accepted as current rendered Meta')
+with patch('refresh_meta.collect_pages',lambda cache:{}),patch('refresh_meta.fetch',partial_source):
+ failed=collect_meta(meta,Path('.'))
+for r in failed['modes']['mythicplus']['roles'].values():
+ assert r['refreshStatus']=='unavailable' and not r.get('retrievedAt')
+with patch('refresh_meta.collect_pages',lambda cache:{g:partial_source('https://murlok.io/meta/'+g) for g in roles}),patch('refresh_meta.fetch',partial_source):
+ rendered=collect_meta(meta,Path('.'))
+assert all(r['refreshStatus']=='ok' for r in rendered['modes']['mythicplus']['roles'].values())
+newer=copy.deepcopy(meta)
+for r in newer['modes']['mythicplus']['roles'].values():r['updatedAt']='2026-10-21T10:00:00Z'
+with patch('refresh_meta.collect_pages',lambda cache:{g:partial_source('https://murlok.io/meta/'+g) for g in roles}),patch('refresh_meta.fetch',partial_source):
+ regressed=collect_meta(newer,Path('.'))
+assert all(r['refreshStatus']=='unavailable' and r['updatedAt']=='2026-10-21T10:00:00Z' for r in regressed['modes']['mythicplus']['roles'].values())
+print('Meta: hydrated-page requirement, 36h freshness guard, future/stale rejection and no source-date regression PASS')
