@@ -58,7 +58,7 @@ function UI:UpdateGearBackground()
   self.gearBackground:SetAlpha(1)
   self.gearBackgroundDim=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-7)
   self.gearBackgroundDim:SetAllPoints(self.gearChild)
-  self.gearBackgroundDim:SetColorTexture(0,0,0,.30)
+  self.gearBackgroundDim:SetColorTexture(0,0,0,.60)
  end
  local specID=R.ViewSpecID();local atlas
  if ClassTalentUtil and ClassTalentUtil.GetVisualsForSpecID then

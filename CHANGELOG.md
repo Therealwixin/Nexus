@@ -1,3 +1,7 @@
+## 0.6.7-beta.5
+
+- Increase the background-only black overlay from 30% to 60% opacity for stronger text contrast.
+
 ## 0.6.7-beta.4
 
 - Add a uniform 30% black overlay above the talent artwork and below equipment rows, keeping icons and labels bright.
