@@ -194,3 +194,6 @@ C_TradeSkillUI={
     GetRecipeSchematic=function(id) return TEST.recipeSchematics and TEST.recipeSchematics[id] end,
 }
 TooltipDataProcessor={AddTooltipPostCall=function(_,fn) TEST.tooltipHooks=TEST.tooltipHooks or {};table.insert(TEST.tooltipHooks,fn) end}
+
+function Frame:SetAtlas(name) self.atlas=name end
+function Frame:SetTexCoord(...) self.texCoord={...} end

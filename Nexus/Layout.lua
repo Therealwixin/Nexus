@@ -49,22 +49,53 @@ function UI:Layout()
  self.buttons.MYTHICPLUS:SetShown(self.view=="meta" or self.view=="equipment");self.buttons.RAID:SetShown(self.view=="meta" or self.view=="equipment")
  for index,b in ipairs(self.languageButtons) do place(b,"TOPLEFT",f,"TOPLEFT",181+(index-1)*38,-119) end
 end
--- Equipment follows the native paper doll: armor left/right, weapons below.
+-- Native Blizzard talent atlases, resolved without loading Blizzard_PlayerSpells.
+-- Reference: Blizzard_PlayerSpells/ClassTalents/Blizzard_ClassTalentUtil.lua.
+function UI:UpdateGearBackground()
+ if not self.gearBackground then
+  self.gearBackground=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-8);self.gearBackground:SetAllPoints();self.gearBackground:SetAlpha(.72)
+  self.gearBackgroundDim=self.gearChild:CreateTexture(nil,"BACKGROUND",nil,-7);self.gearBackgroundDim:SetAllPoints();self.gearBackgroundDim:SetColorTexture(0,0,0,.24)
+ end
+ local specID=R.ViewSpecID();local atlas
+ if ClassTalentUtil and ClassTalentUtil.GetVisualsForSpecID then
+  local visuals=ClassTalentUtil.GetVisualsForSpecID(specID);atlas=visuals and visuals.background
+ end
+ if not atlas then
+  for _,spec in ipairs(R.Data and R.Data.catalog or {}) do if spec.id==specID then
+   atlas="talents-background-"..spec.classSlug:gsub("-","").."-"..spec.slug:gsub("-","");break
+  end end
+ end
+ local info=atlas and C_Texture and C_Texture.GetAtlasInfo and C_Texture.GetAtlasInfo(atlas)
+ if not info then self.gearBackground:Hide();self.gearBackgroundDim:Hide();self.gearBackgroundAtlas=nil;return end
+ if self.gearBackgroundAtlas~=atlas then self.gearBackground:SetAtlas(atlas);self.gearBackgroundAtlas=atlas end
+ -- Crop inside the atlas coordinates rather than stretching the illustration.
+ local width,height=self.gearChild:GetWidth(),self.gearChild:GetHeight()
+ if info.width and info.height and width>0 and height>0 then
+  local x,y=1,1;local aspect=width/height;local native=info.width/info.height
+  if aspect>native then y=native/aspect else x=aspect/native end
+  local left,right=info.leftTexCoord or 0,info.rightTexCoord or 1
+  local top,bottom=info.topTexCoord or 0,info.bottomTexCoord or 1
+  local dx,dy=(right-left)*(1-x)/2,(bottom-top)*(1-y)/2
+  self.gearBackground:SetTexCoord(left+dx,right-dx,top+dy,bottom-dy)
+ end
+ self.gearBackground:Show();self.gearBackgroundDim:Show()
+end
+-- Eight slots per side; both weapons follow wrists on the left.
+
 function UI:RenderRows()
  self.gearScroll:ClearAllPoints();self.gearScroll:SetPoint("TOPLEFT",self.gearPane,"TOPLEFT",0,0);self.gearScroll:SetPoint("BOTTOMRIGHT",self.gearPane,"BOTTOMRIGHT",-2,0)
  if self.gearScroll.ScrollBar then self.gearScroll.ScrollBar:Hide() end
  local width,height=self.gearScroll:GetWidth(),self.gearScroll:GetHeight()
- self.gearChild:SetSize(width,height);self.gearRange=0;self:ScrollGear(0)
+ self.gearChild:SetSize(width,height);self:UpdateGearBackground();self.gearRange=0;self:ScrollGear(0)
  for _,header in pairs(self.gearHeaders) do header:Hide() end
- local side=math.floor((width-12)/2);local stride=(height-12)/9
- local left={[1]=0,[2]=1,[3]=2,[15]=3,[5]=4,[9]=5}
+ local side=math.floor((width-12)/2);local stride=(height-12)/8
+ local left={[1]=0,[2]=1,[3]=2,[15]=3,[5]=4,[9]=5,[16]=6,[17]=7}
  local right={[10]=0,[6]=1,[7]=2,[8]=3,[11]=4,[12]=5,[13]=6,[14]=7}
  if self.paperDoll then self.paperDoll:Hide() end
  for index,slot in ipairs(R.SLOTS) do
   local row=self.rows[index];local item=self:GetShownItem(slot.id);local onRight=right[slot.id]~=nil
   local top=(left[slot.id] or right[slot.id] or 0)*stride+4
   local x=onRight and width-side or 0
-  if slot.id==16 or slot.id==17 then top=8*stride+4;x=slot.id==16 and 0 or width-side end
   place(row,"TOPLEFT",self.gearChild,"TOPLEFT",x,-top);row:SetSize(side,stride-2);row.gridTop=top
   local state=self:BindItem(row,item,slot.id,self.gearView=="mine",true)
   local icon=math.floor(math.min(36,(stride-4)/1.55));place(row.icon,onRight and "RIGHT" or "LEFT",row,onRight and "RIGHT" or "LEFT",onRight and -16 or 16,0);row.icon:SetSize(icon,icon)

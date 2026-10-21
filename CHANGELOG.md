@@ -1,3 +1,10 @@
+## 0.6.6-beta.3
+
+- Add the selected specialization's native Blizzard talent artwork behind equipment. Use the client's mapping when already loaded, otherwise resolve the known talent atlas naming scheme, and check atlas availability before use.
+- Keep illustration proportions with atlas-aware cropping, subdued opacity and a readability overlay. Reuse one static texture; no image downloads, animations or talent-addon loading.
+- Place Main hand and Off hand directly below Wrists in the left column. Both columns now contain eight slots, removing the disconnected bottom weapon row.
+- Verify selected-spec changes across all 40 catalog entries, Devourer art selection, both gear views, native mapping overrides, missing-atlas fallback and responsive slot bounds.
+
 ## 0.6.6-beta.2
 
 - Refine both equipment views with native WoW Quickslot bevels, quality borders, quieter backgrounds, vertically grouped slot/name/status labels and the native quest highlight for selection. Keep paper-doll placement and native hover tooltips.

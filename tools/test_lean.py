@@ -31,6 +31,7 @@ if __name__=='__main__':
  lua.execute((ROOT/'tests/evidence.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/dungeon_alerts.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/activity_gear.lua').read_text(encoding='utf-8'))
+ lua.execute((ROOT/'tests/gear_background.lua').read_text(encoding='utf-8'))
  report={'simulationChecks':lua.globals().TEST.leanChecks,'layoutChecks':lua.globals().TEST.lookChecks,'loadedAddonKiB':round(memory,1)}
  baseline=Path('C:/Users/South/Downloads/Nexus-0.5.0-beta.5/Nexus')
  if baseline.exists():
