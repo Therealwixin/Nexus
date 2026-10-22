@@ -1,6 +1,6 @@
 local _,R=...
 -- Acquisition scope and activity are separate: an M+ playstyle set may contain raid gear.
-function R.GearSource() return R.GetMode()=="mythicplus" and "mplus_usage" or "overall" end
+function R.GearSource() return "mplus_usage" end
 -- Native instant metadata excludes gems/consumables even if an external feed mislabels them.
 function R.IsGearItem(item)
  local api=C_Item and C_Item.GetItemInfoInstant or GetItemInfoInstant
@@ -129,10 +129,10 @@ end
 function R.GetGearSummary()
  local guide=R.GetGuideDataset();if not guide then return R.L("NO_DATA") end
  local count=0
- local mp=R.GearSource()=="mplus_usage" and R.GetDataset("mythicplus")
+ local mp=R.GetDataset("mythicplus")
  local source=mp or guide
  for _,slot in ipairs(R.SLOTS) do if R.GetGearTarget(slot.id) then count=count+1 end end
- local title=mp and R.L("MPLUS_GEAR_TITLE") or R.L("RAID_GEAR_TITLE")
+ local title=R.L("MPLUS_GEAR_TITLE")
  return title.." · "..count.." / 16 · "..(mp and "Murlok.io " or "Wowhead ")..source.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..(source.retrievedAt or source.updatedAt):sub(1,10)..(source.refreshStatus=="unavailable" and " · "..R.L("SOURCE_UNAVAILABLE") or "")
 end
 function R.GetGearEvidence(item,slotID,specID)

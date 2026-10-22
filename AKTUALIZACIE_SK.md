@@ -65,7 +65,6 @@ Nexus rozlišuje dátum publikácie zdroja a dátum, kedy ho znovu skontroloval.
 |---|---|
 | Wowhead | Autorské gear odporúčania, príprava a explicitné zdroje predmetov. |
 | Icy Veins | Autorské alternatívy gearu. |
-| U.GG | Zastúpenie specov v Mythic raide pre Meta tabuľku. |
 | Murlok.io | Agregovaná výbava, enchanty, gemy a M+ meta. Profily jednotlivých hráčov sa nezobrazujú. |
 
 ## Catalyst a kontrola novej verzie v hre
@@ -78,7 +77,7 @@ Testy mimo hry pomáhajú zachytiť regresie, ale nenahrádzajú vykreslenie a b
 
 ## BiS a alternatívy
 
-Equipment má Raid (Wowhead guide) a Mythic+ (Murlok používanie gearu), oba vrátane raidových, dungeonových a crafted predmetov. Pri slote sú najviac štyri odlišné overené alternatívy. Ak je známa dungeonová možnosť, má rezervované miesto a označenie Dungeon. Keď zdroje poskytujú menej možností, zoznam sa nedopĺňa vymyslenými predmetmi. Wowhead/Murlok dopĺňajú autorské možnosti Icy Veins, ktoré sa zbierajú v dennej aktualizácii.
+Equipment používa Mythic+ odporúčania Murloku vrátane raidových, dungeonových a crafted predmetov. Raid režim a raid Meta sú dočasne odstránené. Pri slote sú najviac štyri odlišné overené alternatívy. Ak je známa dungeonová možnosť, má rezervované miesto a označenie Dungeon. Keď zdroje poskytujú menej možností, zoznam sa nedopĺňa vymyslenými predmetmi. Wowhead/Murlok dopĺňajú autorské možnosti Icy Veins, ktoré sa zbierajú v dennej aktualizácii.
 
 ## Ilvl a tooltipy (od 0.6.2-beta.3)
 
@@ -96,7 +95,7 @@ Neoverené pozorované alternatívy, ktorým nemožno priradiť aktuálny sezón
 
 Detail má poradie **Selected item → Acquisition & upgrades → Alternatives → Currently equipped / craft materiály → Zdroje a podklady**. Pri zdroji je odkaz, dátum obsahu a dátum načítania. Murlok je vzorka top M+ hráčov, nie simulovaný optimálny spoločný set. Zhoda názvu tieru nepotvrdzuje zhodu statov pôvodného Catalyst predmetu.
 
-Priamy WCL zber, jeho dáta a workflow, Archon a Raider.IO affixy boli odstránené. U.GG Meta zostáva samostatne zbieraným zdrojom; jej metodika môže odkazovať na logy.
+Priamy WCL zber, jeho dáta a workflow, Archon a Raider.IO affixy boli odstránené. U.GG raid Meta, jej zber a pribalené dáta sú tiež odstránené.
 
 ## Efekty predmetov a údržba (od 0.6.3-beta.2)
 

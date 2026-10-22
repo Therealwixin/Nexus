@@ -1,6 +1,6 @@
 # Nexus source coverage — 2026-10-21
 
-Raid follows the named authored Wowhead guide. Mythic+ follows observed current-season Murlok usage. Both include all acquisition sources; one verified dungeon alternative is reserved where available. Up to four distinct options are shown. Guide recommendations and profile usage are different evidence types, not independent votes for universal BiS.
+Mythic+ follows observed current-season Murlok usage. Raid mode and raid Meta are retired. All acquisition sources remain available for M+; one verified dungeon alternative is reserved where available. Up to four distinct options are shown. Guide recommendations and profile usage are different evidence types, not independent votes for universal BiS.
 
 Murlok is a snapshot of top-rated M+ profiles (normally 50), not all players or all logs. Publication and retrieval dates remain separate. Catalyst comparisons use original source-item identity.
 

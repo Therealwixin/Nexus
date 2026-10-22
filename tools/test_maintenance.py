@@ -14,7 +14,7 @@ data=json.loads((ROOT/'data/snapshot.json').read_text(encoding='utf-8'))
 original=copy.deepcopy(data)
 def fixture(spec,*args):
  modes=copy.deepcopy(data['specs'][str(spec['id'])])
- return spec,modes['mythicplus'],modes['raid'],[],[]
+ return spec,modes['mythicplus'],modes['mythicplus'],[],[]
 with nullcontext(ROOT/'tests') as cache:
  with patch('refresh_gear.collect',fixture):
   candidate=build_candidate(data,Path(cache))
@@ -22,7 +22,7 @@ with nullcontext(ROOT/'tests') as cache:
  assert data==original,'Candidate generation modified last known snapshot'
  lua=LuaRuntime(unpack_returned_tuples=True)
  loaded=lua.eval(compact_lua(candidate))
- assert loaded.specs[266].raid.slots[1][1].id==data['specs']['266']['raid']['slots']['1'][0]['id']
+ assert loaded.specs[266].mythicplus.slots[1][1].id==data['specs']['266']['mythicplus']['slots']['1'][0]['id']
  assert loaded.specs[1480].mythicplus.slots[1][1].id>0
  def failure(*args):raise ValueError('Source unavailable')
  with patch('refresh_gear.collect',failure):
@@ -36,10 +36,10 @@ import collect_gear
 spec=collect_gear.SPECS[0]
 mp=copy.deepcopy(data['specs'][str(spec['id'])]['mythicplus'])
 mp['players']=[{'name':'Sample player','url':'https://example.invalid/individual-profile'}]
-raid=data['specs'][str(spec['id'])]['raid']
+guide=data['specs'][str(spec['id'])]['mythicplus']
 requested=[]
 def fetch(url,*args):requested.append(url);return '<time datetime="2026-10-16T00:00:00Z">fixture</time>'
-with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_murlok',lambda *a:copy.deepcopy(mp)),patch.object(collect_gear,'guide_slots',lambda *a:(copy.deepcopy(raid['slots']),{})),patch.object(collect_gear,'consumables',lambda *a:copy.deepcopy(mp['consumables'])):
+with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_murlok',lambda *a:copy.deepcopy(mp)),patch.object(collect_gear,'guide_slots',lambda *a:(copy.deepcopy(guide['slots']),{})),patch.object(collect_gear,'consumables',lambda *a:copy.deepcopy(mp['consumables'])):
  result=collect_gear.collect(spec,Path('.'),'2026-10-19T00:00:00Z',False,mp)
 assert len(requested)==3 and all('raider.io' not in u and 'individual-profile' not in u for u in requested)
 assert not result[1].get('players')
@@ -95,7 +95,7 @@ print('Rendered gear coverage PASS: incomplete live batch cannot overwrite the l
 fresh_stamp=dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 rendered='<time datetime="'+fresh_stamp+'"></time>'
 requested=[]
-with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_murlok',lambda html,stamp:dict(copy.deepcopy(mp),updatedAt=stamp)),patch.object(collect_gear,'guide_slots',lambda *a:(copy.deepcopy(raid['slots']),{})),patch.object(collect_gear,'consumables',lambda *a:copy.deepcopy(mp['consumables'])):
+with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_murlok',lambda html,stamp:dict(copy.deepcopy(mp),updatedAt=stamp)),patch.object(collect_gear,'guide_slots',lambda *a:(copy.deepcopy(guide['slots']),{})),patch.object(collect_gear,'consumables',lambda *a:copy.deepcopy(mp['consumables'])):
  refreshed=collect_gear.collect(spec,Path('.'),fresh_stamp,False,mp,rendered)[1]
  assert len(requested)==2 and all('murlok.io' not in url for url in requested),'Hydrated gear must bypass the old initial HTTP page'
  assert refreshed['updatedAt']==fresh_stamp and refreshed['statProfile']['updatedAt']==fresh_stamp
@@ -107,7 +107,7 @@ newer=copy.deepcopy(mp);newer.update(updatedAt=fresh_stamp,retrievedAt=fresh_sta
 newer['statProfile'].update(updatedAt=fresh_stamp,retrievedAt=fresh_stamp)
 before=copy.deepcopy(newer)
 older=(dt.datetime.now(dt.timezone.utc)-dt.timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
-with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_murlok',side_effect=AssertionError('Older aggregate must not be imported')),patch.object(collect_gear,'guide_slots',lambda *a:(copy.deepcopy(raid['slots']),{})),patch.object(collect_gear,'consumables',lambda *a:copy.deepcopy(mp['consumables'])):
+with patch.object(collect_gear,'fetch',fetch),patch.object(collect_gear,'parse_murlok',side_effect=AssertionError('Older aggregate must not be imported')),patch.object(collect_gear,'guide_slots',lambda *a:(copy.deepcopy(guide['slots']),{})),patch.object(collect_gear,'consumables',lambda *a:copy.deepcopy(mp['consumables'])):
  retained=collect_gear.collect(spec,Path('.'),fresh_stamp,False,newer,'<time datetime="'+older+'"></time>')[1]
  assert retained['updatedAt']==newer['updatedAt'] and retained['retrievedAt']==newer['retrievedAt']
  assert retained['refreshStatus']=='unavailable' and retained['refreshReason']=='source_date_regressed'

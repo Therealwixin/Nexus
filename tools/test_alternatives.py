@@ -5,7 +5,7 @@ lua.execute('''
 local R=TEST.R;R.db={mode="mythicplus",gearSource="raid",language="EN"};R.character={}
 assert(R.GearSource()=="mplus_usage","Activity overrides the obsolete acquisition selector")
 R.db.mode="raid"
-assert(R.GearSource()=="overall","Raid selects the authored guide")
+assert(R.GearSource()=="mplus_usage" and R.GetMode()=="mythicplus","Obsolete raid settings cannot reactivate a retired mode")
 local slots,four,dungeons,missing=0,0,0,0
 for sid,guide in pairs(R.GuideData.specs) do
  R.SetViewSpec(sid)

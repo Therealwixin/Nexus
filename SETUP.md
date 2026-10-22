@@ -12,8 +12,8 @@ The upload token, project ID and tagged publishing are configured. The first bet
 - Every push/pull request runs Lua 5.1 simulation, snapshot validation and packaging.
 - Tagged releases run the same checks and build an installable ZIP.
 - Data refresh checks every UTC calendar day at 04:17, with retry opportunities at 10:17 and 16:17 UTC. A successful complete check skips later same-day runs; failed or partial refreshes retry. Manual runs force collection.
-- The daily collector downloads aggregate Murlok gear, Wowhead/Icy Veins guides, verified item-effect bonuses, Murlok role rankings and U.GG Mythic raid representation. It makes no individual player-profile requests.
-- All 40 specs, both gear modes and all six meta groups must pass validation before any candidate is staged.
+- The daily collector downloads aggregate Murlok gear, Wowhead/Icy Veins guides, verified item-effect bonuses and Murlok role rankings. It makes no individual player-profile requests.
+- All 40 specs, the Mythic+ gear mode and all three M+ meta groups must pass validation before any candidate is staged.
 - Source publication dates are retained. Collection time is recorded separately.
 - A failed collection/test exits before committing/publishing. The last published package remains available.
 - Defaults build artifacts only. Nothing is uploaded to CurseForge until its project ID, upload token and publishing switch are configured.

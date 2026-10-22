@@ -35,7 +35,7 @@ import collect_gear
 spec=collect_gear.SPECS[0];modes=data['specs'][str(spec['id'])]
 previous=copy.deepcopy(modes['mythicplus']);before=copy.deepcopy(previous)
 missing=copy.deepcopy(previous);missing.pop('statProfile',None)
-with patch.object(collect_gear,'fetch',return_value='<time datetime="2026-10-20T00:00:00Z"></time>'),patch.object(collect_gear,'parse_murlok',return_value=missing),patch.object(collect_gear,'guide_slots',return_value=(copy.deepcopy(modes['raid']['slots']),{})),patch.object(collect_gear,'consumables',return_value=copy.deepcopy(previous['consumables'])):
+with patch.object(collect_gear,'fetch',return_value='<time datetime="2026-10-20T00:00:00Z"></time>'),patch.object(collect_gear,'parse_murlok',return_value=missing),patch.object(collect_gear,'guide_slots',return_value=(copy.deepcopy(modes['mythicplus']['slots']),{})),patch.object(collect_gear,'consumables',return_value=copy.deepcopy(previous['consumables'])):
  result=collect_gear.collect(spec,Path('.'),'2026-10-20T19:00:00Z',False,previous)[1]['statProfile']
  assert result['refreshStatus']=='unavailable' and result['updatedAt']==before['statProfile']['updatedAt'] and result['retrievedAt']==before['statProfile']['retrievedAt']
  assert previous==before,'Failed stat refresh must not mutate the last verified source'

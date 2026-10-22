@@ -123,26 +123,26 @@ def collect(spec,cache,timestamp,offline,previous=None,rendered_html=None):
   if prior.get('name','').casefold()==enchant.get('name','').casefold():
    for key in ('id','icon','allowedEnchantIDs'):
     if key in prior:enchant[key]=prior[key]
- base='https://www.wowhead.com/guide/classes/'+spec['classSlug']+'/'+spec['slug'];guide_url=base+'/bis-gear';raid=None;meta={}
+ base='https://www.wowhead.com/guide/classes/'+spec['classSlug']+'/'+spec['slug'];guide_url=base+'/bis-gear';guide=None;meta={}
  try:
   guide_html=fetch(guide_url,cache,slug+'-wowhead-gear.html',offline);guide_date=source_date(guide_html,timestamp)
-  raid_slots,meta=guide_slots(guide_html,guide_url,guide_date)
-  raid=dict(patch=dataset['patch'],updatedAt=guide_date,retrievedAt=timestamp,sourceURL=guide_url,slots=raid_slots,primarySource='Wowhead',guideSet=True,specName=spec['name'],classID=spec['classID'],players=[],enchants=dataset['enchants'],gems=dataset['gems'],consumables=[])
+  guide_rows_by_slot,meta=guide_slots(guide_html,guide_url,guide_date)
+  guide=dict(patch=dataset['patch'],updatedAt=guide_date,retrievedAt=timestamp,sourceURL=guide_url,slots=guide_rows_by_slot,primarySource='Wowhead',guideSet=True,specName=spec['name'],classID=spec['classID'],players=[],enchants=dataset['enchants'],gems=dataset['gems'],consumables=[])
  except (OSError,ValueError) as e:warnings.append('Wowhead BiS: '+type(e).__name__)
  for suffix in ('enchants-gems-pve-dps','enchants-gems-pve-tank','enchants-gems-pve-healer'):
   try:
    cu=base+'/'+suffix;prep_html=fetch(cu,cache,slug+'-'+suffix+'.html',offline)
    dataset['consumables']=consumables(prep_html,cu,source_date(prep_html,timestamp))
-   if raid:raid['consumables']=dataset['consumables']
+   if guide:guide['consumables']=dataset['consumables']
    break
   except (OSError,ValueError):continue
  if not dataset['consumables']:warnings.append('No fresh consumables')
  for slot,rows in dataset['slots'].items():
-  guide_rows=raid and raid['slots'].get(slot,[]) or [];by_id={x['id']:x for x in guide_rows}
+  guide_rows=guide and guide['slots'].get(slot,[]) or [];by_id={x['id']:x for x in guide_rows}
   for item in rows:
    item.update(meta.get(str(item['id']),{}));item['sampleSize']=dataset['sampleSize']
    if item['id'] in by_id:
     item.update({k:v for k,v in by_id[item['id']].items() if k in ('dropSource','npcID','catalyst','crafted')});item['bisGuide']=True
   for item in guide_rows:
    if item['id'] not in {x['id'] for x in rows}:rows.append(item)
- return spec,dataset,raid,observed,warnings
+ return spec,dataset,guide,observed,warnings

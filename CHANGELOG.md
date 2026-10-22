@@ -1,3 +1,10 @@
+## 0.6.8-beta.1
+
+- Temporarily remove raid equipment mode, raid Meta, its bundled datasets and the U.GG collector. M+ keeps raid-acquired items and their Adventure Guide routes when relevant.
+- Migrate saved raid selections to Mythic+ and remove obsolete activity selectors and source-panel raid entries.
+- Preserve detail panel scroll and the selected alternative across item-info refreshes, journal callbacks and resizing. Explicit item, slot or specialization changes start the new detail at the top.
+- Keep the audit fixes for live rendered Murlok aggregates, native item previews, deferred combat scanning, socket layout, dated source fallbacks and beta/stable daily package channels.
+
 ## 0.6.7-beta.8
 
 - Daily refresh follow-up: keep an already newer same-patch Murlok aggregate when an edge server returns older current-day content; retain its dates, flag the refresh for retry and continue unrelated sources.

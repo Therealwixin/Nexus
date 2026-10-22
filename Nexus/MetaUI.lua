@@ -13,7 +13,6 @@ local function Identity(id)
 end
 local function Metric(record)
  local e=record.entry
- if record.dataset.method=="raid_representation" then return string.format("%.1f%%",e.share),R.L("META_PARSES",e.count) end
  return tostring(e.score),R.L("META_MURLOK_SCORE")
 end
 function UI:ScrollMeta(offset)
@@ -80,7 +79,7 @@ function UI:RenderMetaDetail(record,why)
   self:SelectViewedSpec(spec.id);self.gearView="targets";self:SetView("equipment")
  end)
  self:DetailSection(R.L("META_METHOD"),GOLD)
- self:DetailText(R.L(record.dataset.method=="raid_representation" and "META_RAID_METHOD" or "META_MPLUS_METHOD"),WHITE,12)
+ self:DetailText(R.L("META_MPLUS_METHOD"),WHITE,12)
  self:DetailText(R.L("META_ROLES_NOTE"),GREY,11)
  self:DetailSection(R.L("SOURCE"),GOLD)
  self:DetailText(record.dataset.source..(record.dataset.upstream and " · "..record.dataset.upstream or ""),WHITE)
@@ -99,7 +98,7 @@ function UI:RenderMeta()
  self.metaSummary:SetWidth(self.metaPane:GetWidth()-26);self.metaHint:SetWidth(self.metaPane:GetWidth()-26);self.metaEmpty:SetWidth(self.metaPane:GetWidth()-30)
  for role,button in pairs(self.metaRoleButtons) do button:SetText(R.L(roleKeys[role]));button:SetEnabled(role~=self.metaRole) end
  self.metaSummary:SetText((data and data.source.." · "..data.scope..(data.difficulty and " · "..data.difficulty or "") or R.L("META")).." · "..R.L("META_SPEC_COUNT",#records))
- self.metaHint:SetText(R.L(data and data.method=="raid_representation" and "META_RAID_HINT" or "META_MPLUS_HINT"))
+ self.metaHint:SetText(R.L("META_MPLUS_HINT"))
   for _,group in pairs(data and data.roles or {}) do if group.refreshStatus=="unavailable" then self.metaHint:SetText(R.L("META_REFRESH_FAILED"));break end end
  self.metaEmpty:SetShown(#records==0);self.metaEmpty:SetText(R.L(why or "META_UNAVAILABLE"))
  local width=self.metaScroll:GetWidth();local height=62

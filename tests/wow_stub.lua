@@ -71,6 +71,7 @@ function Frame:Disable() self.enabled=false end
 function Frame:IsEnabled() return self.enabled~=false end
 function Frame:SetFocus() self.focus=true end
 function Frame:ClearFocus() self.focus=false end
+function Frame:GetVerticalScroll() return self.scroll or 0 end
 function Frame:SetVerticalScroll(y) self.scroll=y;if self.scripts.OnVerticalScroll then self.scripts.OnVerticalScroll(self,y) end end
 function Frame:IsMouseOver() return self.mouseOver and true or false end
 function Frame:SetScrollChild(child) self.scrollChild=child end

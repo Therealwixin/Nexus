@@ -90,7 +90,7 @@ check(known>600 and unknown==0,"All occupied Overall slots have a seasonal previ
 
 R.SetViewSpec(261)
 for _,slot in ipairs({1,5}) do
- local item=R.GetGearTarget(slot,261)
+ local item=R.GetGearTarget(slot,261,"overall")
  local link=R.GearPreviewLink(item,slot);local ids,f=bonuses(link)
  local fixture
  for _,entry in ipairs(TEST.variantEvidence.cases) do if tostring(entry.id)==f[2] then fixture=entry end end

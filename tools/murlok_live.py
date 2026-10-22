@@ -110,25 +110,3 @@ def collect_gear_pages(cache):
         return asyncio.run(run())
     except (ImportError, OSError) as error:
         raise ValueError('Rendered aggregate collector unavailable') from error
-
-
-def render_raid_page(url):
-    """One normal public-page fallback when direct U.GG HTML is unavailable."""
-    try:
-        from playwright.sync_api import sync_playwright, Error
-    except ImportError:
-        return None
-    try:
-        with sync_playwright() as runtime:
-            browser = runtime.chromium.launch(headless=True)
-            page = browser.new_page(locale='en-US')
-            try:
-                response = page.goto(url, wait_until='domcontentloaded', timeout=45000)
-                if not response or response.status != 200:
-                    return None
-                page.wait_for_function("document.documentElement.innerHTML.includes('raid-default-tierlist.json')", timeout=20000)
-                return page.content()
-            finally:
-                browser.close()
-    except (Error, OSError):
-        return None

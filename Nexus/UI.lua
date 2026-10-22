@@ -56,8 +56,11 @@ function UI:ShowCopy(text,title)
  end
  local f=self.copyFrame;f.title:SetText(title or R.NAME.." · Ctrl+C");f.close:SetText(R.L("CLOSE"));f.edit:SetText(text or "");f:Show();f.edit:SetFocus();f.edit:HighlightText()
 end
-function UI:DetailClear()
- HidePool(self.detailPool);self.detailIndex=0;self.detailY=8;self.detailSection=nil;self.detailChild:SetWidth(math.max(260,self.detailScroll:GetWidth()));self.detailScroll:SetVerticalScroll(0)
+function UI:DetailClear(selection)
+ local context=table.concat({self.view or "",tostring(R.ViewSpecID()),R.GetMode(),self.prepCategory or "",self.socketScope or "",selection or ""},":")
+ self.detailRestoreOffset=self.detailContext==context and self.detailScroll:GetVerticalScroll() or 0
+ self.detailContext=context
+ HidePool(self.detailPool);self.detailIndex=0;self.detailY=8;self.detailSection=nil;self.detailChild:SetWidth(math.max(260,self.detailScroll:GetWidth()))
 end
 function UI:DetailEndSection()
  if self.detailSection then
@@ -114,7 +117,11 @@ function UI:DetailItem(item,note,callback,large)
  b.note:ClearAllPoints();b.note:SetPoint("BOTTOMLEFT",x,8);b.note:SetWidth(b:GetWidth()-x-5);b.note:SetText(note or "")
  b.selected:Hide();self:BindItem(b,item,item.slotID,item.slotID~=nil,false);b:SetScript("OnClick",callback);b:Show();self.detailY=self.detailY+b:GetHeight()+8;return b
 end
-function UI:DetailFinish()self:DetailEndSection();self.detailChild:SetHeight(self.detailY+8)end
+function UI:DetailFinish()
+ self:DetailEndSection();self.detailChild:SetHeight(self.detailY+8)
+ local maximum=math.max(0,self.detailChild:GetHeight()-self.detailScroll:GetHeight())
+ self.detailScroll:SetVerticalScroll(math.max(0,math.min(maximum,self.detailRestoreOffset or 0)))
+end
 function UI:JournalStatusChanged(id)
  local active=self.detailActiveItem
  if self.frame and self.frame:IsShown() and self.view=="equipment" and active and active.id==id then self:RenderDetail(active,self.detailActiveSlot) end
@@ -124,8 +131,16 @@ function UI:GetShownItem(slot)
  return R.GetGearTarget(slot)
 end
 function UI:RenderDetail(override,slotOverride)
- self:DetailClear();local slotID=slotOverride or self.selectedSlot;if slotOverride==false then slotID=nil end;local slot=R.SLOT_BY_ID[slotID]
+ local slotID=slotOverride or self.selectedSlot;if slotOverride==false then slotID=nil end;local slot=R.SLOT_BY_ID[slotID]
  local item=override or self:GetShownItem(slotID)
+ local selection=table.concat({tostring(R.ViewSpecID()),self.gearView or "",tostring(slotID)},":")
+ if not override and self.gearView=="targets" and self.detailGearSelection==selection and self.detailActiveItem and slotID then
+  for _,alternative in ipairs(R.GetGearAlternatives(slotID)) do
+   if alternative.id==self.detailActiveItem.id and alternative.acquisitionItemID==self.detailActiveItem.acquisitionItemID then item=alternative;break end
+  end
+ end
+ self.detailGearSelection=selection
+ self:DetailClear(table.concat({selection,tostring(item and item.id),tostring(item and item.acquisitionItemID),item and item.link or ""},":"))
  self.detailActiveItem,self.detailActiveSlot=item,slotID
  if slot then self:DetailText(R.L(slot.key),GOLD,14) end
  if not item then self:DetailText(R.L("NO_DATA"),GREY);self:DetailFinish();return end
@@ -299,16 +314,15 @@ function UI:RenderSources()
  self:DetailText(R.L("UPDATE_NOTE"),GREY,12)
  local guide=R.GetGuideDataset()
  if guide then
-  self:ListLine("Wowhead · BiS sets",nil,guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10),function()self:ShowCopy(guide.sourceURL)end,GOLD)
+  self:ListLine("Wowhead · Gear alternatives",nil,guide.updatedAt:sub(1,10).." · "..R.L("CHECKED").." "..guide.retrievedAt:sub(1,10),function()self:ShowCopy(guide.sourceURL)end,GOLD)
   if guide.alternativeGuideURL then self:ListLine("Icy Veins · Alternatives",nil,guide.alternativeGuideUpdatedAt:sub(1,10)..(guide.alternativeGuideRefreshStatus=="unavailable" and " · "..R.L("SOURCE_UNAVAILABLE") or " · "..R.L("CHECKED").." "..(guide.alternativeGuideCheckedAt or guide.retrievedAt):sub(1,10)),function()self:ShowCopy(guide.alternativeGuideURL)end,GOLD) end
-  for _,set in ipairs(guide.sets) do self:ListLine(set.scope=="overall" and "BiS" or set.name,nil,set.scope,nil,WHITE) end
   self:DetailText(R.L("SOURCE_SCOPE_NOTE"),GREY,11)
  end
- for _,mode in ipairs({"mythicplus","raid"}) do
+ for _,mode in ipairs({"mythicplus"}) do
   local dataset=R.GetDataset(mode)
   if dataset then
    local url=dataset.sourceURL
-   self:ListLine(mode=="raid" and "Raid · Wowhead" or "Mythic+ · Murlok",nil,R.DataStatus(dataset),function()
+   self:ListLine("Mythic+ · Murlok",nil,R.DataStatus(dataset),function()
     if url then self:ShowCopy(url,R.L("SOURCE_OPEN").." · Ctrl+C") end
    end,GOLD)
   end
@@ -320,8 +334,6 @@ function UI:Refresh()
  self.title:SetText(R.NAME.." · "..R.VERSION);self.themeButton:SetText(R.L("APPEARANCE")..": "..R.Theme().name);local d=R.GetDataset()
  self:RefreshSpecControls()
  for key,b in pairs(self.buttons) do b:SetText(R.L(key)) end
- if self.view=="meta" then self.buttons.MYTHICPLUS:SetText(R.L("META_MPLUS"));self.buttons.RAID:SetText(R.L("META_RAID")) end
- self.buttons.MYTHICPLUS:SetEnabled(R.GetMode()~="mythicplus");self.buttons.RAID:SetEnabled(R.GetMode()~="raid")
  self.buttons.META:SetEnabled(self.view~="meta")
  self.buttons.MY_GEAR:SetEnabled(self.gearView~="mine");self.buttons.TARGETS:SetEnabled(self.gearView~="targets")
  self.needsLabel:SetText(R.L("NEEDS_ONLY"));self.needs:SetChecked(R.db.needsOnly)
@@ -359,8 +371,7 @@ function UI:Create()
  self.nativeChrome={};for _,key in ipairs({"NineSlice","TitleBg","TopTileStreaks","Inset"}) do local part=f[key];if part then self.nativeChrome[#self.nativeChrome+1]=part end end
  self.characterName=Font(f,10,GREY);self.characterName:SetPoint("BOTTOMLEFT",18,57);self.characterName:SetHeight(11);self.characterName:SetWidth(width-70);self.characterName:SetMaxLines(1)
  self:CreateSpecControls(f)
- self.buttons={};self.buttons.MYTHICPLUS=Button(f,190,"",function()R.db.mode="mythicplus";self.detailActiveItem=nil;self.prepPage=1;self:Refresh()end);self.buttons.MYTHICPLUS:SetPoint("TOPRIGHT",-191,-34)
- self.buttons.RAID=Button(f,170,"",function()R.db.mode="raid";self.detailActiveItem=nil;self.prepPage=1;self:Refresh()end);self.buttons.RAID:SetPoint("LEFT",self.buttons.MYTHICPLUS,"RIGHT",5,0)
+ self.buttons={}
  self.buttons.MY_GEAR=Button(f,105,"",function()self.gearView="mine";self:Refresh()end);self.buttons.MY_GEAR:SetPoint("TOPLEFT",17,-66)
  self.buttons.TARGETS=Button(f,125,"",function()self.gearView="targets";self:Refresh()end);self.buttons.TARGETS:SetPoint("LEFT",self.buttons.MY_GEAR,"RIGHT",5,0)
  self.needs=CreateFrame("CheckButton",nil,f,"UICheckButtonTemplate");self.needs:SetSize(26,26);self.needs:SetPoint("LEFT",self.buttons.TARGETS,"RIGHT",10,0);self.needs:SetScript("OnClick",function(o)R.db.needsOnly=o:GetChecked() and true or false;self:Refresh()end)

@@ -5,7 +5,9 @@ for spec in pairs(R.Data.specs) do
   local item=R.GetGearTarget(slot.id,spec)
   if item then
    local sources=R.GetGearEvidence(item,slot.id,spec)
-   assert(sources[1] and sources[1].source=="Wowhead" and sources[1].kind=="guide","Overall attribution must name its actual author")
+   local observed=false
+   for _,source in ipairs(sources) do if source.source=="Murlok.io" and source.kind=="observation" then observed=true end end
+   assert(observed,"Every primary M+ item must carry its actual Murlok observation evidence")
    for _,source in ipairs(sources) do
     assert(source.url and source.updatedAt and source.retrievedAt,"Every claim needs source and dates")
     assert(source.source~="Warcraft Logs" and source.source~="Archon","Log counts/blocked feeds must not imply authored consensus")

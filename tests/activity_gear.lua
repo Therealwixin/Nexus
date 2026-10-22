@@ -5,7 +5,6 @@ TEST.items[98098]={name="Test non-gear",equipLoc=""}
 assert(not R.IsGearItem({id=98098}),"Native non-gear type must override an imported raid label")
 R.SetViewSpec(1480);R.db.mode="mythicplus"
 local mpFixture=R.GetDataset("mythicplus",1480);local liveOffhand=mpFixture.slots[17]
-local raidTarget=R.GetGearTarget(17,1480,"overall")
 mpFixture.slots[17]={{id=237840,name="Crafted regression weapon",crafted=true,source="Murlok.io",count=27},{id=268211,source="Murlok.io",count=2},{id=268211,source="Wowhead",bisGuide=true}}
 
 local target=R.GetGearTarget(17)
@@ -14,19 +13,12 @@ local original=R.GetDataset("mythicplus").slots[17][1]
 assert(original.bisGuide~=target.bisGuide or not original.bisGuide,"Do not mutate observed source into authored BiS")
 assert(R.GearLevelRange(target,17).max==331 and R.GearPreviewLink(target,17),"Crafted target keeps maximum-quality native tooltip")
 R.UI.frame:Show();R.UI.gearView="targets";R.UI:SetView("equipment")
-assert(R.UI.buttons.MYTHICPLUS:IsShown() and R.UI.buttons.RAID:IsShown(),"Activity choices visible in Equipment")
+assert(not R.UI.buttons.RAID and not R.UI.buttons.MYTHICPLUS,"No obsolete activity selectors")
 assert(R.UI.sectionTitle:GetText()==R.L("MPLUS_GEAR_TITLE") and R.GetGearSummary():find("Murlok.io",1,true),"M+ names its actual dataset")
+R.db.mode="raid"
+assert(R.GetMode()=="mythicplus" and R.GetGearTarget(17).id==237840,"Saved raid setting cannot change M+ recommendations")
+assert(not R.GetDataset("raid") and not R.GetMetaDataset("raid"),"Raid datasets removed")
 for _,button in pairs({R.UI.buttons.EQUIPMENT,R.UI.buttons.STATS,R.UI.buttons.PREPARATION,R.UI.buttons.META}) do assert(not button.backdrop,"No square gold navigation border") end
-for _,size in ipairs({{960,700},{1280,900}}) do
- R.UI.frame:SetSize(unpack(size));R.UI:Refresh()
- assert(R.UI.mySpec:GetRight()<R.UI.buttons.MYTHICPLUS:GetLeft(),"Activity controls do not overlap spec selector")
- assert(R.UI.buttons.RAID:GetRight()<=R.UI.frame:GetRight()-18,"Activity choices fit minimum window")
-end
-R.UI.buttons.RAID:Fire("OnClick")
-assert(R.GetGearTarget(17).id==raidTarget.id and R.GetGearTarget(17).source=="Wowhead","Raid guide remains independently authored")
-assert(R.UI.sectionTitle:GetText()==R.L("RAID_GEAR_TITLE"),"Switch refreshes title")
-R.UI.buttons.MYTHICPLUS:Fire("OnClick")
-assert(R.GetGearTarget(17).id==237840,"Switch restores M+ crafted target")
 mpFixture.slots[17]=liveOffhand
 local shown=0
 for sid in pairs(R.Data.specs) do
@@ -51,4 +43,4 @@ local data=R.GetDataset("mythicplus",1480);local old=data.slots[17];data.slots[1
 assert(not R.GetGearTarget(17,1480),"Missing observations cannot masquerade as a Murlok recommendation")
 data.slots[17]=old
 R.db.mode=mode;R.SetViewSpec(nil);R.UI.frame:SetSize(1280,900)
-print("Activity gear PASS: Devourer source conflict, crafted tooltip, mode switching, all-spec popularity, paired slots, bounded alternatives, unavailable-source isolation and minimum layout")
+print("Activity gear PASS: Devourer source conflict, crafted tooltip, retired-mode migration, all-spec popularity, paired slots, bounded alternatives, unavailable-source isolation and minimum layout")

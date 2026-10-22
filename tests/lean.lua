@@ -12,7 +12,7 @@ check(not R.Data.playerItems and not R.Data.variants,"Profile item caches remove
 local specCount=0
 for id,modes in pairs(R.Data.specs) do
  specCount=specCount+1
- for _,mode in ipairs({"mythicplus","raid"}) do
+ for _,mode in ipairs({"mythicplus"}) do
   local d=modes[mode];check(d and d.slots,"Spec/mode coverage "..id..mode)
   check(not d.players,"No retained profiles "..id..mode)
   for slot,items in pairs(d.slots) do
@@ -34,7 +34,7 @@ check(not R.UI.playerCards and not R.UI.talentsPane,"Removed widgets not created
 check(not R.UI.themeButton:IsShown(),"Secondary controls hidden on gear")
 for _,lang in ipairs({"EN","SK","CZ"}) do
  R.db.language=lang
- for _,mode in ipairs({"mythicplus","raid"}) do
+ for _,mode in ipairs({"mythicplus"}) do
   R.db.mode=mode
   for id in pairs(R.Data.specs) do
    R.SetViewSpec(id)

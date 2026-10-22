@@ -2,7 +2,7 @@
 
 Name: **Nexus: Gear & Preparation**
 
-Summary: A focused Retail companion for recommended gear, equipment ownership and raid or Mythic+ preparation.
+Summary: A focused Retail companion for recommended gear, equipment ownership and Mythic+ preparation.
 
 ## Description
 
@@ -10,7 +10,7 @@ Nexus brings your gear goals and character preparation into one compact World of
 
 ### Gear at a glance
 
-Browse recommended gear for Raid or Mythic+ across supported specializations. A clear slot list shows each item and whether your current character has it equipped, carries it in bags, or is still missing it. Select an item for acquisition details, alternatives and a link into the Adventure Guide where available.
+Browse recommended gear for Mythic+ across supported specializations, including items acquired from dungeons, raids and crafting. A clear slot list shows each item and whether your current character has it equipped, carries it in bags, or is still missing it. Select an item for acquisition details, alternatives and a link into the Adventure Guide where available.
 
 ### Prepare your character
 
@@ -18,7 +18,7 @@ Review enchantments, equipped sockets, gem suggestions and consumables. Preparat
 
 ### Understand the source
 
-Recommendations are bundled snapshots. Nexus shows source names and dates. Gear popularity is not a personalized simulation. Mythic+ meta uses published Murlok rankings; raid meta shows specialization representation in a Mythic raid parse sample, rather than claiming a direct ranking of class strength.
+Recommendations are bundled snapshots. Nexus shows source names and dates. Gear popularity is not a personalized simulation. Mythic+ meta uses published Murlok rankings within each role. Raid mode and raid Meta are temporarily removed.
 
 ### A restrained Warcraft interface
 

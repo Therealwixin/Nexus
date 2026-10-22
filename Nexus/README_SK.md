@@ -10,10 +10,10 @@ Rozbaľ inštalačný ZIP a nahraď priečinok Nexus. Výsledok musí byť
 
 ## Dáta a aktualizácie
 
-Raid výbava vychádza z autorského Wowhead guide. Mythic+ výbava a Stats používajú
+Mythic+ výbava a Stats používajú
 agregované dáta Murloku, alternatívy zahŕňajú aj Icy Veins. Odporúčania nie sú osobná simulácia.
-M+ Meta zachováva poradie Murloku v rámci roly. Raid popularita ukazuje zastúpenie parsov
-z U.GG, nie výkonový tier list ani odolnosť tankov.
+M+ Meta zachováva poradie Murloku v rámci roly. Raid režim a raid Meta sú dočasne odstránené.
+Raidové predmety odporúčané pre M+ zostávajú dostupné vrátane ich zdroja a loot navigácie.
 
 Denný zber beží na GitHube o 04:17 UTC, s opakovaním neúspešných kontrol o 10:17 a 16:17 UTC.
 Po úspešných kontrolách workflow vytvorí a publikuje dátový balík podľa konfigurácie projektu.

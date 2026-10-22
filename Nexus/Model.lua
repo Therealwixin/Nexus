@@ -57,7 +57,7 @@ function R.SpecID()
 end
 
 function R.GetMode()
-    return R.db and R.db.mode or "mythicplus"
+    return "mythicplus"
 end
 
 function R.ViewSpecID()

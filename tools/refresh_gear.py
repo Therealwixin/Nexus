@@ -17,7 +17,7 @@ def validate(data):
  from stat_rules import validate_rules
  validate_rules(data.get('statRules',{}),patch)
  for spec,modes in data['specs'].items():
-  if set(modes)!={'raid','mythicplus'}:raise ValueError('Both modes required for '+spec)
+  if set(modes)!={'mythicplus'}:raise ValueError('Only Mythic+ gear is supported for '+spec)
   for mode,dataset in modes.items():
    if dataset.get('patch')!=patch:raise ValueError('Patch change requires manual season validation')
    if dataset.get('players'):raise ValueError('Player profiles are prohibited in compact builds')
@@ -55,9 +55,9 @@ def build_candidate(previous,cache,offline=False,rendered_pages=None):
   jobs={pool.submit(collect,spec,cache,timestamp,offline,previous['specs'][str(spec['id'])]['mythicplus'],rendered_pages[str(spec['id'])] if rendered_pages is not None else None):spec for spec in SPECS}
   for job,spec in jobs.items():
    try:
-    _,mp,raid,_,warnings=job.result()
-    if warnings or not raid:raise ValueError('; '.join(warnings) or 'Missing raid guide')
-    for dataset,mode in [(mp,'mythicplus'),(raid,'raid')]:
+    _,mp,guide,_,warnings=job.result()
+    if warnings or not guide:raise ValueError('; '.join(warnings) or 'Missing authored alternatives guide')
+    for dataset,mode in [(mp,'mythicplus')]:
      dataset.pop('players',None)
      # Preserve verified seasonal metadata only for the same item and patch.
      old=previous['specs'][str(spec['id'])][mode]
@@ -67,7 +67,7 @@ def build_candidate(previous,cache,offline=False,rendered_pages=None):
        for item in items:
         for key in ('targetIlvl','dropIlvl','ilvlBasis','journalItemID','journalInstanceID','journalEncounterID'):
          if key in known.get(item['id'],{}):item[key]=known[item['id']][key]
-    candidate['specs'][str(spec['id'])]={'mythicplus':mp,'raid':raid}
+    candidate['specs'][str(spec['id'])]={'mythicplus':mp}
    except Exception as error:failures.append(spec['name']+': '+str(error))
  if failures:raise ValueError('No candidate written; original snapshot retained.\n'+'\n'.join(failures))
  validate(candidate)

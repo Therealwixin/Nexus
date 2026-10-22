@@ -31,7 +31,7 @@ function R.Initialize()
     NexusCharacterDB = type(NexusCharacterDB)=="table" and NexusCharacterDB or copy(type(RelicCharacterDB)=="table" and RelicCharacterDB or {})
     R.db, R.character = NexusDB, NexusCharacterDB
     if not R.Locales[R.db.language] then R.db.language = "EN" end
-    if R.db.mode ~= "raid" then R.db.mode = "mythicplus" end
+    R.db.mode = "mythicplus"
     R.character.targets = type(R.character.targets) == "table" and R.character.targets or {}
     R.character.shopping = type(R.character.shopping) == "table" and R.character.shopping or {}
     if R.character.viewSpecID and not R.SpecInfo(R.character.viewSpecID) then R.character.viewSpecID=nil end
