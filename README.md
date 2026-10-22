@@ -60,6 +60,8 @@ Actual in-game screenshots with added promotional title strips. The interface be
 ![Preparation: consumables and bag counts](assets/marketing/04-preparation.png)
 ![Sockets and gems](assets/marketing/05-sockets.png)
 ![Mythic+ Meta](assets/marketing/06-meta-dps.png)
+![Dungeon-entry alternatives](assets/marketing/08-dungeon-alerts.png)
+![Raid-entry recommended drops](assets/marketing/09-raid-alerts.png)
 
 ## Manual installation
 
