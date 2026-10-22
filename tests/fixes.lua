@@ -50,4 +50,11 @@ check(R.ResolveJournalRoute({id=60,sourceType="raid"},function(route)completed=r
 while #TEST.timer>0 do local before=reads;table.remove(TEST.timer,1)();maxBatch=math.max(maxBatch,reads-before) end
 check(completed and completed.encounterID==701 and maxBatch<=24,"Loot discovery must find item using <=24 reads per callback")
 check(tier==3 and instance==99 and difficulty==15,"Chunked lookup restores native state")
+local actualEncounterInfo=EJ_GetEncounterInfo
+EJ_GetEncounterInfo=function(id)return "Foreign cached boss",nil,id,nil,nil,501 end
+local finished=false;completed=true
+check(R.ResolveJournalRoute({id=60,sourceType="raid"},function(route)completed=route;finished=true end),"Stale route regression starts")
+TEST.Flush()
+check(finished and not completed,"Stale matching item from a different journal instance must not produce a route")
+EJ_GetEncounterInfo=actualEncounterInfo
 print("Screenshot regressions: socket row counts, compact paper doll, visible alternatives, native ilvl, Catalyst stats and asynchronous journal PASS")

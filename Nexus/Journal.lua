@@ -2,6 +2,11 @@ local _,R=...
 -- Verified WCL worldData dungeonEncounter IDs, not journal encounter IDs.
 local bosses={ [3470]="Nek'zali the Soulcoiler",[3445]="Entombed Sentinels",[3455]="Vashnik the Malignant",[3497]="The Lost Explorers",[3420]="Sszorak",[3421]="The Twin Fangs",[3429]="The Coiled Altar",[3492]="Ula'tek",[3379]="Nymrissa Wavecaller",[3513]="Kith'ix" }
 local function norm(s)return type(s)=="string" and s:lower():gsub("^the%s+",""):gsub("[^%w]","") or "" end
+function R.EncounterBelongsToInstance(encounterID,instanceID)
+ if not EJ_GetEncounterInfo or not R.IsReadable(encounterID) or type(encounterID)~="number" or encounterID<=0 then return false end
+ local ok,name,_,_,_,_,owner=pcall(EJ_GetEncounterInfo,encounterID)
+ return ok and R.IsReadable(owner) and type(owner)=="number" and owner==instanceID,name
+end
 local function save()
  local s={instance=EJ_GetCurrentInstance and EJ_GetCurrentInstance(),tier=EJ_GetCurrentTier and EJ_GetCurrentTier(),difficulty=EJ_GetDifficulty and EJ_GetDifficulty(),encounter=EncounterJournal and EncounterJournal.encounterID}
  if EJ_GetLootFilter then s.class,s.spec=EJ_GetLootFilter() end
@@ -64,7 +69,7 @@ function R.ResolveJournalRoute(item,complete)
     for i=1,32 do
      local _,_,encounter=EJ_GetEncounterInfoByIndex(i);if not encounter then break end
      local name,_,_,_,_,_,dungeonID=EJ_GetEncounterInfo(encounter)
-     if dungeonID==wanted then route={instanceID=instance.id,encounterID=encounter,isRaid=instance.raid,bossName=name};return end
+     if dungeonID==wanted and R.EncounterBelongsToInstance(encounter,instance.id) then route={instanceID=instance.id,encounterID=encounter,isRaid=instance.raid,bossName=name};return end
     end
    end
    local count=EJ_GetNumLoot() or 0
@@ -72,7 +77,8 @@ function R.ResolveJournalRoute(item,complete)
    local last=math.min(count,job.index+23,600)
    for i=job.index,last do
     job.reads=job.reads+1;local info=C_EncounterJournal.GetLootInfoByIndex(i)
-    if info and info.itemID==(item.acquisitionItemID or item.journalItemID or item.id) and info.encounterID and info.encounterID>0 then
+    if info and info.itemID==(item.acquisitionItemID or item.journalItemID or item.id) and
+     R.EncounterBelongsToInstance(info.encounterID,instance.id) then
      route={instanceID=instance.id,encounterID=info.encounterID,isRaid=instance.raid};return
     end
    end

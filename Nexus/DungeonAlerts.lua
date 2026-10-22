@@ -3,6 +3,19 @@ local A={generation=0,highlights={},page=1};R.DungeonAlerts=A
 local function number(value)return R.IsReadable(value) and type(value)=="number" and value>0 end
 
 function A:IsHighlighted(itemID)return self.highlights[itemID] and true or false end
+function A:DebugText()
+ local visit=self.visit
+ if not visit then return "Instance alerts: no active visit" end
+ local lines={"Instance alerts: "..tostring(visit.name).." | "..tostring(visit.kind).." | map="..tostring(visit.gameMapID)..
+  " | difficulty="..tostring(visit.difficultyID).." | attempts="..tostring(visit.attempts)}
+ for index,entry in ipairs(self.entries or {}) do
+  if index>24 then break end
+  local info=visit.loot and visit.loot[entry.dropID]
+  lines[#lines+1]=" drop="..tostring(entry.dropID).." | "..tostring(entry.item.name).." | source="..tostring(entry.item.acquisition or entry.item.sourceType)..
+   " | verified journal="..tostring(type(info)=="table" and info.instanceID or nil).." | encounter="..tostring(type(info)=="table" and info.encounterID or nil)
+ end
+ return table.concat(lines,"\n")
+end
 function A:ClearVisit()
  self.generation=self.generation+1;self.visit=nil;self.entries=nil;self.highlights={};self.pending=nil
  if self.frame then self.frame:Hide() end
@@ -34,17 +47,17 @@ function A:ReadLoot(context)
   end end
   if EJ_SetLootFilter then EJ_SetLootFilter(0,0) end
   if C_EncounterJournal.ResetSlotFilter then C_EncounterJournal.ResetSlotFilter() end
+  -- Selecting an instance can leave the previous instance's rows available
+  -- until the native loot list finishes refreshing. Never adopt those rows.
+  if EJ_GetCurrentInstance and EJ_GetCurrentInstance()~=journalID then return nil,true end
+  if EJ_IsLootListOutOfDate and EJ_IsLootListOutOfDate() then return nil,true end
   local count=EJ_GetNumLoot();if not number(count) then return nil,true end
   local ids={};local waiting=false
   for index=1,count do
    local info=C_EncounterJournal.GetLootInfoByIndex(index)
-   if info and R.IsReadable(info) and number(info.itemID) then
-    ids[info.itemID]={link=R.IsReadable(info.link) and info.link or nil}
-    -- Reuse the one instance pool already read for the warning. No extra EJ scan.
-    R.SourceCatalog=R.SourceCatalog or {};R.SourceCatalog[info.itemID]={kind=context.kind=="raid" and "raid" or "dungeon",source=context.name}
-    if number(info.encounterID) then
-     R.journalIndex=R.journalIndex or {byItem={}};R.journalIndex.byItem[info.itemID]={instanceID=journalID,encounterID=info.encounterID,isRaid=context.kind=="raid",instanceName=context.name}
-    end
+   if info and R.IsReadable(info) and number(info.itemID) and
+    R.EncounterBelongsToInstance(info.encounterID,journalID) then
+    ids[info.itemID]={link=R.IsReadable(info.link) and info.link or nil,encounterID=info.encounterID,instanceID=journalID}
    else waiting=true end
   end
   return ids,waiting
@@ -55,6 +68,14 @@ function A:ReadLoot(context)
  if R.IsReadable(oldClass) and oldClass and EJ_SetLootFilter then EJ_SetLootFilter(oldClass,oldSpec or 0) end
  if R.IsReadable(oldSlot) and oldSlot and C_EncounterJournal.SetSlotFilter then C_EncounterJournal.SetSlotFilter(oldSlot) end
  if not good then return nil end
+ -- Commit a complete, verified pool only. A stale or partial read must not
+ -- overwrite source metadata or bind a dungeon item to a raid boss.
+ if not pending and loot then
+  for id,info in pairs(loot) do
+   R.SourceCatalog=R.SourceCatalog or {};R.SourceCatalog[id]={kind=context.kind=="raid" and "raid" or "dungeon",source=context.name}
+   R.journalIndex=R.journalIndex or {byItem={}};R.journalIndex.byItem[id]={instanceID=journalID,encounterID=info.encounterID,isRaid=context.kind=="raid",instanceName=context.name}
+  end
+ end
  return loot,pending
 end
 
@@ -129,7 +150,7 @@ function A:Retry()
 end
 -- Always resolve the current bundled primary and the same alternatives shown in
 -- Equipment. No separate per-instance recommendation lists can become stale.
-function A:CollectEntries(loot,specID)
+function A:CollectEntries(loot,specID,context)
  local entries,seen={},{}
  local function owned(item,slot)
   local state=R.GearOwnership(item,slot,specID);return state=="EQUIPPED" or state=="IN_BAGS" or state=="OWNED"
@@ -161,6 +182,8 @@ function A:CollectEntries(loot,specID)
   local function add(item,alternative)
    if not item then return end
    local dropID=item.acquisitionItemID or item.journalItemID or item.id
+   local kind=item.acquisition or item.sourceType
+   if context and ((context.kind=="raid" and kind=="dungeon") or (context.kind=="party" and kind=="raid")) then return end
    if item.crafted or not loot[dropID] or seen[dropID] or owned(item,slot.id) or
     (dropID~=item.id and R.Ownership(dropID,slot.id)~="MISSING") then return end
    if alternative then
@@ -197,7 +220,7 @@ function A:CheckVisit()
  if not loot then loot,pending=self:ReadLoot(context) end
  if not loot or pending then self:Retry();return end
  visit.loot=loot
- local entries=self:CollectEntries(loot,specID)
+ local entries=self:CollectEntries(loot,specID,context)
  visit.notified[specID or 0]=true
  local keys={}
  for _,entry in ipairs(entries) do keys[#keys+1]=entry.dropID..":"..tostring(entry.alternative)..":"..entry.slotID end

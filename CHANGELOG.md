@@ -1,3 +1,11 @@
+## 1.0.6
+
+- Prevent dungeon loot from carrying over into raid-entry popups while the native Adventure Guide refreshes. Wait for a current loot list and verify each row's encounter belongs to the requested journal instance.
+- Commit loot-source metadata and Adventure Guide routes only after a complete verified read. Rejected stale or partial rows cannot relabel dungeon items as raid drops.
+- Exclude explicitly dungeon-only alternatives from raid popups and raid-only alternatives from dungeon popups. Preserve genuine current-instance recommendations and Catalyst acquisition IDs.
+- Apply the same encounter-instance verification to asynchronous Adventure Guide route lookup, and include active popup drop/instance/encounter IDs in `/nexus debug`.
+- Add the reported Elemental Legguards of the Awakening Brood regression: Temple of Sethraliss followed by two raids with stale native rows, fresh raid data, mixed/partial reads and unchanged native filters.
+
 ## 1.0.5
 
 - Validate secondary-stat variants for aggregate tier recommendations even when the Murlok row has no Catalyst flag. Check equipped and carried copies separately and keep unloaded stats unverified.

@@ -65,6 +65,7 @@ function R.DebugText()
         .. " | Equipped " .. equipped .. " | Bag IDs " .. bags .. " | Font " .. R.FONT
         .. " | Data " .. R.DataStatus(dataset) .. " | Errors " .. table.concat(errors," / ")
         .. "\n\n" .. R.GearIdentityDebugText()
+        .. "\n\n" .. R.DungeonAlerts:DebugText()
 end
 
 SLASH_NEXUS1 = "/nexus"

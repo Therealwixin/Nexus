@@ -97,7 +97,7 @@ assert(reads==2 and A.frame.title:GetText()==R.L("RAID_DROP_WARNING"),"Raid entr
 TEST.combat=true;context={name="Combat entry",kind="party",gameMapID=125,difficultyID=23};A:Check();assert(reads==2,"Combat entry is deferred")
 TEST.combat=false;A:OnEvent("PLAYER_REGEN_ENABLED");assert(reads==3,"Combat exit resumes the pending instance check")
 -- Native Adventure Guide scan uses raid difficulty and restores player filters.
-local names={"EJ_SelectInstance","EJ_GetNumLoot","EJ_GetCurrentInstance","EJ_GetDifficulty","EJ_SetDifficulty","EJ_IsValidInstanceDifficulty","EJ_GetLootFilter","EJ_SetLootFilter","EJ_SelectEncounter"}
+local names={"EJ_SelectInstance","EJ_GetNumLoot","EJ_GetCurrentInstance","EJ_GetDifficulty","EJ_SetDifficulty","EJ_IsValidInstanceDifficulty","EJ_GetLootFilter","EJ_SetLootFilter","EJ_SelectEncounter","EJ_GetEncounterInfo","EJ_IsLootListOutOfDate"}
 local natives={};for _,key in ipairs(names) do natives[key]=_G[key] or false end
 local nativeJournal,nativeUI,sourceCatalog,journalIndex=C_EncounterJournal,EncounterJournal,R.SourceCatalog,R.journalIndex
 local state={instance=901,difficulty=23,class=7,spec=262,slot=4,encounter=888}
@@ -110,6 +110,8 @@ EJ_IsValidInstanceDifficulty=function(id)return id==15 or id==23 end
 EJ_GetLootFilter=function()return state.class,state.spec end
 EJ_SetLootFilter=function(c,sp)state.class=c;state.spec=sp end
 EJ_SelectEncounter=function(id)state.encounter=id end
+EJ_GetEncounterInfo=function(id)return "Raid fixture boss",nil,id,nil,nil,902 end
+EJ_IsLootListOutOfDate=function()return false end
 EJ_GetNumLoot=function()return 1 end
 EncounterJournal={encounterID=888}
 C_EncounterJournal={
@@ -122,6 +124,53 @@ local nativeLoot,pending=saved.loot(A,{name="Raid fixture",kind="raid",gameMapID
 assert(nativeLoot[777].link=="item:777" and not pending and lootDifficulty==15,"Raid lookup reads the active difficulty and native item link")
 assert(R.journalIndex.byItem[777].isRaid and R.SourceCatalog[777].kind=="raid","Raid route/source remains a raid")
 assert(state.instance==901 and state.difficulty==23 and state.class==7 and state.spec==262 and state.slot==4 and state.encounter==888,"Native instance, difficulty, loot/slot filters and selected encounter are restored")
+
+-- Reproduce Temple -> Kith'ix -> Venomous with the old native Temple pool
+-- still present immediately after selecting each new raid instance.
+local originalTarget,originalAlternatives=R.GetGearTarget,R.GetGearAlternatives
+local realTarget,realAlternatives=saved.target,saved.alternatives
+local lifecycleDataset=R.GetDataset;R.GetDataset=saved.dataset
+R.GetGearTarget=function()return nil end
+R.GetGearAlternatives=function(slot)return realAlternatives(slot,262) end
+local templeContext={name="Temple of Sethraliss",kind="party",gameMapID=300,difficultyID=23}
+local kithContext={name="Kith'ix raid",kind="raid",gameMapID=301,difficultyID=15}
+local venomContext={name="The Venomous Abyss",kind="raid",gameMapID=302,difficultyID=15}
+local byMap={[300]=1000,[301]=1001,[302]=1002}
+C_EncounterJournal.GetInstanceForGameMap=function(map)return byMap[map] end
+local activeRows={{itemID=159375,encounterID=2000,link="item:159375"}}
+local owners={[2000]=1000,[2001]=1001,[2002]=1002}
+EJ_GetEncounterInfo=function(id)return "Verified boss",nil,id,nil,nil,owners[id] end
+C_EncounterJournal.GetLootInfoByIndex=function(index)return activeRows[index] end
+EJ_GetNumLoot=function()return #activeRows end
+local templeLoot,templePending=saved.loot(A,templeContext)
+assert(not templePending and templeLoot[159375],"Actual reported legguards are present in their verified Temple pool")
+local templeEntries=A:CollectEntries(templeLoot,262,templeContext)
+assert(#templeEntries==1 and templeEntries[1].dropID==159375,"Reported Elemental Catalyst alternative appears in Temple")
+assert(templeLoot[159375].instanceID==1000 and templeLoot[159375].encounterID==2000,"Verified loot retains the actual instance and encounter for diagnostics")
+local route=R.journalIndex.byItem[159375]
+assert(route.instanceID==1000 and not route.isRaid,"Legguards route points to the real dungeon")
+for _,raidContext in ipairs({kithContext,venomContext}) do
+ local stale,pending=saved.loot(A,raidContext)
+ assert(pending and not stale[159375],"Old Temple loot must be rejected after switching into either raid")
+ assert(R.journalIndex.byItem[159375]==route and R.SourceCatalog[159375].kind=="dungeon","Rejected stale pool cannot relabel the dungeon item as a raid drop")
+ assert(#A:CollectEntries({[159375]=true},262,raidContext)==0,"Explicit dungeon source is excluded from raid popups even if passed a contaminated pool")
+end
+-- A mixed read is transactional: even its legitimate rows cannot poison the
+-- source catalog until the entire native response has been verified.
+activeRows={{itemID=159375,encounterID=2000},{itemID=990001,encounterID=2001}}
+local mixed,mixedPending=saved.loot(A,kithContext)
+assert(mixedPending and mixed[990001] and not R.SourceCatalog[990001],"A partial/mixed pool does not commit source metadata")
+activeRows={{itemID=990001,encounterID=2001}}
+local fresh,freshPending=saved.loot(A,kithContext)
+assert(not freshPending and fresh[990001] and not fresh[159375],"Fresh raid pool replaces old dungeon rows")
+assert(#A:CollectEntries(fresh,262,kithContext)==0,"Dungeon legguards disappear once the valid raid pool arrives")
+EJ_IsLootListOutOfDate=function()return true end
+local obsolete,obsoletePending=saved.loot(A,kithContext)
+assert(not obsolete and obsoletePending,"Native out-of-date loot cannot be marked complete")
+EJ_IsLootListOutOfDate=function()return false end
+R.GetGearTarget,R.GetGearAlternatives=originalTarget,originalAlternatives
+R.GetDataset=lifecycleDataset
+C_EncounterJournal.GetInstanceForGameMap=function()return 902 end
 C_EncounterJournal.GetLootInfoByIndex=function()return nil end
 local _,waiting=saved.loot(A,{name="Raid fixture",kind="raid",gameMapID=124,difficultyID=15});assert(waiting,"Unloaded native loot is retried, never marked complete")
 for _,key in ipairs(names) do _G[key]=natives[key] or nil end
@@ -130,4 +179,4 @@ A:ClearVisit()
 R.GetGearTarget,R.GetGearAlternatives,R.scan,R.ItemLevel,R.GearLevelRange=saved.target,saved.alternatives,saved.scan,saved.level,saved.range
 A.Context,A.ReadLoot=saved.context,saved.loot
 R.ScanEquipment,R.SpecID,R.GetDataset=saved.scanEquipment,saved.spec,saved.dataset
-print("Instance alerts PASS: actual Elemental Altar alternative, main/alt labels, raids, ownership, level comparisons, paired slots, data refresh, paging and combat deferral")
+print("Instance alerts PASS: actual Elemental alternatives, Temple -> two raids with stale native loot, transactional source updates, instance ownership, labels, gear variants, data refresh, paging and combat deferral")
