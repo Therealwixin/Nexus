@@ -231,7 +231,7 @@ function UI:RenderRows()
   local here=self.view=="equipment" and self.gearView=="targets" and R.ViewSpecID()==R.SpecID() and item and R.DungeonAlerts:IsHighlighted(item.id)
   R.SkinPanel(b,here and "dungeon" or "card",self.selectedSlot==slot.id)
   b.selected:SetShown(self.selectedSlot==slot.id);b:SetShown(not R.db.needsOnly or self.gearView=="mine" or state=="MISSING")
-  b:SetScript("OnClick",function(owner)self.selectedSlot=owner.slotID;self:RenderRows();self:RenderDetail()end)
+  b:SetScript("OnClick",function(owner)self.selectedSlot=owner.slotID;self:RenderRows();self:RenderDetail(self:GetShownItem(owner.slotID),owner.slotID)end)
   if item then R.RequestItem(item.id) end
  end
  self.noData:SetShown(not d);self.noData:SetWidth(self.gearPane:GetWidth()-12)

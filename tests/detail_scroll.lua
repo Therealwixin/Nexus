@@ -21,6 +21,8 @@ R.UI:JournalStatusChanged(alt.id)
 assert(R.UI.detailScroll:GetVerticalScroll()==90,"Asynchronous journal status must preserve scroll")
 R.UI.frame:SetSize(1200,816)
 assert(R.UI.detailActiveItem.id==alt.id and R.UI.detailScroll:GetVerticalScroll()==90,"Resize must keep the selected detail and position")
+for _,row in ipairs(R.UI.rows) do if row.slotID==1 then row:Fire("OnClick");break end end
+assert(R.UI.detailActiveItem.id==R.GetGearTarget(1).id and R.UI.detailScroll:GetVerticalScroll()==0,"Clicking the main slot deliberately returns from its alternative to the primary item")
 R.UI.selectedSlot=2;R.UI:Refresh()
 assert(R.UI.detailScroll:GetVerticalScroll()==0,"Changing equipment slots starts the new detail at top")
 R.SetViewSpec(65);R.UI:Refresh()

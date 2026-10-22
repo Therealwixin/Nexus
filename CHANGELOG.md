@@ -1,3 +1,8 @@
+## 0.6.8-beta.2
+
+- Include the verified 2026-10-22 server data refresh and preserve all source dates/statuses.
+- Explicitly clicking an equipment slot returns from its alternative to the primary item at the top; automatic refreshes keep the selected alternative and scroll position.
+
 ## 0.6.8-beta.1
 
 - Temporarily remove raid equipment mode, raid Meta, its bundled datasets and the U.GG collector. M+ keeps raid-acquired items and their Adventure Guide routes when relevant.

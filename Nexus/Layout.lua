@@ -124,7 +124,7 @@ function UI:RenderRows()
   local here=item and R.DungeonAlerts:IsHighlighted(item.id)
   R.SkinPanel(row,"equipment");row.selected:SetShown(self.selectedSlot==slot.id or here)
   row:SetShown(not R.db.needsOnly or self.gearView=="mine" or state=="MISSING" or state:find("TIER_STATS",1,true))
-  row:SetScript("OnClick",function(owner)self.selectedSlot=owner.slotID;self:RenderRows();self:RenderDetail()end)
+  row:SetScript("OnClick",function(owner)self.selectedSlot=owner.slotID;self:RenderRows();self:RenderDetail(self:GetShownItem(owner.slotID),owner.slotID)end)
   if item then R.RequestItem(item.id) end
  end
  local data,why=R.GetDataset();self.noData:SetShown(not data);self.noData:SetWidth(width-16);self.noData:SetText(R.L(why or "NO_DATA"))
