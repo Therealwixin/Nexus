@@ -97,6 +97,8 @@ tracks[cinch.link]={currentLevel=2,maxLevel=6,maxItemLevel=334,trackStringID=42}
 R.scan={equipped={[6]=cinch},bags={},bagItems={}}
 R.GetGearTarget=function(slot)return slot==6 and belt end
 assert(R.GearOwnership(belt,6,1480)=="EQUIPPED","Reported Myth 2/6 Catalyst belt is owned despite elevated 344 recommendation")
+tracks[ordinaryLink]=nil
+assert(R.GearOwnership(belt,6,1480)=="EQUIPPED","A max-rank generated preview without native upgrade metadata must not hide a real Myth copy")
 assert(R.PrimaryCopySatisfied(belt,cinch,6,1480),"Unfinished converted Myth belt satisfies the primary track")
 assert(#R.DungeonAlerts:CollectEntries({[268256]=true},1480)==0,"Converted belt is not requested again by instance alerts")
 local found,foundSlot=R.FindCatalystRecommendation(cinch,1480)
@@ -124,6 +126,89 @@ end
 local classCount=0;for _ in pairs(classes) do classCount=classCount+1 end
 assert(count==52 and classCount==13,"All 13 classes have four verified off-pieces")
 C_Item.GetItemInfoInstant=instant
+
+-- Actual Murlok recommendations have no Catalyst flag. ID equality must not
+-- bypass the secondary-stat check for known tier items.
+local chest=old.target(5,1480,"mplus_usage")
+assert(chest.id==271540 and not chest.catalyst and not chest.catalystOption,"Regression uses the unannotated aggregate tier recommendation")
+local chestLink=R.GearPreviewLink(chest,5)
+local worn={id=chest.id,slotID=5,link="item:271540:hero-converted"}
+stats[chestLink]={[haste]=138,ITEM_MOD_VERSATILITY=63}
+stats[worn.link]={[crit]=112,ITEM_MOD_VERSATILITY=79}
+R.scan={equipped={[5]=worn},bags={},bagItems={}}
+assert(R.GearOwnership(chest,5,1480)=="TIER_STATS_DIFFERENT","Same tier ID with wrong stats must not show Equipped")
+local nativeGetItem,tooltipSpec,previewFlag=GameTooltip.GetItem,R.tooltipSpecID,GameTooltip.nexusItemPreview
+GameTooltip.GetItem=function()return chest.name,worn.link end
+R.tooltipSpecID=1480;GameTooltip.nexusItemPreview=nil
+GameTooltip:ClearLines();R.DecorateTooltip(GameTooltip,{id=chest.id})
+assert(table.concat(GameTooltip.lines," "):find(R.L("TIER_STATS_DIFFERENT"),1,true),"Native same-ID tooltip must warn about the actual wrong-stat copy")
+GameTooltip.GetItem,R.tooltipSpecID,GameTooltip.nexusItemPreview=nativeGetItem,tooltipSpec,previewFlag
+R.GetGearTarget=function(slot)return slot==5 and chest end
+assert(#R.DungeonAlerts:CollectEntries({[chest.id]=true},1480)==1,"A wrong-stat tier copy must not suppress its recommended drop")
+stats[worn.link]={[haste]=nil,ITEM_MOD_VERSATILITY=79}
+assert(R.GearOwnership(chest,5,1480)=="TIER_STATS_DIFFERENT","An incomplete stat pair must not match")
+stats[worn.link]=nil
+assert(R.GearOwnership(chest,5,1480)=="TIER_STATS_UNVERIFIED","Unloaded tier stats must not confirm an ID-only match")
+stats[worn.link]={[haste]=124,ITEM_MOD_VERSATILITY=57}
+tracks[worn.link]={currentLevel=2,maxLevel=6,maxItemLevel=334,trackStringID=42}
+tracks[chestLink]=nil
+assert(R.GearOwnership(chest,5,1480)=="EQUIPPED","Correct tier stat allocation matches without synthetic preview upgrade metadata")
+tracks[worn.link].maxItemLevel=321
+assert(R.GearOwnership(chest,5,1480)=="TIER_TRACK_DIFFERENT","Hero copy with correct stats remains a different target track")
+R.scan.equipped={};R.scan.bags={[chest.id]=1};R.scan.bagItems={worn}
+stats[worn.link]={[crit]=112,ITEM_MOD_VERSATILITY=79}
+assert(R.GearOwnership(chest,5,1480)=="TIER_STATS_DIFFERENT","A wrong-stat copy in bags cannot confirm the recommendation either")
+tracks[worn.link].maxItemLevel=334;stats[worn.link]={[haste]=124,ITEM_MOD_VERSATILITY=57}
+assert(R.GearOwnership(chest,5,1480)=="IN_BAGS","A verified correct bag variant is recognized")
+assert(R.GearIdentityDebugText():find("Gear identity diagnostics",1,true),"Existing debug command includes native comparison diagnostics")
+
+-- Exact links exported by the live client, which returned no upgrade info
+-- for ANY equipped item. Do not fabricate a successful native API here.
+local fixture=TEST.liveCatalyst
+local previousVersion=TEST.version
+TEST.version="12.1.5";C_Item.GetItemUpgradeInfo=nil
+local liveBelt=fixture.waist
+local parsed=R.ParseLink(liveBelt.link)
+assert(parsed.bonusIDs[1]==12850 and parsed.modifiers[64]==268256,"Real live link parses bonuses and original source modifier without field offsets")
+local liveTrack=R.UpgradeTrackInfo(liveBelt)
+assert(liveTrack and liveTrack.maximum==334 and liveTrack.rank==2 and liveTrack.name=="Myth" and liveTrack.origin=="bonus","Live Myth 2/6 is recognized even with no native upgrade API")
+local heroTrack=R.UpgradeTrackInfo(fixture.chest)
+assert(heroTrack and heroTrack.maximum==321 and heroTrack.name=="Hero","Live Hero 6/6 must remain distinct from Myth 2/6 at the same ilvl")
+C_Item.GetItemInfoInstant=function(id)
+ if id==268256 then return id,"Armor","Leather","INVTYPE_WAIST",123,4,2 end
+ return instant(id)
+end
+stats[liveBelt.link]=liveBelt.stats;stats[elevatedLink]=liveBelt.targetStats
+R.scan={equipped={[6]={id=liveBelt.id,slotID=6,link=liveBelt.link}},bags={},bagItems={}}
+R.GetGearTarget=function(slot)return slot==6 and belt end
+assert(R.GearOwnership(belt,6,1480)=="EQUIPPED","Exact reported belt is equipped with all native upgrade responses unavailable")
+assert(#R.DungeonAlerts:CollectEntries({[268256]=true},1480)==0,"Exact live Catalyst belt does not generate an instance alert")
+R.scan={equipped={[5]={id=fixture.chest.id,slotID=5,link=fixture.chest.link}},bags={},bagItems={}}
+stats[fixture.chest.link]=fixture.chest.stats;stats[chestLink]=fixture.chest.targetStats
+R.GetGearTarget=function(slot)return slot==5 and chest end
+assert(R.GearOwnership(chest,5,1480)=="TIER_STATS_DIFFERENT","Exact live wrong-stat chest remains rejected with no native upgrade info")
+local ascended=R.UpgradeTrackInfo(fixture.weapon)
+assert(ascended and ascended.name=="Myth" and ascended.maximum==340,"Live ascended Myth weapon is not confused with an unknown track")
+local liveMain=old.target(16,1480,"mplus_usage")
+local liveWeapon={id=fixture.weapon.id,slotID=16,link=fixture.weapon.link}
+assert(R.PrimaryCopySatisfied(liveMain,liveWeapon,16,1480),"Exact live Myth weapon satisfies the desired track with no native API")
+R.scan={equipped={[16]=liveWeapon},bags={},bagItems={}}
+R.GetGearTarget=function(slot)return slot==16 and liveMain end
+R.GetGearAlternatives=function(slot)return slot==16 and {{id=273778,acquisition="dungeon",gearSlotID=16}} or {} end
+assert(#R.DungeonAlerts:CollectEntries({[273778]=true},1480)==0,"Unavailable native API cannot cause the reported DH weapon alternative popup to return")
+local nativeAPI=C_Item.GetItemUpgradeInfo
+C_Item.GetItemUpgradeInfo=function()return {maxItemLevel=999,trackStringID=1} end
+assert(R.UpgradeTrackInfo(liveBelt).maximum==999,"Available native upgrade data takes precedence over fallback")
+C_Item.GetItemUpgradeInfo=nativeAPI
+local damaged={link=liveBelt.link:gsub("12850","999999")}
+assert(not R.UpgradeTrackInfo(damaged),"Unknown bonus must not inherit a track from the current item level")
+damaged.link=liveBelt.link:gsub("12850","12846"):gsub("13334","12850")
+assert(not R.UpgradeTrackInfo(damaged),"Contradictory known tracks must not produce an invented match")
+damaged.link=liveBelt.link:gsub(":5:12850",":500:12850")
+assert(not R.UpgradeTrackInfo(damaged),"Malformed bonus count cannot certify a track")
+TEST.version="12.2.0"
+assert(not R.UpgradeTrackInfo(liveBelt),"Verified seasonal bonus fallback cannot leak into another season patch")
+TEST.version=previousVersion;C_Item.GetItemInfoInstant=instant
 R.scan=old.scan;C_Item.GetItemUpgradeInfo=old.upgrade;C_Item.GetItemStats=old.stats;R.ItemLevel=old.level
 R.GetGearTarget,R.GetGearAlternatives,R.GearLevelRange=old.target,old.alternatives,old.range
 print("Gear identity PASS: Catalyst mapping, 13-class off-pieces, reported Myth 2/6 belt vs 344 preview, stats/track guards, bag copies, native tooltip and instance alerts")

@@ -64,6 +64,7 @@ function R.DebugText()
         .. " | Dataset " .. (dataset and tostring(dataset.updatedAt) or tostring(why or "none"))
         .. " | Equipped " .. equipped .. " | Bag IDs " .. bags .. " | Font " .. R.FONT
         .. " | Data " .. R.DataStatus(dataset) .. " | Errors " .. table.concat(errors," / ")
+        .. "\n\n" .. R.GearIdentityDebugText()
 end
 
 SLASH_NEXUS1 = "/nexus"

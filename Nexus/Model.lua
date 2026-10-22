@@ -47,6 +47,23 @@ function R.ParseLink(link)
     if not id or id <= 0 then return nil end
     local out = { id = id, enchantID = tonumber(fields[2]) or 0, gems = {} }
     for index = 3, 6 do out.gems[#out.gems + 1] = tonumber(fields[index]) or 0 end
+    local count=tonumber(fields[13])
+    if count and count>=0 and count<=100 and count==math.floor(count) then
+        out.bonusIDs={};out.modifiers={}
+        for index=14,13+count do
+            local bonus=tonumber(fields[index])
+            if not bonus or bonus<=0 or bonus~=math.floor(bonus) then out.bonusIDs=nil;break end
+            out.bonusIDs[#out.bonusIDs+1]=bonus
+        end
+        local position=14+count;local modifiers=tonumber(fields[position])
+        if modifiers and modifiers>=0 and modifiers<=50 and modifiers==math.floor(modifiers) then
+            for index=1,modifiers do
+                local key,value=tonumber(fields[position+index*2-1]),tonumber(fields[position+index*2])
+                if not key or not value then out.modifiers={};break end
+                out.modifiers[key]=value
+            end
+        end
+    end
     return out
 end
 

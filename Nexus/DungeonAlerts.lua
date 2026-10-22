@@ -135,8 +135,7 @@ function A:CollectEntries(loot,specID)
   local state=R.GearOwnership(item,slot,specID);return state=="EQUIPPED" or state=="IN_BAGS" or state=="OWNED"
  end
  local function higherEquipped(item,slotID,drop)
-  local preview=R.GearPreviewLink(item,slotID)
-  local targetTrack=preview and R.UpgradeTrackInfo({link=preview})
+  local targetTrack=R.RecommendationUpgradeTrack(item,slotID)
   local range=R.GearLevelRange(item,slotID)
   local ceiling=range and (range.ascended or range.max)
   if type(drop)=="table" and drop.link then
@@ -162,7 +161,8 @@ function A:CollectEntries(loot,specID)
   local function add(item,alternative)
    if not item then return end
    local dropID=item.acquisitionItemID or item.journalItemID or item.id
-   if item.crafted or not loot[dropID] or seen[dropID] or owned(item,slot.id) or R.Ownership(dropID,slot.id)~="MISSING" then return end
+   if item.crafted or not loot[dropID] or seen[dropID] or owned(item,slot.id) or
+    (dropID~=item.id and R.Ownership(dropID,slot.id)~="MISSING") then return end
    if alternative then
     if higherEquipped(item,slot.id,loot[dropID]) then return end
    end

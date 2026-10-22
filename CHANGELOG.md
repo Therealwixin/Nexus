@@ -1,3 +1,12 @@
+## 1.0.5
+
+- Validate secondary-stat variants for aggregate tier recommendations even when the Murlok row has no Catalyst flag. Check equipped and carried copies separately and keep unloaded stats unverified.
+- Show a native-tooltip warning for a wrong-stat tier copy, and stop instance alerts from bypassing variant validation with a second raw-ID ownership check.
+- Fix the live-client upgrade API returning no usable track information for equipped items. Prefer native data when available; otherwise decode verified current-season Hero/Myth bonuses from the full item link, including Ascendant ranks. Never infer the track from current item level.
+- Handle generated maximum-rank previews without native upgrade metadata using the verified seasonal target ceiling. Share this comparison with primary-copy and alternative-alert filtering.
+- Extend `/nexus debug` with the actual item IDs, links, native tracks, stat profiles and conversion checks, to diagnose the reported live-client belt failure.
+- Add regressions using the exact live-client waist, chest and weapon links, with the upgrade API completely unavailable. Verify the track catalog against primary DBC rows and native tooltip fixtures, including the Hero 6/6 versus Myth 2/6 distinction at identical ilvl.
+
 ## 1.0.4
 
 - Recognize current-season Catalyst belts, boots, bracers and cloaks for all 13 classes, even when guides do not publish an explicit conversion pair. Require the correct class, armor slot/type, matching secondary-stat allocation and native Myth track; unrelated and lower-track items do not match.

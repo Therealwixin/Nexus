@@ -1,0 +1,20 @@
+{
+  "provenance": "User-provided /nexus debug, WoW 12.1.5.70448, spec 1480, 2026-10-22",
+  "waist": {
+    "sourceID": 268256,
+    "id": 271534,
+    "link": "|cnIQ4:|Hitem:271534::::::::90:1480::95:5:12850:13334:6652:13696:1574:1:64:268256:::::|h[Abyssal Doomhound's Jeweled Cinch]|h|r",
+    "stats": {"ITEM_MOD_HASTE_RATING_SHORT": 45, "ITEM_MOD_MASTERY_RATING_SHORT": 98},
+    "targetStats": {"ITEM_MOD_HASTE_RATING_SHORT": 49, "ITEM_MOD_MASTERY_RATING_SHORT": 108}
+  },
+  "chest": {
+    "id": 271540,
+    "link": "|cnIQ4:|Hitem:271540:7987:::::::90:1480::33:5:6652:13440:13690:13698:12846:1:64:251226:::::|h[Abyssal Doomhound's Coreguard]|h|r",
+    "stats": {"ITEM_MOD_CRIT_RATING_SHORT": 112, "ITEM_MOD_VERSATILITY": 79},
+    "targetStats": {"ITEM_MOD_HASTE_RATING_SHORT": 138, "ITEM_MOD_VERSATILITY": 63}
+  },
+  "weapon": {
+    "id": 271092,
+    "link": "|cnIQ4:|Hitem:271092:8689:::::::90:1480::95:3:6652:13334:12856::::::|h[Jan'thrazet, the Soul Fang]|h|r"
+  }
+}

@@ -1,6 +1,6 @@
 """Lua 5.1 client simulation. Does not certify the real WoW renderer or taint."""
 from pathlib import Path
-import json,sys
+import json,re,sys
 ROOT=Path(__file__).resolve().parents[1]
 try:
  from lupa.lua51 import LuaRuntime
@@ -29,7 +29,22 @@ if __name__=='__main__':
   outputs[item]={'classID':mask.bit_length(),'slot':15 if inventory==16 else inventory,'armor':int(fields[12])}
  assert len(outputs)==52 and {r['classID'] for r in outputs.values()}==set(range(1,14))
  assert {key:dict(value) for key,value in ns.CatalystOffpieces['items'].items()}==outputs
+ bonus_rows={}
+ for line in (ROOT/'tests/fixtures/upgrade-track-bonuses.inc').read_text().splitlines():
+  row=re.match(r'\s*\{\s*\d+,\s*(\d+),\s*(\d+),\s*(-?\d+),',line)
+  if row:bonus_rows.setdefault(int(row[1]),{})[int(row[2])]=int(row[3])
+ assert set(bonus_rows)==set(range(12841,12857))
+ for bonus,row in ns.UpgradeBonusTracks['bonuses'].items():
+  assert bonus_rows[bonus][34]==(617 if row['name']=='Hero' else 618)
+  assert row['rank']==bonus-(12840 if row['name']=='Hero' else 12848)
+ native=json.loads((ROOT/'tests/fixtures/upgrade-track-tooltips.json').read_text())
+ levels={row['bonus']:int(re.search(r'<!--ilvl-->(\d+)',row['tooltip'])[1]) for row in native['cases']}
+ for bonus,row in ns.UpgradeBonusTracks['bonuses'].items():
+  endpoint=12846 if row['name']=='Hero' else 12854
+  if row['rank']>6:endpoint=12848 if row['name']=='Hero' else 12856
+  assert row['maximum']==levels[endpoint]
  lua.globals().TEST.R=ns
+ lua.globals().TEST.liveCatalyst=lua.eval(__import__('refresh_gear').compact_lua(json.loads((ROOT/'tests/fixtures/live-catalyst-12.1.5.json').read_text(encoding='utf-8'))))
  lua.execute((ROOT/'tests/lean.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/look.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/bag_sockets.lua').read_text(encoding='utf-8'))
