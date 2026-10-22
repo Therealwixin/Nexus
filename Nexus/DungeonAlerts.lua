@@ -131,8 +131,12 @@ end
 -- Equipment. No separate per-instance recommendation lists can become stale.
 function A:CollectEntries(loot,specID)
  local entries,seen={},{}
- local function owned(id,slot)return R.Ownership(id,slot)~="MISSING" end
+ local function owned(item,slot)
+  local state=R.GearOwnership(item,slot,specID);return state=="EQUIPPED" or state=="IN_BAGS" or state=="OWNED"
+ end
  local function higherEquipped(item,slotID,drop)
+  local preview=R.GearPreviewLink(item,slotID)
+  local targetTrack=preview and R.UpgradeTrackInfo({link=preview})
   local range=R.GearLevelRange(item,slotID)
   local ceiling=range and (range.ascended or range.max)
   if type(drop)=="table" and drop.link then
@@ -146,8 +150,10 @@ function A:CollectEntries(loot,specID)
    local level=current and R.ItemLevel(current,true)
    -- For paired slots the candidate can replace the weaker item.
    local primary=R.GetGearTarget(slot,specID,"mplus_usage")
-   local primaryAtLevel=current and primary and current.id==primary.id and level and level>=ceiling
-   if not level or not (level>ceiling or primaryAtLevel) then return false end
+   local track=R.UpgradeTrackInfo(current)
+   local trackSatisfied=track and targetTrack and track.maximum>=targetTrack.maximum
+   local primaryAtLevel=R.PrimaryCopySatisfied(primary,current,slot,specID)
+   if not (trackSatisfied or primaryAtLevel or level and level>ceiling) then return false end
   end
   return true
  end
@@ -156,7 +162,7 @@ function A:CollectEntries(loot,specID)
   local function add(item,alternative)
    if not item then return end
    local dropID=item.acquisitionItemID or item.journalItemID or item.id
-   if item.crafted or not loot[dropID] or seen[dropID] or owned(item.id,slot.id) or owned(dropID,slot.id) then return end
+   if item.crafted or not loot[dropID] or seen[dropID] or owned(item,slot.id) or R.Ownership(dropID,slot.id)~="MISSING" then return end
    if alternative then
     if higherEquipped(item,slot.id,loot[dropID]) then return end
    end

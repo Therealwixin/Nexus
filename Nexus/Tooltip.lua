@@ -15,10 +15,19 @@ function R.DecorateTooltip(tooltip, data)
     local isTarget, _, personal = R.IsTarget(id,specID,mode)
     local item = R.ItemByID(id,specID,mode)
     if R.tooltipItem and R.tooltipItem.id==id then item=R.tooltipItem end
+    local converted
+    if not isTarget and tooltip.GetItem then
+        local _,link=tooltip:GetItem()
+        if R.IsReadable(link) and type(link)=="string" then
+            local match=R.FindCatalystRecommendation({id=id,link=link},specID)
+            if match then item=match;isTarget=true;converted=true end
+        end
+    end
     if not isTarget and not item then return end
     tooltip:AddLine(" ")
     if item and item.source == "Wowhead" then tooltip:AddLine(R.NAME .. " · " .. R.L("GUIDE_RECOMMENDATION"), .8,.5,1)
     else tooltip:AddLine(R.NAME .. " · " .. R.L("TOP_ITEM"), .8,.5,1) end
+    if converted then tooltip:AddLine(R.L("DUNGEON_BIS_CATALYST"),1,.82,0) end
     if item and item.bisGuide then tooltip:AddLine(R.L("BIS_LIST"),1,.82,0) end
     if item and item.count then
         local dataset = R.GetDataset(mode,specID)

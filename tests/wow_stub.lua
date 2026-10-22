@@ -202,3 +202,5 @@ function Frame:SetTexCoord(...) self.texCoord={...} end
 
 function Frame:CreateMaskTexture() return CreateFrame("MaskTexture",nil,self) end
 function Frame:AddMaskTexture(mask) self.mask=mask end
+
+function Frame:GetItem() return self.itemName or "",self.link end

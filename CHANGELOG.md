@@ -1,3 +1,11 @@
+## 1.0.3
+
+- Recognize verified Catalyst conversions of recommended source items in Equipment, bags, native tooltips and instance alerts using the current specialization's conversion mapping, secondary-stat profile and matching native upgrade track/cap.
+- Preserve source-passive safeguards: matching stats alone do not prove an unrelated or differently converted item is the same recommendation.
+- Compare instance alternatives against native upgrade-track ceilings instead of current upgrade progress. An equipped Myth 4/6 copy no longer triggers a same-track Myth 6/6 alternative popup.
+- Keep crafted primary recognition and paired-slot handling, while allowing alerts for genuinely lower-track equipment.
+- Include Catalyst identity and incomplete-Myth/crafted-weapon regressions in every release and daily data validation.
+
 ## 1.0.2
 
 - Correct Retail compatibility metadata from Interface 120100 (12.1.0) to 120105 (12.1.5), so CurseForge and future daily packages advertise the intended game version.

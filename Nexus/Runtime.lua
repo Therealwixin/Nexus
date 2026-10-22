@@ -115,3 +115,7 @@ local instanceAlerts={
  SK={DUNGEON_WARNING="Odporúčaná výbava v tomto dungeone",RAID_DROP_WARNING="Odporúčaná výbava v tomto raide",INSTANCE_ALTERNATIVE="Alternatíva",DUNGEON_BIS_ITEM="M+ voľba",DUNGEON_BIS_CATALYST="M+ voľba cez Catalyst"},
  CZ={DUNGEON_WARNING="Doporučená výbava v tomto dungeonu",RAID_DROP_WARNING="Doporučená výbava v tomto raidu",INSTANCE_ALTERNATIVE="Alternativa",DUNGEON_BIS_ITEM="M+ volba",DUNGEON_BIS_CATALYST="M+ volba přes Catalyst"}}
 for lang,values in pairs(instanceAlerts) do for key,value in pairs(values) do R.Locales[lang][key]=value end end
+
+R.Locales.EN.TIER_TRACK_DIFFERENT="Tier equipped · different upgrade track"
+R.Locales.SK.TIER_TRACK_DIFFERENT="Tier nasadený · iný upgrade track"
+R.Locales.CZ.TIER_TRACK_DIFFERENT="Tier nasazený · jiný upgrade track"

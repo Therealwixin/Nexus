@@ -29,6 +29,7 @@ if __name__=='__main__':
  lua.globals().TEST.variantEvidence=lua.eval(__import__('refresh_gear').compact_lua(json.loads((ROOT/'tests/fixtures/item-variant-evidence.json').read_text(encoding='utf-8'))))
  lua.execute((ROOT/'tests/item_levels.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/evidence.lua').read_text(encoding='utf-8'))
+ lua.execute((ROOT/'tests/gear_identity.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/dungeon_alerts.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/activity_gear.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/gear_background.lua').read_text(encoding='utf-8'))

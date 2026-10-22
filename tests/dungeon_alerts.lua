@@ -56,8 +56,10 @@ targets[11]=nil
 R.scan.equipped[10]={id=999,level=340}
 assert(#A:CollectEntries(loot,261)==4,"Higher equipped level suppresses an alternative, not a missing primary recommendation")
 R.scan.equipped[10].level=334;assert(#A:CollectEntries(loot,261)==5,"Equal level can still be a relevant sidegrade")
+local catalystTarget=targets[10];targets[10]={id=271511,name="Direct primary",gearSlotID=10}
 R.scan.equipped[10]={id=271511,level=320};assert(#A:CollectEntries(loot,261)==4,"A low-level equipped primary must not suppress a potentially stronger alternative")
 R.scan.equipped[10].level=334;assert(#A:CollectEntries(loot,261)==3,"An equipped primary at the alternative ceiling suppresses that alternative")
+targets[10]=catalystTarget
 R.scan.equipped={[11]={id=998,level=340},[12]={id=999,level=320}}
 assert(#A:CollectEntries(loot,261)==5,"A ring can replace the weaker paired slot")
 R.scan.equipped[12].level=340;assert(#A:CollectEntries(loot,261)==4,"Both stronger paired items suppress the alternative")

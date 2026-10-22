@@ -116,7 +116,7 @@ function UI:RenderRows()
   row.note:SetPoint(anchor,row,anchor,offset,-contentTop-13);row.note:SetHeight(stride>=70 and 30 or 26);row.note:SetFont(R.FONT,12,"OUTLINE");row.note:SetMaxLines(2);row.note:SetTextColor(R.ItemColor(item));row.note:SetText(item and R.ItemName(item) or R.L("NO_SOURCE_OPTION"))
   if item and self.gearView=="mine" then local level=R.ItemLevel(item,true);if level then row.text:SetText(R.L(slot.key).." · "..level) end end
   if item and self.gearView~="mine" then state=R.GearOwnership(item,slot.id) end
-  row.ownership:SetPoint(anchor,row,anchor,offset,-contentTop-(stride>=70 and 47 or 41));row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"OUTLINE");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or state:find("TIER_STATS",1,true) and GOLD or GREEN))
+  row.ownership:SetPoint(anchor,row,anchor,offset,-contentTop-(stride>=70 and 47 or 41));row.ownership:SetHeight(11);row.ownership:SetFont(R.FONT,10,"OUTLINE");row.ownership:SetText(item and R.L(state) or "");row.ownership:SetTextColor(unpack(state=="MISSING" and RED or state:find("TIER_",1,true) and GOLD or GREEN))
   row.red:Hide();row.check:Hide();row.icon:SetVertexColor(1,1,1)
   row.border:SetColorTexture(R.ItemColor(item))
   if not row.slotBevel then
@@ -126,7 +126,7 @@ function UI:RenderRows()
   row.selected:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight");row.selected:SetVertexColor(1,.82,.35);row.selected:SetAlpha(.24);row.selected:SetShown(self.selectedSlot==slot.id)
   local here=item and R.DungeonAlerts:IsHighlighted(item.id)
   R.SkinPanel(row,"equipment");row.selected:SetShown(self.selectedSlot==slot.id or here)
-  row:SetShown(not R.db.needsOnly or self.gearView=="mine" or state=="MISSING" or state:find("TIER_STATS",1,true))
+  row:SetShown(not R.db.needsOnly or self.gearView=="mine" or state=="MISSING" or state:find("TIER_",1,true))
   row:SetScript("OnClick",function(owner)self.selectedSlot=owner.slotID;self:RenderRows();self:RenderDetail(self:GetShownItem(owner.slotID),owner.slotID)end)
   if item then R.RequestItem(item.id) end
  end
