@@ -41,6 +41,6 @@ The workflow uses the repository-provided `GITHUB_TOKEN`; a personal GitHub toke
 5. Enable beta publishing and verify one end-to-end beta upload.
 6. Daily refresh is already enabled. Monitor its first successful runs.
 
-CurseForge requires a Release file before normal app syncing; beta files use the user's beta preference. Do not mark a preview stable merely to bypass that distinction.
+Stable tags use the Release channel; alpha/beta tags remain prereleases. Daily data packages inherit the installed release channel. Publish the first stable tag only after the project description, screenshots and owner's in-game verification are complete.
 
 References: [BigWigs packager](https://github.com/BigWigsMods/packager), [supported token names](https://github.com/BigWigsMods/packager/blob/master/release.sh), [CurseForge submission](https://support.curseforge.com/support/solutions/articles/9000197241-creating-and-submitting-a-project).

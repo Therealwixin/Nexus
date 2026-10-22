@@ -1,53 +1,84 @@
-# Nexus
+![Nexus: Gear & Preparation](assets/marketing/nexus-banner.png)
 
-A focused World of Warcraft Retail addon for gear goals, equipment ownership and character preparation.
+# Nexus: Gear & Preparation
 
-## Current preview
+[Install on CurseForge](https://www.curseforge.com/wow/addons/nexus-gear-preparation) · [Download on GitHub](https://github.com/Therealwixin/Nexus/releases) · [Report an issue](https://github.com/Therealwixin/Nexus/issues)
 
-Nexus 0.6.7 uses a compact character-panel slot layout without a character model, scrolling Preparation cards and exact socket-row counts. Equipment uses the selected specialization's current native talent background across the complete pane, including DH and Evoker. Native atlas rendering scales to the actual equipment viewport; the game ScrollFrame clips overflow. Both equipment columns use their original outer edges, with no reserved portrait strip. A uniform black overlay improves readability beneath item text/icons. Both equipment columns meet without a center gutter. There are no central spec icons or legacy portraits. Both weapons sit below Wrists on the left. It imports all 40 live Wowhead guides, source-qualified dungeon/raid alternatives. Item names use quality colors, equipped ilvl uses the native item location, and Catalyst variants keep source-item stats. Player-profile browsing and talent databases remain removed.
+Nexus brings Mythic+ gear goals, character stats, preparation and role rankings into one World of Warcraft Retail window. Browse all 40 specializations, see what your character already owns and plan what to work on next.
 
-- **Equipment:** Mythic+ (Murlok top-profile usage), up to four verified alternatives per slot, and current-character ownership. Acquisition includes raid, dungeon and crafted items; raid mode is temporarily removed.
-- **Stats:** Murlok M+ references for all 40 specs, native active-character values, rating gaps and verified rating-derived DR details on hover.
-- **Preparation:** enchantments, equipped sockets, gem suggestions and consumables.
-- **Meta:** published M+ role rankings, with source dates and methodology.
-- Browse supported classes/specs without changing the character's specialization.
-- EN/SK/CZ interface text, native item icons and `/nexus debug` diagnostics.
+## Equipment: find your next upgrade
 
-Recommendations are source snapshots, not a personalized simulation. The addon does not make network requests inside WoW.
+- Browse current-season Mythic+ recommendations based on Murlok.io top-player aggregates.
+- See whether an item is equipped, in your bags or missing, with a missing-only filter.
+- Compare up to four verified alternatives per slot, including dungeon options where available.
+- Check acquisition details, upgrade information and Adventure Guide loot links where supported.
+- Use native item tooltips and specialization talent artwork in a familiar Warcraft interface.
 
-## Install
+Mythic+ describes the activity the gear is recommended for, not where every item drops. This season, raid items make up much of the recommended gear for many specs. Nexus includes raid drops and crafted items when relevant; dungeon alternatives are shown where verified. There is currently no separate raid recommendation mode or raid Meta.
 
-Download an installable Nexus ZIP, close WoW and replace the `Nexus` addon folder. The result must be `_retail_/Interface/AddOns/Nexus/Nexus.toc`. Preserve SavedVariables. Open `/nexus`.
+## Stats: understand your character
 
-Equipment follows observed current-season Murlok Mythic+ usage. Wowhead and Icy Veins supply verified alternatives and acquisition evidence across all sources, including raid drops. Up to four distinct alternatives are shown, reserving a dungeon option where known. Raid equipment mode and raid Meta are temporarily removed. See [DATA-SOURCES.md](DATA-SOURCES.md) for actual coverage.
+Compare your character's secondary and minor stats with references from top-rated Mythic+ profiles. View rating and percentage differences, and inspect diminishing-return brackets, the next rating boundary and rating-derived limits where supported by the client.
 
-The addon is still a preview. Real-client appearance and combat behavior require testing; the Lua simulator does not reproduce WoW's renderer or secure execution.
+These are observed reference values, not mandatory targets or a personal simulation. A displayed reference or DR boundary does not mean a stat stops being useful.
 
-## Development
+## Preparation: get ready for the key
+
+Review recommended enchants, sockets, gem suggestions and consumables. Check socketed items equipped on your character or in your bags, see filled and empty sockets, and review consumable bag counts. Missing-only filters help you focus on what needs attention.
+
+Your actual equipment and bag checks follow the current character. You can browse other specializations without switching your in-game spec.
+
+## Meta: explore your role
+
+Browse Murlok.io's published Mythic+ rankings for DPS, healers and tanks. Scores and positions are compared within each role, with source details and dates available in the addon. These are published M+ rankings, not DPS/HPS throughput measurements or a personal performance prediction.
+
+## Sources and updates
+
+Murlok.io supplies Mythic+ gear usage, stat references and role rankings. Wowhead and Icy Veins provide authored recommendations and verified alternative/acquisition evidence where available. Source labels, sample sizes where available and dates help you understand each recommendation.
+
+Data is checked daily by an external update workflow. Successful validated updates are distributed as new addon versions. If collection or validation fails, the last verified data stays available with its original dates. The addon makes no internet requests inside WoW. Install updates through CurseForge or GitHub; **Scan gear** only rescans your character's equipment and bags.
+
+## Getting started
+
+Install Nexus for World of Warcraft Retail and open it with `/nexus` or its minimap button. Choose a class and specialization to browse; use **My spec** to return to your active specialization.
+
+- `/nexus` — open or close Nexus.
+- `/nexus scan` — rescan equipment and bags.
+- `/nexus sources` — open Data & updates.
+- `/nexus debug` — show copyable diagnostics.
+- `/nexus resetui` — reset window placement and size.
+
+English, Slovak and Czech interface text is included. Recommendations help you plan; gear popularity is not a replacement for simulating your own character.
+
+## Screenshots
+
+Actual in-game screenshots with added promotional title strips. The interface beneath each strip is unmodified.
+
+![Equipment: gear goals and acquisition](assets/marketing/01-equipment.png)
+![Stats: references, differences and DR](assets/marketing/03-stats.png)
+![Preparation: consumables and bag counts](assets/marketing/04-preparation.png)
+![Sockets and gems](assets/marketing/05-sockets.png)
+![Mythic+ Meta](assets/marketing/06-meta-dps.png)
+
+## Manual installation
+
+Download the installable Nexus ZIP from Releases, close WoW and extract the `Nexus` folder into `_retail_/Interface/AddOns/`. The final path must be `_retail_/Interface/AddOns/Nexus/Nexus.toc`. Preserve SavedVariables. Do not use GitHub's automatic source-code ZIP as the addon package.
+
+## Development and data maintenance
 
 Python 3.12 and `lupa==2.8` are used outside the game:
 
-    python tools/refresh_gear.py --validate-only
-    python tools/test_lean.py
-    python tools/test_maintenance.py
-    python tools/test_guides.py
-    python tools/package.py --output dist
+```text
+python tools/refresh_gear.py --validate-only
+python tools/test_lean.py
+python tools/test_stats.py
+python tools/test_maintenance.py
+python tools/test_meta.py
+python tools/test_guides.py
+python tools/test_alternatives.py
+python tools/package.py --output dist
+```
 
-The live Wowhead collector was exercised across all 40 specs on 2026-10-20; published source timestamps and live patch are preserved. Preparation, aggregate gear and meta inputs retain their own published timestamps. Collection writes a candidate; staging, tests and publishing are separate steps. An incompatible guide patch or missing complete authored set prevents replacing the last verified snapshot.
+See [data sources](DATA-SOURCES.md), [update setup](SETUP.md) and [Slovak update instructions](AKTUALIZACIE_SK.md). The [CurseForge description](CURSEFORGE.md) and [marketing asset manifest](assets/marketing/README.md) are maintained in this repository. The external collector uses aggregate pages; individual player-profile pages are not collected. No API keys, browser dependencies or marketing screenshots are bundled in the addon.
 
-    python -m pip install playwright==1.56.0
-    python -m playwright install chromium
-    python tools/refresh_gear.py
-    python tools/data_release.py stage --keep-version
-
-Daily data collection, validation and configured publishing are enabled. See [AKTUALIZACIE_SK.md](AKTUALIZACIE_SK.md) for the detailed Slovak installation/update guide and [SETUP.md](SETUP.md) for setup details. The prepared project description is in [CURSEFORGE.md](CURSEFORGE.md).
-
-No API keys or game libraries are bundled in the addon. Existing owner license terms are retained in `Nexus/LICENSE.txt`.
-
-## Active sources
-
-Daily collection uses Wowhead, Icy Veins and Murlok. U.GG raid Meta collection and data are removed. Direct WCL collection, Archon status checks and Raider.IO affix checks remain removed. Daily publication and addon updates continue.
-
-Murlok Meta, gear, Stats, gems and enchants use rendered aggregate pages after hydration. One browser reads gear pages at most two at a time; all 40 specs are required. No player-profile pages are requested. Stale, future-dated and incomplete inputs are rejected. If a current edge response is older than our existing complete snapshot, the newer verified aggregate and its original dates are retained with an unsuccessful refresh flag and retry. Other sources can still update.
-
-Daily data packages inherit the beta/stable channel. The external collector runs on GitHub, never in WoW. Source publication and successful collection dates remain separate. Detail panel refreshes preserve scroll and the selected alternative; explicit item/slot/spec changes start the new detail at the top.
+License: the owner's existing All Rights Reserved terms in `Nexus/LICENSE.txt`.

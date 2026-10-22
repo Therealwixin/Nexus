@@ -2,6 +2,7 @@ package-as: Nexus
 move-folders:
   Nexus/Nexus: Nexus
 ignore:
+  - assets
   - data
   - docs
   - tests

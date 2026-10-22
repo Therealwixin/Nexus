@@ -40,7 +40,7 @@ Nastavenie aplikácie:
 
 1. V CurseForge aplikácii vyber **World of Warcraft** a správny **Retail** profil/inštaláciu.
 2. Vyhľadaj a nainštaluj **Nexus: Gear & Preparation**.
-3. Pri Nexuse povoľ prijímanie **Beta** verzií. Aktuálne testovacie vydania nie sú označené ako stabilný Release.
+3. Pre bežné používanie vyber kanál **Release**. Beta kanál je určený na testovanie pripravovaných verzií.
 4. Ak aplikácia v tvojej verzii ponúka automatické aktualizácie, zapni ich pre Nexus. Inak použi jej tlačidlo **Update** pred spustením hry.
 5. Po aktualizácii reštartuj WoW. Ak sa aktualizoval už známy addon za behu hry, môže stačiť `/reload`; pri problémoch hru úplne ukonči a spusti znova.
 
