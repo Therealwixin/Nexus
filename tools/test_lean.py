@@ -21,6 +21,14 @@ def load_addon(root,full=True):
 
 if __name__=='__main__':
  lua,ns,memory=load_addon(ROOT/'Nexus')
+ # Check every bundled non-tier Catalyst result against retained primary DBC rows.
+ outputs={}
+ for line in (ROOT/'tests/fixtures/catalyst-offpieces.inc').read_text(encoding='utf-8').splitlines():
+  fields=line.split(', ');item=int(fields[1]);inventory=int(fields[10]);mask=int(fields[19],16)
+  assert mask==1<<(mask.bit_length()-1)
+  outputs[item]={'classID':mask.bit_length(),'slot':15 if inventory==16 else inventory,'armor':int(fields[12])}
+ assert len(outputs)==52 and {r['classID'] for r in outputs.values()}==set(range(1,14))
+ assert {key:dict(value) for key,value in ns.CatalystOffpieces['items'].items()}==outputs
  lua.globals().TEST.R=ns
  lua.execute((ROOT/'tests/lean.lua').read_text(encoding='utf-8'))
  lua.execute((ROOT/'tests/look.lua').read_text(encoding='utf-8'))

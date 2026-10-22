@@ -36,10 +36,27 @@ end
 local function expectedLink(item,slot)
  return R.GearPreviewLink(item,slot)
 end
+local function offpieceKnown(item,current,slot,specID)
+ local catalog=R.CatalystOffpieces
+ local rules=R.Data and R.Data.upgradeRules
+ local result=catalog and catalog.items[current.id]
+ local spec=R.SpecInfo(specID or R.ViewSpecID())
+ local range=R.GearLevelRange(item,slot)
+ if not result or not rules or catalog.patch~=rules.patch or not range or
+  (range.kind~="raid" and range.kind~="dungeon") or not spec or
+  result.classID~=spec.classID or result.slot~=slot then return false end
+ local api=C_Item and C_Item.GetItemInfoInstant or GetItemInfoInstant
+ if not api then return false end
+ local ok,_,_,_,location,_,classID,armor=pcall(api,item.acquisitionItemID or item.id)
+ local locations={[6]="INVTYPE_WAIST",[8]="INVTYPE_FEET",[9]="INVTYPE_WRIST",[15]="INVTYPE_CLOAK"}
+ return ok and R.IsReadable(location) and R.IsReadable(classID) and R.IsReadable(armor) and
+  location==locations[slot] and classID==4 and armor==result.armor
+end
 local function conversionKnown(item,current,slot,specID)
  local source=item.acquisitionItemID or item.id
  if item.acquisitionItemID and current.id==item.id then return true end
  if item.catalystTargetID and current.id==item.catalystTargetID then return true end
+ if offpieceKnown(item,current,slot,specID) then return true end
  local guide=R.GetGuideDataset(specID);if not guide then return false end
  local function check(keys)
   for _,key in ipairs(keys or {}) do
@@ -55,7 +72,17 @@ end
 function R.CatalystEquivalent(item,current,slot,specID)
  if not item or not current or not current.link or not conversionKnown(item,current,slot,specID) then return false end
  local link=expectedLink(item,slot);if not link then return false end
- if not sameTrack(R.UpgradeTrackInfo(current),R.UpgradeTrackInfo({link=link})) then return false end
+ -- Elevated raid rewards (344) are a separate best-obtainable preview, not
+ -- the ordinary Myth upgrade ceiling. Compare converted copies with the
+ -- same source on the ordinary Myth track, independent of current rank.
+ local trackLink=link
+ local range=R.GearLevelRange(item,slot)
+ if range and range.track=="ELEVATED_ILVL" then
+  local ordinary={};for key,value in pairs(item) do ordinary[key]=value end
+  ordinary.acquisition="dungeon";ordinary.sourceType="dungeon"
+  trackLink=expectedLink(ordinary,slot)
+ end
+ if not sameTrack(R.UpgradeTrackInfo(current),R.UpgradeTrackInfo({link=trackLink})) then return false end
  -- Equal secondary stats must not erase a distinct source item's passive.
  if item.previewEffectBonusIDs and #item.previewEffectBonusIDs>0 then
   local body=current.link:match("(item:[^|]+)");local fields={}

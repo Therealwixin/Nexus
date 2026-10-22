@@ -1,3 +1,9 @@
+## 1.0.4
+
+- Recognize current-season Catalyst belts, boots, bracers and cloaks for all 13 classes, even when guides do not publish an explicit conversion pair. Require the correct class, armor slot/type, matching secondary-stat allocation and native Myth track; unrelated and lower-track items do not match.
+- Separate elevated 344 raid previews from ordinary Myth upgrade-track identity. A matching converted Myth 2/6 copy is owned without needing to reach 6/6 or the elevated raid reward level.
+- Cover the reported Sash of the Forlorn Vessel / Abyssal Doomhound's Jeweled Cinch case in Equipment, bags, tooltip lookup and instance alerts. Retain source-passive safeguards and validate the seasonal off-piece catalog against primary DBC rows.
+
 ## 1.0.3
 
 - Recognize verified Catalyst conversions of recommended source items in Equipment, bags, native tooltips and instance alerts using the current specialization's conversion mapping, secondary-stat profile and matching native upgrade track/cap.

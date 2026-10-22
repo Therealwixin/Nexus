@@ -76,6 +76,54 @@ GameTooltip.GetItem,R.ItemByID,R.IsTarget,R.tooltipSpecID=tooltipItem,oldByID,ol
 local matched,slot=R.FindCatalystRecommendation(current,71)
 assert(matched==source and slot==3,"Native tooltip lookup resolves the converted original recommendation")
 
+-- Reported non-tier Catalyst belt: source 344, converted Myth 2/6 at 321.
+-- The guide has no explicit source -> off-piece mapping for this slot.
+local belt={id=268256,acquisition="raid",dropSource="The Coiled Altar",gearSlotID=6}
+local cinch={id=271534,slotID=6,link="item:271534:myth2"}
+local elevatedLink=R.GearPreviewLink(belt,6)
+local ordinaryLink=R.GearPreviewLink({id=belt.id,acquisition="dungeon",gearSlotID=6},6)
+assert(elevatedLink~=ordinaryLink,"Regression must exercise 344 raid versus ordinary Myth previews")
+local instant=C_Item.GetItemInfoInstant
+C_Item.GetItemInfoInstant=function(id)
+ if id==268256 then return id,"Armor","Leather","INVTYPE_WAIST",123,4,2 end
+ return instant(id)
+end
+local mastery="ITEM_MOD_MASTERY_RATING_SHORT"
+stats[elevatedLink]={[haste]=49,[mastery]=108}
+stats[cinch.link]={[haste]=45,[mastery]=98}
+tracks[elevatedLink]=nil -- Elevated rewards need not expose an upgrade track.
+tracks[ordinaryLink]={currentLevel=6,maxLevel=6,maxItemLevel=334,trackStringID=42}
+tracks[cinch.link]={currentLevel=2,maxLevel=6,maxItemLevel=334,trackStringID=42}
+R.scan={equipped={[6]=cinch},bags={},bagItems={}}
+R.GetGearTarget=function(slot)return slot==6 and belt end
+assert(R.GearOwnership(belt,6,1480)=="EQUIPPED","Reported Myth 2/6 Catalyst belt is owned despite elevated 344 recommendation")
+assert(R.PrimaryCopySatisfied(belt,cinch,6,1480),"Unfinished converted Myth belt satisfies the primary track")
+assert(#R.DungeonAlerts:CollectEntries({[268256]=true},1480)==0,"Converted belt is not requested again by instance alerts")
+local found,foundSlot=R.FindCatalystRecommendation(cinch,1480)
+assert(found==belt and foundSlot==6,"Native tooltip resolves the non-tier converted belt")
+assert(not R.CatalystEquivalent(belt,cinch,6,71),"A different class's Catalyst appearance is not equivalent")
+assert(not R.CatalystEquivalent(belt,cinch,9,1480),"A different armor slot is not equivalent")
+tracks[cinch.link].maxItemLevel=327;tracks[cinch.link].trackStringID=41
+assert(not R.CatalystEquivalent(belt,cinch,6,1480),"Hero off-piece cannot satisfy the Myth recommendation")
+tracks[cinch.link].maxItemLevel=334;tracks[cinch.link].trackStringID=42
+stats[cinch.link]={[haste]=98,[mastery]=45}
+assert(not R.CatalystEquivalent(belt,cinch,6,1480),"Same class/slot with different stat allocation is not equivalent")
+stats[cinch.link]={[haste]=45,[mastery]=98}
+R.scan.equipped={};R.scan.bagItems={cinch}
+assert(R.GearOwnership(belt,6,1480)=="IN_BAGS","Non-tier converted bag copies are recognized")
+C_Item.GetItemInfoInstant=function(id)
+ if id==268256 then return id,"Armor","Plate","INVTYPE_WAIST",123,4,4 end
+ return instant(id)
+end
+assert(not R.CatalystEquivalent(belt,cinch,6,1480),"Matching stats on a different armor type cannot match")
+local classes,count={},0
+for id,row in pairs(R.CatalystOffpieces.items) do
+ count=count+1;classes[row.classID]=true
+ assert(id>0 and ({[6]=true,[8]=true,[9]=true,[15]=true})[row.slot],"Off-piece catalog contains only the four non-tier slots")
+end
+local classCount=0;for _ in pairs(classes) do classCount=classCount+1 end
+assert(count==52 and classCount==13,"All 13 classes have four verified off-pieces")
+C_Item.GetItemInfoInstant=instant
 R.scan=old.scan;C_Item.GetItemUpgradeInfo=old.upgrade;C_Item.GetItemStats=old.stats;R.ItemLevel=old.level
 R.GetGearTarget,R.GetGearAlternatives,R.GearLevelRange=old.target,old.alternatives,old.range
-print("Gear identity PASS: Catalyst mapping, stats, track/cap, bag copies, passive safeguards, Myth 4/6 weapon and crafted primary alerts")
+print("Gear identity PASS: Catalyst mapping, 13-class off-pieces, reported Myth 2/6 belt vs 344 preview, stats/track guards, bag copies, native tooltip and instance alerts")
