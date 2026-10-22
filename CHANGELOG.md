@@ -1,3 +1,8 @@
+## 1.0.2
+
+- Correct Retail compatibility metadata from Interface 120100 (12.1.0) to 120105 (12.1.5), so CurseForge and future daily packages advertise the intended game version.
+- No changes to gameplay features or recommendation data.
+
 ## 1.0.1
 
 - Fix instance-entry popups excluding alternatives and raids. Check the active specialization's current M+ picks and the same verified alternatives shown in Equipment against the native dungeon or raid loot pool.
