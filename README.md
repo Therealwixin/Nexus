@@ -12,6 +12,7 @@ Nexus brings Mythic+ gear goals, character stats, preparation and role rankings 
 - See whether an item is equipped, in your bags or missing, with a missing-only filter.
 - Compare up to four verified alternatives per slot, including dungeon options where available.
 - Check acquisition details, upgrade information and Adventure Guide loot links where supported.
+- Get an entry popup in dungeons and raids when the native loot pool contains a missing recommended item or relevant alternative for your active spec. Picks and alternatives are labelled separately; owned items and clearly outclassed alternatives are filtered.
 - Use native item tooltips and specialization talent artwork in a familiar Warcraft interface.
 
 Mythic+ describes the activity the gear is recommended for, not where every item drops. This season, raid items make up much of the recommended gear for many specs. Nexus includes raid drops and crafted items when relevant; dungeon alternatives are shown where verified. There is currently no separate raid recommendation mode or raid Meta.

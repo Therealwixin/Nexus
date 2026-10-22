@@ -114,7 +114,7 @@ events:SetScript("OnEvent", function(_, event, argument)
     elseif event=="PLAYER_REGEN_ENABLED" then R.QueueRefresh(false)
     else R.QueueRefresh() end
     if R.db and ({PLAYER_ENTERING_WORLD=true,ZONE_CHANGED_NEW_AREA=true,CHALLENGE_MODE_MAPS_UPDATE=true,
-        CHALLENGE_MODE_START=true,PLAYER_REGEN_ENABLED=true,EJ_LOOT_DATA_RECIEVED=true,
+        CHALLENGE_MODE_START=true,PLAYER_REGEN_ENABLED=true,EJ_LOOT_DATA_RECIEVED=true,PLAYER_EQUIPMENT_CHANGED=true,BAG_UPDATE_DELAYED=true,
         PLAYER_SPECIALIZATION_CHANGED=true,GET_ITEM_INFO_RECEIVED=true})[event] then R.RunBackground("dungeon event",function()R.DungeonAlerts:OnEvent(event,argument)end) end
 end)
 for _, event in ipairs({"ADDON_LOADED","PLAYER_LOGIN","PLAYER_EQUIPMENT_CHANGED","BAG_UPDATE_DELAYED",

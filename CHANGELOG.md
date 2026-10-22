@@ -1,3 +1,12 @@
+## 1.0.1
+
+- Fix instance-entry popups excluding alternatives and raids. Check the active specialization's current M+ picks and the same verified alternatives shown in Equipment against the native dungeon or raid loot pool.
+- Distinguish primary picks, Catalyst sources and alternatives; show primary picks first and paginate every qualifying drop.
+- Filter owned items and alternatives outclassed by equipped gear, considering both paired slots. A low-level equipped primary does not hide a potentially stronger alternative.
+- Use the active instance difficulty, preserve Adventure Guide filters, defer combat scans and avoid reopening an unchanged popup.
+- Reuse the current visit's loot pool for inventory changes. Resolve candidates directly from each newly installed data snapshot; there are no separate instance recommendation lists to maintain.
+- Add all-40-spec candidate coverage, the real Elemental Altar of Fangs regression, raid/native-filter checks and daily-snapshot change tests to the existing release and daily-update gates.
+
 ## 1.0.0
 
 - First stable release: Mythic+ equipment recommendations, ownership tracking and verified alternatives for all 40 specializations.

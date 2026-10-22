@@ -109,3 +109,9 @@ R.Locales.CZ.DATA_OLD="Starší kontrola zdroje"
 R.Locales.EN.SCAN_GEAR_HELP="Rechecks your equipped items and bags, including enchant and socket status. Gear also refreshes automatically after inventory changes. Internet recommendations update only when you install a newer addon package."
 R.Locales.SK.SCAN_GEAR_HELP="Znova skontroluje nasadenú výbavu a predmety v taškách vrátane enchantov a socketov. Výbava sa obnovuje aj automaticky pri zmenách inventára. Internetové odporúčania aktualizuje až novší balík addonu."
 R.Locales.CZ.SCAN_GEAR_HELP="Znovu zkontroluje nasazenou výbavu a předměty v taškách včetně enchantů a socketů. Výbava se obnovuje i automaticky při změnách inventáře. Internetová doporučení aktualizuje až novější balík addonu."
+
+local instanceAlerts={
+ EN={DUNGEON_WARNING="Recommended gear in this dungeon",RAID_DROP_WARNING="Recommended gear in this raid",INSTANCE_ALTERNATIVE="Alternative",DUNGEON_BIS_ITEM="M+ pick",DUNGEON_BIS_CATALYST="M+ pick via Catalyst"},
+ SK={DUNGEON_WARNING="Odporúčaná výbava v tomto dungeone",RAID_DROP_WARNING="Odporúčaná výbava v tomto raide",INSTANCE_ALTERNATIVE="Alternatíva",DUNGEON_BIS_ITEM="M+ voľba",DUNGEON_BIS_CATALYST="M+ voľba cez Catalyst"},
+ CZ={DUNGEON_WARNING="Doporučená výbava v tomto dungeonu",RAID_DROP_WARNING="Doporučená výbava v tomto raidu",INSTANCE_ALTERNATIVE="Alternativa",DUNGEON_BIS_ITEM="M+ volba",DUNGEON_BIS_CATALYST="M+ volba přes Catalyst"}}
+for lang,values in pairs(instanceAlerts) do for key,value in pairs(values) do R.Locales[lang][key]=value end end

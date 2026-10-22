@@ -1,7 +1,6 @@
 local _,R=...
 local A={generation=0,highlights={},page=1};R.DungeonAlerts=A
 local function number(value)return R.IsReadable(value) and type(value)=="number" and value>0 end
-local function plain(value)return R.IsReadable(value) and type(value)=="string" and value:lower():gsub("[^%w]","") or "" end
 
 function A:IsHighlighted(itemID)return self.highlights[itemID] and true or false end
 function A:ClearVisit()
@@ -11,38 +10,17 @@ function A:ClearVisit()
 end
 function A:Context()
  if not GetInstanceInfo then return nil end
- local ok,name,kind,_,_,_,_,_,gameMapID=pcall(GetInstanceInfo)
- if not ok or not R.IsReadable(kind) or kind~="party" or not number(gameMapID) then return nil end
- return {name=R.IsReadable(name) and name or "",gameMapID=gameMapID}
+ local ok,name,kind,difficultyID,_,_,_,_,gameMapID=pcall(GetInstanceInfo)
+ if not ok or not R.IsReadable(kind) or (kind~="party" and kind~="raid") or not number(gameMapID) then return nil end
+ return {name=R.IsReadable(name) and name or "",gameMapID=gameMapID,kind=kind,difficultyID=number(difficultyID) and difficultyID or nil}
 end
-function A:SeasonalMap(context)
- if not (C_ChallengeMode and C_ChallengeMode.GetMapTable and C_ChallengeMode.GetMapUIInfo) then return nil,false end
- local ok,ids=pcall(C_ChallengeMode.GetMapTable)
- if not ok or not R.IsReadable(ids) or type(ids)~="table" or #ids==0 then return nil,false end
- local pending=false
- for _,challengeMapID in ipairs(ids) do if number(challengeMapID) then
-  -- The second return is the challenge ID, not the world instance. Retail's
-  -- sixth return is the game map ID, matching GetInstanceInfo's eighth return.
-  local good,name,_,_,_,_,gameMapID=pcall(C_ChallengeMode.GetMapUIInfo,challengeMapID)
-  if good and number(gameMapID) then
-   if gameMapID==context.gameMapID then return challengeMapID,true end
-  elseif good and R.IsReadable(name) and type(name)=="string" and name~="" then
-   -- Compatibility with clients without the sixth return. Both native names
-   -- are localized by the same client; never compare English snapshot names.
-   if plain(name)==plain(context.name) and plain(name)~="" then return challengeMapID,true end
-   pending=true
-  else pending=true end
- end end
- return nil,not pending
-end
-
 function A:ReadLoot(context)
  if InCombatLockdown() then return nil end
  if not EJ_SelectInstance and C_AddOns and C_AddOns.LoadAddOn then pcall(C_AddOns.LoadAddOn,"Blizzard_EncounterJournal") end
  if not (C_EncounterJournal and C_EncounterJournal.GetInstanceForGameMap and C_EncounterJournal.GetLootInfoByIndex and EJ_SelectInstance and EJ_GetNumLoot) then return nil end
  local ok,journalID=pcall(C_EncounterJournal.GetInstanceForGameMap,context.gameMapID)
  if not ok or not number(journalID) then return nil end
- -- Read only this dungeon's pool. Do not open the Adventure Guide or rebuild
+ -- Read only this instance's pool. Do not open the Adventure Guide or rebuild
  -- every expansion on zoning. Preserve the player's existing native filters.
  local oldInstance=EJ_GetCurrentInstance and EJ_GetCurrentInstance()
  local oldEncounter=EncounterJournal and EncounterJournal.encounterID
@@ -51,7 +29,7 @@ function A:ReadLoot(context)
  local oldSlot=C_EncounterJournal.GetSlotFilter and C_EncounterJournal.GetSlotFilter()
  local good,loot,pending=pcall(function()
   EJ_SelectInstance(journalID)
-  if EJ_SetDifficulty then for _,difficulty in ipairs({23,2,1}) do
+  if EJ_SetDifficulty then for _,difficulty in ipairs(context.kind=="raid" and {context.difficultyID or 16,16,15,14,17} or {context.difficultyID or 23,23,2,1}) do
    if not EJ_IsValidInstanceDifficulty or EJ_IsValidInstanceDifficulty(difficulty) then EJ_SetDifficulty(difficulty);break end
   end end
   if EJ_SetLootFilter then EJ_SetLootFilter(0,0) end
@@ -61,11 +39,11 @@ function A:ReadLoot(context)
   for index=1,count do
    local info=C_EncounterJournal.GetLootInfoByIndex(index)
    if info and R.IsReadable(info) and number(info.itemID) then
-    ids[info.itemID]=true
-    -- Reuse the one dungeon pool already read for the warning. No extra EJ scan.
-    R.SourceCatalog=R.SourceCatalog or {};R.SourceCatalog[info.itemID]={kind="dungeon",source=context.name}
+    ids[info.itemID]={link=R.IsReadable(info.link) and info.link or nil}
+    -- Reuse the one instance pool already read for the warning. No extra EJ scan.
+    R.SourceCatalog=R.SourceCatalog or {};R.SourceCatalog[info.itemID]={kind=context.kind=="raid" and "raid" or "dungeon",source=context.name}
     if number(info.encounterID) then
-     R.journalIndex=R.journalIndex or {byItem={}};R.journalIndex.byItem[info.itemID]={instanceID=journalID,encounterID=info.encounterID,isRaid=false,instanceName=context.name}
+     R.journalIndex=R.journalIndex or {byItem={}};R.journalIndex.byItem[info.itemID]={instanceID=journalID,encounterID=info.encounterID,isRaid=context.kind=="raid",instanceName=context.name}
     end
    else waiting=true end
   end
@@ -119,12 +97,12 @@ function A:Create()
 end
 function A:RenderBanner()
  local f=self.frame;local count=#(self.entries or {});self.pages=math.max(1,math.ceil(count/3));self.page=math.min(self.page,self.pages)
- f.title:SetText(R.L("DUNGEON_WARNING"));f.hint:SetText(R.L("DUNGEON_WARNING_HINT"))
+ f.title:SetText(R.L(self.visit and self.visit.kind=="raid" and "RAID_DROP_WARNING" or "DUNGEON_WARNING"));f.hint:SetText(R.L("DUNGEON_WARNING_HINT"))
  local shown=0
  for index,b in ipairs(self.rows) do
   local entry=self.entries[(self.page-1)*3+index];b.entry=entry;b:SetShown(entry~=nil)
   if entry then
-   local kind=entry.item.acquisitionItemID and "DUNGEON_BIS_CATALYST" or "DUNGEON_BIS_ITEM"
+   local kind=entry.alternative and "INSTANCE_ALTERNATIVE" or entry.item.acquisitionItemID and "DUNGEON_BIS_CATALYST" or "DUNGEON_BIS_ITEM"
    shown=shown+1;b.icon:SetTexture(R.ItemIcon(entry.item));b.name:SetText(R.ItemName(entry.item));b.source:SetText(R.L(kind).." · "..R.L(R.SLOT_BY_ID[entry.slotID].key).." · "..(self.visit.name or ""));R.SkinPanel(b,"card")
   end
  end
@@ -149,43 +127,79 @@ function A:Retry()
   self.pending=nil;self:Check()
  end)
 end
+-- Always resolve the current bundled primary and the same alternatives shown in
+-- Equipment. No separate per-instance recommendation lists can become stale.
 function A:CollectEntries(loot,specID)
  local entries,seen={},{}
- for _,slot in ipairs(R.SLOTS) do
-  -- Entry warnings describe the authored BiS target, never the source-restricted
-  -- alternative pool. Match the actual drop ID for a Catalyst recommendation.
-  local item=R.GetGearTarget(slot.id,specID,"mplus_usage")
-  if item then
-   local dropID=item.acquisitionItemID or item.journalItemID or item.id
-   if not item.crafted and loot[dropID] and not seen[dropID] and R.Ownership(item.id,slot.id)=="MISSING" and R.Ownership(dropID,slot.id)=="MISSING" then
-    entries[#entries+1]={item=item,slotID=slot.id,specID=specID};seen[dropID]=true;R.RequestItem(item.id)
-   end
+ local function owned(id,slot)return R.Ownership(id,slot)~="MISSING" end
+ local function higherEquipped(item,slotID,drop)
+  local range=R.GearLevelRange(item,slotID)
+  local ceiling=range and (range.ascended or range.max)
+  if type(drop)=="table" and drop.link then
+   local native=R.ItemLevel({link=drop.link},true)
+   if native then ceiling=math.max(ceiling or 0,native) end
   end
+  if not ceiling then return false end -- Do not invent a comparison.
+  local slots=R.PAIRS[slotID] or {slotID}
+  for _,slot in ipairs(slots) do
+   local current=R.scan and R.scan.equipped[slot]
+   local level=current and R.ItemLevel(current,true)
+   -- For paired slots the candidate can replace the weaker item.
+   local primary=R.GetGearTarget(slot,specID,"mplus_usage")
+   local primaryAtLevel=current and primary and current.id==primary.id and level and level>=ceiling
+   if not level or not (level>ceiling or primaryAtLevel) then return false end
+  end
+  return true
  end
+ for pass=1,2 do for _,slot in ipairs(R.SLOTS) do
+  local main=R.GetGearTarget(slot.id,specID,"mplus_usage")
+  local function add(item,alternative)
+   if not item then return end
+   local dropID=item.acquisitionItemID or item.journalItemID or item.id
+   if item.crafted or not loot[dropID] or seen[dropID] or owned(item.id,slot.id) or owned(dropID,slot.id) then return end
+   if alternative then
+    if higherEquipped(item,slot.id,loot[dropID]) then return end
+   end
+   entries[#entries+1]={item=item,slotID=slot.id,specID=specID,alternative=alternative or nil,dropID=dropID}
+   seen[dropID]=true;R.RequestItem(item.id)
+  end
+  if pass==1 then add(main,false)
+  else for _,item in ipairs(R.GetGearAlternatives(slot.id,specID)) do add(item,true) end end
+ end end
+ -- A duplicate paired-slot alternative must never hide a primary label.
+ table.sort(entries,function(a,b)if a.alternative~=b.alternative then return not a.alternative end;if a.slotID~=b.slotID then return a.slotID<b.slotID end;return a.dropID<b.dropID end)
  return entries
 end
 function A:CheckVisit()
  if not R.db then return end
  local context=self:Context()
  if not context then if self.visit then self:ClearVisit() end;return end
- if not self.visit or self.visit.gameMapID~=context.gameMapID then
+ if not self.visit or self.visit.gameMapID~=context.gameMapID or self.visit.difficultyID~=context.difficultyID or self.visit.kind~=context.kind then
   if self.visit then self:ClearVisit() end
   self.generation=self.generation+1;context.attempts=0;context.notified={};self.visit=context;self.highlights={}
  end
  local visit=self.visit;local specID=R.SpecID()
+ local data=specID and R.GetDataset("mythicplus",specID)
+ local revision=tostring(R.VERSION)..":"..tostring(data and data.retrievedAt)..":"..tostring(R.GuideData and R.GuideData.generatedAt)
+ if visit.revision~=revision then visit.revision=revision;visit.notified={};visit.attempts=0 end
  if visit.notified[specID or 0] or visit.attempts>=12 or self.pending or InCombatLockdown() then return end
  visit.attempts=visit.attempts+1
- local seasonal,ready=self:SeasonalMap(context)
- if not seasonal then if not ready then self:Retry() end;return end
- visit.challengeMapID=seasonal
  if InCombatLockdown() then return end -- PLAYER_REGEN_ENABLED resumes safely.
- local dataset=specID and R.GetGuideDataset(specID);if not dataset then return end
+ if not data or not specID then self:Retry();return end
  R.ScanEquipment()
- local loot,pending=self:ReadLoot(context)
+ local loot,pending=visit.loot,false
+ if not loot then loot,pending=self:ReadLoot(context) end
  if not loot or pending then self:Retry();return end
+ visit.loot=loot
  local entries=self:CollectEntries(loot,specID)
  visit.notified[specID or 0]=true
- if #entries>0 then self:Show(entries) end
+ local keys={}
+ for _,entry in ipairs(entries) do keys[#keys+1]=entry.dropID..":"..tostring(entry.alternative)..":"..entry.slotID end
+ local signature=tostring(specID)..":"..table.concat(keys,"|")
+ if visit.signature~=signature then
+  visit.signature=signature
+  if #entries>0 then self:Show(entries) elseif self.frame then self.frame:Hide();self.entries={} end
+ end
 end
 function A:Check()
  if self.checking then return end
@@ -195,9 +209,10 @@ function A:Check()
  if not ok and self.visit then self.visit.attempts=12 end
 end
 function A:OnEvent(event,argument)
+ if self.visit and (event=="PLAYER_EQUIPMENT_CHANGED" or event=="BAG_UPDATE_DELAYED") then self.visit.notified={};self.visit.attempts=0 end
  if event=="PLAYER_SPECIALIZATION_CHANGED" and argument=="player" then
   self.highlights={};self.entries=nil;if self.frame then self.frame:Hide() end
-  if self.visit then self.visit.attempts=0 end
+  if self.visit then self.visit.attempts=0;self.visit.notified={};self.visit.signature=nil end
  end
  if event=="GET_ITEM_INFO_RECEIVED" then
   if self.frame and self.frame:IsShown() then self:RenderBanner() end

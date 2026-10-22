@@ -85,15 +85,18 @@ TEST.combat=false;R.events:Fire("OnEvent","PLAYER_REGEN_ENABLED");TEST.Flush()
 check(scans==1 and not R.scanAfterCombat,"Manual scan resumes after combat without an inventory event")
 R.ScanEquipment=originalScan
 local A=R.DungeonAlerts
+local alertContext,alertLoot=A.Context,A.ReadLoot
 A.visit={gameMapID=123,attempts=12,notified={}};A.pending=nil
 A.Context=function()return {gameMapID=123}end
-local reads=0;A.SeasonalMap=function()reads=reads+1;return nil,false end
+local reads=0;A.ReadLoot=function()reads=reads+1;return nil,true end
+A.visit.revision=tostring(R.VERSION)..":"..tostring(R.GetDataset("mythicplus",R.SpecID()).retrievedAt)..":"..tostring(R.GuideData.generatedAt)
 for i=1,100 do A:Check() end
 check(reads==0,"Event flood respects dungeon retry cap")
 A.visit.attempts=0
-A.SeasonalMap=function()error("simulated dungeon failure")end
+A.ReadLoot=function()error("simulated dungeon failure")end
 A:Check();check(not A.checking,"Dungeon failure unlocks reentrancy guard")
 check(A.visit.attempts==12,"Failed dungeon visit stops retry loop")
+A.Context,A.ReadLoot=alertContext,alertLoot;A.visit=nil;A.pending=nil
 for i=1,100 do R.RecordRuntimeError("same","same error") end
 check(#R.db.runtimeErrors<=8,"Diagnostics bounded")
 check(R.db.runtimeErrors[#R.db.runtimeErrors].count==100,"Repeated diagnostics coalesced")
