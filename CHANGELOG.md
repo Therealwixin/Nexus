@@ -1,3 +1,13 @@
+## 1.0.0
+
+- First stable release: Mythic+ equipment recommendations, ownership tracking and verified alternatives for all 40 specializations.
+- Compare character stats with Murlok references and inspect rating differences and diminishing returns.
+- Review enchants, sockets, gem suggestions and consumables, including equipped and bag items.
+- Explore published Mythic+ rankings separately for DPS, healers and tanks, with transparent source dates.
+- Includes native talent backgrounds, EN/SK/CZ text, Adventure Guide acquisition links and daily validated data updates.
+- Updated project descriptions and added real in-game screenshot galleries with the original Nexus branding.
+- Stable functionality matches the owner-tested RC.2; no separate raid recommendation mode or raid Meta.
+
 ## 1.0.0-beta.rc.2
 
 - Add a localized Equipment header notice explaining why many Mythic+ recommendations come from raids and pointing to dungeon alternatives.
