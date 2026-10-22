@@ -1,3 +1,8 @@
+## 1.0.0-beta.rc.2
+
+- Add a localized Equipment header notice explaining why many Mythic+ recommendations come from raids and pointing to dungeon alternatives.
+- Keep the approved equipment layout and artwork unchanged; the notice uses the free header space and hides on other tabs.
+
 ## 1.0.0-beta.rc.1
 
 - First release candidate of the in-game verified Mythic+ build; no functional changes from 0.6.8-beta.2.

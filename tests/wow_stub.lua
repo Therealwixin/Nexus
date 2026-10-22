@@ -110,7 +110,7 @@ function Frame:GetRegions()
 end
 function Frame:CreateTexture() return CreateFrame("Texture",nil,self) end
 function Frame:CreateFontString() return CreateFrame("FontString",nil,self) end
-for _,method in ipairs({"SetDrawLayer","SetUnit","SetShadowOffset","SetJustifyH","SetMaxLines","SetTexCoord","SetAutoFocus",
+for _,method in ipairs({"SetDrawLayer","SetUnit","SetShadowOffset","SetJustifyH","SetJustifyV","SetMaxLines","SetTexCoord","SetAutoFocus",
     "HighlightText","SetFrameStrata","SetFrameLevel","SetClampedToScreen","SetMovable","EnableMouse","SetResizable",
     "SetResizeBounds","RegisterForDrag","RegisterForClicks","StartMoving","StopMovingOrSizing","StartSizing","EnableMouseWheel",
     "SetHighlightTexture","SetNormalTexture"}) do Frame[method]=function() end end

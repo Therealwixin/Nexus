@@ -20,6 +20,7 @@ function UI:Layout()
  local f=self.frame;if not f or not self.detailPane then return end
  if not self.sectionTitle then
   self.sectionTitle=label(f,16,GOLD);self.sectionTitle:SetHeight(20)
+  self.seasonNotice=label(f,11,GOLD);self.seasonNotice:SetMaxLines(3);self.seasonNotice:SetJustifyV("TOP")
   self.gearHeaders={slot=label(self.gearChild,10,MUTED),item=label(self.gearChild,10,MUTED),state=label(self.gearChild,10,MUTED)}
   self.sourceButtons={}
  end
@@ -43,6 +44,8 @@ function UI:Layout()
  place(self.footer,"BOTTOMLEFT",f,"BOTTOMLEFT",22,18);self.footer:SetWidth(f:GetWidth()-200);self.footer:SetHeight(14)
  self.characterName:Hide();self.themeButton:Hide()
  local equipment=self.view=="equipment"
+ place(self.seasonNotice,"TOPRIGHT",f,"TOPRIGHT",-22,-80);self.seasonNotice:SetSize(f:GetWidth()-490,38)
+ self.seasonNotice:SetText(R.L("SEASON_RAID_GEAR_NOTICE"));self.seasonNotice:SetShown(equipment)
  for _,b in pairs(self.sourceButtons) do b:Hide() end
  for index,b in ipairs(self.languageButtons) do place(b,"TOPLEFT",f,"TOPLEFT",181+(index-1)*38,-119) end
 end

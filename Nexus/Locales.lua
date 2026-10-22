@@ -218,3 +218,8 @@ local metaClarity={
  CZ={META_COLLECTED="Načteno",META_SOURCE_DATE="Datum uvedené zdrojem",META_DATE_NOTE="Načteno je poslední úspěšné stažení dat Nexusem. Datum uvedené zdrojem pochází ze stránky a může být starší, i když její relativní údaj o aktualizaci říká něco jiného.",},
 }
 for language,entries in pairs(metaClarity) do for key,value in pairs(entries) do R.Locales[language][key]=value end end
+
+-- M+ describes the activity, not the loot source of every recommended item.
+R.Locales.EN.SEASON_RAID_GEAR_NOTICE="This season, raid items make up most of the recommended Mythic+ gear for many specs. See Alternatives for dungeon options."
+R.Locales.SK.SEASON_RAID_GEAR_NOTICE="V tejto sezóne tvorí raidový loot väčšinu odporúčanej Mythic+ výbavy pre mnohé špecializácie. Pozri aj dungeonové alternatívy."
+R.Locales.CZ.SEASON_RAID_GEAR_NOTICE="V této sezóně tvoří raidový loot většinu doporučené Mythic+ výbavy pro mnoho specializací. Podívej se i na dungeonové alternativy."
