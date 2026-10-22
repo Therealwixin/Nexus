@@ -1,3 +1,10 @@
+## 1.0.0-beta.rc.1
+
+- First release candidate of the in-game verified Mythic+ build; no functional changes from 0.6.8-beta.2.
+- Includes the complete 2026-10-22 refresh for all 40 specializations, M+ role Meta and dated guide sources.
+- Final audit passes gear validation, runtime/layout simulations, Stats, maintenance, Meta, guide and alternative checks.
+- Remains in the beta distribution channel pending final stable release approval.
+
 ## 0.6.8-beta.2
 
 - Include the verified 2026-10-22 server data refresh and preserve all source dates/statuses.
