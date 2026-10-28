@@ -2,7 +2,7 @@
 ## Title: Nexus
 ## Notes: Mythic+ gear goals, stats, preparation and role meta.
 ## Author: Tomas Kontra
-## Version: 1.0.6-data.202610270954
+## Version: 1.0.6-data.202610281040
 ## SavedVariables: NexusDB, RelicDB
 ## SavedVariablesPerCharacter: NexusCharacterDB, RelicCharacterDB
 ## IconTexture: Interface\AddOns\Nexus\Media\nexus-icon.tga
