@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "patch": "12.1",
-  "generatedAt": "2026-11-08T11:23:05.142368+00:00",
+  "generatedAt": "2026-11-09T13:00:59.671342+00:00",
   "items": {
     "271456:281239:raid": {
       "id": 271456,
@@ -241,8 +241,8 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "count": 50,
       "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -253,8 +253,8 @@
       "id": 271457,
       "name": "Jeweled Gauntlets of the Jade Warlord",
       "source": "Murlok.io",
-      "count": 39,
       "icon": "Interface\\Icons\\inv_glove_plate_raidwarriorulatek_d_01",
+      "count": 37,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Entombed Sentinels",
@@ -265,8 +265,8 @@
       "id": 271878,
       "name": "Chausses of Unbound Rancor",
       "source": "Murlok.io",
-      "count": 10,
       "icon": "Interface\\Icons\\inv_pant_plate_raiddeathknightulatek_d_01",
+      "count": 10,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -280,20 +280,31 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
-      "count": 44,
       "icon": "Interface\\Icons\\8268560",
+      "count": 44,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kithix",
       "acquisition": "raid",
       "evidenceSpec": 71
     },
+    "273792:273792:dungeon:observed:71": {
+      "id": 273792,
+      "name": "Band of the Amani Warlord",
+      "source": "Murlok.io",
+      "icon": "Interface\\Icons\\inv_121_jewelry_ring02_green",
+      "count": 5,
+      "quality": 3,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "evidenceSpec": 71
+    },
     "270173:270173:raid:observed:71": {
       "id": 270173,
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
-      "count": 45,
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -304,8 +315,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
-      "count": 36,
       "icon": "Interface\\Icons\\8268563",
+      "count": 35,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -315,8 +326,8 @@
       "id": 270175,
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
-      "count": 15,
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
+      "count": 15,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -326,8 +337,8 @@
       "id": 268213,
       "name": "Maze-roa, Warlord's Fury",
       "source": "Murlok.io",
-      "count": 49,
       "icon": "Interface\\Icons\\inv_axe_2h_ulatek_d_01",
+      "count": 49,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -456,7 +467,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 47,
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -467,7 +478,7 @@
       "name": "Sickening Signet of Atroxus",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_12_jewelry_devouringhost_ring_bronze2",
-      "count": 12,
+      "count": 11,
       "quality": 3,
       "sampleSize": 50,
       "dropSource": "Voidscar Arena",
@@ -479,7 +490,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 47,
+      "count": 48,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -524,6 +535,7 @@
       "id": 193755,
       "name": "Backdraft Cleaver",
       "source": "Murlok.io",
+      "icon": 4394687,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -692,7 +704,7 @@
       "name": "Chausses of Unbound Rancor",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_plate_raiddeathknightulatek_d_01",
-      "count": 5,
+      "count": 6,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -707,7 +719,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 31,
+      "count": 32,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -718,7 +730,7 @@
       "name": "Band of the Amani Warlord",
       "source": "Murlok.io",
       "icon": 7866600,
-      "count": 10,
+      "count": 9,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 73
@@ -728,7 +740,18 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 26,
+      "count": 27,
+      "quality": 4,
+      "sampleSize": 50,
+      "acquisition": "raid",
+      "evidenceSpec": 73
+    },
+    "270175:270175:raid:observed:73": {
+      "id": 270175,
+      "name": "Voracious Heart of Ula'tek",
+      "source": "Murlok.io",
+      "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
+      "count": 24,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -743,17 +766,6 @@
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
-      "acquisition": "raid",
-      "evidenceSpec": 73
-    },
-    "270175:270175:raid:observed:73": {
-      "id": 270175,
-      "name": "Voracious Heart of Ula'tek",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
-      "count": 23,
-      "quality": 4,
-      "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 73
     },
@@ -773,7 +785,7 @@
       "name": "Jaw of the Shackled Goddess",
       "source": "Murlok.io",
       "icon": 7723761,
-      "count": 22,
+      "count": 23,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 73
@@ -783,21 +795,21 @@
       "name": "Aman'muso, Warlord's Vengeance",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_axe_1h_ulatek_d_01",
-      "count": 21,
+      "count": 22,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
       "acquisition": "raid",
       "evidenceSpec": 73
     },
-    "268213:268213:raid:observed:73": {
-      "id": 268213,
-      "name": "Maze-roa, Warlord's Fury",
+    "251218:251218:dungeon:observed:73": {
+      "id": 251218,
+      "name": "Taz'Rah's Cosmic Edge",
       "source": "Murlok.io",
-      "icon": 7455434,
+      "icon": 6994479,
       "count": 1,
       "sampleSize": 50,
-      "acquisition": "raid",
+      "acquisition": "dungeon",
       "evidenceSpec": 73
     },
     "268211:268211:raid": {
@@ -1010,7 +1022,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 12,
+      "count": 13,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1038,22 +1050,22 @@
       "acquisition": "raid",
       "evidenceSpec": 65
     },
-    "281215:281215:raid:observed:65": {
-      "id": 281215,
-      "name": "Twisted Horror's Tendril",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\8268563",
-      "count": 16,
-      "quality": 4,
-      "sampleSize": 50,
-      "acquisition": "raid",
-      "evidenceSpec": 65
-    },
     "270164:270164:raid:observed:65": {
       "id": 270164,
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
+      "count": 15,
+      "quality": 4,
+      "sampleSize": 50,
+      "acquisition": "raid",
+      "evidenceSpec": 65
+    },
+    "281215:281215:raid:observed:65": {
+      "id": 281215,
+      "name": "Twisted Horror's Tendril",
+      "source": "Murlok.io",
+      "icon": "Interface\\Icons\\8268563",
       "count": 14,
       "quality": 4,
       "sampleSize": 50,
@@ -1076,7 +1088,7 @@
       "name": "Baleful Hexblade",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_sword_1h_ulatek_d_01",
-      "count": 20,
+      "count": 21,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -1148,7 +1160,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 41,
+      "count": 42,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1159,7 +1171,7 @@
       "name": "Band of the Amani Warlord",
       "source": "Murlok.io",
       "icon": 7866600,
-      "count": 4,
+      "count": 7,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 66
@@ -1169,7 +1181,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 35,
+      "count": 36,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -1181,7 +1193,7 @@
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
-      "count": 30,
+      "count": 31,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1203,7 +1215,7 @@
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 3,
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1226,17 +1238,18 @@
       "name": "Jaw of the Shackled Goddess",
       "source": "Murlok.io",
       "icon": 7723761,
-      "count": 8,
+      "count": 9,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 66
     },
-    "251150:251150:dungeon:observed:66": {
-      "id": 251150,
-      "name": "Tempest's Shelter",
+    "251196:251196:dungeon:observed:66": {
+      "id": 251196,
+      "name": "Teldrassil's Sacrifice",
       "source": "Murlok.io",
-      "icon": 7392266,
+      "icon": "Interface\\Icons\\inv_shield_1h_rutaani_b_01",
       "count": 2,
+      "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 66
@@ -1374,7 +1387,7 @@
       "name": "Chausses of Unbound Rancor",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_plate_raiddeathknightulatek_d_01",
-      "count": 2,
+      "count": 1,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1400,7 +1413,7 @@
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
-      "count": 46,
+      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1411,7 +1424,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 42,
+      "count": 44,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -1434,7 +1447,7 @@
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 3,
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1445,7 +1458,7 @@
       "name": "Maze-roa, Warlord's Fury",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_axe_2h_ulatek_d_01",
-      "count": 47,
+      "count": 48,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -1685,7 +1698,7 @@
       "name": "Aberrant Commander's Gauntlets",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_glove_mail_raidhunterulatek_d_01",
-      "count": 3,
+      "count": 4,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1699,7 +1712,7 @@
       "name": "Cuisses of the Uncoiled Union",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
-      "count": 2,
+      "count": 1,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1733,7 +1746,7 @@
       "name": "Charged Sandstone Band",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_ring_80_03d",
-      "count": 4,
+      "count": 5,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -1744,7 +1757,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 45,
+      "count": 43,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -1778,7 +1791,7 @@
       "name": "Font of Venomous Rage",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_dungeonjewelry_dragon_trinket_3djardintrophy_green",
-      "count": 3,
+      "count": 4,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1907,7 +1920,7 @@
       "name": "Aberrant Commander's Gauntlets",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_glove_mail_raidhunterulatek_d_01",
-      "count": 8,
+      "count": 7,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1915,6 +1928,16 @@
       "previewEffectBonusIDs": [
         14049
       ]
+    },
+    "251155:251155:dungeon:observed:254": {
+      "id": 251155,
+      "name": "Tribal Defender's Cord",
+      "source": "Murlok.io",
+      "icon": 7259230,
+      "count": 2,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "evidenceSpec": 254
     },
     "268237:268237:raid:observed:254": {
       "id": 268237,
@@ -1932,7 +1955,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 44,
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1943,7 +1966,7 @@
       "name": "Signet of Snarling Servitude",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_12_jewelry_voidelf_ring_teal",
-      "count": 8,
+      "count": 7,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -1966,7 +1989,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 32,
+      "count": 31,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -1977,7 +2000,7 @@
       "name": "Font of Venomous Rage",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_dungeonjewelry_dragon_trinket_3djardintrophy_green",
-      "count": 18,
+      "count": 19,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2127,21 +2150,12 @@
         14049
       ]
     },
-    "251155:251155:dungeon:observed:255": {
-      "id": 251155,
-      "name": "Tribal Defender's Cord",
-      "source": "Murlok.io",
-      "count": 1,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "evidenceSpec": 255
-    },
     "268237:268237:raid:observed:255": {
       "id": 268237,
       "name": "Cuisses of the Uncoiled Union",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
-      "count": 2,
+      "count": 5,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2152,10 +2166,20 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 45,
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
+      "evidenceSpec": 255
+    },
+    "251136:251136:dungeon:observed:255": {
+      "id": 251136,
+      "name": "Signet of Snarling Servitude",
+      "source": "Murlok.io",
+      "icon": 7636646,
+      "count": 3,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
       "evidenceSpec": 255
     },
     "281215:281215:raid:observed:255": {
@@ -2163,7 +2187,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 42,
+      "count": 43,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2186,7 +2210,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 10,
+      "count": 11,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2208,7 +2232,7 @@
       "name": "Abyssal Broodfiend's Bardiche",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_polearm_2h_ulatek_d_01",
-      "count": 26,
+      "count": 25,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2233,7 +2257,7 @@
       "name": "Aman'muso, Warlord's Vengeance",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_axe_1h_ulatek_d_01",
-      "count": 5,
+      "count": 6,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -2244,8 +2268,8 @@
       "id": 271093,
       "name": "Zatha'tek, Breath of Corruption",
       "source": "Murlok.io",
-      "count": 5,
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_poison",
+      "count": 5,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -2443,8 +2467,8 @@
       "id": 271875,
       "name": "Gaze of the Coiled Watcher",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
       "count": 2,
+      "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2457,8 +2481,8 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
       "count": 50,
+      "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -2469,7 +2493,6 @@
       "id": 251190,
       "name": "Bloodthorn Burnous",
       "source": "Murlok.io",
-      "icon": 7259233,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -2479,8 +2502,8 @@
       "id": 281236,
       "name": "Chestwrap of Palpable Terror",
       "source": "Murlok.io",
+      "count": 6,
       "icon": "Interface\\Icons\\inv_chest_leather_raidrogueulatek_d_01",
-      "count": 7,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -2494,8 +2517,8 @@
       "id": 268256,
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
+      "count": 16,
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 17,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -2506,8 +2529,8 @@
       "id": 268225,
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "count": 1,
+      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2517,8 +2540,8 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\8268560",
       "count": 48,
+      "icon": "Interface\\Icons\\8268560",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -2529,8 +2552,8 @@
       "id": 270175,
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
       "count": 49,
+      "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -2541,8 +2564,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
+      "count": 47,
       "icon": "Interface\\Icons\\8268563",
-      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2552,8 +2575,19 @@
       "id": 270168,
       "name": "Font of Venomous Rage",
       "source": "Murlok.io",
+      "count": 2,
       "icon": "Interface\\Icons\\inv_10_dungeonjewelry_dragon_trinket_3djardintrophy_green",
-      "count": 3,
+      "quality": 4,
+      "sampleSize": 50,
+      "acquisition": "raid",
+      "evidenceSpec": 259
+    },
+    "270173:270173:raid:observed:259": {
+      "id": 270173,
+      "name": "Zul'jin's Guillotine Technique",
+      "source": "Murlok.io",
+      "count": 1,
+      "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2563,8 +2597,8 @@
       "id": 271093,
       "name": "Zatha'tek, Breath of Corruption",
       "source": "Murlok.io",
+      "count": 46,
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_poison",
-      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -2575,11 +2609,20 @@
       "id": 275070,
       "name": "Sharpened Lightwood Slasher",
       "source": "Murlok.io",
+      "count": 2,
       "icon": "Interface\\Icons\\inv_knife_1h_zuljin_d_01",
-      "count": 1,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
+      "evidenceSpec": 259
+    },
+    "268209:268209:raid:observed:259": {
+      "id": 268209,
+      "name": "Aman'muso, Warlord's Vengeance",
+      "source": "Murlok.io",
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "raid",
       "evidenceSpec": 259
     },
     "271508:271508:unknown": {
@@ -2733,16 +2776,6 @@
         14049
       ]
     },
-    "251135:251135:dungeon:observed:260": {
-      "id": 251135,
-      "name": "Fury-fletched Armlets",
-      "source": "Murlok.io",
-      "icon": 7232469,
-      "count": 2,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "evidenceSpec": 260
-    },
     "268256:268256:raid:observed:260": {
       "id": 268256,
       "name": "Sash of the Forlorn Vessel",
@@ -2758,7 +2791,7 @@
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
       "icon": 7487943,
-      "count": 2,
+      "count": 1,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 260
@@ -2778,7 +2811,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": 8268560,
-      "count": 12,
+      "count": 13,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 260
@@ -2798,7 +2831,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 46,
+      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -2810,7 +2843,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 37,
+      "count": 34,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2821,7 +2854,7 @@
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
-      "count": 16,
+      "count": 18,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2832,7 +2865,7 @@
       "name": "Aman'muso, Warlord's Vengeance",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_axe_1h_ulatek_d_01",
-      "count": 48,
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -2844,9 +2877,10 @@
       "name": "Zatha'tek, Breath of Corruption",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_poison",
-      "count": 1,
+      "count": 39,
       "quality": 4,
       "sampleSize": 50,
+      "dropSource": "Ula'tek",
       "acquisition": "raid",
       "evidenceSpec": 260
     },
@@ -2950,8 +2984,8 @@
       "id": 271875,
       "name": "Gaze of the Coiled Watcher",
       "source": "Murlok.io",
-      "count": 5,
       "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
+      "count": 5,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2964,8 +2998,8 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "count": 50,
       "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -2976,8 +3010,8 @@
       "id": 281236,
       "name": "Chestwrap of Palpable Terror",
       "source": "Murlok.io",
-      "count": 1,
       "icon": "Interface\\Icons\\inv_chest_leather_raidrogueulatek_d_01",
+      "count": 1,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -2990,6 +3024,7 @@
       "id": 251135,
       "name": "Fury-fletched Armlets",
       "source": "Murlok.io",
+      "icon": 7232469,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -2999,8 +3034,8 @@
       "id": 268256,
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
-      "count": 25,
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
+      "count": 26,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -3011,8 +3046,8 @@
       "id": 268225,
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
-      "count": 2,
       "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -3022,8 +3057,8 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
-      "count": 50,
       "icon": "Interface\\Icons\\8268560",
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -3034,8 +3069,8 @@
       "id": 270175,
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
-      "count": 50,
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -3045,8 +3080,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
-      "count": 47,
       "icon": "Interface\\Icons\\8268563",
+      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -3056,8 +3091,8 @@
       "id": 270173,
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
-      "count": 3,
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
+      "count": 3,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -3068,8 +3103,8 @@
       "id": 271093,
       "name": "Zatha'tek, Breath of Corruption",
       "source": "Murlok.io",
-      "count": 49,
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_poison",
+      "count": 48,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -3080,8 +3115,8 @@
       "id": 275070,
       "name": "Sharpened Lightwood Slasher",
       "source": "Murlok.io",
-      "count": 1,
       "icon": "Interface\\Icons\\inv_knife_1h_zuljin_d_01",
+      "count": 1,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -3369,16 +3404,6 @@
       "acquisition": "raid",
       "evidenceSpec": 256
     },
-    "251190:251190:dungeon:observed:256": {
-      "id": 251190,
-      "name": "Bloodthorn Burnous",
-      "source": "Murlok.io",
-      "icon": 7259233,
-      "count": 1,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "evidenceSpec": 256
-    },
     "273785:273785:dungeon:observed:256": {
       "id": 273785,
       "name": "Primordial Robe of Rites",
@@ -3389,23 +3414,12 @@
       "acquisition": "dungeon",
       "evidenceSpec": 256
     },
-    "251139:251139:dungeon:observed:256": {
-      "id": 251139,
-      "name": "Summoner's Searing Shirt",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_chest_cloth_dungeonharronir_c_01",
-      "count": 1,
-      "quality": 3,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "evidenceSpec": 256
-    },
     "281235:281235:raid:observed:256": {
       "id": 281235,
       "name": "Voidweaver's Leggings",
       "source": "Murlok.io",
       "icon": 7807657,
-      "count": 3,
+      "count": 2,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 256,
@@ -3418,7 +3432,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": 8268560,
-      "count": 24,
+      "count": 23,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 256
@@ -3439,7 +3453,7 @@
       "name": "Soulcoiler Ritual Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_ritualvessel",
-      "count": 44,
+      "count": 43,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -3450,7 +3464,7 @@
       "name": "Wavecaller's Seastone",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
-      "count": 29,
+      "count": 30,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "",
@@ -3463,7 +3477,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": 8268563,
-      "count": 7,
+      "count": 8,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 256
@@ -3497,7 +3511,7 @@
       "name": "Spine of the Hissing Abyss",
       "source": "Murlok.io",
       "icon": 7500005,
-      "count": 5,
+      "count": 6,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 256
@@ -3688,7 +3702,7 @@
       "name": "Venomkeeper's Horrific Cowl",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_helm_cloth_raidwarlockulatek_d_01",
-      "count": 1,
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "",
@@ -3727,19 +3741,9 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": 8268560,
-      "count": 10,
+      "count": 12,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 257
-    },
-    "159459:159459:dungeon:observed:257": {
-      "id": 159459,
-      "name": "Ritual Binder's Ring",
-      "source": "Murlok.io",
-      "icon": 2000813,
-      "count": 7,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
       "evidenceSpec": 257
     },
     "270162:270162:raid:observed:257": {
@@ -3758,7 +3762,7 @@
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 26,
+      "count": 25,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "",
@@ -3771,7 +3775,7 @@
       "name": "Wavecaller's Seastone",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
-      "count": 12,
+      "count": 13,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -3970,7 +3974,7 @@
       "name": "Voidweaver's Leggings",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_cloth_raidmageulatek_d_01",
-      "count": 8,
+      "count": 9,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Unbinding of Kith'Ix",
@@ -4019,7 +4023,7 @@
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 10,
+      "count": 9,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4036,15 +4040,15 @@
       "acquisition": "dungeon",
       "evidenceSpec": 258
     },
-    "273796:273796:dungeon:observed:258": {
-      "id": 273796,
-      "name": "Vile Vial of Volatile Venom",
+    "270167:270167:raid:observed:258": {
+      "id": 270167,
+      "name": "Wavecaller's Seastone",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_trinket_dungeon_ulatek_vile",
+      "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
       "count": 6,
-      "quality": 3,
+      "quality": 4,
       "sampleSize": 50,
-      "acquisition": "dungeon",
+      "acquisition": "raid",
       "evidenceSpec": 258
     },
     "271092:271092:raid:observed:258": {
@@ -4064,7 +4068,7 @@
       "name": "Spine of the Hissing Abyss",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_offhand_1h_ulatek_d_01",
-      "count": 19,
+      "count": 20,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Entombed Sentinels",
@@ -4401,7 +4405,7 @@
       "name": "Baleful Grave-Knight's Greaves",
       "source": "Murlok.io",
       "icon": 7739390,
-      "count": 46,
+      "count": 47,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 251
@@ -4411,7 +4415,7 @@
       "name": "Chausses of Unbound Rancor",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_plate_raiddeathknightulatek_d_01",
-      "count": 4,
+      "count": 3,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -4426,7 +4430,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 41,
+      "count": 43,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -4449,7 +4453,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 42,
+      "count": 43,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4460,7 +4464,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 7,
+      "count": 6,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -4472,7 +4476,7 @@
       "name": "Aman'muso, Warlord's Vengeance",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_axe_1h_ulatek_d_01",
-      "count": 43,
+      "count": 44,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -4496,7 +4500,7 @@
       "name": "Maze-roa, Warlord's Fury",
       "source": "Murlok.io",
       "icon": 7455434,
-      "count": 2,
+      "count": 1,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 251
@@ -4567,12 +4571,22 @@
       "acquisition": "dungeon",
       "evidenceSpec": 252
     },
+    "159418:159418:dungeon:observed:252": {
+      "id": 159418,
+      "name": "Girdle of Pestilent Purification",
+      "source": "Murlok.io",
+      "icon": 2001428,
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "evidenceSpec": 252
+    },
     "271473:271473:raid:observed:252": {
       "id": 271473,
       "name": "Baleful Grave-Knight's Greaves",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_plate_raiddeathknightulatek_d_01",
-      "count": 46,
+      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4583,7 +4597,7 @@
       "name": "Chausses of Unbound Rancor",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_plate_raiddeathknightulatek_d_01",
-      "count": 4,
+      "count": 3,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -4622,7 +4636,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 26,
+      "count": 28,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4633,7 +4647,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 24,
+      "count": 22,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4644,7 +4658,7 @@
       "name": "Maze-roa, Warlord's Fury",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_axe_2h_ulatek_d_01",
-      "count": 49,
+      "count": 48,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -4760,8 +4774,8 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "count": 50,
       "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -4772,8 +4786,8 @@
       "id": 271486,
       "name": "Fanged Raiment of the Ophidian Oracle",
       "source": "Murlok.io",
-      "count": 49,
       "icon": "Interface\\Icons\\inv_robe_mail_raidshamanulatek_d_01",
+      "count": 49,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Tier Set",
@@ -4784,8 +4798,8 @@
       "id": 271876,
       "name": "Awoken Dreadfang Cuirass",
       "source": "Murlok.io",
-      "count": 1,
       "icon": "Interface\\Icons\\inv_chest_mail_raidevokerulatek_d_01",
+      "count": 1,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4795,8 +4809,8 @@
       "id": 281238,
       "name": "Aberrant Commander's Gauntlets",
       "source": "Murlok.io",
-      "count": 2,
       "icon": "Interface\\Icons\\inv_glove_mail_raidhunterulatek_d_01",
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4809,8 +4823,8 @@
       "id": 268237,
       "name": "Cuisses of the Uncoiled Union",
       "source": "Murlok.io",
-      "count": 4,
       "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
+      "count": 4,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4820,17 +4834,28 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
+      "icon": 8268560,
       "count": 45,
       "sampleSize": 50,
       "acquisition": "raid",
+      "evidenceSpec": 262
+    },
+    "251136:251136:dungeon:observed:262": {
+      "id": 251136,
+      "name": "Signet of Snarling Servitude",
+      "source": "Murlok.io",
+      "icon": 7636646,
+      "count": 4,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
       "evidenceSpec": 262
     },
     "281215:281215:raid:observed:262": {
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
-      "count": 48,
       "icon": "Interface\\Icons\\8268563",
+      "count": 48,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Unbinding of Kith'ix",
@@ -4841,8 +4866,8 @@
       "id": 270164,
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
-      "count": 29,
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
+      "count": 32,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4852,8 +4877,8 @@
       "id": 273796,
       "name": "Vile Vial of Volatile Venom",
       "source": "Murlok.io",
-      "count": 23,
       "icon": "Interface\\Icons\\inv_121_trinket_dungeon_ulatek_vile",
+      "count": 20,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -4863,8 +4888,8 @@
       "id": 271092,
       "name": "Jan'thrazet, the Soul Fang",
       "source": "Murlok.io",
-      "count": 50,
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -4875,6 +4900,7 @@
       "id": 268197,
       "name": "Spine of the Hissing Abyss",
       "source": "Murlok.io",
+      "icon": 7500005,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -4991,8 +5017,8 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "count": 50,
       "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -5003,6 +5029,7 @@
       "id": 251190,
       "name": "Bloodthorn Burnous",
       "source": "Murlok.io",
+      "icon": 7259233,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -5012,8 +5039,8 @@
       "id": 271486,
       "name": "Fanged Raiment of the Ophidian Oracle",
       "source": "Murlok.io",
-      "count": 45,
       "icon": "Interface\\Icons\\inv_robe_mail_raidshamanulatek_d_01",
+      "count": 45,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Catalyst &ndash; Ula'tek",
@@ -5024,8 +5051,8 @@
       "id": 271876,
       "name": "Awoken Dreadfang Cuirass",
       "source": "Murlok.io",
-      "count": 5,
       "icon": "Interface\\Icons\\inv_chest_mail_raidevokerulatek_d_01",
+      "count": 5,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -5035,8 +5062,8 @@
       "id": 281238,
       "name": "Aberrant Commander's Gauntlets",
       "source": "Murlok.io",
-      "count": 6,
       "icon": "Interface\\Icons\\inv_glove_mail_raidhunterulatek_d_01",
+      "count": 6,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -5049,8 +5076,8 @@
       "id": 268237,
       "name": "Cuisses of the Uncoiled Union",
       "source": "Murlok.io",
-      "count": 9,
       "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
+      "count": 9,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -5060,8 +5087,8 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
-      "count": 49,
       "icon": "Interface\\Icons\\8268560",
+      "count": 49,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -5072,8 +5099,8 @@
       "id": 273792,
       "name": "Band of the Amani Warlord",
       "source": "Murlok.io",
-      "count": 6,
       "icon": "Interface\\Icons\\inv_121_jewelry_ring02_green",
+      "count": 6,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -5083,8 +5110,8 @@
       "id": 270175,
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
-      "count": 46,
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -5095,8 +5122,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
-      "count": 40,
       "icon": "Interface\\Icons\\8268563",
+      "count": 39,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -5106,8 +5133,8 @@
       "id": 270173,
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
-      "count": 10,
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
+      "count": 11,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -5117,8 +5144,8 @@
       "id": 273796,
       "name": "Vile Vial of Volatile Venom",
       "source": "Murlok.io",
-      "count": 4,
       "icon": "Interface\\Icons\\inv_121_trinket_dungeon_ulatek_vile",
+      "count": 4,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -5128,8 +5155,8 @@
       "id": 268209,
       "name": "Aman'muso, Warlord's Vengeance",
       "source": "Murlok.io",
-      "count": 48,
       "icon": "Interface\\Icons\\inv_axe_1h_ulatek_d_01",
+      "count": 48,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -5231,36 +5258,15 @@
       "acquisition": "raid",
       "evidenceSpec": 264
     },
-    "251132:251132:dungeon:observed:264": {
-      "id": 251132,
-      "name": "Speakeasy Shroud",
-      "source": "Murlok.io",
-      "icon": 7278020,
-      "count": 2,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "evidenceSpec": 264
-    },
     "271486:271486:raid:observed:264": {
       "id": 271486,
       "name": "Fanged Raiment of the Ophidian Oracle",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_robe_mail_raidshamanulatek_d_01",
-      "count": 44,
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kings Rest & Catalyst",
-      "acquisition": "raid",
-      "evidenceSpec": 264
-    },
-    "271876:271876:raid:observed:264": {
-      "id": 271876,
-      "name": "Awoken Dreadfang Cuirass",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_chest_mail_raidevokerulatek_d_01",
-      "count": 2,
-      "quality": 4,
-      "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 264
     },
@@ -5279,7 +5285,7 @@
       "name": "Pilfered Precious Band",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_12_jewelry_zulaman_troll_ring_green2",
-      "count": 9,
+      "count": 10,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -5301,7 +5307,7 @@
       "name": "Soulcoiler Ritual Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_ritualvessel",
-      "count": 47,
+      "count": 49,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Nek'zali the Soulcoiler (Raid)",
@@ -5313,7 +5319,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 10,
+      "count": 9,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -5346,7 +5352,8 @@
       "id": 251196,
       "name": "Teldrassil's Sacrifice",
       "source": "Murlok.io",
-      "count": 5,
+      "icon": 7442214,
+      "count": 4,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 264
@@ -5526,7 +5533,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 18,
+      "count": 19,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -5549,7 +5556,7 @@
       "name": "Freightrunner's Flask",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_alchemy_90_flask_red",
-      "count": 22,
+      "count": 23,
       "quality": 3,
       "sampleSize": 50,
       "dropSource": "Murder Row",
@@ -5561,7 +5568,7 @@
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 12,
+      "count": 14,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -5709,7 +5716,7 @@
       "name": "Bloodthorn Burnous",
       "source": "Murlok.io",
       "icon": 7259233,
-      "count": 4,
+      "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 63
@@ -5765,7 +5772,7 @@
       "name": "Sickening Signet of Atroxus",
       "source": "Murlok.io",
       "icon": 7636586,
-      "count": 11,
+      "count": 10,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 63
@@ -5846,17 +5853,6 @@
       "count": 5,
       "sampleSize": 50,
       "acquisition": "raid",
-      "evidenceSpec": 63
-    },
-    "159667:159667:dungeon:observed:63": {
-      "id": 159667,
-      "name": "Vessel of Last Rites",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_offhand_1h_battledungeon_c_02",
-      "count": 1,
-      "quality": 3,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
       "evidenceSpec": 63
     },
     "268263:268263:raid": {
@@ -5941,7 +5937,7 @@
       "name": "Speakeasy Shroud",
       "source": "Murlok.io",
       "icon": 7278020,
-      "count": 5,
+      "count": 6,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 64
@@ -6178,7 +6174,7 @@
       "name": "Venomkeeper's Horrific Cowl",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_helm_cloth_raidwarlockulatek_d_01",
-      "count": 5,
+      "count": 4,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -6229,7 +6225,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 32,
+      "count": 35,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -6240,7 +6236,7 @@
       "name": "Band of the Amani Warlord",
       "source": "Murlok.io",
       "icon": 7866600,
-      "count": 13,
+      "count": 11,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 265
@@ -6273,7 +6269,7 @@
       "name": "Vile Vial of Volatile Venom",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_dungeon_ulatek_vile",
-      "count": 13,
+      "count": 11,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -6404,7 +6400,7 @@
       "name": "Venomkeeper's Horrific Cowl",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_helm_cloth_raidwarlockulatek_d_01",
-      "count": 3,
+      "count": 5,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -6441,7 +6437,7 @@
       "name": "Voidweaver's Leggings",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_cloth_raidmageulatek_d_01",
-      "count": 8,
+      "count": 9,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -6471,23 +6467,12 @@
       "acquisition": "dungeon",
       "evidenceSpec": 266
     },
-    "158366:158366:dungeon:observed:266": {
-      "id": 158366,
-      "name": "Charged Sandstone Band",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_ring_80_03d",
-      "count": 4,
-      "quality": 3,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "evidenceSpec": 266
-    },
     "281215:281215:raid:observed:266": {
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 49,
+      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -6505,22 +6490,22 @@
       "acquisition": "raid",
       "evidenceSpec": 266
     },
-    "250215:250215:dungeon:observed:266": {
-      "id": 250215,
-      "name": "Freightrunner's Flask",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_alchemy_90_flask_red",
-      "count": 2,
-      "quality": 3,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "evidenceSpec": 266
-    },
     "273649:273649:dungeon:observed:266": {
       "id": 273649,
       "name": "Stormbound Emblem of Dazar",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_7_0raid_necklace_14a",
+      "count": 3,
+      "quality": 3,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "evidenceSpec": 266
+    },
+    "273796:273796:dungeon:observed:266": {
+      "id": 273796,
+      "name": "Vile Vial of Volatile Venom",
+      "source": "Murlok.io",
+      "icon": "Interface\\Icons\\inv_121_trinket_dungeon_ulatek_vile",
       "count": 2,
       "quality": 3,
       "sampleSize": 50,
@@ -6532,7 +6517,7 @@
       "name": "Jan'thrazet, the Soul Fang",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
-      "count": 48,
+      "count": 49,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -6544,7 +6529,7 @@
       "name": "Baleful Hexblade",
       "source": "Murlok.io",
       "icon": 7723761,
-      "count": 2,
+      "count": 1,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 266
@@ -6588,7 +6573,7 @@
       "name": "Venomkeeper's Horrific Cowl",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_helm_cloth_raidwarlockulatek_d_01",
-      "count": 9,
+      "count": 8,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -6628,7 +6613,7 @@
       "name": "Voidweaver's Leggings",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_cloth_raidmageulatek_d_01",
-      "count": 5,
+      "count": 6,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'Ix",
@@ -6664,7 +6649,7 @@
       "name": "Signet of Snarling Servitude",
       "source": "Murlok.io",
       "icon": 7636646,
-      "count": 10,
+      "count": 9,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 267
@@ -6674,7 +6659,7 @@
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 40,
+      "count": 39,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Lost Explorers",
@@ -6686,7 +6671,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 38,
+      "count": 39,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -6697,7 +6682,7 @@
       "name": "Freightrunner's Flask",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_alchemy_90_flask_red",
-      "count": 14,
+      "count": 13,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -6908,7 +6893,7 @@
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
-      "count": 48,
+      "count": 49,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -6971,6 +6956,16 @@
       "acquisition": "dungeon",
       "evidenceSpec": 268
     },
+    "281029:281029:raid:observed:268": {
+      "id": 281029,
+      "name": "Band of the Swarmcaller",
+      "source": "Murlok.io",
+      "icon": 8268560,
+      "count": 17,
+      "sampleSize": 50,
+      "acquisition": "raid",
+      "evidenceSpec": 268
+    },
     "251148:251148:dungeon:observed:268": {
       "id": 251148,
       "name": "Pilfered Precious Band",
@@ -6983,22 +6978,12 @@
       "acquisition": "dungeon",
       "evidenceSpec": 268
     },
-    "281029:281029:raid:observed:268": {
-      "id": 281029,
-      "name": "Band of the Swarmcaller",
-      "source": "Murlok.io",
-      "icon": 8268560,
-      "count": 15,
-      "sampleSize": 50,
-      "acquisition": "raid",
-      "evidenceSpec": 268
-    },
     "281215:281215:raid:observed:268": {
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 39,
+      "count": 40,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7009,7 +6994,7 @@
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
-      "count": 24,
+      "count": 26,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7021,7 +7006,7 @@
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 16,
+      "count": 14,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7032,7 +7017,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 6,
+      "count": 5,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7043,7 +7028,7 @@
       "name": "Abyssal Broodfiend's Bardiche",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_polearm_2h_ulatek_d_01",
-      "count": 43,
+      "count": 44,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7058,7 +7043,7 @@
       "name": "Aman'muso, Warlord's Vengeance",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_axe_1h_ulatek_d_01",
-      "count": 2,
+      "count": 1,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar Sszorak",
@@ -7114,7 +7099,7 @@
       "name": "Gaze of the Coiled Watcher",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
-      "count": 3,
+      "count": 4,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7168,7 +7153,7 @@
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 21,
+      "count": 22,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -7180,7 +7165,7 @@
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
-      "count": 1,
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -7213,7 +7198,7 @@
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
-      "count": 49,
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7225,7 +7210,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 40,
+      "count": 42,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7236,7 +7221,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 8,
+      "count": 7,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7258,7 +7243,7 @@
       "name": "Abyssal Broodfiend's Bardiche",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_polearm_2h_ulatek_d_01",
-      "count": 49,
+      "count": 50,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7267,16 +7252,6 @@
       "previewEffectBonusIDs": [
         13846
       ]
-    },
-    "268209:268209:raid:observed:269": {
-      "id": 268209,
-      "name": "Aman'muso, Warlord's Vengeance",
-      "source": "Murlok.io",
-      "icon": 7736101,
-      "count": 1,
-      "sampleSize": 50,
-      "acquisition": "raid",
-      "evidenceSpec": 269
     },
     "271519:271875:raid": {
       "id": 271519,
@@ -7447,7 +7422,7 @@
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
-      "count": 48,
+      "count": 49,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7471,7 +7446,7 @@
       "name": "Chestwrap of Palpable Terror",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_chest_leather_raidrogueulatek_d_01",
-      "count": 2,
+      "count": 1,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7497,7 +7472,7 @@
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 10,
+      "count": 11,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7508,7 +7483,7 @@
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
-      "count": 1,
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7519,7 +7494,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": 8268560,
-      "count": 35,
+      "count": 36,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 270
@@ -7529,7 +7504,7 @@
       "name": "Sickening Signet of Atroxus",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_12_jewelry_devouringhost_ring_bronze2",
-      "count": 13,
+      "count": 12,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -7540,7 +7515,7 @@
       "name": "Soulcoiler Ritual Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_ritualvessel",
-      "count": 46,
+      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7551,7 +7526,7 @@
       "name": "Wavecaller's Seastone",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
-      "count": 22,
+      "count": 20,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Nymrissa Wavecaller",
@@ -7563,7 +7538,18 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 7,
+      "count": 12,
+      "quality": 4,
+      "sampleSize": 50,
+      "acquisition": "raid",
+      "evidenceSpec": 270
+    },
+    "268211:268211:raid:observed:270": {
+      "id": 268211,
+      "name": "Baleful Hexblade",
+      "source": "Murlok.io",
+      "icon": "Interface\\Icons\\inv_sword_1h_ulatek_d_01",
+      "count": 5,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7579,17 +7565,6 @@
       "sampleSize": 50,
       "dropSource": "Murder Row",
       "acquisition": "dungeon",
-      "evidenceSpec": 270
-    },
-    "268211:268211:raid:observed:270": {
-      "id": 268211,
-      "name": "Baleful Hexblade",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_sword_1h_ulatek_d_01",
-      "count": 3,
-      "quality": 4,
-      "sampleSize": 50,
-      "acquisition": "raid",
       "evidenceSpec": 270
     },
     "268197:268197:raid:observed:270": {
@@ -7654,8 +7629,8 @@
       "id": 271875,
       "name": "Gaze of the Coiled Watcher",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
       "count": 2,
+      "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7669,8 +7644,8 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
       "count": 50,
+      "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7681,8 +7656,8 @@
       "id": 281236,
       "name": "Chestwrap of Palpable Terror",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_chest_leather_raidrogueulatek_d_01",
       "count": 2,
+      "icon": "Interface\\Icons\\inv_chest_leather_raidrogueulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -7696,7 +7671,6 @@
       "id": 251135,
       "name": "Fury-fletched Armlets",
       "source": "Murlok.io",
-      "icon": 7232469,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -7706,8 +7680,8 @@
       "id": 268256,
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
+      "count": 13,
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 12,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -7718,8 +7692,8 @@
       "id": 268225,
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "count": 6,
+      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -7730,8 +7704,8 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\8268560",
       "count": 48,
+      "icon": "Interface\\Icons\\8268560",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -7742,7 +7716,6 @@
       "id": 158366,
       "name": "Charged Sandstone Band",
       "source": "Murlok.io",
-      "icon": 2000812,
       "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -7752,8 +7725,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\8268563",
       "count": 47,
+      "icon": "Interface\\Icons\\8268563",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kith'ix",
@@ -7764,8 +7737,8 @@
       "id": 270164,
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
+      "count": 19,
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 17,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7775,8 +7748,8 @@
       "id": 273796,
       "name": "Vile Vial of Volatile Venom",
       "source": "Murlok.io",
+      "count": 15,
       "icon": "Interface\\Icons\\inv_121_trinket_dungeon_ulatek_vile",
-      "count": 17,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -7786,8 +7759,8 @@
       "id": 270167,
       "name": "Wavecaller's Seastone",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
       "count": 5,
+      "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7797,8 +7770,8 @@
       "id": 271092,
       "name": "Jan'thrazet, the Soul Fang",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
       "count": 45,
+      "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7809,10 +7782,18 @@
       "id": 268197,
       "name": "Spine of the Hissing Abyss",
       "source": "Murlok.io",
-      "icon": 7500005,
       "count": 5,
       "sampleSize": 50,
       "acquisition": "raid",
+      "evidenceSpec": 102
+    },
+    "273779:273779:dungeon:observed:102": {
+      "id": 273779,
+      "name": "Nocuous Focal Fang",
+      "source": "Murlok.io",
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
       "evidenceSpec": 102
     },
     "271528:271528:unknown": {
@@ -7911,8 +7892,8 @@
       "id": 271875,
       "name": "Gaze of the Coiled Watcher",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
       "count": 2,
+      "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7925,8 +7906,8 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
       "count": 50,
+      "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -7937,7 +7918,6 @@
       "id": 251190,
       "name": "Bloodthorn Burnous",
       "source": "Murlok.io",
-      "icon": 7259233,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -7947,8 +7927,8 @@
       "id": 281236,
       "name": "Chestwrap of Palpable Terror",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_chest_leather_raidrogueulatek_d_01",
       "count": 2,
+      "icon": "Interface\\Icons\\inv_chest_leather_raidrogueulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7961,8 +7941,8 @@
       "id": 268256,
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
       "count": 24,
+      "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -7973,8 +7953,8 @@
       "id": 268225,
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "count": 3,
+      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -7984,8 +7964,7 @@
       "id": 159327,
       "name": "Sand-Shined Snakeskin Sandals",
       "source": "Murlok.io",
-      "icon": 1892754,
-      "count": 2,
+      "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 103
@@ -7994,8 +7973,8 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\8268560",
       "count": 48,
+      "icon": "Interface\\Icons\\8268560",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8005,8 +7984,8 @@
       "id": 270175,
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
       "count": 49,
+      "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8016,8 +7995,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
+      "count": 45,
       "icon": "Interface\\Icons\\8268563",
-      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8027,8 +8006,8 @@
       "id": 270173,
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
+      "count": 4,
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -8039,8 +8018,8 @@
       "id": 268215,
       "name": "Abyssal Broodfiend's Bardiche",
       "source": "Murlok.io",
+      "count": 47,
       "icon": "Interface\\Icons\\inv_polearm_2h_ulatek_d_01",
-      "count": 48,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -8151,7 +8130,7 @@
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 7,
+      "count": 8,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -8173,7 +8152,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 47,
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8205,7 +8184,7 @@
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
-      "count": 30,
+      "count": 31,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8426,7 +8405,7 @@
       "name": "Gaze of the Coiled Watcher",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
-      "count": 2,
+      "count": 1,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8487,7 +8466,7 @@
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 21,
+      "count": 22,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Alter (Raid)",
@@ -8509,7 +8488,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 43,
+      "count": 42,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Kithix (Raid)",
@@ -8566,7 +8545,7 @@
       "name": "Jan'thrazet, the Soul Fang",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
-      "count": 45,
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek (Raid)",
@@ -8580,16 +8559,6 @@
       "icon": "Interface\\Icons\\inv_staff_2h_battledungeon_c_04",
       "count": 2,
       "quality": 3,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "evidenceSpec": 105
-    },
-    "273783:273783:dungeon:observed:105": {
-      "id": 273783,
-      "name": "Toxin-Coated Warstaff",
-      "source": "Murlok.io",
-      "icon": 7761089,
-      "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 105
@@ -8737,7 +8706,7 @@
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 17,
+      "count": 19,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -8749,7 +8718,7 @@
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
-      "count": 3,
+      "count": 4,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8760,7 +8729,7 @@
       "name": "Sand-Shined Snakeskin Sandals",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_boot_leather_zandalardungeon_c_01",
-      "count": 2,
+      "count": 1,
       "quality": 3,
       "sampleSize": 50,
       "dropSource": "Temple of Sethraliss",
@@ -8782,7 +8751,7 @@
       "name": "Signet of Snarling Servitude",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_12_jewelry_voidelf_ring_teal",
-      "count": 11,
+      "count": 10,
       "quality": 3,
       "sampleSize": 50,
       "dropSource": "Murder Row",
@@ -8910,7 +8879,7 @@
       "name": "Gaze of the Coiled Watcher",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_helm_leather_raiddruidulatek_d_01",
-      "count": 2,
+      "count": 1,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8924,7 +8893,7 @@
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
-      "count": 49,
+      "count": 48,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -8946,7 +8915,7 @@
       "name": "Chestwrap of Palpable Terror",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_chest_leather_raidrogueulatek_d_01",
-      "count": 3,
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -8970,7 +8939,7 @@
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 15,
+      "count": 16,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -8999,13 +8968,12 @@
       "acquisition": "raid",
       "evidenceSpec": 581
     },
-    "159459:159459:dungeon:observed:581": {
-      "id": 159459,
-      "name": "Ritual Binder's Ring",
+    "273792:273792:dungeon:observed:581": {
+      "id": 273792,
+      "name": "Band of the Amani Warlord",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_ring_80_03e",
+      "icon": 7866600,
       "count": 8,
-      "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 581
@@ -9015,7 +8983,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 41,
+      "count": 40,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Unbinding of Kith'ix",
@@ -9027,7 +8995,7 @@
       "name": "Zul'jin's Guillotine Technique",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_trolltablet",
-      "count": 36,
+      "count": 37,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9038,7 +9006,7 @@
       "name": "Voracious Heart of Ula'tek",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_heart",
-      "count": 10,
+      "count": 9,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9060,7 +9028,7 @@
       "name": "Aman'muso, Warlord's Vengeance",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_axe_1h_ulatek_d_01",
-      "count": 45,
+      "count": 44,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -9151,7 +9119,7 @@
       "name": "Sash of the Forlorn Vessel",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_belt_leather_raiddruidulatek_d_01",
-      "count": 17,
+      "count": 19,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Coiled Altar",
@@ -9184,7 +9152,7 @@
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268560",
-      "count": 47,
+      "count": 46,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "General Kith'ix",
@@ -9206,7 +9174,7 @@
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\8268563",
-      "count": 48,
+      "count": 47,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "General Kith'ix",
@@ -9218,7 +9186,7 @@
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 36,
+      "count": 34,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9229,7 +9197,7 @@
       "name": "Wavecaller's Seastone",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
-      "count": 15,
+      "count": 18,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9251,7 +9219,7 @@
       "name": "Jan'thrazet, the Soul Fang",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
-      "count": 40,
+      "count": 38,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -9263,7 +9231,7 @@
       "name": "Baleful Hexblade",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_sword_1h_ulatek_d_01",
-      "count": 6,
+      "count": 7,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9363,8 +9331,8 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
       "count": 50,
+      "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -9375,8 +9343,8 @@
       "id": 271876,
       "name": "Awoken Dreadfang Cuirass",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_chest_mail_raidevokerulatek_d_01",
       "count": 1,
+      "icon": "Interface\\Icons\\inv_chest_mail_raidevokerulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9386,8 +9354,8 @@
       "id": 281238,
       "name": "Aberrant Commander's Gauntlets",
       "source": "Murlok.io",
+      "count": 9,
       "icon": "Interface\\Icons\\inv_glove_mail_raidhunterulatek_d_01",
-      "count": 7,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9396,12 +9364,20 @@
         14049
       ]
     },
+    "160213:160213:dungeon:observed:1467": {
+      "id": 160213,
+      "name": "Sepulchral Construct's Gloves",
+      "source": "Murlok.io",
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "evidenceSpec": 1467
+    },
     "281029:281029:raid:observed:1467": {
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
-      "icon": 8268560,
-      "count": 38,
+      "count": 40,
       "sampleSize": 50,
       "acquisition": "raid",
       "evidenceSpec": 1467
@@ -9410,8 +9386,7 @@
       "id": 273792,
       "name": "Band of the Amani Warlord",
       "source": "Murlok.io",
-      "icon": 7866600,
-      "count": 5,
+      "count": 6,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 1467
@@ -9420,8 +9395,8 @@
       "id": 158366,
       "name": "Charged Sandstone Band",
       "source": "Murlok.io",
+      "count": 4,
       "icon": "Interface\\Icons\\inv_ring_80_03d",
-      "count": 5,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -9431,8 +9406,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
+      "count": 45,
       "icon": "Interface\\Icons\\8268563",
-      "count": 44,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9442,8 +9417,8 @@
       "id": 270164,
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
       "count": 40,
+      "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Lost Explorers",
@@ -9454,8 +9429,8 @@
       "id": 270167,
       "name": "Wavecaller's Seastone",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
       "count": 8,
+      "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9465,8 +9440,8 @@
       "id": 273796,
       "name": "Vile Vial of Volatile Venom",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_121_trinket_dungeon_ulatek_vile",
       "count": 5,
+      "icon": "Interface\\Icons\\inv_121_trinket_dungeon_ulatek_vile",
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -9476,8 +9451,8 @@
       "id": 270168,
       "name": "Font of Venomous Rage",
       "source": "Murlok.io",
+      "count": 1,
       "icon": "Interface\\Icons\\inv_10_dungeonjewelry_dragon_trinket_3djardintrophy_green",
-      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9487,8 +9462,8 @@
       "id": 271092,
       "name": "Jan'thrazet, the Soul Fang",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
       "count": 49,
+      "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -9499,7 +9474,6 @@
       "id": 268197,
       "name": "Spine of the Hissing Abyss",
       "source": "Murlok.io",
-      "icon": 7500005,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9588,20 +9562,30 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "count": 49,
       "icon": "Interface\\Icons\\inv_121_jewelry_neck03_green",
+      "count": 49,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek (Raid)",
       "acquisition": "raid",
       "evidenceSpec": 1468
     },
+    "251190:251190:dungeon:observed:1468": {
+      "id": 251190,
+      "name": "Bloodthorn Burnous",
+      "source": "Murlok.io",
+      "icon": 7259233,
+      "count": 2,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "evidenceSpec": 1468
+    },
     "271876:271876:raid:observed:1468": {
       "id": 271876,
       "name": "Awoken Dreadfang Cuirass",
       "source": "Murlok.io",
-      "count": 1,
       "icon": "Interface\\Icons\\inv_chest_mail_raidevokerulatek_d_01",
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9611,8 +9595,8 @@
       "id": 281238,
       "name": "Aberrant Commander's Gauntlets",
       "source": "Murlok.io",
-      "count": 2,
       "icon": "Interface\\Icons\\inv_glove_mail_raidhunterulatek_d_01",
+      "count": 3,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9625,8 +9609,8 @@
       "id": 268237,
       "name": "Cuisses of the Uncoiled Union",
       "source": "Murlok.io",
-      "count": 3,
       "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
+      "count": 3,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9636,6 +9620,7 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
+      "icon": 8268560,
       "count": 13,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9645,7 +9630,8 @@
       "id": 159459,
       "name": "Ritual Binder's Ring",
       "source": "Murlok.io",
-      "count": 9,
+      "icon": 2000813,
+      "count": 10,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "evidenceSpec": 1468
@@ -9654,8 +9640,8 @@
       "id": 270162,
       "name": "Soulcoiler Ritual Vessel",
       "source": "Murlok.io",
-      "count": 41,
       "icon": "Interface\\Icons\\inv_121_trinket_raid_ulatek_ritualvessel",
+      "count": 40,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9665,8 +9651,8 @@
       "id": 270164,
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
-      "count": 18,
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
+      "count": 19,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "The Lost Explorers (Raid)",
@@ -9677,8 +9663,8 @@
       "id": 270167,
       "name": "Wavecaller's Seastone",
       "source": "Murlok.io",
-      "count": 14,
       "icon": "Interface\\Icons\\inv_tradeskillitem_sorcererswater",
+      "count": 15,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9688,8 +9674,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
-      "count": 8,
       "icon": "Interface\\Icons\\8268563",
+      "count": 8,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9699,8 +9685,8 @@
       "id": 271092,
       "name": "Jan'thrazet, the Soul Fang",
       "source": "Murlok.io",
-      "count": 45,
       "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
+      "count": 45,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek (Raid)",
@@ -9711,6 +9697,7 @@
       "id": 251156,
       "name": "Fallen Speaker's Staff",
       "source": "Murlok.io",
+      "icon": 6989931,
       "count": 2,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -9720,6 +9707,7 @@
       "id": 251123,
       "name": "Nibbles' Training Rod",
       "source": "Murlok.io",
+      "icon": 7287363,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -9729,8 +9717,8 @@
       "id": 268197,
       "name": "Spine of the Hissing Abyss",
       "source": "Murlok.io",
-      "count": 6,
       "icon": "Interface\\Icons\\inv_offhand_1h_ulatek_d_01",
+      "count": 6,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Entomed Sentinels (Raid)",
@@ -9741,6 +9729,7 @@
       "id": 273779,
       "name": "Nocuous Focal Fang",
       "source": "Murlok.io",
+      "icon": 7651189,
       "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -9750,6 +9739,7 @@
       "id": 193766,
       "name": "Kokia's Burnout Rod",
       "source": "Murlok.io",
+      "icon": 4526077,
       "count": 2,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -9794,7 +9784,6 @@
       "id": 268265,
       "name": "Aqirbane Reliquary",
       "source": "Murlok.io",
-      "icon": 7866590,
       "count": 41,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9804,7 +9793,6 @@
       "id": 251132,
       "name": "Speakeasy Shroud",
       "source": "Murlok.io",
-      "icon": 7278020,
       "count": 2,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -9814,8 +9802,8 @@
       "id": 271876,
       "name": "Awoken Dreadfang Cuirass",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_chest_mail_raidevokerulatek_d_01",
       "count": 2,
+      "icon": "Interface\\Icons\\inv_chest_mail_raidevokerulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9825,8 +9813,8 @@
       "id": 281238,
       "name": "Aberrant Commander's Gauntlets",
       "source": "Murlok.io",
+      "count": 3,
       "icon": "Interface\\Icons\\inv_glove_mail_raidhunterulatek_d_01",
-      "count": 4,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9839,8 +9827,8 @@
       "id": 268237,
       "name": "Cuisses of the Uncoiled Union",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
       "count": 1,
+      "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9850,8 +9838,8 @@
       "id": 281029,
       "name": "Band of the Swarmcaller",
       "source": "Murlok.io",
+      "count": 43,
       "icon": "Interface\\Icons\\8268560",
-      "count": 44,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9861,8 +9849,8 @@
       "id": 281215,
       "name": "Twisted Horror's Tendril",
       "source": "Murlok.io",
+      "count": 32,
       "icon": "Interface\\Icons\\8268563",
-      "count": 31,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9872,8 +9860,8 @@
       "id": 270168,
       "name": "Font of Venomous Rage",
       "source": "Murlok.io",
+      "count": 31,
       "icon": "Interface\\Icons\\inv_10_dungeonjewelry_dragon_trinket_3djardintrophy_green",
-      "count": 30,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -9884,8 +9872,8 @@
       "id": 270164,
       "name": "Gebbo's Bottomless Bag",
       "source": "Murlok.io",
+      "count": 7,
       "icon": "Interface\\Icons\\inv_10_tailoring_bag1_color2",
-      "count": 8,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9895,8 +9883,8 @@
       "id": 271092,
       "name": "Jan'thrazet, the Soul Fang",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
       "count": 40,
+      "icon": "Interface\\Icons\\inv_knife_1h_ulatekfang_d_01_spirit",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Ula'tek",
@@ -9907,8 +9895,8 @@
       "id": 268211,
       "name": "Baleful Hexblade",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_sword_1h_ulatek_d_01",
       "count": 3,
+      "icon": "Interface\\Icons\\inv_sword_1h_ulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "raid",
@@ -9918,8 +9906,8 @@
       "id": 268197,
       "name": "Spine of the Hissing Abyss",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_offhand_1h_ulatek_d_01",
       "count": 8,
+      "icon": "Interface\\Icons\\inv_offhand_1h_ulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Entombed Sentinels",
@@ -28333,6 +28321,17 @@
       "dropSource": "Murder Row",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/holy-paladin-pve-healing-gear-best-in-slot"
     },
+    "159412:alternative:73:observed-dungeon": {
+      "id": 159412,
+      "name": "Auric Puddle Stompers",
+      "source": "Murlok.io",
+      "icon": 2001429,
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "dropSource": "King's Rest",
+      "sourceEvidenceURL": "https://www.icy-veins.com/wow/unholy-death-knight-pve-dps-gear-best-in-slot"
+    },
     "159409:alternative:65:observed-dungeon": {
       "id": 159409,
       "name": "Embalmer's Steadying Bracers",
@@ -28482,7 +28481,6 @@
       "id": 251183,
       "name": "Rootwarden Wraps",
       "source": "Murlok.io",
-      "icon": 7232469,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -28505,7 +28503,7 @@
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
       "icon": 7487943,
-      "count": 2,
+      "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "Catalyst from Murder Row",
@@ -28515,6 +28513,7 @@
       "id": 251183,
       "name": "Rootwarden Wraps",
       "source": "Murlok.io",
+      "icon": 7232469,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -28525,8 +28524,8 @@
       "id": 268225,
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
-      "count": 2,
       "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -28560,11 +28559,22 @@
       "name": "Bindings of the Slithering Current",
       "source": "Murlok.io",
       "icon": 1875080,
-      "count": 1,
+      "count": 2,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "Temple of Sethraliss",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/holy-priest-pve-healing-gear-best-in-slot"
+    },
+    "251154:alternative:256:observed-dungeon": {
+      "id": 251154,
+      "name": "Winter's Embrace Bracers",
+      "source": "Murlok.io",
+      "icon": 7252743,
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "dropSource": "Den of Nalorakk",
+      "sourceEvidenceURL": "https://www.icy-veins.com/wow/frost-mage-pve-dps-gear-best-in-slot"
     },
     "251137:alternative:256:observed-dungeon": {
       "id": 251137,
@@ -28615,7 +28625,7 @@
       "name": "Riftworn Stompers",
       "source": "Murlok.io",
       "icon": 7252742,
-      "count": 5,
+      "count": 4,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "Voidscar Arena",
@@ -28642,17 +28652,6 @@
       "acquisition": "dungeon",
       "dropSource": "Voidscar Arena",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/destruction-warlock-pve-dps-gear-best-in-slot"
-    },
-    "251133:alternative:250:observed-dungeon": {
-      "id": 251133,
-      "name": "Overseer's Vambraces",
-      "source": "Murlok.io",
-      "icon": 7135733,
-      "count": 1,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "dropSource": "Murder Row",
-      "sourceEvidenceURL": "https://www.icy-veins.com/wow/holy-paladin-pve-healing-gear-best-in-slot"
     },
     "251214:alternative:250:observed-dungeon": {
       "id": 251214,
@@ -28692,6 +28691,7 @@
       "id": 251228,
       "name": "Behemoth Waistband",
       "source": "Murlok.io",
+      "icon": 7259230,
       "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -28702,6 +28702,7 @@
       "id": 251143,
       "name": "Grim Harvest Gloves",
       "source": "Murlok.io",
+      "icon": 7065188,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -28719,12 +28720,23 @@
       "dropSource": "Catalyst from King's Rest",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/augmentation-evoker-pve-dps-gear-best-in-slot"
     },
+    "193763:alternative:264:observed-dungeon": {
+      "id": 193763,
+      "name": "Fireproof Drape",
+      "source": "Murlok.io",
+      "icon": 4326057,
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "dropSource": "Ruby Life Pools",
+      "sourceEvidenceURL": "https://www.icy-veins.com/wow/vengeance-demon-hunter-pve-tank-gear-best-in-slot"
+    },
     "250255:alternative:264:observed-dungeon": {
       "id": 250255,
       "name": "Unstable Felheart Crystal",
       "source": "Murlok.io",
-      "count": 29,
       "icon": "Interface\\Icons\\tooltip_crystallizedfel",
+      "count": 29,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -28780,7 +28792,7 @@
       "name": "Nibbling Armbands",
       "source": "Murlok.io",
       "icon": 7252743,
-      "count": 1,
+      "count": 2,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "Murder Row",
@@ -28796,6 +28808,17 @@
       "acquisition": "dungeon",
       "dropSource": "Voidscar Arena",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/destruction-warlock-pve-dps-gear-best-in-slot"
+    },
+    "251219:alternative:64:observed-dungeon": {
+      "id": 251219,
+      "name": "Riftworn Stompers",
+      "source": "Murlok.io",
+      "icon": 7252742,
+      "count": 2,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "dropSource": "Voidscar Arena",
+      "sourceEvidenceURL": "https://www.icy-veins.com/wow/discipline-priest-pve-healing-gear-best-in-slot"
     },
     "251191:alternative:64:observed-dungeon": {
       "id": 251191,
@@ -28874,23 +28897,12 @@
       "dropSource": "King's Rest",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/shadow-priest-pve-dps-gear-best-in-slot"
     },
-    "193763:alternative:267:observed-dungeon": {
-      "id": 193763,
-      "name": "Fireproof Drape",
-      "source": "Murlok.io",
-      "icon": 4326057,
-      "count": 3,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "dropSource": "Ruby Life Pools",
-      "sourceEvidenceURL": "https://www.icy-veins.com/wow/vengeance-demon-hunter-pve-tank-gear-best-in-slot"
-    },
     "251127:alternative:267:observed-dungeon": {
       "id": 251127,
       "name": "Nibbling Armbands",
       "source": "Murlok.io",
       "icon": 7252743,
-      "count": 3,
+      "count": 4,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "Murder Row",
@@ -28905,17 +28917,6 @@
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "Catalyst Hands from Altar of Fangs",
-      "sourceEvidenceURL": "https://www.icy-veins.com/wow/shadow-priest-pve-dps-gear-best-in-slot"
-    },
-    "251185:alternative:267:observed-dungeon": {
-      "id": 251185,
-      "name": "Lightblossom Cinch",
-      "source": "Murlok.io",
-      "icon": 7252741,
-      "count": 3,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "dropSource": "Blinding Vale",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/shadow-priest-pve-dps-gear-best-in-slot"
     },
     "159259:alternative:267:observed-dungeon": {
@@ -29013,7 +29014,7 @@
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
-      "count": 1,
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Catalyst from Murder Row",
@@ -29032,12 +29033,23 @@
       "dropSource": "Catalyst Shoulders from Den of Nalorakk",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/vengeance-demon-hunter-pve-tank-gear-best-in-slot"
     },
+    "251183:alternative:270:observed-dungeon": {
+      "id": 251183,
+      "name": "Rootwarden Wraps",
+      "source": "Murlok.io",
+      "icon": 7232469,
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "dropSource": "Blinding Vale",
+      "sourceEvidenceURL": "https://www.icy-veins.com/wow/restoration-druid-pve-healing-gear-best-in-slot"
+    },
     "268225:alternative:270:observed-dungeon": {
       "id": 268225,
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
-      "count": 1,
+      "count": 2,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29049,7 +29061,7 @@
       "name": "Goldfeather Boots",
       "source": "Murlok.io",
       "icon": 1892754,
-      "count": 2,
+      "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "King's Rest",
@@ -29060,7 +29072,7 @@
       "name": "Unstable Felheart Crystal",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\tooltip_crystallizedfel",
-      "count": 12,
+      "count": 11,
       "quality": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29071,7 +29083,6 @@
       "id": 273774,
       "name": "Snakeskin Spaulders",
       "source": "Murlok.io",
-      "icon": 7865325,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29082,8 +29093,8 @@
       "id": 268225,
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "count": 6,
+      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Catalyst from Murder Row",
@@ -29094,30 +29105,18 @@
       "id": 251191,
       "name": "Luminescent Sprout",
       "source": "Murlok.io",
-      "icon": 7431122,
-      "count": 2,
+      "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "The Blinding Vale",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/preservation-evoker-pve-healing-gear-best-in-slot"
     },
-    "271681:alternative:102:observed-dungeon": {
-      "id": 271681,
-      "name": "Perennial Frostbound Charm",
-      "source": "Murlok.io",
-      "icon": 7431122,
-      "count": 1,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "dropSource": "Den of Nalorakk",
-      "sourceEvidenceURL": "https://www.icy-veins.com/wow/augmentation-evoker-pve-dps-gear-best-in-slot"
-    },
     "268225:alternative:103:observed-dungeon": {
       "id": 268225,
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "count": 3,
+      "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29136,18 +29135,6 @@
       "dropSource": "Voidscar Arena",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/brewmaster-monk-pve-tank-gear-best-in-slot"
     },
-    "268235:alternative:105:observed-dungeon": {
-      "id": 268235,
-      "name": "Vestment of the Awakening",
-      "source": "Murlok.io",
-      "icon": "Interface\\Icons\\inv_robe_leather_raiddruidulatek_d_01",
-      "count": 1,
-      "quality": 4,
-      "sampleSize": 50,
-      "acquisition": "dungeon",
-      "dropSource": "Catalyst from King's Rest",
-      "sourceEvidenceURL": "https://www.icy-veins.com/wow/subtlety-rogue-pve-dps-gear-best-in-slot"
-    },
     "250255:alternative:105:observed-dungeon": {
       "id": 250255,
       "name": "Unstable Felheart Crystal",
@@ -29165,7 +29152,7 @@
       "name": "Luminescent Sprout",
       "source": "Murlok.io",
       "icon": 7431122,
-      "count": 2,
+      "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
       "dropSource": "The Blinding Vale",
@@ -29176,7 +29163,7 @@
       "name": "Coiled Hex Legguards",
       "source": "Murlok.io",
       "icon": "Interface\\Icons\\inv_pant_leather_raidmonkulatek_d_01",
-      "count": 3,
+      "count": 4,
       "quality": 4,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29194,6 +29181,17 @@
       "dropSource": "Altar of Fangs",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/brewmaster-monk-pve-tank-gear-best-in-slot"
     },
+    "159301:alternative:581:observed-dungeon": {
+      "id": 159301,
+      "name": "Primal Dinomancer's Belt",
+      "source": "Murlok.io",
+      "icon": 1892753,
+      "count": 2,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "dropSource": "King's Rest",
+      "sourceEvidenceURL": "https://www.icy-veins.com/wow/devourer-demon-hunter-pve-dps-gear-best-in-slot"
+    },
     "251224:alternative:581:observed-dungeon": {
       "id": 251224,
       "name": "Hulking Handaxe",
@@ -29204,6 +29202,17 @@
       "acquisition": "dungeon",
       "dropSource": "Voidscar Arena",
       "sourceEvidenceURL": "https://www.icy-veins.com/wow/enhancement-shaman-pve-dps-gear-best-in-slot"
+    },
+    "251186:alternative:581:observed-dungeon": {
+      "id": 251186,
+      "name": "Thorntalon Edge",
+      "source": "Murlok.io",
+      "icon": 7065188,
+      "count": 1,
+      "sampleSize": 50,
+      "acquisition": "dungeon",
+      "dropSource": "Blinding Vale",
+      "sourceEvidenceURL": "https://www.icy-veins.com/wow/havoc-demon-hunter-pve-dps-gear-best-in-slot"
     },
     "268225:alternative:1480:observed-dungeon": {
       "id": 268225,
@@ -29221,7 +29230,6 @@
       "id": 159380,
       "name": "Arc-Glass Bindings",
       "source": "Murlok.io",
-      "icon": 2054951,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29232,7 +29240,6 @@
       "id": 251228,
       "name": "Behemoth Waistband",
       "source": "Murlok.io",
-      "icon": 7259230,
       "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29243,6 +29250,7 @@
       "id": 273781,
       "name": "Strand of Warding Fangs",
       "source": "Murlok.io",
+      "icon": 7866594,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29253,6 +29261,7 @@
       "id": 251165,
       "name": "Pulverizing Pads",
       "source": "Murlok.io",
+      "icon": 7259235,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29263,8 +29272,8 @@
       "id": 271500,
       "name": "Earthen Pillars of Calamity",
       "source": "Murlok.io",
-      "count": 36,
       "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
+      "count": 36,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Catalyst from Temple of Sethraliss",
@@ -29275,7 +29284,6 @@
       "id": 251228,
       "name": "Behemoth Waistband",
       "source": "Murlok.io",
-      "icon": 7259230,
       "count": 1,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29286,8 +29294,8 @@
       "id": 271500,
       "name": "Earthen Pillars of Calamity",
       "source": "Murlok.io",
+      "count": 37,
       "icon": "Interface\\Icons\\inv_pant_mail_raidevokerulatek_d_01",
-      "count": 35,
       "quality": 4,
       "sampleSize": 50,
       "dropSource": "Catalyst from Temple of Sethraliss",
@@ -29298,7 +29306,6 @@
       "id": 251191,
       "name": "Luminescent Sprout",
       "source": "Murlok.io",
-      "icon": 7431122,
       "count": 3,
       "sampleSize": 50,
       "acquisition": "dungeon",
@@ -29311,7 +29318,7 @@
       "sourceURL": "https://www.wowhead.com/guide/classes/warrior/arms/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:52Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -29517,14 +29524,14 @@
           "273782:alternative:71:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:05.915583+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:00.733098+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "72": {
       "sourceURL": "https://www.wowhead.com/guide/classes/warrior/fury/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -29748,14 +29755,14 @@
           "251230:alternative:72:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.076709+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:00.601035+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "73": {
       "sourceURL": "https://www.wowhead.com/guide/classes/warrior/protection/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -29816,8 +29823,7 @@
         "raid": {
           "16": [
             "268209:268209:raid",
-            "268202:268202:raid:observed:73",
-            "268213:268213:raid:observed:73"
+            "268202:268202:raid:observed:73"
           ],
           "17": [
             "268196:268196:raid"
@@ -29867,7 +29873,8 @@
             "273796:alternative:73:icyveins"
           ],
           "16": [
-            "251195:251195:dungeon"
+            "251195:251195:dungeon",
+            "251218:251218:dungeon:observed:73"
           ],
           "17": [
             "251196:251196:dungeon",
@@ -29906,7 +29913,8 @@
             "273776:alternative:73:icyveins"
           ],
           "8": [
-            "273777:alternative:73:icyveins"
+            "273777:alternative:73:icyveins",
+            "159412:alternative:73:observed-dungeon"
           ]
         }
       },
@@ -29977,14 +29985,14 @@
           "251150:alternative:73:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:05.959697+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:00.707345+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "65": {
       "sourceURL": "https://www.wowhead.com/guide/classes/paladin/holy/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -30087,8 +30095,8 @@
           ],
           "13": [
             "270162:270162:raid",
-            "281215:281215:raid:observed:65",
             "270164:270164:raid:observed:65",
+            "281215:281215:raid:observed:65",
             "270167:270167:raid:observed:65"
           ],
           "14": [
@@ -30229,14 +30237,14 @@
           "251150:alternative:65:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.034859+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:00.561398+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "66": {
       "sourceURL": "https://www.wowhead.com/guide/classes/paladin/protection/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -30352,7 +30360,7 @@
           ],
           "17": [
             "251196:251196:dungeon",
-            "251150:251150:dungeon:observed:66"
+            "251150:alternative:66:icyveins"
           ],
           "5": [
             "251193:251193:dungeon",
@@ -30462,14 +30470,14 @@
           "251150:alternative:66:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.197808+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:00.823946+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "70": {
       "sourceURL": "https://www.wowhead.com/guide/classes/paladin/retribution/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -30664,14 +30672,14 @@
           "193755:alternative:70:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.247485+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:01.570827+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "253": {
       "sourceURL": "https://www.wowhead.com/guide/classes/hunter/beast-mastery/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -30887,14 +30895,14 @@
           "271680:alternative:253:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.273931+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:01.013072+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "254": {
       "sourceURL": "https://www.wowhead.com/guide/classes/hunter/marksmanship/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -31021,6 +31029,10 @@
             "158366:158366:dungeon",
             "251136:251136:dungeon"
           ],
+          "6": [
+            "251155:251155:dungeon:observed:254",
+            "251228:alternative:254:observed-dungeon"
+          ],
           "1": [
             "239035:alternative:254:icyveins"
           ],
@@ -31045,9 +31057,6 @@
           "9": [
             "159380:alternative:254:observed-dungeon",
             "273775:alternative:254:observed-dungeon"
-          ],
-          "6": [
-            "251228:alternative:254:observed-dungeon"
           ]
         }
       },
@@ -31113,14 +31122,14 @@
           "271680:alternative:254:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.315401+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:01.040403+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "255": {
       "sourceURL": "https://www.wowhead.com/guide/classes/hunter/survival/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-25T18:40:58Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -31244,11 +31253,12 @@
             "251165:alternative:255:observed-dungeon"
           ],
           "11": [
-            "252258:252258:dungeon"
+            "252258:252258:dungeon",
+            "251136:251136:dungeon:observed:255"
           ],
           "12": [
             "252258:252258:dungeon",
-            "251136:alternative:255:icyveins"
+            "251136:251136:dungeon:observed:255"
           ],
           "16": [
             "251149:251149:dungeon",
@@ -31256,9 +31266,6 @@
           ],
           "15": [
             "251190:251190:dungeon:observed:255"
-          ],
-          "6": [
-            "251155:251155:dungeon:observed:255"
           ],
           "2": [
             "251142:alternative:255:icyveins",
@@ -31352,14 +31359,14 @@
           "275070:alternative:255:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.430728+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:01.796566+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "259": {
       "sourceURL": "https://www.wowhead.com/guide/classes/rogue/assassination/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T06:35:37Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -31419,7 +31426,8 @@
       "sourceLists": {
         "raid": {
           "16": [
-            "271093:271093:raid"
+            "271093:271093:raid",
+            "268209:268209:raid:observed:259"
           ],
           "1": [
             "271875:271875:raid",
@@ -31454,12 +31462,14 @@
           "13": [
             "270175:270175:raid",
             "281215:281215:raid",
-            "270168:270168:raid:observed:259"
+            "270168:270168:raid:observed:259",
+            "270173:270173:raid:observed:259"
           ],
           "14": [
             "270175:270175:raid",
             "281215:281215:raid",
-            "270168:270168:raid:observed:259"
+            "270168:270168:raid:observed:259",
+            "270173:270173:raid:observed:259"
           ],
           "17": [
             "271093:271093:raid"
@@ -31585,14 +31595,14 @@
           "237837:alternative:259:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.496628+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:02.146986+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "260": {
       "sourceURL": "https://www.wowhead.com/guide/classes/rogue/outlaw/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -31652,8 +31662,7 @@
       "sourceLists": {
         "raid": {
           "16": [
-            "268209:268209:raid",
-            "271093:271093:raid:observed:260"
+            "268209:268209:raid"
           ],
           "17": [
             "271093:271093:raid"
@@ -31713,9 +31722,6 @@
           "17": [
             "275070:275070:dungeon"
           ],
-          "9": [
-            "251135:251135:dungeon:observed:260"
-          ],
           "8": [
             "251153:251153:dungeon:observed:260"
           ],
@@ -31748,6 +31754,9 @@
           ],
           "5": [
             "251226:alternative:260:icyveins"
+          ],
+          "9": [
+            "251135:alternative:260:icyveins"
           ]
         }
       },
@@ -31818,14 +31827,14 @@
           "268204:alternative:260:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.562518+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:02.041614+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "261": {
       "sourceURL": "https://www.wowhead.com/guide/classes/rogue/subtlety/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-11-03T20:15:50Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -32058,14 +32067,14 @@
           "268264:alternative:261:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.538043+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:02.174039+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "256": {
       "sourceURL": "https://www.wowhead.com/guide/classes/priest/discipline/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -32182,9 +32191,6 @@
             "273785:273785:dungeon:observed:256",
             "239032:alternative:256:observed-dungeon"
           ],
-          "15": [
-            "251190:251190:dungeon:observed:256"
-          ],
           "1": [
             "251232:alternative:256:icyveins"
           ],
@@ -32204,6 +32210,9 @@
           "7": [
             "251160:alternative:256:icyveins"
           ],
+          "15": [
+            "251190:alternative:256:icyveins"
+          ],
           "8": [
             "251219:alternative:256:icyveins",
             "251137:alternative:256:observed-dungeon"
@@ -32213,7 +32222,8 @@
           ],
           "9": [
             "251127:alternative:256:icyveins",
-            "159263:alternative:256:observed-dungeon"
+            "159263:alternative:256:observed-dungeon",
+            "251154:alternative:256:observed-dungeon"
           ],
           "14": [
             "250214:alternative:256:icyveins",
@@ -32303,14 +32313,14 @@
           "268197:alternative:256:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.679748+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:02.777360+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "257": {
       "sourceURL": "https://www.wowhead.com/guide/classes/priest/holy/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -32403,12 +32413,10 @@
         "mythicplus": {
           "11": [
             "251148:251148:dungeon",
-            "159459:159459:dungeon:observed:257",
             "158366:alternative:257:icyveins"
           ],
           "12": [
             "251148:251148:dungeon",
-            "159459:159459:dungeon:observed:257",
             "251136:alternative:257:icyveins"
           ],
           "7": [
@@ -32532,14 +32540,14 @@
           "268263:alternative:257:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.745750+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:02.475282+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "258": {
       "sourceURL": "https://www.wowhead.com/guide/classes/priest/shadow/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T00:26:46Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -32635,11 +32643,13 @@
           ],
           "13": [
             "281215:281215:raid",
-            "270164:270164:raid:observed:258"
+            "270164:270164:raid:observed:258",
+            "270167:270167:raid:observed:258"
           ],
           "14": [
             "281215:281215:raid",
-            "270164:270164:raid:observed:258"
+            "270164:270164:raid:observed:258",
+            "270167:270167:raid:observed:258"
           ]
         },
         "mythicplus": {
@@ -32775,14 +32785,14 @@
           "251191:alternative:258:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.825366+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:02.408829+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "250": {
       "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/blood/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:52Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Deathbringer BiS",
@@ -32982,8 +32992,7 @@
             "158367:alternative:250:icyveins"
           ],
           "9": [
-            "159409:alternative:250:icyveins",
-            "251133:alternative:250:observed-dungeon"
+            "159409:alternative:250:icyveins"
           ],
           "14": [
             "250259:alternative:250:icyveins"
@@ -33057,14 +33066,14 @@
           "251181:alternative:250:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.797755+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:02.708166+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "251": {
       "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/frost/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -33286,14 +33295,14 @@
           "158373:alternative:251:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:06.903911+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:02.805406+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "252": {
       "sourceURL": "https://www.wowhead.com/guide/classes/death-knight/unholy/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T01:06:46Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -33406,14 +33415,14 @@
           "15": [
             "251132:251132:dungeon:observed:252"
           ],
+          "6": [
+            "159418:159418:dungeon:observed:252"
+          ],
           "10": [
             "159413:alternative:252:icyveins"
           ],
           "2": [
             "251234:alternative:252:icyveins"
-          ],
-          "6": [
-            "159418:alternative:252:icyveins"
           ],
           "7": [
             "273776:alternative:252:icyveins"
@@ -33492,14 +33501,14 @@
           "251134:alternative:252:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.239865+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.030844+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "262": {
       "sourceURL": "https://www.wowhead.com/guide/classes/shaman/elemental/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -33604,6 +33613,7 @@
         "mythicplus": {
           "12": [
             "252258:252258:dungeon",
+            "251136:251136:dungeon:observed:262",
             "158366:alternative:262:icyveins"
           ],
           "14": [
@@ -33616,7 +33626,8 @@
             "273794:alternative:262:icyveins"
           ],
           "11": [
-            "252258:252258:dungeon"
+            "252258:252258:dungeon",
+            "251136:251136:dungeon:observed:262"
           ],
           "2": [
             "251142:251142:dungeon"
@@ -33716,14 +33727,14 @@
           "245769:alternative:262:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.338697+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.199286+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "263": {
       "sourceURL": "https://www.wowhead.com/guide/classes/shaman/enhancement/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Season 2 Best-in-Slot",
@@ -33877,7 +33888,8 @@
             "273789:alternative:263:icyveins"
           ],
           "16": [
-            "251224:alternative:263:icyveins"
+            "251224:alternative:263:icyveins",
+            "251143:alternative:263:observed-dungeon"
           ],
           "17": [
             "251143:alternative:263:observed-dungeon"
@@ -33950,14 +33962,14 @@
           "237850:alternative:263:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.367183+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.230425+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "264": {
       "sourceURL": "https://www.wowhead.com/guide/classes/shaman/restoration/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -34051,8 +34063,7 @@
             "268196:268196:raid"
           ],
           "5": [
-            "271486:271486:raid:observed:264",
-            "271876:271876:raid:observed:264"
+            "271486:271486:raid:observed:264"
           ],
           "7": [
             "268237:268237:raid:observed:264"
@@ -34096,9 +34107,6 @@
             "251148:251148:dungeon",
             "251136:alternative:264:icyveins"
           ],
-          "15": [
-            "251132:251132:dungeon:observed:264"
-          ],
           "17": [
             "251196:251196:dungeon:observed:264"
           ],
@@ -34114,6 +34122,10 @@
           "3": [
             "251131:alternative:264:icyveins",
             "239049:alternative:264:observed-dungeon"
+          ],
+          "15": [
+            "251132:alternative:264:icyveins",
+            "193763:alternative:264:observed-dungeon"
           ],
           "16": [
             "273780:alternative:264:icyveins"
@@ -34185,14 +34197,14 @@
           "268196:alternative:264:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.461006+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.265217+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "62": {
       "sourceURL": "https://www.wowhead.com/guide/classes/mage/arcane/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-14T22:02:49Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -34422,14 +34434,14 @@
           "159667:alternative:62:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.485558+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.320491+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "63": {
       "sourceURL": "https://www.wowhead.com/guide/classes/mage/fire/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -34560,10 +34572,6 @@
             "251160:251160:dungeon:observed:63",
             "193750:alternative:63:icyveins"
           ],
-          "17": [
-            "159667:159667:dungeon:observed:63",
-            "251191:alternative:63:observed-dungeon"
-          ],
           "1": [
             "251232:alternative:63:icyveins"
           ],
@@ -34579,6 +34587,10 @@
           "5": [
             "273785:alternative:63:icyveins",
             "251147:alternative:63:icyveins"
+          ],
+          "17": [
+            "159667:alternative:63:icyveins",
+            "251191:alternative:63:observed-dungeon"
           ],
           "6": [
             "193691:alternative:63:observed-dungeon"
@@ -34653,14 +34665,14 @@
           "159667:alternative:63:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.590001+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.619884+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "64": {
       "sourceURL": "https://www.wowhead.com/guide/classes/mage/frost/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -34814,7 +34826,8 @@
             "239031:alternative:64:icyveins"
           ],
           "8": [
-            "251137:alternative:64:icyveins"
+            "251137:alternative:64:icyveins",
+            "251219:alternative:64:observed-dungeon"
           ],
           "9": [
             "251154:alternative:64:icyveins",
@@ -34894,14 +34907,14 @@
           "245769:alternative:64:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.629361+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.777316+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "265": {
       "sourceURL": "https://www.wowhead.com/guide/classes/warlock/affliction/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-17T20:33:45Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -35130,14 +35143,14 @@
           "245769:alternative:265:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.911241+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.683410+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "266": {
       "sourceURL": "https://www.wowhead.com/guide/classes/warlock/demonology/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-20T02:14:51Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -35371,14 +35384,14 @@
           "245769:alternative:266:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.704573+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.914920+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "267": {
       "sourceURL": "https://www.wowhead.com/guide/classes/warlock/destruction/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-30T15:41:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -35519,8 +35532,7 @@
             "273773:alternative:267:observed-dungeon"
           ],
           "6": [
-            "251222:alternative:267:icyveins",
-            "251185:alternative:267:observed-dungeon"
+            "251222:alternative:267:icyveins"
           ],
           "3": [
             "239031:alternative:267:icyveins",
@@ -35530,8 +35542,7 @@
             "251160:alternative:267:icyveins"
           ],
           "15": [
-            "251132:alternative:267:icyveins",
-            "193763:alternative:267:observed-dungeon"
+            "251132:alternative:267:icyveins"
           ],
           "8": [
             "251137:alternative:267:icyveins",
@@ -35614,14 +35625,14 @@
           "245769:alternative:267:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.829463+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:04.184589+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "268": {
       "sourceURL": "https://www.wowhead.com/guide/classes/monk/brewmaster/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -35845,14 +35856,14 @@
           "251192:alternative:268:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.885248+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:03.962396+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "269": {
       "sourceURL": "https://www.wowhead.com/guide/classes/monk/windwalker/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -35909,8 +35920,7 @@
       "sourceLists": {
         "raid": {
           "16": [
-            "268215:268215:raid",
-            "268209:268209:raid:observed:269"
+            "268215:268215:raid"
           ],
           "1": [
             "271875:271875:raid"
@@ -36060,14 +36070,14 @@
           "273783:alternative:269:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:07.948396+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:04.157683+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "270": {
       "sourceURL": "https://www.wowhead.com/guide/classes/monk/mistweaver/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-20T14:54:57Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Raid BiS",
@@ -36239,7 +36249,8 @@
             "193763:193763:dungeon"
           ],
           "9": [
-            "251135:251135:dungeon"
+            "251135:251135:dungeon",
+            "251183:alternative:270:observed-dungeon"
           ],
           "10": [
             "251124:251124:dungeon",
@@ -36358,14 +36369,14 @@
           "268263:alternative:270:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.030897+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:04.328992+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "102": {
       "sourceURL": "https://www.wowhead.com/guide/classes/druid/balance/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-15T21:57:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -36501,6 +36512,10 @@
             "251135:251135:dungeon:observed:102",
             "251183:alternative:102:icyveins"
           ],
+          "17": [
+            "273779:273779:dungeon:observed:102",
+            "251191:alternative:102:observed-dungeon"
+          ],
           "1": [
             "239033:alternative:102:icyveins"
           ],
@@ -36526,10 +36541,6 @@
           ],
           "16": [
             "273778:alternative:102:icyveins"
-          ],
-          "17": [
-            "251191:alternative:102:observed-dungeon",
-            "271681:alternative:102:observed-dungeon"
           ]
         }
       },
@@ -36598,14 +36609,14 @@
           "245769:alternative:102:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.185379+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:04.303662+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "103": {
       "sourceURL": "https://www.wowhead.com/guide/classes/druid/feral/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T22:21:25Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -36817,14 +36828,14 @@
           "251149:alternative:103:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.203140+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:04.465360+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "104": {
       "sourceURL": "https://www.wowhead.com/guide/classes/druid/guardian/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -37037,14 +37048,14 @@
           "158370:alternative:104:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.268501+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:04.574876+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "105": {
       "sourceURL": "https://www.wowhead.com/guide/classes/druid/restoration/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -37217,8 +37228,7 @@
           ],
           "5": [
             "271531:251159:dungeon",
-            "251159:alternative:105:icyveins",
-            "268235:alternative:105:observed-dungeon"
+            "251159:alternative:105:icyveins"
           ],
           "10": [
             "271529:159337:dungeon",
@@ -37251,8 +37261,7 @@
           ],
           "16": [
             "159636:159636:dungeon",
-            "251156:251156:dungeon",
-            "273783:273783:dungeon:observed:105"
+            "251156:251156:dungeon"
           ],
           "17": [
             "273779:273779:dungeon:observed:105",
@@ -37334,14 +37343,14 @@
           "268197:alternative:105:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.244411+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:05.018835+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "577": {
       "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/havoc/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-17T07:43:07Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -37563,14 +37572,14 @@
           "237840:alternative:577:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.429842+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:04.879292+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "581": {
       "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/vengeance/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -37692,11 +37701,12 @@
           ],
           "11": [
             "159459:159459:dungeon",
+            "273792:273792:dungeon:observed:581",
             "251148:alternative:581:icyveins"
           ],
           "12": [
             "159459:159459:dungeon",
-            "273792:alternative:581:icyveins"
+            "273792:273792:dungeon:observed:581"
           ],
           "15": [
             "251132:251132:dungeon:observed:581",
@@ -37725,10 +37735,14 @@
           ],
           "16": [
             "251143:alternative:581:icyveins",
-            "251224:alternative:581:observed-dungeon"
+            "251224:alternative:581:observed-dungeon",
+            "251186:alternative:581:observed-dungeon"
           ],
           "17": [
             "251143:alternative:581:icyveins"
+          ],
+          "6": [
+            "159301:alternative:581:observed-dungeon"
           ]
         }
       },
@@ -37798,14 +37812,14 @@
           "251143:alternative:581:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.471534+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:04.747890+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "1480": {
       "sourceURL": "https://www.wowhead.com/guide/classes/demon-hunter/devourer/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -38035,14 +38049,14 @@
           "273778:alternative:1480:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.706458+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:05.094998+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "1467": {
       "sourceURL": "https://www.wowhead.com/guide/classes/evoker/devastation/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -38155,7 +38169,7 @@
           ],
           "10": [
             "193752:193752:dungeon",
-            "160213:alternative:1467:icyveins"
+            "160213:160213:dungeon:observed:1467"
           ],
           "11": [
             "158366:158366:dungeon",
@@ -38269,14 +38283,14 @@
           "245769:alternative:1467:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.826106+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:05.410059+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "1468": {
       "sourceURL": "https://www.wowhead.com/guide/classes/evoker/preservation/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:53Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -38409,6 +38423,9 @@
             "159459:159459:dungeon:observed:1468",
             "251136:alternative:1468:icyveins"
           ],
+          "15": [
+            "251190:251190:dungeon:observed:1468"
+          ],
           "16": [
             "251156:251156:dungeon:observed:1468",
             "251123:251123:dungeon:observed:1468",
@@ -38432,9 +38449,6 @@
           "7": [
             "159375:alternative:1468:icyveins",
             "271500:alternative:1468:observed-dungeon"
-          ],
-          "15": [
-            "251190:alternative:1468:icyveins"
           ],
           "5": [
             "239034:alternative:1468:icyveins"
@@ -38520,14 +38534,14 @@
           "268197:alternative:1468:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.850529+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:05.278256+00:00",
       "alternativeGuideRefreshStatus": "ok"
     },
     "1473": {
       "sourceURL": "https://www.wowhead.com/guide/classes/evoker/augmentation/bis-gear",
       "sourcePatch": "12.1.5",
       "updatedAt": "2026-10-13T21:52:54Z",
-      "retrievedAt": "2026-11-08T11:23:05.142368+00:00",
+      "retrievedAt": "2026-11-09T13:00:59.671342+00:00",
       "sets": [
         {
           "name": "Overall BiS",
@@ -38745,7 +38759,7 @@
           "271681:alternative:1473:icyveins"
         ]
       },
-      "alternativeGuideCheckedAt": "2026-11-08T11:23:08.766920+00:00",
+      "alternativeGuideCheckedAt": "2026-11-09T13:01:05.589637+00:00",
       "alternativeGuideRefreshStatus": "ok"
     }
   },
