@@ -1,6 +1,6 @@
 {
   "patch": "12.1",
-  "generatedAt": "2026-11-11T11:58:15Z",
+  "generatedAt": "2026-11-12T12:53:49Z",
   "modes": {
     "mythicplus": {
       "scope": "Midnight Season 2",
@@ -22,19 +22,19 @@
             {
               "specID": 261,
               "rank": 3,
-              "score": 4233,
+              "score": 4234,
               "sourceURL": "https://murlok.io/rogue/subtlety/m+"
             },
             {
               "specID": 62,
               "rank": 4,
-              "score": 4156,
+              "score": 4157,
               "sourceURL": "https://murlok.io/mage/arcane/m+"
             },
             {
               "specID": 577,
               "rank": 5,
-              "score": 4153,
+              "score": 4147,
               "sourceURL": "https://murlok.io/demon-hunter/havoc/m+"
             },
             {
@@ -46,37 +46,37 @@
             {
               "specID": 1480,
               "rank": 7,
-              "score": 4124,
+              "score": 4125,
               "sourceURL": "https://murlok.io/demon-hunter/devourer/m+"
             },
             {
-              "specID": 269,
+              "specID": 259,
               "rank": 8,
-              "score": 4104,
+              "score": 4097,
+              "sourceURL": "https://murlok.io/rogue/assassination/m+"
+            },
+            {
+              "specID": 269,
+              "rank": 9,
+              "score": 4090,
               "sourceURL": "https://murlok.io/monk/windwalker/m+"
             },
             {
               "specID": 251,
-              "rank": 9,
-              "score": 4091,
-              "sourceURL": "https://murlok.io/death-knight/frost/m+"
-            },
-            {
-              "specID": 259,
               "rank": 10,
-              "score": 4084,
-              "sourceURL": "https://murlok.io/rogue/assassination/m+"
+              "score": 4087,
+              "sourceURL": "https://murlok.io/death-knight/frost/m+"
             },
             {
               "specID": 103,
               "rank": 11,
-              "score": 4077,
+              "score": 4081,
               "sourceURL": "https://murlok.io/druid/feral/m+"
             },
             {
               "specID": 253,
               "rank": 12,
-              "score": 4050,
+              "score": 4048,
               "sourceURL": "https://murlok.io/hunter/beast-mastery/m+"
             },
             {
@@ -88,151 +88,151 @@
             {
               "specID": 263,
               "rank": 14,
-              "score": 4039,
+              "score": 4038,
               "sourceURL": "https://murlok.io/shaman/enhancement/m+"
             },
             {
               "specID": 252,
               "rank": 15,
-              "score": 3964,
+              "score": 3976,
               "sourceURL": "https://murlok.io/death-knight/unholy/m+"
             },
             {
-              "specID": 258,
+              "specID": 102,
               "rank": 16,
-              "score": 3964,
+              "score": 3976,
+              "sourceURL": "https://murlok.io/druid/balance/m+"
+            },
+            {
+              "specID": 258,
+              "rank": 17,
+              "score": 3959,
               "sourceURL": "https://murlok.io/priest/shadow/m+"
             },
             {
               "specID": 72,
-              "rank": 17,
-              "score": 3958,
-              "sourceURL": "https://murlok.io/warrior/fury/m+"
-            },
-            {
-              "specID": 102,
               "rank": 18,
-              "score": 3954,
-              "sourceURL": "https://murlok.io/druid/balance/m+"
+              "score": 3959,
+              "sourceURL": "https://murlok.io/warrior/fury/m+"
             },
             {
               "specID": 254,
               "rank": 19,
-              "score": 3939,
+              "score": 3924,
               "sourceURL": "https://murlok.io/hunter/marksmanship/m+"
             },
             {
               "specID": 1473,
               "rank": 20,
-              "score": 3891,
+              "score": 3888,
               "sourceURL": "https://murlok.io/evoker/augmentation/m+"
             },
             {
-              "specID": 265,
+              "specID": 255,
               "rank": 21,
-              "score": 3858,
-              "sourceURL": "https://murlok.io/warlock/affliction/m+"
+              "score": 3860,
+              "sourceURL": "https://murlok.io/hunter/survival/m+"
             },
             {
-              "specID": 255,
+              "specID": 265,
               "rank": 22,
-              "score": 3856,
-              "sourceURL": "https://murlok.io/hunter/survival/m+"
+              "score": 3854,
+              "sourceURL": "https://murlok.io/warlock/affliction/m+"
             },
             {
               "specID": 260,
               "rank": 23,
-              "score": 3832,
+              "score": 3813,
               "sourceURL": "https://murlok.io/rogue/outlaw/m+"
             },
             {
               "specID": 64,
               "rank": 24,
-              "score": 3813,
+              "score": 3794,
               "sourceURL": "https://murlok.io/mage/frost/m+"
             },
             {
               "specID": 267,
               "rank": 25,
-              "score": 3802,
+              "score": 3774,
               "sourceURL": "https://murlok.io/warlock/destruction/m+"
             },
             {
               "specID": 63,
               "rank": 26,
-              "score": 3779,
+              "score": 3774,
               "sourceURL": "https://murlok.io/mage/fire/m+"
             },
             {
               "specID": 1467,
               "rank": 27,
-              "score": 3769,
+              "score": 3764,
               "sourceURL": "https://murlok.io/evoker/devastation/m+"
             }
           ],
           "sourceURL": "https://murlok.io/meta/dps/m%2B",
-          "updatedAt": "2026-11-11T10:11:16Z",
-          "retrievedAt": "2026-11-11T11:58:15Z",
-          "retrievedEpoch": 1794398295,
-          "updatedEpoch": 1794391876,
-          "sourceHash": "c8375bfc9a9d8f404982e4496ff418cbf5928ca5d0a9f02ee191c0de96f8747b",
+          "updatedAt": "2026-11-12T10:10:28Z",
+          "retrievedAt": "2026-11-12T12:53:49Z",
+          "retrievedEpoch": 1794488029,
+          "updatedEpoch": 1794478228,
+          "sourceHash": "913d23c555c3445440c87c545dd18edeb69ce59410198fd17486d6c4f675668d",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-11-11T11:58:15Z"
+          "lastAttemptAt": "2026-11-12T12:53:49Z"
         },
         "tank": {
           "entries": [
             {
               "specID": 104,
               "rank": 1,
-              "score": 4218,
+              "score": 4212,
               "sourceURL": "https://murlok.io/druid/guardian/m+"
             },
             {
               "specID": 250,
               "rank": 2,
-              "score": 4197,
+              "score": 4198,
               "sourceURL": "https://murlok.io/death-knight/blood/m+"
             },
             {
               "specID": 66,
               "rank": 3,
-              "score": 4045,
+              "score": 4036,
               "sourceURL": "https://murlok.io/paladin/protection/m+"
             },
             {
               "specID": 268,
               "rank": 4,
-              "score": 4034,
+              "score": 4026,
               "sourceURL": "https://murlok.io/monk/brewmaster/m+"
             },
             {
-              "specID": 581,
+              "specID": 73,
               "rank": 5,
-              "score": 3984,
-              "sourceURL": "https://murlok.io/demon-hunter/vengeance/m+"
+              "score": 3978,
+              "sourceURL": "https://murlok.io/warrior/protection/m+"
             },
             {
-              "specID": 73,
+              "specID": 581,
               "rank": 6,
-              "score": 3980,
-              "sourceURL": "https://murlok.io/warrior/protection/m+"
+              "score": 3968,
+              "sourceURL": "https://murlok.io/demon-hunter/vengeance/m+"
             }
           ],
           "sourceURL": "https://murlok.io/meta/tank/m%2B",
-          "updatedAt": "2026-11-11T10:11:23Z",
-          "retrievedAt": "2026-11-11T11:58:15Z",
-          "retrievedEpoch": 1794398295,
-          "updatedEpoch": 1794391883,
-          "sourceHash": "be25c402cea5f5e936cd6ee999dd33680c3c06d04cbdb573c2d500f4d6232b1c",
+          "updatedAt": "2026-11-12T10:10:26Z",
+          "retrievedAt": "2026-11-12T12:53:49Z",
+          "retrievedEpoch": 1794488029,
+          "updatedEpoch": 1794478226,
+          "sourceHash": "317b6bf1f7385d5b6e81c19932844030f41c72d18b19e61d6551fb02a4c2c985",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-11-11T11:58:15Z"
+          "lastAttemptAt": "2026-11-12T12:53:49Z"
         },
         "healer": {
           "entries": [
             {
               "specID": 65,
               "rank": 1,
-              "score": 4239,
+              "score": 4243,
               "sourceURL": "https://murlok.io/paladin/holy/m+"
             },
             {
@@ -244,42 +244,42 @@
             {
               "specID": 257,
               "rank": 3,
-              "score": 4031,
+              "score": 4035,
               "sourceURL": "https://murlok.io/priest/holy/m+"
             },
             {
               "specID": 270,
               "rank": 4,
-              "score": 3995,
+              "score": 3984,
               "sourceURL": "https://murlok.io/monk/mistweaver/m+"
             },
             {
-              "specID": 1468,
+              "specID": 105,
               "rank": 5,
-              "score": 3950,
-              "sourceURL": "https://murlok.io/evoker/preservation/m+"
+              "score": 3956,
+              "sourceURL": "https://murlok.io/druid/restoration/m+"
             },
             {
-              "specID": 105,
+              "specID": 1468,
               "rank": 6,
-              "score": 3948,
-              "sourceURL": "https://murlok.io/druid/restoration/m+"
+              "score": 3953,
+              "sourceURL": "https://murlok.io/evoker/preservation/m+"
             },
             {
               "specID": 256,
               "rank": 7,
-              "score": 3934,
+              "score": 3936,
               "sourceURL": "https://murlok.io/priest/discipline/m+"
             }
           ],
           "sourceURL": "https://murlok.io/meta/healer/m%2B",
-          "updatedAt": "2026-11-11T10:11:13Z",
-          "retrievedAt": "2026-11-11T11:58:15Z",
-          "retrievedEpoch": 1794398295,
-          "updatedEpoch": 1794391873,
-          "sourceHash": "6381423c6ec1d0acfad15a1ca22c135544f6c2302d6d415ee4e2535fd507c877",
+          "updatedAt": "2026-11-12T10:10:21Z",
+          "retrievedAt": "2026-11-12T12:53:49Z",
+          "retrievedEpoch": 1794488029,
+          "updatedEpoch": 1794478221,
+          "sourceHash": "450b77de76afea7e562002b325f2a24dc2b0670821d57ee1d8dc1f7bf328675b",
           "refreshStatus": "ok",
-          "lastAttemptAt": "2026-11-11T11:58:15Z"
+          "lastAttemptAt": "2026-11-12T12:53:49Z"
         }
       },
       "source": "Murlok.io",
