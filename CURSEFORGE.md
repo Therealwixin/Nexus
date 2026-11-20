@@ -47,7 +47,7 @@ Browse Murlok.io's published Mythic+ rankings for DPS, healers and tanks. Scores
 
 Murlok.io supplies Mythic+ gear usage, stat references and role rankings. Wowhead and Icy Veins provide authored recommendations and verified alternative/acquisition evidence where available. Source labels, sample sizes where available and dates help you understand each recommendation.
 
-Data is checked daily by an external update workflow. Successful validated updates are distributed as new addon versions. If collection or validation fails, the last verified data stays available with its original dates. The addon makes no internet requests inside WoW. Install updates through CurseForge or GitHub; **Scan gear** only rescans your character's equipment and bags.
+Automated data updates are currently paused. The last published snapshot remains available with its original dates. The addon makes no internet requests inside WoW. Install updates through CurseForge or GitHub; **Scan gear** only rescans your character's equipment and bags.
 
 ## Getting started
 
