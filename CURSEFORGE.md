@@ -4,6 +4,14 @@ Summary: Mythic+ gear goals, stat comparisons, enchants, gems, consumables and r
 
 ## Project description
 
+## Development paused
+
+**Development and automated data updates are temporarily paused as of 20 November 2026.**
+
+Existing versions remain available, but may contain unresolved issues and outdated recommendations. No new fixes or data updates are planned during this pause. There is currently no date for development to resume.
+
+---
+
 ![Nexus: Gear & Preparation](https://raw.githubusercontent.com/Therealwixin/Nexus/main/assets/marketing/nexus-banner.png)
 
 Nexus brings Mythic+ gear goals, character stats, preparation and role rankings into one World of Warcraft Retail window. Browse all 40 specializations, see what your character already owns and plan what to work on next.

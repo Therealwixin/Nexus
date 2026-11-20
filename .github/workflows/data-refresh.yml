@@ -1,8 +1,7 @@
 name: Refresh Nexus data
 on:
-  schedule:
-    # Retry failed/partial source refreshes later in the day; skip after success.
-    - cron: '17 4,10,16 * * *'
+  # Development and automatic data publishing paused at the owner's request,
+  # 2026-11-20. Restore the schedule and remove the job guard only on resume.
   workflow_dispatch:
 permissions:
   contents: write
@@ -11,6 +10,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   refresh:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
